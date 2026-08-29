@@ -85,8 +85,9 @@ export function MobileNav() {
 
       {isOpen ? (
         <div
+          data-mobile-menu-panel=""
           id={panelId}
-          className="absolute top-full right-0 left-0 z-30 max-h-[calc(100dvh-72px)] animate-[mobile-menu-enter_180ms_ease-out] overflow-y-auto border-y border-t-[var(--border)] border-b-[var(--border-strong)] bg-[rgba(9,13,11,0.98)] py-5 backdrop-blur-sm motion-reduce:animate-none md:py-7 xl:hidden"
+          className="fixed top-[var(--header-height-mobile)] right-0 left-0 z-30 max-h-[calc(100dvh-var(--header-height-mobile))] animate-[mobile-menu-enter_180ms_ease-out] overflow-y-auto border-y border-t-[var(--border)] border-b-[var(--border-strong)] bg-[rgba(9,13,11,0.98)] py-5 backdrop-blur-sm motion-reduce:animate-none md:py-7 xl:hidden"
         >
           <Container size="wide">
             <nav aria-label="Mobile navigation">

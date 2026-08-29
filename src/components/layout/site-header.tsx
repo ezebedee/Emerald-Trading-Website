@@ -2,11 +2,12 @@ import Link from "next/link";
 import { Container } from "@/components/ui/container";
 import { LinkButton } from "@/components/ui/button";
 import { DesktopNav } from "@/components/layout/desktop-nav";
+import { HeaderScrollState } from "@/components/layout/header-scroll-state";
 import { MobileNav } from "@/components/layout/mobile-nav";
 
 export function SiteHeader() {
   return (
-    <header className="sticky top-0 z-40 border-b border-[var(--border)] bg-[rgba(7,10,8,0.94)] backdrop-blur-sm">
+    <HeaderScrollState>
       <Container
         size="wide"
         className="flex h-[72px] items-center justify-between gap-8 xl:h-[84px]"
@@ -39,6 +40,6 @@ export function SiteHeader() {
 
         <MobileNav />
       </Container>
-    </header>
+    </HeaderScrollState>
   );
 }

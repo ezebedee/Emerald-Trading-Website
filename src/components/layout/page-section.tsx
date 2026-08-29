@@ -15,12 +15,18 @@ export type PageSectionProps = HTMLAttributes<HTMLDivElement> & {
 
 export function PageSection({
   className,
+  id,
   variant = "default",
   ...props
 }: PageSectionProps) {
   return (
     <section
-      className={cn(pageSectionVariants[variant], className)}
+      className={cn(
+        pageSectionVariants[variant],
+        id && "scroll-anchor",
+        className,
+      )}
+      id={id}
       {...props}
     />
   );
