@@ -55,6 +55,11 @@
   --section-space-md: 5rem;
   --section-space-lg: 6rem;
   --section-space-xl: 9rem;
+
+  --header-height-mobile: 72px;
+  --header-height-desktop: 84px;
+  --anchor-offset-mobile: 88px;
+  --anchor-offset-desktop: 100px;
 }
 
 @theme inline {
@@ -378,5 +383,15 @@ body {
 
   .table-cell-muted {
     color: var(--muted-foreground);
+  }
+
+  .scroll-anchor {
+    scroll-margin-top: var(--anchor-offset-mobile);
+  }
+
+  @media (min-width: 1280px) {
+    .scroll-anchor {
+      scroll-margin-top: var(--anchor-offset-desktop);
+    }
   }
 }
