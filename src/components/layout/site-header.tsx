@@ -2,6 +2,7 @@ import Link from "next/link";
 import { Container } from "@/components/ui/container";
 import { LinkButton } from "@/components/ui/button";
 import { DesktopNav } from "@/components/layout/desktop-nav";
+import { MobileNav } from "@/components/layout/mobile-nav";
 
 export function SiteHeader() {
   return (
@@ -35,6 +36,8 @@ export function SiteHeader() {
             </LinkButton>
           </div>
         </div>
+
+        <MobileNav />
       </Container>
     </header>
   );
