@@ -64,9 +64,9 @@ function DemoSection({
   children: React.ReactNode;
 }>) {
   return (
-    <section className="space-y-5">
+    <section className="space-y-4">
       <div className="space-y-2">
-        <SectionLabel variant="emerald">{title}</SectionLabel>
+        <SectionLabel>{title}</SectionLabel>
         <Divider />
       </div>
       {children}
@@ -76,14 +76,14 @@ function DemoSection({
 
 export default function DesignSystemPage() {
   return (
-    <div className="bg-background text-foreground min-h-screen py-12">
-      <Container size="wide" className="space-y-12">
+    <div className="bg-background text-foreground min-h-screen py-10">
+      <Container size="wide" className="space-y-9">
         <header className="space-y-3">
           <SectionLabel variant="gold">Development Design System</SectionLabel>
           <Heading level="h1" size="h1">
             Internal QA Route
           </Heading>
-          <p className="text-body text-muted-foreground max-w-3xl">
+          <p className="type-body text-muted-foreground max-w-3xl">
             Foundational tokens and low-level primitives for Emerald Legacy
             Systems. Examples use neutral demonstration labels only.
           </p>
@@ -94,11 +94,11 @@ export default function DesignSystemPage() {
             {colorTokens.map(([label, token]) => (
               <Card key={token} variant="default" className="overflow-hidden">
                 <div
-                  className="h-20 border-b border-[var(--border)]"
+                  className="h-12 border-b border-[var(--border)]"
                   style={{ background: `var(${token})` }}
                 />
-                <CardContent className="space-y-1 p-4">
-                  <p className="text-body-small font-medium">{label}</p>
+                <CardContent className="space-y-1 p-3">
+                  <p className="type-body-small font-medium">{label}</p>
                   <p className="text-muted-foreground text-xs">{token}</p>
                 </CardContent>
               </Card>
@@ -111,24 +111,24 @@ export default function DesignSystemPage() {
 
         <DemoSection title="Typography">
           <div className="space-y-5">
-            <p className="text-display-xl">Display XL</p>
-            <p className="text-display">Display</p>
+            <p className="type-display-xl">Display XL</p>
+            <p className="type-display">Display</p>
             <Heading level="h1">Heading One</Heading>
             <Heading level="h2">Heading Two</Heading>
             <Heading level="h3">Heading Three</Heading>
             <Heading level="h4">Heading Four</Heading>
-            <p className="text-body-large text-muted-foreground max-w-3xl">
+            <p className="type-body-large text-muted-foreground max-w-3xl">
               Body large text supports explanatory content with clear rhythm and
               calm contrast.
             </p>
-            <p className="text-body text-muted-foreground max-w-3xl">
+            <p className="type-body text-muted-foreground max-w-3xl">
               Body text is set with Inter and tuned for a dark, information-rich
               interface.
             </p>
-            <p className="text-body-small text-subtle-foreground">
+            <p className="type-body-small text-subtle-foreground">
               Body small text supports secondary annotations.
             </p>
-            <p className="text-label text-gold-warm">Section Label</p>
+            <p className="type-label text-gold-warm">Section Label</p>
           </div>
         </DemoSection>
 
@@ -219,7 +219,7 @@ export default function DesignSystemPage() {
               <Card key={status} variant="default" className="p-4">
                 <div className="flex items-center gap-3">
                   <StatusDot status={status} aria-hidden="true" />
-                  <span className="text-body-small capitalize">
+                  <span className="type-body-small capitalize">
                     System {status}
                   </span>
                 </div>
@@ -241,7 +241,7 @@ export default function DesignSystemPage() {
                   </CardDescription>
                 </CardHeader>
                 <CardContent>
-                  <p className="text-body-small text-muted-foreground">
+                  <p className="type-body-small text-muted-foreground">
                     Example Data
                   </p>
                 </CardContent>
@@ -266,7 +266,7 @@ export default function DesignSystemPage() {
         </DemoSection>
 
         <DemoSection title="Links">
-          <p className="text-body text-muted-foreground">
+          <p className="type-body text-muted-foreground">
             This is a consistent <TextLink href="#links">text link</TextLink>{" "}
             for future editorial and utility use.
           </p>

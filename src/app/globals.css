@@ -39,12 +39,12 @@
   --radius-lg: 14px;
   --radius-xl: 18px;
 
-  --shadow-soft: 0 10px 40px rgba(0, 0, 0, 0.28);
-  --shadow-medium: 0 18px 60px rgba(0, 0, 0, 0.36);
+  --shadow-soft: 0 8px 28px rgba(0, 0, 0, 0.24);
+  --shadow-medium: 0 14px 46px rgba(0, 0, 0, 0.32);
   --shadow-emerald:
     0 0 0 1px rgba(0, 168, 107, 0.14), 0 14px 44px rgba(0, 168, 107, 0.08);
   --shadow-gold:
-    0 0 0 1px rgba(212, 175, 55, 0.14), 0 14px 44px rgba(212, 175, 55, 0.06);
+    0 0 0 1px rgba(212, 175, 55, 0.1), 0 10px 30px rgba(212, 175, 55, 0.025);
 
   --container-narrow: 760px;
   --container-standard: 1200px;
@@ -74,7 +74,7 @@
   --color-negative: var(--negative);
   --color-warning: var(--warning);
   --color-info: var(--info);
-  --font-sans: var(--font-sans);
+  --font-sans: var(--font-inter);
   --radius-sm: var(--radius-sm);
   --radius-md: var(--radius-md);
   --radius-lg: var(--radius-lg);
@@ -94,7 +94,7 @@ body {
   min-height: 100vh;
   background: var(--background);
   color: var(--foreground);
-  font-family: var(--font-sans), Arial, Helvetica, sans-serif;
+  font-family: var(--font-inter), Arial, Helvetica, sans-serif;
   margin: 0;
   text-rendering: optimizeLegibility;
   -webkit-font-smoothing: antialiased;
@@ -187,7 +187,7 @@ body {
 
   .surface-elevated {
     background: var(--surface-elevated);
-    border: 1px solid var(--border);
+    border: 1px solid var(--border-strong);
     box-shadow: var(--shadow-soft);
   }
 
@@ -195,8 +195,8 @@ body {
     background:
       radial-gradient(
         circle at top right,
-        rgba(212, 175, 55, 0.08),
-        transparent 34%
+        rgba(212, 175, 55, 0.055),
+        transparent 36%
       ),
       var(--surface-elevated);
     border: 1px solid var(--border-gold);
@@ -220,64 +220,64 @@ body {
     background-size: 64px 64px;
   }
 
-  .text-display-xl {
+  .type-display-xl {
     font-size: clamp(3.5rem, 8vw, 6rem);
     font-weight: 600;
     line-height: 0.95;
     letter-spacing: 0;
   }
 
-  .text-display {
+  .type-display {
     font-size: clamp(2.75rem, 6vw, 4.5rem);
     font-weight: 600;
     line-height: 1;
     letter-spacing: 0;
   }
 
-  .text-heading-1 {
+  .type-heading-1 {
     font-size: clamp(2.5rem, 5vw, 4rem);
     font-weight: 600;
     line-height: 1.05;
     letter-spacing: 0;
   }
 
-  .text-heading-2 {
+  .type-heading-2 {
     font-size: clamp(2rem, 4vw, 3rem);
     font-weight: 600;
     line-height: 1.1;
     letter-spacing: 0;
   }
 
-  .text-heading-3 {
+  .type-heading-3 {
     font-size: clamp(1.5rem, 3vw, 2rem);
     font-weight: 600;
     line-height: 1.2;
     letter-spacing: 0;
   }
 
-  .text-heading-4 {
+  .type-heading-4 {
     font-size: clamp(1.25rem, 2vw, 1.5rem);
     font-weight: 600;
     line-height: 1.25;
     letter-spacing: 0;
   }
 
-  .text-body-large {
+  .type-body-large {
     font-size: 1.125rem;
     line-height: 1.75;
   }
 
-  .text-body {
+  .type-body {
     font-size: 1rem;
     line-height: 1.65;
   }
 
-  .text-body-small {
+  .type-body-small {
     font-size: 0.875rem;
     line-height: 1.55;
   }
 
-  .text-label {
+  .type-label {
     font-size: 0.75rem;
     font-weight: 600;
     letter-spacing: 0.12em;
@@ -320,6 +320,10 @@ body {
   .focus-emerald {
     outline: 2px solid transparent;
     outline-offset: 2px;
+  }
+
+  .focus-emerald:focus {
+    outline-color: var(--emerald);
   }
 
   .focus-emerald:focus-visible {

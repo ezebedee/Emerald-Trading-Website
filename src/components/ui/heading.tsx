@@ -2,12 +2,12 @@ import type { HTMLAttributes } from "react";
 import { cn } from "@/lib/utils";
 
 const headingSizes = {
-  displayXl: "text-display-xl",
-  display: "text-display",
-  h1: "text-heading-1",
-  h2: "text-heading-2",
-  h3: "text-heading-3",
-  h4: "text-heading-4",
+  displayXl: "type-display-xl",
+  display: "type-display",
+  h1: "type-heading-1",
+  h2: "type-heading-2",
+  h3: "type-heading-3",
+  h4: "type-heading-4",
 } as const;
 
 type HeadingLevel = "h1" | "h2" | "h3" | "h4";

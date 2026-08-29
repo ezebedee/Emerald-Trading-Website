@@ -38,7 +38,7 @@ export function CardTitle({
 }: HTMLAttributes<HTMLHeadingElement>) {
   return (
     <h3
-      className={cn("text-heading-4 text-foreground", className)}
+      className={cn("type-heading-4 text-foreground", className)}
       {...props}
     />
   );
@@ -50,7 +50,7 @@ export function CardDescription({
 }: HTMLAttributes<HTMLParagraphElement>) {
   return (
     <p
-      className={cn("text-body-small text-muted-foreground", className)}
+      className={cn("type-body-small text-muted-foreground", className)}
       {...props}
     />
   );

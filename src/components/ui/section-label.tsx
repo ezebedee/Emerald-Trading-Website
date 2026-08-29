@@ -20,7 +20,7 @@ export function SectionLabel({
 }: SectionLabelProps) {
   return (
     <p
-      className={cn("text-label", sectionLabelVariants[variant], className)}
+      className={cn("type-label", sectionLabelVariants[variant], className)}
       {...props}
     />
   );

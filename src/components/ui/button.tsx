@@ -3,7 +3,7 @@ import { cn } from "@/lib/utils";
 
 const buttonVariants = {
   primary:
-    "border-transparent bg-emerald text-background hover:bg-emerald-bright",
+    "border-[var(--border-emerald)] bg-emerald-dark text-foreground hover:bg-emerald",
   secondary:
     "border-[var(--border)] bg-surface-elevated text-foreground hover:border-[var(--border-strong)] hover:bg-surface-soft",
   outline:
