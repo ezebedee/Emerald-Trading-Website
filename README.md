@@ -80,6 +80,10 @@ public/
   documents/            Future public documents
 ```
 
+## Asset Management
+
+Asset architecture, naming rules, public/private media policy, provenance requirements, and the working inventory live in [docs/ASSETS.md](docs/ASSETS.md) and [docs/ASSET-INVENTORY.md](docs/ASSET-INVENTORY.md).
+
 ## Intended Website Areas
 
 - Home
