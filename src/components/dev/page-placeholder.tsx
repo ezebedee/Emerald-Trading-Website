@@ -1,17 +1,27 @@
+import { PageHeader } from "@/components/layout/page-header";
+import {
+  PageShell,
+  type PageShellVariant,
+} from "@/components/layout/page-shell";
+
 type PagePlaceholderProps = Readonly<{
   title: string;
   description?: string;
+  variant?: PageShellVariant;
 }>;
 
 export function PagePlaceholder({
   title,
   description = "Development Placeholder",
+  variant = "standard",
 }: PagePlaceholderProps) {
   return (
-    <section className="px-6 py-10">
-      <p>Emerald Legacy Systems</p>
-      <h1>{title}</h1>
-      <p>{description}</p>
-    </section>
+    <PageShell variant={variant}>
+      <PageHeader
+        eyebrow="Emerald Legacy Systems"
+        title={title}
+        description={description}
+      />
+    </PageShell>
   );
 }
