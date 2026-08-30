@@ -1,4 +1,5 @@
 import { HomeHero } from "@/components/home/home-hero";
+import { HomeIndicatorsSignalsShowcase } from "@/components/home/home-indicators-signals-showcase";
 import { HomeLedgerTeaser } from "@/components/home/home-ledger-teaser";
 import { HomePerformanceSnapshot } from "@/components/home/home-performance-snapshot";
 import { HomeSystemsShowcase } from "@/components/home/home-systems-showcase";
@@ -12,6 +13,7 @@ export default function Home() {
       <HomePerformanceSnapshot />
       <HomeLedgerTeaser />
       <HomeSystemsShowcase />
+      <HomeIndicatorsSignalsShowcase />
     </>
   );
 }
