@@ -307,6 +307,12 @@ if (!productsSelectorSource.includes("getSystemsPagePerformanceContext")) {
   failures.push("Missing Systems page performance context selector.");
 }
 
+if (
+  !productsSelectorSource.includes("getSystemsPageConfigurationArchitecture")
+) {
+  failures.push("Missing Systems page configuration architecture selector.");
+}
+
 if (!productsSelectorSource.includes('entry.periodType === "cumulative"')) {
   failures.push(
     "Systems performance context must select a cumulative Ledger record.",
@@ -324,6 +330,12 @@ if (
 if (!ledgerEntryIds.includes("cumulative-2-weeks")) {
   failures.push(
     `${currentSystemId} latest cumulative public performance record must remain cumulative-2-weeks.`,
+  );
+}
+
+if (!productsSelectorSource.includes("family.configurationIds")) {
+  failures.push(
+    "Systems configuration architecture selector must source configuration order and membership from the public family.",
   );
 }
 

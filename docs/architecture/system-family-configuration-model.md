@@ -106,6 +106,8 @@ Public UI should preserve the distinction between:
 
 This wording prevents family-wide market coverage from being mistaken for family-wide public performance.
 
+The Systems page configuration architecture section renders family coverage from the public family selector and renders concrete configurations from the public configuration selector. It may display multiple real configuration records later, but it must not create placeholder Forex, Futures, or Equities configuration cards before canonical instrument, platform, lifecycle, and relationship data exist.
+
 ## Claim Safety
 
 Metals, Forex, Futures, and Equities family coverage must never be used to imply the existing Ledger results cover all four asset classes.

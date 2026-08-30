@@ -13,6 +13,7 @@ import {
 } from "./ledger";
 import type {
   SystemsPageCapability,
+  SystemsPageConfigurationArchitecture,
   SystemsPagePerformanceContext,
   SystemsPagePrimarySystem,
 } from "./types";
@@ -150,6 +151,53 @@ export const getPrimaryPublicSystemFamily = () =>
 
 export const getPublicConfigurationsForFamily = (familyId: string) =>
   getPublicTradingSystems().filter((system) => system.familyId === familyId);
+
+export const getSystemsPageConfigurationArchitecture = ():
+  SystemsPageConfigurationArchitecture | undefined => {
+  const family = getPrimaryPublicSystemFamily();
+
+  if (!family) {
+    return undefined;
+  }
+
+  const publicConfigurationsById = new Map(
+    getPublicConfigurationsForFamily(family.id).map((system) => [
+      system.id,
+      system,
+    ]),
+  );
+  const configurations = family.configurationIds
+    .map((id) => publicConfigurationsById.get(id))
+    .filter((system): system is NonNullable<typeof system> => Boolean(system))
+    .map((system) => {
+      const publicPerformanceRecords = getPublicPerformanceRecordsForSystem(
+        system.id,
+      );
+
+      return {
+        id: system.id,
+        configurationName: system.configurationName,
+        markets: system.marketCategories.map(
+          (category) => marketCategoryLabels[category],
+        ),
+        instruments: system.instruments ?? [],
+        platforms: system.platforms,
+        lifecycleStatus: lifecycleStatusLabels[system.lifecycleStatus],
+        publicRecordLabel: publicPerformanceRecords.length
+          ? "Emerald Ledger"
+          : undefined,
+      };
+    });
+
+  return {
+    familyId: family.id,
+    familyName: family.name,
+    familyMarketCoverage: family.marketCategories.map(
+      (category) => marketCategoryLabels[category],
+    ),
+    configurations,
+  };
+};
 
 export const getHomepageFeaturedTradingSystem = () =>
   getPublicTradingSystems().find(
