@@ -5,6 +5,7 @@ import type { ReactNode } from "react";
 import { JsonLd } from "@/components/seo/json-ld";
 import { siteBrand } from "@/data/site";
 import {
+  createCanonicalUrl,
   createOrganizationJsonLd,
   createSocialImageMetadata,
   createWebsiteJsonLd,
@@ -32,6 +33,9 @@ export const metadata: Metadata = {
   applicationName: siteBrand.name,
   creator: siteBrand.name,
   publisher: siteBrand.name,
+  alternates: {
+    canonical: createCanonicalUrl("/"),
+  },
   robots: {
     index: true,
     follow: true,

@@ -1,15 +1,27 @@
 import type { Metadata } from "next";
 
 import { PagePlaceholder } from "@/components/dev/page-placeholder";
-import { createPageMetadata } from "@/lib/seo";
+import { JsonLd } from "@/components/seo/json-ld";
+import {
+  createPageMetadata,
+  createRouteWebPageJsonLd,
+  routeSeoMetadata,
+} from "@/lib/seo";
 
-export const metadata: Metadata = createPageMetadata({
-  title: "Emerald Ledger",
-  description:
-    "Public forward-performance records from the Emerald Legacy Systems demo reference account.",
-  path: "/ledger",
-});
+export const metadata: Metadata = createPageMetadata(
+  routeSeoMetadata["/ledger"],
+);
+
+const pageJsonLd = createRouteWebPageJsonLd("/ledger", [
+  { name: "Home", path: "/" },
+  { name: "Emerald Ledger", path: "/ledger" },
+]);
 
 export default function LedgerPage() {
-  return <PagePlaceholder title="The Emerald Ledger" variant="dashboard" />;
+  return (
+    <>
+      <JsonLd data={pageJsonLd} />
+      <PagePlaceholder title="The Emerald Ledger" variant="dashboard" />
+    </>
+  );
 }
