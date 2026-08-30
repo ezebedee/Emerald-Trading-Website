@@ -3,7 +3,11 @@ import {
   verificationRecords,
   videoEntries,
 } from "@/data/content";
-import type { LedgerVerificationEvidenceRecord } from "@/data/selectors/types";
+import { getPublicLedgerChronologyEntries } from "@/data/selectors/ledger";
+import type {
+  LedgerMediaContextRecord,
+  LedgerVerificationEvidenceRecord,
+} from "@/data/selectors/types";
 
 const ledgerVerificationEvidenceRecordIds = [
   "public-demo-reference-account",
@@ -29,6 +33,13 @@ const ledgerVerificationDescriptions = {
     "Supporting account-reference information identifies the public demo record associated with the Ledger.",
   "public-demo-read-only-access":
     "Read-only review access may be provided separately for review without trading control.",
+} as const;
+
+const videoPlatformLabels = {
+  youtube: "YouTube",
+  vimeo: "Vimeo",
+  internal: "Internal",
+  other: "Other",
 } as const;
 
 const isPublicPublished = <
@@ -59,6 +70,65 @@ export const getHomepageVideoPreviewEntries = () => {
   return previewVideoIds
     .map((id) => publicVideos.find((entry) => entry.id === id))
     .filter((entry): entry is NonNullable<typeof entry> => Boolean(entry));
+};
+
+const trimLedgerTitle = (title: string) =>
+  title.replace(/^Emerald Ledger\s*-\s*/i, "");
+
+const getVideoAvailabilityState = (record: {
+  externalUrl?: string;
+  externalVideoId?: string;
+}) =>
+  record.externalUrl || record.externalVideoId
+    ? "External video link available"
+    : "External video link pending";
+
+export const getLedgerMediaContextRecords = (): LedgerMediaContextRecord[] => {
+  const chronologyEntries = getPublicLedgerChronologyEntries();
+  const chronologyById = new Map(
+    chronologyEntries.map((entry, index) => [entry.id, { entry, index }]),
+  );
+  const records: Array<{
+    record: LedgerMediaContextRecord;
+    sortIndex: number;
+  }> = [];
+
+  for (const video of getPublicVideoEntries()) {
+    const relatedLedgerEntries = (video.relatedLedgerEntryIds ?? [])
+      .map((id) => chronologyById.get(id))
+      .filter((entry): entry is NonNullable<typeof entry> => Boolean(entry))
+      .toSorted((first, second) => first.index - second.index);
+    const primaryRelated = relatedLedgerEntries[0];
+
+    if (!primaryRelated) {
+      continue;
+    }
+
+    const relatedLedgerTitle = trimLedgerTitle(primaryRelated.entry.title);
+
+    records.push({
+      record: {
+        id: video.id,
+        title: trimLedgerTitle(video.title),
+        videoPlatform: videoPlatformLabels[video.videoPlatform],
+        relatedLedgerEntryId: primaryRelated.entry.id,
+        relatedLedgerTitle,
+        relatedLedgerPeriodType: primaryRelated.entry.periodType,
+        relatedLedgerCoverageLabel: primaryRelated.entry.coverageLabel,
+        availabilityState: getVideoAvailabilityState(video),
+        description: `Supporting video record associated with the ${relatedLedgerTitle} public Ledger update.`,
+      },
+      sortIndex: primaryRelated.index,
+    });
+  }
+
+  return records
+    .toSorted(
+      (first, second) =>
+        first.sortIndex - second.sortIndex ||
+        first.record.id.localeCompare(second.record.id),
+    )
+    .map(({ record }) => record);
 };
 
 export const getPublicVerificationRecords = () =>

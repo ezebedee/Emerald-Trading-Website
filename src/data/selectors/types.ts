@@ -81,6 +81,18 @@ export type LedgerVerificationEvidenceRecord = Readonly<{
   relatedLedgerRecordScope?: string;
 }>;
 
+export type LedgerMediaContextRecord = Readonly<{
+  id: ReadableId;
+  title: string;
+  videoPlatform: string;
+  relatedLedgerEntryId: ReadableId;
+  relatedLedgerTitle: string;
+  relatedLedgerPeriodType: string;
+  relatedLedgerCoverageLabel: string;
+  availabilityState: string;
+  description: string;
+}>;
+
 export type LedgerConsistencyIssue = Readonly<{
   recordId: ReadableId;
   field: string;
