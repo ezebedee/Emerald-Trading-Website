@@ -1,3 +1,5 @@
+import { isDevelopmentEnvironment } from "@/lib/config/env";
+
 export type LogLevel = "info" | "warn" | "error";
 
 export type LogContextPrimitive = string | number | boolean | null;
@@ -31,7 +33,7 @@ export const SENSITIVE_LOG_CONTEXT_KEYS = [
   "tradingPassword",
 ] as const;
 
-const isDevelopment = process.env.NODE_ENV === "development";
+const isDevelopment = isDevelopmentEnvironment();
 
 let activeTransport: LoggerTransport | undefined;
 

@@ -1,46 +1,25 @@
 import packageJson from "../../../package.json";
-
-export type DeploymentEnvironment =
-  "development" | "production" | "test" | "unknown";
+import {
+  getRuntimeEnvironment,
+  type RuntimeEnvironment,
+} from "@/lib/config/env";
+import { getServerConfig } from "@/lib/config/server";
 
 export type DeploymentMetadata = Readonly<{
   serviceName: string;
   appVersion: string;
-  environment: DeploymentEnvironment;
+  environment: RuntimeEnvironment;
   commitSha?: string;
 }>;
 
 const serviceName = packageJson.name;
 const appVersion = packageJson.version;
 
-export const normalizeDeploymentEnvironment = (
-  environment = process.env.NODE_ENV,
-): DeploymentEnvironment => {
-  if (
-    environment === "development" ||
-    environment === "production" ||
-    environment === "test"
-  ) {
-    return environment;
-  }
-
-  return "unknown";
-};
-
-const getShortCommitSha = () => {
-  const commitSha =
-    process.env.VERCEL_GIT_COMMIT_SHA ??
-    process.env.GITHUB_SHA ??
-    process.env.COMMIT_SHA;
-
-  return commitSha?.slice(0, 12);
-};
-
 export const getDeploymentMetadata = (): DeploymentMetadata => ({
   serviceName,
   appVersion,
-  environment: normalizeDeploymentEnvironment(),
-  commitSha: getShortCommitSha(),
+  environment: getRuntimeEnvironment(),
+  commitSha: getServerConfig().commitSha,
 });
 
 export const getPublicHealthMetadata = () => {

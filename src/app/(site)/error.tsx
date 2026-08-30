@@ -9,6 +9,7 @@ import {
 import { Button } from "@/components/ui/button";
 import { ANALYTICS_CATEGORIES, ANALYTICS_EVENTS } from "@/lib/analytics";
 import { trackAnalyticsEvent } from "@/lib/analytics";
+import { isDevelopmentEnvironment } from "@/lib/config";
 
 type SiteErrorProps = Readonly<{
   error: Error;
@@ -17,7 +18,7 @@ type SiteErrorProps = Readonly<{
 
 export default function SiteError({ error, reset }: SiteErrorProps) {
   useEffect(() => {
-    if (process.env.NODE_ENV === "development") {
+    if (isDevelopmentEnvironment()) {
       console.error(error);
     }
 
