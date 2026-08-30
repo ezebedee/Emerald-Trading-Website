@@ -154,3 +154,31 @@ Do not use `Date`, `Map`, `Set`, `BigInt`, class instances, or provider-specific
 The current contracts are designed to map cleanly to future JSON files, PostgreSQL, Supabase, Prisma, or CMS records.
 
 Schemas are intentionally provider-neutral. Future storage tasks may add database-specific adapters without changing the public domain semantics.
+
+## Emerald Ledger Record Semantics
+
+The canonical public Emerald Ledger data lives in `src/data/ledger/`.
+
+Current Ledger records use the public demo/reference account:
+
+- account classification: `public-demo-reference`
+- performance classification: `forward-performance`
+- visibility: `public`
+- currency: `USD`
+- platform: `MT4`
+- broker: `Exness`
+- public account number: `71891005`
+
+The public Ledger starting baseline is `1000000` USD. Cumulative return records use that baseline unless a future approved source states otherwise.
+
+Ledger records must keep `periodMetrics` and `cumulativeMetrics` separate. For example, Week 02 period profit and the first-two-weeks cumulative profit are different values and must not be interchanged. A cumulative record may use `periodMetrics` to represent the full cumulative span and omit `cumulativeMetrics` when both would describe the same scope.
+
+Ledger metrics should include only authoritative values. Optional fields such as `grossProfit`, `grossLoss`, `profitFactor`, `maxDrawdownAmount`, and `maxDrawdownPct` remain absent when the source does not support them. Do not invent dollar drawdown, gross totals, profit factor, or missing daily records.
+
+Gross loss and drawdown amounts keep the shared convention from the base performance model: store them as positive magnitudes and let the presentation layer apply loss formatting.
+
+Ledger media references use asset IDs such as `thumbnailAssetId` and `mediaAssetIds`. Do not copy image paths, dimensions, or alt text into Ledger records.
+
+Public Ledger records must not contain passwords, investor passwords, API keys, secret tokens, private live-account credentials, or fabricated video IDs. Private live-performance records belong in a later authenticated data path, not in this public dataset.
+
+The current data shape is static TypeScript validated by Zod, but it is intentionally compatible with future JSON files, PostgreSQL, Supabase, Prisma, or CMS-backed records.
