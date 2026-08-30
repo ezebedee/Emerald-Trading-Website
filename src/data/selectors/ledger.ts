@@ -10,6 +10,7 @@ import type { LedgerEntry, PerformanceMetrics } from "@/domain";
 import { getAssetById } from "./assets";
 import type {
   CumulativePerformancePoint,
+  LedgerChronologyEntry,
   LedgerConsistencyIssue,
   LedgerLatestPerformanceSnapshot,
   LedgerPublicRecordOverview,
@@ -49,6 +50,16 @@ const periodTypeLabels = {
 } as const;
 
 const orderedPublicScope = ["daily", "weekly", "cumulative"] as const;
+
+const chronologyPeriodTypePrecedence = {
+  daily: 1,
+  weekly: 2,
+  monthly: 3,
+  quarterly: 4,
+  annual: 5,
+  cumulative: 6,
+  custom: 7,
+} as const;
 
 const monthLabels = [
   "Jan",
@@ -105,6 +116,13 @@ const toCumulativePoint = (
   returnPct: metrics.returnPct,
   endingBalance: metrics.endingBalance,
   equity: metrics.equity,
+});
+
+const toChronologyMetricSnapshot = (metrics: PerformanceMetrics) => ({
+  netProfit: metrics.netProfit,
+  returnPct: metrics.returnPct,
+  totalTrades: metrics.totalTrades,
+  winRatePct: metrics.winRatePct,
 });
 
 const numbersDiffer = (first: number, second: number, tolerance: number) =>
@@ -210,6 +228,52 @@ export const getLatestCumulativeLedgerEntry = () =>
   latestByEndDate(cumulativeLedgerEntries);
 
 export const getPublicLedgerEntries = () => ledgerEntries.filter(isPublic);
+
+export const getPublicLedgerChronologyEntries = (): LedgerChronologyEntry[] =>
+  ledgerEntries
+    .filter(isPublicForwardPerformance)
+    .toSorted((first, second) => {
+      const endDateSort = first.endDate.localeCompare(second.endDate);
+
+      if (endDateSort !== 0) {
+        return endDateSort;
+      }
+
+      const periodTypeSort =
+        chronologyPeriodTypePrecedence[first.periodType] -
+        chronologyPeriodTypePrecedence[second.periodType];
+
+      if (periodTypeSort !== 0) {
+        return periodTypeSort;
+      }
+
+      const startDateSort = first.startDate.localeCompare(second.startDate);
+
+      if (startDateSort !== 0) {
+        return startDateSort;
+      }
+
+      return first.id.localeCompare(second.id);
+    })
+    .map((entry) => ({
+      id: entry.id,
+      title: entry.title,
+      periodType: periodTypeLabels[entry.periodType],
+      startDate: entry.startDate,
+      endDate: entry.endDate,
+      coverageLabel: formatPublicRecordCoverage(entry.startDate, entry.endDate),
+      accountClassification:
+        accountClassificationLabels[entry.accountClassification],
+      performanceClassification:
+        performanceClassificationLabels[entry.performanceClassification],
+      period: toChronologyMetricSnapshot(entry.periodMetrics),
+      cumulative: entry.cumulativeMetrics
+        ? {
+            netProfit: entry.cumulativeMetrics.netProfit,
+            returnPct: entry.cumulativeMetrics.returnPct,
+          }
+        : undefined,
+    }));
 
 const assertTradeOutcomeConsistency = (entry: LedgerEntry) => {
   const metrics = getEffectiveCumulativeMetrics(entry);
