@@ -74,9 +74,105 @@ No raw error payloads are sent. Do not transmit error messages, stacks, digests,
 
 Analytics remains no-op by default unless a future approved provider is configured and explicitly enabled.
 
+## Operational Diagnostics
+
+Task 0.7C adds a lightweight health endpoint:
+
+```text
+GET /api/health
+```
+
+The endpoint returns JSON only, responds with HTTP 200 when the app is running, and sets `Cache-Control: no-store`. It is marked dynamic so health responses are not treated as static page content.
+
+Current health semantics are liveness-oriented: the endpoint answers whether the application route can execute. It does not check database, storage, broker, video, analytics, or third-party service readiness because those dependencies do not exist yet.
+
+Future readiness checks may include database, storage, queue, or external-service dependencies after those systems are introduced. Do not represent the current health endpoint as full production readiness.
+
+The public health response is intentionally minimal:
+
+```json
+{
+  "status": "ok",
+  "service": "emerald-legacy-systems",
+  "version": "0.1.0",
+  "environment": "production"
+}
+```
+
+Do not add hostnames, IP addresses, filesystem paths, environment-variable dumps, secrets, private account data, request bodies, query parameters, commit messages, or branch names to the health response.
+
+The health endpoint is not a security boundary. It should remain safe to expose publicly because it contains only public-safe liveness metadata.
+
+## Deployment Metadata
+
+Deployment metadata helpers live in:
+
+```text
+src/lib/reliability/deployment.ts
+```
+
+The helper centralizes:
+
+- service name from `package.json`
+- app version from `package.json`
+- normalized environment from `NODE_ENV`
+- optional short commit SHA for internal use
+
+Only `development`, `production`, `test`, and `unknown` are exposed as normalized environment values. Do not dump arbitrary deployment environment names or full environment variables.
+
+## Structured Logger
+
+The structured logger lives in:
+
+```text
+src/lib/reliability/logger.ts
+```
+
+It provides:
+
+- `logger.info(event, context?, message?)`
+- `logger.warn(event, context?, message?)`
+- `logger.error(event, context?, error?, message?)`
+- `setLoggerTransport(transport?)`
+- `logConfigurationWarning(event, context?, message?)`
+
+Log entries use plain structured objects with:
+
+- `level`
+- `event`
+- `message`
+- `context`
+- `timestamp`
+
+Log levels are limited to `info`, `warn`, and `error`. Event names are normalized to lowercase snake_case. Timestamps are ISO 8601 strings.
+
+Logger context values are restricted to JSON-safe primitives and small primitive arrays. Do not pass nested request bodies, arbitrary objects, user-entered content, account details, or full URLs with query strings.
+
+Sensitive context keys are blocked in every environment. Development warns and drops the unsafe log entry. Production silently drops the unsafe log entry.
+
+Blocked context keys include:
+
+- `password`
+- `passwd`
+- `secret`
+- `token`
+- `apiKey`
+- `api_key`
+- `email`
+- `phone`
+- `message`
+- `investorPassword`
+- `tradingPassword`
+
+The blocklist applies to context keys. A top-level logger `message` field is allowed for safe operator-facing summaries.
+
+`logger.error()` may receive an `Error` object for local development debugging, but structured logs must not serialize raw Error objects or emit error messages, stacks, digests, file paths, credentials, or query strings.
+
+The current backend writes to console only. Future monitoring transports can replace the transport through `setLoggerTransport()` after a provider is approved.
+
 ## Current Exclusions
 
-Task 0.7B does not add:
+Tasks 0.7B and 0.7C do not add:
 
 - Sentry
 - Datadog
@@ -84,8 +180,9 @@ Task 0.7B does not add:
 - Rollbar
 - Bugsnag
 - email alerts
-- server logging infrastructure
-- health endpoints
+- external monitoring transports
+- database readiness checks
+- external service checks
 - permanent crash-test routes
 - new dependencies
 - normal page redesigns
