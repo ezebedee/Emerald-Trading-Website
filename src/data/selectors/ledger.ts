@@ -223,14 +223,16 @@ export const getLedgerPublicRecordOverview = (): LedgerPublicRecordOverview => {
     undefined,
   );
   const latestEntry = latestByEndDate(publicForwardEntries);
-  const performanceClassification =
-    publicForwardEntries[0]?.performanceClassification ?? "forward-performance";
+  const performanceClassification = publicForwardEntries[0]
+    ? performanceClassificationLabels[
+        publicForwardEntries[0].performanceClassification
+      ]
+    : undefined;
 
   return {
     accountClassification:
       accountClassificationLabels[publicLedgerAccount.accountClassification],
-    performanceClassification:
-      performanceClassificationLabels[performanceClassification],
+    performanceClassification,
     coverageLabel:
       earliestEntry && latestEntry
         ? formatPublicRecordCoverage(

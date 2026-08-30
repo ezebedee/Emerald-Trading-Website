@@ -24,7 +24,7 @@ export function LedgerRecordClassification({
     },
     {
       term: "Performance Type",
-      value: overview.performanceClassification,
+      value: overview.performanceClassification ?? "Public record unavailable",
       description:
         "The Ledger documents forward performance separately from historical backtesting.",
       badgeVariant: "positive" as const,

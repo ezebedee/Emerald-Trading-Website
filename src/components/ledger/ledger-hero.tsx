@@ -48,7 +48,8 @@ export function LedgerHero({ overview }: LedgerHeroProps) {
                   Performance Type
                 </dt>
                 <dd className="text-foreground mt-2 text-base font-semibold">
-                  {overview.performanceClassification}
+                  {overview.performanceClassification ??
+                    "Public record unavailable"}
                 </dd>
               </div>
             </dl>
