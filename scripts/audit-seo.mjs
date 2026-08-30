@@ -7,6 +7,13 @@ const root = path.resolve(__dirname, "..");
 const routeRegistryPath = path.join(root, "src", "lib", "seo", "routes.ts");
 const sitemapPath = path.join(root, "src", "app", "sitemap.ts");
 const robotsPath = path.join(root, "src", "app", "robots.ts");
+const structuredDataPath = path.join(
+  root,
+  "src",
+  "lib",
+  "seo",
+  "structured-data.ts",
+);
 const siteAppRoot = path.join(root, "src", "app", "(site)");
 
 const routePathPattern = /path:\s*"([^"]+)"/g;
@@ -15,10 +22,23 @@ const metadataSource = readFileSync(
   path.join(root, "src", "lib", "seo", "metadata.ts"),
   "utf8",
 );
+const structuredDataSource = existsSync(structuredDataPath)
+  ? readFileSync(structuredDataPath, "utf8")
+  : "";
 const assetSource = readFileSync(
   path.join(root, "src", "data", "assets.ts"),
   "utf8",
 );
+const bannedStructuredDataTypes = [
+  "FinancialService",
+  "InvestmentFund",
+  "AggregateRating",
+  "Review",
+  "Offer",
+  "Product",
+  "FinancialProduct",
+  "BrokerageAccount",
+];
 
 const sourceSlice = (exportName) => {
   const start = registrySource.indexOf(`export const ${exportName} = [`);
@@ -88,6 +108,10 @@ if (!existsSync(robotsPath)) {
   failures.push("src/app/robots.ts is missing.");
 }
 
+if (!structuredDataSource) {
+  failures.push("src/lib/seo/structured-data.ts is missing.");
+}
+
 if (!unique([...publicRegistryPaths, ...internalRoutePaths])) {
   failures.push("SEO route registry contains duplicate route paths.");
 }
@@ -120,12 +144,25 @@ if (!defaultSocialImageAssetId) {
   );
 }
 
+if (!structuredDataSource.includes("siteBrand.name")) {
+  failures.push("Structured-data module must use the canonical site name.");
+}
+
+for (const bannedType of bannedStructuredDataTypes) {
+  if (structuredDataSource.includes(`"@type": "${bannedType}"`)) {
+    failures.push(`Banned structured-data type found: ${bannedType}`);
+  }
+}
+
 console.log("SEO route audit");
 console.log(`Public route registry paths: ${publicRegistryPaths.length}`);
 console.log(`Current public app routes: ${publicAppRoutes.length}`);
 console.log(`Internal route paths: ${internalRoutePaths.length}`);
 console.log(
   `Default social image asset ID: ${defaultSocialImageAssetId ?? "missing"}`,
+);
+console.log(
+  `Structured-data module: ${structuredDataSource ? "present" : "missing"}`,
 );
 
 if (failures.length) {

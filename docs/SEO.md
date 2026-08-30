@@ -214,6 +214,36 @@ Preferred language:
 - market signals
 - trading automation
 
+## Structured Data Policy
+
+Structured data helpers live in `src/lib/seo/structured-data.ts` and use plain TypeScript objects without external schema.org dependencies.
+
+Global root structured data is limited to:
+
+- `Organization`
+- `WebSite`
+
+The Organization object uses the plain schema.org `Organization` type for Emerald Legacy Systems, with the canonical site name, URL, metadata description, support email, stable `@id`, and logo URL resolved from the approved brand asset manifest. It must not use regulated finance schema types unless a later task supplies support for that classification.
+
+The WebSite object uses a stable `@id`, canonical root URL, canonical description, and publisher reference to the Organization object. It does not include `SearchAction` because there is no site search yet.
+
+Reusable helpers also exist for:
+
+- `WebPage`
+- `BreadcrumbList`
+- `Article`
+- `VideoObject`
+
+WebPage and breadcrumb helpers are for future route-level rollout. Breadcrumbs must use existing route paths and canonical URLs.
+
+Article helper usage is reserved for public, published research detail pages when authoritative metadata exists. Do not invent authors, dates, journal names, DOI values, or publisher URLs.
+
+VideoObject helper usage is reserved for videos with real external metadata. Current video records do not have supplied YouTube IDs or external URLs, so VideoObject JSON-LD is not emitted from them automatically.
+
+Structured data must not include performance metrics such as profit, return percentage, win rate, drawdown, or trade count. It must not fabricate reviews, ratings, offers, pricing, awards, financial-product classifications, investment-adviser status, broker/dealer status, audited returns, independent verification, or real-money performance.
+
+Global structured data describes the site and organization. Page-specific structured data should be added later only where visible route content and canonical data support it.
+
 ## Out Of Scope For 0.6A
 
 Task 0.6A does not create:
