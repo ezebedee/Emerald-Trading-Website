@@ -1,7 +1,7 @@
 import type { MoneyValue, PercentageValue, ReadableId } from "@/domain";
 
 export type LedgerPublicRecordOverview = Readonly<{
-  accountClassification: string;
+  accountClassification?: string;
   performanceClassification?: string;
   coverageLabel?: string;
   scopeLabel?: string;
@@ -91,6 +91,40 @@ export type LedgerMediaContextRecord = Readonly<{
   relatedLedgerCoverageLabel: string;
   availabilityState: string;
   description: string;
+}>;
+
+export type LedgerConfigurationContext = Readonly<{
+  familyId: ReadableId;
+  familyName: string;
+  configurationId: ReadableId;
+  configurationName: string;
+  markets: readonly string[];
+  instruments: readonly string[];
+  platforms: readonly string[];
+  lifecycleStatus: string;
+  publicRecordCount: number;
+}>;
+
+export type LedgerConfigurationOption = Readonly<{
+  marketCategory: string;
+  label: string;
+  available: boolean;
+  isSelected: boolean;
+  configurationId?: ReadableId;
+  configurationName?: string;
+  href?: string;
+}>;
+
+export type LedgerPageContext = Readonly<{
+  selectedConfiguration?: LedgerConfigurationContext;
+  configurationOptions: readonly LedgerConfigurationOption[];
+  overview: LedgerPublicRecordOverview;
+  latestCumulative?: LedgerLatestPerformanceSnapshot;
+  summary?: PerformanceSummary;
+  progression: readonly CumulativePerformancePoint[];
+  chronology: readonly LedgerChronologyEntry[];
+  verification: readonly LedgerVerificationEvidenceRecord[];
+  media: readonly LedgerMediaContextRecord[];
 }>;
 
 export type SystemsPageRelatedProduct = Readonly<{

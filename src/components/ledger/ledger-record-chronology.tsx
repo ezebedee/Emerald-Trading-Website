@@ -4,6 +4,10 @@ import { SectionLabel } from "@/components/ui/section-label";
 import { getPublicLedgerChronologyEntries } from "@/data/selectors";
 import type { LedgerChronologyEntry } from "@/data/selectors";
 
+type LedgerRecordChronologyProps = Readonly<{
+  entries?: readonly LedgerChronologyEntry[];
+}>;
+
 const CUMULATIVE_DISPLAY_TOLERANCE = 0.01;
 
 const currencyFormatter = new Intl.NumberFormat("en-US", {
@@ -194,9 +198,9 @@ function ChronologyRecordCard({
   );
 }
 
-export function LedgerRecordChronology() {
-  const entries = getPublicLedgerChronologyEntries();
-
+export function LedgerRecordChronology({
+  entries = getPublicLedgerChronologyEntries(),
+}: LedgerRecordChronologyProps) {
   if (entries.length === 0) {
     return (
       <section className="border-t border-[var(--border)] py-12 md:py-14 xl:py-16">

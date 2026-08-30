@@ -4,6 +4,10 @@ import { SectionLabel } from "@/components/ui/section-label";
 import { getCumulativePerformanceSeries } from "@/data/selectors";
 import type { CumulativePerformancePoint } from "@/data/selectors";
 
+type LedgerPerformanceProgressionProps = Readonly<{
+  points?: readonly CumulativePerformancePoint[];
+}>;
+
 const monthLabels = [
   "Jan",
   "Feb",
@@ -276,8 +280,12 @@ function CheckpointTable({
   );
 }
 
-export function LedgerPerformanceProgression() {
-  const points = getCumulativePerformanceSeries().filter(isFinitePoint);
+export function LedgerPerformanceProgression({
+  points: providedPoints,
+}: LedgerPerformanceProgressionProps) {
+  const points = (providedPoints ?? getCumulativePerformanceSeries()).filter(
+    isFinitePoint,
+  );
 
   if (points.length < 2) {
     return <LedgerProgressionEmptyState points={points} />;

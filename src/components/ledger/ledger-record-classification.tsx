@@ -14,12 +14,18 @@ const itemIcons = [Database, FileClock, Layers3, Eye] as const;
 export function LedgerRecordClassification({
   overview,
 }: LedgerRecordClassificationProps) {
+  const heading = overview.hasPublicRecord
+    ? "A documented forward-performance record with explicit account classification."
+    : "Public record classification for the selected configuration.";
+  const intro = overview.hasPublicRecord
+    ? "The Ledger identifies what the public record represents before any later detail views, tables, or verification material are added. Private-account material, if made available, remains separate from this public record."
+    : "The Ledger will identify the selected configuration's public record classification when eligible performance records are available. Private-account material, if made available, remains separate.";
   const classificationItems = [
     {
       term: "Account Type",
       value: overview.accountClassification,
       description:
-        "The public record is generated from a demo reference account and classified plainly for review.",
+        "The account classification identifies the type of account associated with the selected public performance record.",
       badgeVariant: "neutral" as const,
     },
     {
@@ -54,15 +60,9 @@ export function LedgerRecordClassification({
               Public Record Classification
             </SectionLabel>
             <h2 className="type-heading-2 text-foreground mt-4 text-balance">
-              A documented forward-performance record with explicit account
-              classification.
+              {heading}
             </h2>
-            <p className="type-body text-muted-foreground mt-5">
-              The Ledger identifies what the public record represents before any
-              later detail views, tables, or verification material are added.
-              Private-account material, if made available, remains separate from
-              this public record.
-            </p>
+            <p className="type-body text-muted-foreground mt-5">{intro}</p>
           </div>
 
           {overview.hasPublicRecord ? (

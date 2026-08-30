@@ -8,7 +8,7 @@ import { LedgerRecordChronology } from "@/components/ledger/ledger-record-chrono
 import { LedgerRecordClassification } from "@/components/ledger/ledger-record-classification";
 import { LedgerVerificationEvidence } from "@/components/ledger/ledger-verification-evidence";
 import { JsonLd } from "@/components/seo/json-ld";
-import { getLedgerPublicRecordOverview } from "@/data/selectors";
+import { getLedgerPageContext } from "@/data/selectors";
 import {
   createPageMetadata,
   createRouteWebPageJsonLd,
@@ -24,19 +24,30 @@ const pageJsonLd = createRouteWebPageJsonLd("/ledger", [
   { name: "Emerald Ledger", path: "/ledger" },
 ]);
 
-export default function LedgerPage() {
-  const overview = getLedgerPublicRecordOverview();
+type LedgerPageProps = Readonly<{
+  searchParams?: Promise<{
+    configuration?: string | string[];
+  }>;
+}>;
+
+export default async function LedgerPage({ searchParams }: LedgerPageProps) {
+  const resolvedSearchParams = await searchParams;
+  const requestedConfigurationId =
+    typeof resolvedSearchParams?.configuration === "string"
+      ? resolvedSearchParams.configuration
+      : undefined;
+  const context = getLedgerPageContext({ requestedConfigurationId });
 
   return (
     <>
       <JsonLd data={pageJsonLd} />
-      <LedgerHero overview={overview} />
-      <LedgerRecordClassification overview={overview} />
-      <LedgerPerformanceSummary />
-      <LedgerPerformanceProgression />
-      <LedgerRecordChronology />
-      <LedgerVerificationEvidence />
-      <LedgerMediaContext />
+      <LedgerHero overview={context.overview} />
+      <LedgerRecordClassification overview={context.overview} />
+      <LedgerPerformanceSummary snapshot={context.latestCumulative} />
+      <LedgerPerformanceProgression points={context.progression} />
+      <LedgerRecordChronology entries={context.chronology} />
+      <LedgerVerificationEvidence records={context.verification} />
+      <LedgerMediaContext records={context.media} />
     </>
   );
 }

@@ -7,6 +7,10 @@ import { SectionLabel } from "@/components/ui/section-label";
 import { getLedgerMediaContextRecords } from "@/data/selectors";
 import type { LedgerMediaContextRecord } from "@/data/selectors";
 
+type LedgerMediaContextProps = Readonly<{
+  records?: readonly LedgerMediaContextRecord[];
+}>;
+
 function MediaRecordCard({ record }: { record: LedgerMediaContextRecord }) {
   return (
     <li>
@@ -66,9 +70,9 @@ function MediaRecordCard({ record }: { record: LedgerMediaContextRecord }) {
   );
 }
 
-export function LedgerMediaContext() {
-  const records = getLedgerMediaContextRecords();
-
+export function LedgerMediaContext({
+  records = getLedgerMediaContextRecords(),
+}: LedgerMediaContextProps) {
   return (
     <section className="bg-surface/70 border-t border-[var(--border)] py-12 md:py-14 xl:py-16">
       <Container size="wide">
