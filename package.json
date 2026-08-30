@@ -12,6 +12,7 @@
     "format:check": "prettier --check .",
     "assets:audit": "node scripts/audit-assets.mjs",
     "data:audit": "node scripts/audit-data.mjs",
+    "analytics:audit": "node scripts/audit-analytics.mjs",
     "seo:audit": "node scripts/audit-seo.mjs"
   },
   "dependencies": {
