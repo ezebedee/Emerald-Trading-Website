@@ -1,7 +1,9 @@
 import type { Metadata } from "next";
 
-import { PagePlaceholder } from "@/components/dev/page-placeholder";
+import { LedgerHero } from "@/components/ledger/ledger-hero";
+import { LedgerRecordClassification } from "@/components/ledger/ledger-record-classification";
 import { JsonLd } from "@/components/seo/json-ld";
+import { getLedgerPublicRecordOverview } from "@/data/selectors";
 import {
   createPageMetadata,
   createRouteWebPageJsonLd,
@@ -18,10 +20,13 @@ const pageJsonLd = createRouteWebPageJsonLd("/ledger", [
 ]);
 
 export default function LedgerPage() {
+  const overview = getLedgerPublicRecordOverview();
+
   return (
     <>
       <JsonLd data={pageJsonLd} />
-      <PagePlaceholder title="The Emerald Ledger" variant="dashboard" />
+      <LedgerHero overview={overview} />
+      <LedgerRecordClassification overview={overview} />
     </>
   );
 }
