@@ -8,6 +8,14 @@ const root = path.resolve(__dirname, "..");
 const siteErrorPath = path.join(root, "src", "app", "(site)", "error.tsx");
 const globalErrorPath = path.join(root, "src", "app", "global-error.tsx");
 const notFoundPath = path.join(root, "src", "app", "not-found.tsx");
+const healthRoutePath = path.join(
+  root,
+  "src",
+  "app",
+  "api",
+  "health",
+  "route.ts",
+);
 const recoveryStatePath = path.join(
   root,
   "src",
@@ -15,6 +23,10 @@ const recoveryStatePath = path.join(
   "reliability",
   "recovery-state.tsx",
 );
+const reliabilityRoot = path.join(root, "src", "lib", "reliability");
+const deploymentPath = path.join(reliabilityRoot, "deployment.ts");
+const loggerPath = path.join(reliabilityRoot, "logger.ts");
+const reliabilityIndexPath = path.join(reliabilityRoot, "index.ts");
 const packageJsonPath = path.join(root, "package.json");
 
 const requiredFiles = [
@@ -22,6 +34,10 @@ const requiredFiles = [
   globalErrorPath,
   notFoundPath,
   recoveryStatePath,
+  healthRoutePath,
+  deploymentPath,
+  loggerPath,
+  reliabilityIndexPath,
 ];
 const rawErrorRenderingTokens = [
   "error.message",
@@ -46,6 +62,17 @@ const credentialTokens = [
   "broker",
   "credential",
 ];
+const sensitiveHealthTokens = [
+  "process.env",
+  "password",
+  "passwd",
+  "secret",
+  "token",
+  "account",
+  "credential",
+  "email",
+  "phone",
+];
 
 const readIfExists = (filePath) =>
   existsSync(filePath) ? readFileSync(filePath, "utf8") : "";
@@ -61,13 +88,21 @@ for (const filePath of requiredFiles) {
 const siteErrorSource = readIfExists(siteErrorPath);
 const globalErrorSource = readIfExists(globalErrorPath);
 const notFoundSource = readIfExists(notFoundPath);
+const healthRouteSource = readIfExists(healthRoutePath);
 const recoveryStateSource = readIfExists(recoveryStatePath);
+const deploymentSource = readIfExists(deploymentPath);
+const loggerSource = readIfExists(loggerPath);
 const errorBoundarySource = [siteErrorSource, globalErrorSource].join("\n");
 const reliabilityUiSource = [
   siteErrorSource,
   globalErrorSource,
   notFoundSource,
   recoveryStateSource,
+].join("\n");
+const operationalSource = [
+  healthRouteSource,
+  deploymentSource,
+  loggerSource,
 ].join("\n");
 
 if (!siteErrorSource.includes('"use client"')) {
@@ -135,12 +170,75 @@ if (!readIfExists(packageJsonPath).includes('"reliability:audit"')) {
   failures.push("package.json is missing reliability:audit script.");
 }
 
+if (!healthRouteSource.includes("NextResponse.json")) {
+  failures.push("Health route must return JSON.");
+}
+
+if (!healthRouteSource.includes('"Cache-Control": "no-store"')) {
+  failures.push("Health route must set Cache-Control: no-store.");
+}
+
+if (!healthRouteSource.includes('dynamic = "force-dynamic"')) {
+  failures.push("Health route must be force-dynamic.");
+}
+
+if (!healthRouteSource.includes('status: "ok"')) {
+  failures.push("Health route must return status ok.");
+}
+
+for (const token of sensitiveHealthTokens) {
+  if (healthRouteSource.toLowerCase().includes(token.toLowerCase())) {
+    failures.push(`Sensitive health-route token found: ${token}`);
+  }
+}
+
+if (!deploymentSource.includes("packageJson.version")) {
+  failures.push("Deployment metadata must centralize the package version.");
+}
+
+if (!deploymentSource.includes("normalizeDeploymentEnvironment")) {
+  failures.push("Deployment metadata must normalize environment values.");
+}
+
+if (!loggerSource.includes("LogLevel =") || !loggerSource.includes('"info"')) {
+  failures.push("Structured logger must define a small log level set.");
+}
+
+if (!loggerSource.includes("normalizeLogEventName")) {
+  failures.push("Structured logger must normalize event names.");
+}
+
+if (!loggerSource.includes("SENSITIVE_LOG_CONTEXT_KEYS")) {
+  failures.push("Structured logger must define sensitive context keys.");
+}
+
+if (!loggerSource.includes("return undefined;")) {
+  failures.push("Structured logger must drop unsafe context entries.");
+}
+
+if (loggerSource.includes("JSON.stringify(error)")) {
+  failures.push("Structured logger must not serialize raw Error objects.");
+}
+
+if (
+  loggerSource.includes("error.stack") ||
+  loggerSource.includes("error.message")
+) {
+  failures.push("Structured logger must not emit raw error details.");
+}
+
+if (operationalSource.includes("process.env)")) {
+  failures.push("Operational diagnostics must not dump process.env.");
+}
+
 console.log("Reliability recovery audit");
 console.log(
   `Required recovery files: ${requiredFiles.filter((filePath) => existsSync(filePath)).length}/${requiredFiles.length}`,
 );
 console.log("External monitoring provider: none");
 console.log("Raw error rendering: none detected");
+console.log("Health endpoint: present");
+console.log("Structured logger: present");
 
 if (failures.length) {
   console.error("");
@@ -152,6 +250,6 @@ if (failures.length) {
   process.exitCode = 1;
 } else {
   console.log(
-    "Error boundaries, not-found handling, and recovery UI are present without raw error exposure.",
+    "Error boundaries, health diagnostics, structured logging, and recovery UI are present without raw error exposure.",
   );
 }
