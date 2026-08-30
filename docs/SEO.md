@@ -75,6 +75,31 @@ The helper supplies:
 
 Each public route should eventually export metadata using this helper unless it needs a carefully reviewed custom override.
 
+## Route Registry
+
+The canonical sitemap/indexing inventory lives in `src/lib/seo/routes.ts`.
+
+The registry stores only route-indexing fields used now:
+
+- `path`
+- `indexable`
+- `includeInSitemap`
+- `changeFrequency`
+- `priority`
+
+Titles and descriptions remain owned by metadata exports, not the route registry.
+
+Registered paths must:
+
+- start with `/`
+- use lowercase
+- exclude query parameters
+- exclude hash fragments
+- use no trailing slash except root
+- be unique across public and internal route lists
+
+Current public routes in `src/app/(site)` are included in `publicRouteRegistry`. The internal `/design-system` route is tracked separately in `internalRoutes` and is excluded from sitemap generation.
+
 ## Indexing Policy
 
 Public routes default to:
@@ -96,6 +121,36 @@ The public `/private-access` marketing or access-request route is conceptually d
 Legal routes such as `/privacy`, `/terms`, and `/risk-disclosure` remain indexable unless product strategy changes.
 
 The internal `/design-system` route is explicitly `noIndex` and `noFollow`.
+
+## Sitemap Policy
+
+`src/app/sitemap.ts` uses `MetadataRoute.Sitemap` and derives entries from `getSitemapRoutes()`.
+
+Sitemap URLs are generated with `createCanonicalUrl()` so they use the production HTTPS domain and the shared canonical trailing-slash policy.
+
+No `lastModified` values are emitted in Task 0.6B because authoritative content-specific modification dates are not yet modeled. Conservative `changeFrequency` and `priority` values may be used as crawl hints, but they are not business data.
+
+Future dynamic public routes such as `/ledger/[slug]`, `/systems/[slug]`, `/research/[slug]`, and `/videos/[slug]` should add sitemap entries from canonical validated data only after those routes exist.
+
+## Robots Policy
+
+`src/app/robots.ts` uses `MetadataRoute.Robots`.
+
+Robots policy:
+
+- allow crawling of the public site
+- expose the canonical sitemap URL
+- disallow `/design-system` as an internal implementation route
+
+Do not add broad disallow rules that accidentally block public site sections.
+
+## Sitemap, Robots, And Security
+
+Sitemap inclusion controls discovery intent. Route metadata controls indexing intent. Robots controls crawler access requests.
+
+None of these mechanisms replace authentication, authorization, server-side access control, or private-data separation.
+
+Future authenticated routes such as private account, private dashboard, or private performance areas must be excluded from the sitemap and must use `noIndex`/`noFollow`. Sensitive content must still be protected by real access control rather than relying on robots or sitemap omission.
 
 ## Open Graph Defaults
 
