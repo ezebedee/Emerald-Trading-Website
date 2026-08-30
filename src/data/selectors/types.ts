@@ -157,21 +157,14 @@ export type SystemsPagePerformanceContext = Readonly<{
   publicRecordCount: number;
 }>;
 
-export type SystemsPageConfigurationArchitectureConfiguration = Readonly<{
-  id: ReadableId;
-  configurationName: string;
-  markets: readonly string[];
-  instruments: readonly string[];
-  platforms: readonly string[];
-  lifecycleStatus: string;
-  publicRecordLabel?: string;
-}>;
-
-export type SystemsPageConfigurationArchitecture = Readonly<{
-  familyId: ReadableId;
-  familyName: string;
-  familyMarketCoverage: readonly string[];
-  configurations: readonly SystemsPageConfigurationArchitectureConfiguration[];
+export type SystemsPageConfigurationOption = Readonly<{
+  marketCategory: string;
+  label: string;
+  available: boolean;
+  isSelected: boolean;
+  configurationId?: ReadableId;
+  configurationName?: string;
+  href?: string;
 }>;
 
 export type LedgerConsistencyIssue = Readonly<{

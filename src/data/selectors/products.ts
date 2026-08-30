@@ -13,10 +13,12 @@ import {
 } from "./ledger";
 import type {
   SystemsPageCapability,
-  SystemsPageConfigurationArchitecture,
+  SystemsPageConfigurationOption,
   SystemsPagePerformanceContext,
   SystemsPagePrimarySystem,
 } from "./types";
+
+const defaultSystemsPageConfigurationId = "emerald-quant-system";
 
 const lifecycleStatusLabels = {
   research: "Research",
@@ -152,51 +154,65 @@ export const getPrimaryPublicSystemFamily = () =>
 export const getPublicConfigurationsForFamily = (familyId: string) =>
   getPublicTradingSystems().filter((system) => system.familyId === familyId);
 
-export const getSystemsPageConfigurationArchitecture = ():
-  SystemsPageConfigurationArchitecture | undefined => {
+export const getDefaultPublicConfigurationForFamily = (familyId: string) =>
+  getPublicConfigurationsForFamily(familyId).find(
+    (system) =>
+      system.id === defaultSystemsPageConfigurationId &&
+      system.familyId === familyId,
+  );
+
+export const getSystemsPageSelectedConfiguration = ({
+  familyId,
+  requestedConfigurationId,
+}: {
+  familyId: string;
+  requestedConfigurationId?: string;
+}) => {
+  const publicConfigurations = getPublicConfigurationsForFamily(familyId);
+  const requestedConfiguration = requestedConfigurationId
+    ? publicConfigurations.find(
+        (system) => system.id === requestedConfigurationId,
+      )
+    : undefined;
+
+  return (
+    requestedConfiguration ?? getDefaultPublicConfigurationForFamily(familyId)
+  );
+};
+
+export const getSystemsPageConfigurationOptions = ({
+  selectedConfigurationId,
+}: {
+  selectedConfigurationId?: string;
+} = {}): readonly SystemsPageConfigurationOption[] => {
   const family = getPrimaryPublicSystemFamily();
 
   if (!family) {
-    return undefined;
+    return [];
   }
 
-  const publicConfigurationsById = new Map(
-    getPublicConfigurationsForFamily(family.id).map((system) => [
-      system.id,
-      system,
-    ]),
-  );
-  const configurations = family.configurationIds
-    .map((id) => publicConfigurationsById.get(id))
-    .filter((system): system is NonNullable<typeof system> => Boolean(system))
-    .map((system) => {
-      const publicPerformanceRecords = getPublicPerformanceRecordsForSystem(
-        system.id,
-      );
+  const publicConfigurations = getPublicConfigurationsForFamily(family.id);
 
-      return {
-        id: system.id,
-        configurationName: system.configurationName,
-        markets: system.marketCategories.map(
-          (category) => marketCategoryLabels[category],
-        ),
-        instruments: system.instruments ?? [],
-        platforms: system.platforms,
-        lifecycleStatus: lifecycleStatusLabels[system.lifecycleStatus],
-        publicRecordLabel: publicPerformanceRecords.length
-          ? "Emerald Ledger"
-          : undefined,
-      };
-    });
+  return family.marketCategories.map((marketCategory) => {
+    const configuration = publicConfigurations
+      .filter((system) => family.configurationIds.includes(system.id))
+      .find((system) => system.marketCategories.includes(marketCategory));
 
-  return {
-    familyId: family.id,
-    familyName: family.name,
-    familyMarketCoverage: family.marketCategories.map(
-      (category) => marketCategoryLabels[category],
-    ),
-    configurations,
-  };
+    return {
+      marketCategory,
+      label: marketCategoryLabels[marketCategory],
+      available: Boolean(configuration),
+      isSelected: configuration?.id === selectedConfigurationId,
+      configurationId: configuration?.id,
+      configurationName: configuration?.configurationName,
+      href:
+        configuration && configuration.id !== defaultSystemsPageConfigurationId
+          ? `/systems?configuration=${encodeURIComponent(configuration.id)}`
+          : configuration
+            ? "/systems"
+            : undefined,
+    };
+  });
 };
 
 export const getHomepageFeaturedTradingSystem = () =>

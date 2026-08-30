@@ -106,7 +106,7 @@ Public UI should preserve the distinction between:
 
 This wording prevents family-wide market coverage from being mistaken for family-wide public performance.
 
-The Systems page configuration architecture section renders family coverage from the public family selector and renders concrete configurations from the public configuration selector. It may display multiple real configuration records later, but it must not create placeholder Forex, Futures, or Equities configuration cards before canonical instrument, platform, lifecycle, and relationship data exist.
+The Systems page performance section renders a configuration-aware asset-class selector from family coverage and public configuration records. Family markets remain visible as coverage, but only asset classes with a real public configuration become selectable. The selected configuration controls the performance context, so future configurations can surface their own record without blending results across the family.
 
 ## Claim Safety
 
