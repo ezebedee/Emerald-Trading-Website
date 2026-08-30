@@ -1,3 +1,4 @@
+import { HomeFinalCta } from "@/components/home/home-final-cta";
 import { HomeHero } from "@/components/home/home-hero";
 import { HomeIndicatorsSignalsShowcase } from "@/components/home/home-indicators-signals-showcase";
 import { HomeLedgerTeaser } from "@/components/home/home-ledger-teaser";
@@ -22,6 +23,7 @@ export default function Home() {
       <HomeVerificationTransparency />
       <HomeVideoArchivePreview />
       <HomeProfessionalPrivateAccess />
+      <HomeFinalCta />
     </>
   );
 }
