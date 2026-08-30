@@ -1,5 +1,13 @@
 import type { MoneyValue, PercentageValue, ReadableId } from "@/domain";
 
+export type LedgerPublicRecordOverview = Readonly<{
+  accountClassification: string;
+  performanceClassification: string;
+  coverageLabel?: string;
+  scopeLabel?: string;
+  hasPublicRecord: boolean;
+}>;
+
 export type PerformanceSummary = Readonly<{
   recordId: ReadableId;
   startDate: string;

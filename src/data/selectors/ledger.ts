@@ -2,6 +2,7 @@ import {
   cumulativeLedgerEntries,
   dailyLedgerEntries,
   ledgerEntries,
+  publicLedgerAccount,
   weeklyLedgerEntries,
 } from "@/data/ledger";
 import type { LedgerEntry, PerformanceMetrics } from "@/domain";
@@ -10,6 +11,7 @@ import { getAssetById } from "./assets";
 import type {
   CumulativePerformancePoint,
   LedgerConsistencyIssue,
+  LedgerPublicRecordOverview,
   PerformanceSummary,
 } from "./types";
 
@@ -20,6 +22,47 @@ const isPublic = (entry: LedgerEntry) => entry.visibility === "public";
 
 const isPublicForwardPerformance = (entry: LedgerEntry) =>
   isPublic(entry) && entry.performanceClassification === "forward-performance";
+
+const accountClassificationLabels = {
+  "public-demo-reference": "Public Demo Reference Account",
+  "private-live": "Private Account",
+  backtest: "Backtest",
+  simulation: "Simulation",
+} as const;
+
+const performanceClassificationLabels = {
+  "forward-performance": "Forward Performance",
+  backtest: "Backtest",
+  simulation: "Simulation",
+  "private-live-performance": "Private Performance",
+} as const;
+
+const periodTypeLabels = {
+  daily: "Daily",
+  weekly: "Weekly",
+  monthly: "Monthly",
+  quarterly: "Quarterly",
+  annual: "Annual",
+  cumulative: "Cumulative",
+  custom: "Custom",
+} as const;
+
+const orderedPublicScope = ["daily", "weekly", "cumulative"] as const;
+
+const monthLabels = [
+  "Jan",
+  "Feb",
+  "Mar",
+  "Apr",
+  "May",
+  "Jun",
+  "Jul",
+  "Aug",
+  "Sep",
+  "Oct",
+  "Nov",
+  "Dec",
+] as const;
 
 const latestByEndDate = <T extends { endDate: string }>(
   entries: readonly T[],
@@ -65,6 +108,54 @@ const toCumulativePoint = (
 
 const numbersDiffer = (first: number, second: number, tolerance: number) =>
   Math.abs(first - second) > tolerance;
+
+const parseIsoDateParts = (date: string) => {
+  const [year, month, day] = date.split("-").map(Number);
+
+  return { year, month, day };
+};
+
+const formatPublicRecordCoverage = (startDate: string, endDate: string) => {
+  const start = parseIsoDateParts(startDate);
+  const end = parseIsoDateParts(endDate);
+  const startMonth = monthLabels[start.month - 1];
+  const endMonth = monthLabels[end.month - 1];
+
+  if (!startMonth || !endMonth) {
+    return `${startDate} - ${endDate}`;
+  }
+
+  if (
+    start.year === end.year &&
+    start.month === end.month &&
+    start.day === end.day
+  ) {
+    return `${endMonth} ${end.day}, ${end.year}`;
+  }
+
+  if (start.year === end.year && start.month === end.month) {
+    return `${startMonth} ${start.day}-${end.day}, ${end.year}`;
+  }
+
+  if (start.year === end.year) {
+    return `${startMonth} ${start.day} - ${endMonth} ${end.day}, ${end.year}`;
+  }
+
+  return `${startMonth} ${start.day}, ${start.year} - ${endMonth} ${end.day}, ${end.year}`;
+};
+
+const formatPublicScope = (entries: readonly LedgerEntry[]) => {
+  const availableTypes = new Set(entries.map((entry) => entry.periodType));
+  const labels = orderedPublicScope
+    .filter((periodType) => availableTypes.has(periodType))
+    .map((periodType) => periodTypeLabels[periodType]);
+
+  if (labels.length <= 1) {
+    return labels[0];
+  }
+
+  return `${labels.slice(0, -1).join(", ")} & ${labels.at(-1)}`;
+};
 
 const cumulativeSnapshotPrecedence = (entry: LedgerEntry) => {
   if (entry.periodType === "cumulative") {
@@ -118,6 +209,39 @@ export const getLatestCumulativeLedgerEntry = () =>
   latestByEndDate(cumulativeLedgerEntries);
 
 export const getPublicLedgerEntries = () => ledgerEntries.filter(isPublic);
+
+export const getLedgerPublicRecordOverview = (): LedgerPublicRecordOverview => {
+  const publicForwardEntries = ledgerEntries.filter(isPublicForwardPerformance);
+  const earliestEntry = publicForwardEntries.reduce<LedgerEntry | undefined>(
+    (earliest, entry) => {
+      if (!earliest || entry.startDate < earliest.startDate) {
+        return entry;
+      }
+
+      return earliest;
+    },
+    undefined,
+  );
+  const latestEntry = latestByEndDate(publicForwardEntries);
+  const performanceClassification =
+    publicForwardEntries[0]?.performanceClassification ?? "forward-performance";
+
+  return {
+    accountClassification:
+      accountClassificationLabels[publicLedgerAccount.accountClassification],
+    performanceClassification:
+      performanceClassificationLabels[performanceClassification],
+    coverageLabel:
+      earliestEntry && latestEntry
+        ? formatPublicRecordCoverage(
+            earliestEntry.startDate,
+            latestEntry.endDate,
+          )
+        : undefined,
+    scopeLabel: formatPublicScope(publicForwardEntries),
+    hasPublicRecord: publicForwardEntries.length > 0,
+  };
+};
 
 export const getHomepageLedgerTeaserEntries = () => {
   const selectedEntries: LedgerEntry[] = [];
