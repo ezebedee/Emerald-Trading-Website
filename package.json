@@ -11,7 +11,8 @@
     "format": "prettier --write .",
     "format:check": "prettier --check .",
     "assets:audit": "node scripts/audit-assets.mjs",
-    "data:audit": "node scripts/audit-data.mjs"
+    "data:audit": "node scripts/audit-data.mjs",
+    "seo:audit": "node scripts/audit-seo.mjs"
   },
   "dependencies": {
     "clsx": "^2.1.1",
