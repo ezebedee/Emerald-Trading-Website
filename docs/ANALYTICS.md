@@ -186,3 +186,15 @@ Task 0.7A does not add:
 - database writes
 - authentication
 - visible UI
+
+## Reliability Events
+
+Task 0.7B wires error boundaries to the existing analytics contract with safe reliability events only.
+
+Allowed properties are limited to non-sensitive operational labels such as:
+
+- `boundary`
+- `routeGroup`
+- `action`
+
+Do not send raw `Error` objects, error messages, stack traces, digests, URL query strings, user-entered content, credentials, or account authentication data.
