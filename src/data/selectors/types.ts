@@ -8,6 +8,24 @@ export type LedgerPublicRecordOverview = Readonly<{
   hasPublicRecord: boolean;
 }>;
 
+export type LedgerLatestPerformanceSnapshot = Readonly<{
+  recordId: ReadableId;
+  title: string;
+  periodType: string;
+  coverageLabel: string;
+  accountClassification: string;
+  performanceClassification: string;
+  netProfit: MoneyValue;
+  returnPct: PercentageValue;
+  endingBalance: MoneyValue;
+  equity: MoneyValue;
+  totalTrades: number;
+  winningTrades: number;
+  losingTrades: number;
+  winRatePct: PercentageValue;
+  maxDrawdownPct?: PercentageValue;
+}>;
+
 export type PerformanceSummary = Readonly<{
   recordId: ReadableId;
   startDate: string;
