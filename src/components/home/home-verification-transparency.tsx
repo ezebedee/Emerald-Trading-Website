@@ -13,11 +13,12 @@ const verificationStatusLabels = {
   retired: "Retired",
 } as const;
 
-const verificationMethodLabels = {
+const verificationMethodLabels: Partial<
+  Record<VerificationRecord["method"], string>
+> = {
   "account-reference": "Account Reference",
   "platform-screenshot": "Platform Screenshot",
   "trade-history": "Trade History",
-  "broker-statement": "Broker Statement",
   "read-only-access": "Read-Only Access",
   "third-party": "External Review",
   "manual-review": "Manual Review",
@@ -71,7 +72,7 @@ function VerificationRecordCard({ record }: { record: VerificationRecord }) {
       <div className="flex flex-col gap-2 sm:flex-row sm:items-start sm:justify-between">
         <div>
           <Badge variant="neutral">
-            {verificationMethodLabels[record.method]}
+            {verificationMethodLabels[record.method] ?? "Supporting Evidence"}
           </Badge>
           <h3 className="text-foreground mt-3 text-base font-semibold">
             {record.title}
@@ -161,7 +162,7 @@ export function HomeVerificationTransparency() {
               </h3>
               <p className="text-muted-foreground mt-4 text-sm leading-6">
                 The homepage summarizes the public review model without showing
-                account numbers, broker details, or access details.
+                sensitive account identifiers or access details.
               </p>
             </div>
 
