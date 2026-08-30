@@ -2,6 +2,27 @@ import { indicators, signalProducts, tradingSystems } from "@/data/products";
 
 import { getAssetById } from "./assets";
 import { getLedgerEntryById } from "./ledger";
+import type { SystemsPagePrimarySystem } from "./types";
+
+const lifecycleStatusLabels = {
+  research: "Research",
+  testing: "Testing",
+  "public-forward-test": "Public Forward Test",
+  "private-production": "Private Production",
+  retired: "Retired",
+} as const;
+
+const marketCategoryLabels = {
+  metals: "Metals",
+  forex: "Forex",
+  indices: "Indices",
+  equities: "Equities",
+  options: "Options",
+  futures: "Futures",
+  cfds: "CFDs",
+  crypto: "Crypto",
+  other: "Other",
+} as const;
 
 const isPublicPublished = <
   T extends { visibility: string; contentStatus: string },
@@ -16,6 +37,54 @@ export const getHomepageFeaturedTradingSystem = () =>
   getPublicTradingSystems().find(
     (system) => system.id === "emerald-quant-system",
   );
+
+export const getSystemsPagePrimarySystem = ():
+  SystemsPagePrimarySystem | undefined => {
+  const system = getPublicTradingSystems().find(
+    (candidate) => candidate.id === "emerald-quant-system",
+  );
+
+  if (!system) {
+    return undefined;
+  }
+
+  const indicator = getPublicIndicatorsForSystem(system.id).find(
+    (candidate) => candidate.id === "emerald-signal-indicator",
+  );
+  const signal = getPublicSignalsForSystem(system.id).find(
+    (candidate) => candidate.id === "emerald-directional-signal-stream",
+  );
+
+  return {
+    id: system.id,
+    name: system.name,
+    shortName: system.shortName,
+    systemType: "Algorithmic Trading System",
+    status: lifecycleStatusLabels[system.lifecycleStatus],
+    platforms: system.platforms,
+    markets: system.marketCategories.map(
+      (category) => marketCategoryLabels[category],
+    ),
+    instruments: system.instruments ?? [],
+    relatedIndicator: indicator
+      ? {
+          id: indicator.id,
+          name: indicator.name,
+          role: "Chart-based analytical and signal-generation input.",
+          href: "/indicators",
+        }
+      : undefined,
+    relatedSignal: signal
+      ? {
+          id: signal.id,
+          name: signal.name,
+          role: "Directional signal context for the system layer.",
+          href: "/signals",
+        }
+      : undefined,
+    publicRecordLabel: "Emerald Ledger",
+  };
+};
 
 export const getPublicIndicators = () => indicators.filter(isPublicPublished);
 
