@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 
+import { LedgerConfigurationSelector } from "@/components/ledger/ledger-configuration-selector";
 import { LedgerHero } from "@/components/ledger/ledger-hero";
 import { LedgerMediaContext } from "@/components/ledger/ledger-media-context";
 import { LedgerPerformanceProgression } from "@/components/ledger/ledger-performance-progression";
@@ -41,6 +42,12 @@ export default async function LedgerPage({ searchParams }: LedgerPageProps) {
   return (
     <>
       <JsonLd data={pageJsonLd} />
+      <LedgerConfigurationSelector
+        options={context.configurationOptions}
+        selectedConfigurationName={
+          context.selectedConfiguration?.configurationName
+        }
+      />
       <LedgerHero overview={context.overview} />
       <LedgerRecordClassification overview={context.overview} />
       <LedgerPerformanceSummary snapshot={context.latestCumulative} />

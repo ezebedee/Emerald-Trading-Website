@@ -4,13 +4,12 @@ import { Badge } from "@/components/ui/badge";
 import { LinkButton } from "@/components/ui/button";
 import { Container } from "@/components/ui/container";
 import { SectionLabel } from "@/components/ui/section-label";
-import { getLedgerVerificationEvidenceRecords } from "@/data/selectors";
 import type { LedgerVerificationEvidenceRecord } from "@/data/selectors";
 
 const evidenceIcons = [FileSearch, Eye] as const;
 
 type LedgerVerificationEvidenceProps = Readonly<{
-  records?: readonly LedgerVerificationEvidenceRecord[];
+  records: readonly LedgerVerificationEvidenceRecord[];
 }>;
 
 function EvidenceRecordCard({
@@ -82,7 +81,7 @@ function EvidenceRecordCard({
 }
 
 export function LedgerVerificationEvidence({
-  records = getLedgerVerificationEvidenceRecords(),
+  records,
 }: LedgerVerificationEvidenceProps) {
   return (
     <section className="bg-background border-t border-[var(--border)] py-12 md:py-14 xl:py-16">
@@ -95,8 +94,8 @@ export function LedgerVerificationEvidence({
             </h2>
             <p className="type-body text-muted-foreground mt-5">
               The public Ledger is accompanied by supporting account-reference
-              information and read-only review mechanisms tied to the Public
-              Demo Reference Account and Forward Performance record.
+              information and read-only review mechanisms tied to the selected
+              public record and its account classification.
             </p>
             <p className="text-subtle-foreground mt-4 text-sm leading-6">
               Reviewable documentation does not imply independent audit or
