@@ -84,6 +84,10 @@ public/
 
 Asset architecture, naming rules, public/private media policy, provenance requirements, and the working inventory live in [docs/ASSETS.md](docs/ASSETS.md) and [docs/ASSET-INVENTORY.md](docs/ASSET-INVENTORY.md).
 
+## Data Architecture
+
+Shared domain types, Zod schemas, performance metric conventions, visibility rules, and public/private data boundaries live in [docs/DATA-ARCHITECTURE.md](docs/DATA-ARCHITECTURE.md).
+
 ## Intended Website Areas
 
 - Home
