@@ -5,6 +5,7 @@ import { LedgerPerformanceProgression } from "@/components/ledger/ledger-perform
 import { LedgerPerformanceSummary } from "@/components/ledger/ledger-performance-summary";
 import { LedgerRecordChronology } from "@/components/ledger/ledger-record-chronology";
 import { LedgerRecordClassification } from "@/components/ledger/ledger-record-classification";
+import { LedgerVerificationEvidence } from "@/components/ledger/ledger-verification-evidence";
 import { JsonLd } from "@/components/seo/json-ld";
 import { getLedgerPublicRecordOverview } from "@/data/selectors";
 import {
@@ -33,6 +34,7 @@ export default function LedgerPage() {
       <LedgerPerformanceSummary />
       <LedgerPerformanceProgression />
       <LedgerRecordChronology />
+      <LedgerVerificationEvidence />
     </>
   );
 }
