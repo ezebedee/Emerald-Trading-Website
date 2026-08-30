@@ -51,6 +51,26 @@ export type CumulativePerformancePoint = Readonly<{
   equity: MoneyValue;
 }>;
 
+export type LedgerChronologyMetricSnapshot = Readonly<{
+  netProfit: MoneyValue;
+  returnPct: PercentageValue;
+  totalTrades: number;
+  winRatePct: PercentageValue;
+}>;
+
+export type LedgerChronologyEntry = Readonly<{
+  id: ReadableId;
+  title: string;
+  periodType: string;
+  startDate: string;
+  endDate: string;
+  coverageLabel: string;
+  accountClassification: string;
+  performanceClassification: string;
+  period: LedgerChronologyMetricSnapshot;
+  cumulative?: Pick<LedgerChronologyMetricSnapshot, "netProfit" | "returnPct">;
+}>;
+
 export type LedgerConsistencyIssue = Readonly<{
   recordId: ReadableId;
   field: string;
