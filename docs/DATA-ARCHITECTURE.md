@@ -266,6 +266,8 @@ Effective cumulative metrics follow the approved period semantics:
 - use `periodMetrics` for the explicit inception daily record, Day 001
 - avoid treating weekly period metrics as cumulative values when `cumulativeMetrics` is absent
 
+The general cumulative performance series returns one canonical snapshot per date for future charting. If multiple aggregate records share a date, the selector prefers explicit cumulative records, then weekly records with cumulative metrics, then daily records with cumulative metrics, then the inception daily record. Specialized daily and weekly cumulative series keep their own cadence, so duplicate aggregate records do not create duplicate points in the general series.
+
 Derived helpers such as win rate, profit factor, return percentage, expected ending balance, profit delta, and return delta are pure QA/view utilities. They return raw numbers or `null` for unavailable unsafe calculations, such as profit factor with zero or missing gross loss. They do not overwrite stored values.
 
 Performance summaries and cumulative-series points are presentation-ready shapes, but they still return raw structured numeric values. Currency strings, percentage strings, locale formatting, and display labels beyond record titles belong in later presentation code.

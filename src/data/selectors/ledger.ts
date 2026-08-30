@@ -63,6 +63,26 @@ const toCumulativePoint = (
 const numbersDiffer = (first: number, second: number, tolerance: number) =>
   Math.abs(first - second) > tolerance;
 
+const cumulativeSnapshotPrecedence = (entry: LedgerEntry) => {
+  if (entry.periodType === "cumulative") {
+    return 4;
+  }
+
+  if (entry.periodType === "weekly" && entry.cumulativeMetrics) {
+    return 3;
+  }
+
+  if (entry.periodType === "daily" && entry.cumulativeMetrics) {
+    return 2;
+  }
+
+  if (entry.id === "day-001") {
+    return 1;
+  }
+
+  return 0;
+};
+
 export const getLedgerEntryById = (id: string) =>
   ledgerEntries.find((entry) => entry.id === id);
 
@@ -125,18 +145,31 @@ export const getEffectiveCumulativeMetrics = (entry: LedgerEntry) => {
 };
 
 export const getCumulativePerformanceSeries = () =>
-  ledgerEntries
-    .filter(isPublic)
-    .map((entry) => {
-      const metrics = getEffectiveCumulativeMetrics(entry);
+  Array.from(
+    ledgerEntries
+      .filter(isPublic)
+      .reduce((snapshotsByDate, entry) => {
+        const metrics = getEffectiveCumulativeMetrics(entry);
 
-      if (!metrics) {
-        return undefined;
-      }
+        if (!metrics) {
+          return snapshotsByDate;
+        }
 
-      return toCumulativePoint(entry, metrics);
-    })
-    .filter((point): point is CumulativePerformancePoint => Boolean(point))
+        const existing = snapshotsByDate.get(entry.endDate);
+
+        if (
+          !existing ||
+          cumulativeSnapshotPrecedence(entry) >
+            cumulativeSnapshotPrecedence(existing.entry)
+        ) {
+          snapshotsByDate.set(entry.endDate, { entry, metrics });
+        }
+
+        return snapshotsByDate;
+      }, new Map<string, { entry: LedgerEntry; metrics: PerformanceMetrics }>())
+      .values(),
+  )
+    .map(({ entry, metrics }) => toCumulativePoint(entry, metrics))
     .toSorted((first, second) => first.date.localeCompare(second.date));
 
 export const getDailyCumulativePerformanceSeries = () =>
