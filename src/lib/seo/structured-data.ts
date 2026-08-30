@@ -1,7 +1,7 @@
 import { getAssetById } from "@/data/selectors/assets";
 import { siteBrand } from "@/data/site";
 
-import { createCanonicalUrl } from "./metadata";
+import { createCanonicalUrl, routeSeoMetadata } from "./metadata";
 
 export type JsonLdPrimitive = string | number | boolean | null;
 export type JsonLdValue =
@@ -13,12 +13,12 @@ export interface JsonLdObject {
 export const organizationJsonLdId = `${createCanonicalUrl("/")}#organization`;
 export const websiteJsonLdId = `${createCanonicalUrl("/")}#website`;
 
-type BreadcrumbItemInput = Readonly<{
+export type BreadcrumbItemInput = Readonly<{
   name: string;
   path: string;
 }>;
 
-type WebPageJsonLdInput = Readonly<{
+export type WebPageJsonLdInput = Readonly<{
   title: string;
   description?: string;
   path: string;
@@ -126,6 +126,15 @@ export const createWebPageJsonLd = ({
     breadcrumb: breadcrumbs ? createBreadcrumbJsonLd(breadcrumbs) : undefined,
   });
 };
+
+export const createRouteWebPageJsonLd = (
+  path: keyof typeof routeSeoMetadata,
+  breadcrumbs?: readonly BreadcrumbItemInput[],
+): JsonLdObject =>
+  createWebPageJsonLd({
+    ...routeSeoMetadata[path],
+    breadcrumbs,
+  });
 
 export const createArticleJsonLd = ({
   headline,

@@ -242,7 +242,82 @@ VideoObject helper usage is reserved for videos with real external metadata. Cur
 
 Structured data must not include performance metrics such as profit, return percentage, win rate, drawdown, or trade count. It must not fabricate reviews, ratings, offers, pricing, awards, financial-product classifications, investment-adviser status, broker/dealer status, audited returns, independent verification, or real-money performance.
 
-Global structured data describes the site and organization. Page-specific structured data should be added later only where visible route content and canonical data support it.
+Global structured data describes the site and organization. Page-specific structured data should be added only where visible route content and canonical data support it.
+
+## Route-Level Metadata Rollout
+
+Task 0.6E centralizes current route titles, descriptions, and canonical paths in `routeSeoMetadata` within `src/lib/seo/metadata.ts`.
+
+All current public registered routes except `/` export route-level metadata through `createPageMetadata()`. The homepage intentionally inherits the root metadata because the root title template, canonical URL, description, Open Graph image, and Twitter defaults already describe the site entry point.
+
+Route metadata coverage currently includes:
+
+- `/ledger`
+- `/systems`
+- `/indicators`
+- `/signals`
+- `/performance`
+- `/performance/compare`
+- `/performance/live-vs-backtest`
+- `/technology`
+- `/research`
+- `/verification`
+- `/videos`
+- `/private-access`
+- `/professional`
+- `/about`
+- `/privacy`
+- `/terms`
+- `/risk-disclosure`
+
+Canonical URLs must always come from `createCanonicalUrl()` through `createPageMetadata()` or a structured-data helper. Route paths stay lowercase, query-free, hash-free, and without trailing slashes except `/`.
+
+Route titles must provide the page label only. Do not manually add the brand suffix to route title inputs; the root title template resolves titles such as `Emerald Ledger | Emerald Legacy Systems`.
+
+Descriptions should be route-specific, evergreen, and free of changing performance figures. Do not put current return, profit, drawdown, win-rate, trade-count, or account-balance numbers in metadata or JSON-LD.
+
+Open Graph and Twitter metadata are inherited through `createPageMetadata()`. Current routes use the approved default social image unless a later task registers and approves a route-specific image.
+
+## Page JSON-LD Usage
+
+Current page-level JSON-LD is limited to generic `WebPage` objects on informational and public marketing routes:
+
+- `/ledger`
+- `/systems`
+- `/indicators`
+- `/signals`
+- `/performance`
+- `/performance/compare`
+- `/performance/live-vs-backtest`
+- `/technology`
+- `/research`
+- `/verification`
+- `/videos`
+- `/private-access`
+- `/professional`
+- `/about`
+
+`/ledger` structured data describes only the public forward-performance record and public demo reference account context. It does not include profit, return, drawdown, win rate, or trade counts.
+
+Performance routes use generic `WebPage` JSON-LD only. Do not add finance-specific schema types, product schema, offer schema, review schema, rating schema, Article markup for generic research pages, or VideoObject markup without real external video metadata.
+
+Breadcrumb JSON-LD is emitted where it clarifies route hierarchy. Top-level pages use `Home > Page`. Nested performance routes use `Home > Performance > Page`. These structured-data breadcrumbs do not imply visible breadcrumb UI.
+
+Legal routes currently use metadata only. Add page-level structured data to legal routes only if a later task supplies complete legal-page content and a clear need.
+
+The public `/private-access` route remains indexable as a marketing/access-request page. Future authenticated or private content must be noindex/nofollow, excluded from the sitemap, and protected by authentication.
+
+## Phase 0.6 Closeout
+
+Phase 0.6 is complete at the foundation level:
+
+- metadata architecture is centralized
+- sitemap and robots output are generated
+- the default social image is registered and inherited
+- structured data is conservative and schema.org-compatible
+- current public routes have route-level SEO coverage
+- `/design-system` remains internal, noindex/nofollow, and excluded from the sitemap
+- future dynamic detail pages can extend the existing metadata and JSON-LD helpers without creating a second SEO system
 
 ## Out Of Scope For 0.6A
 
