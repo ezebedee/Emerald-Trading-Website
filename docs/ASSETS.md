@@ -46,6 +46,8 @@ Do not place private or confidential files anywhere under `public/`. Anything in
 
 Do not invent placeholder logos, marks, or favicon art.
 
+The default Open Graph image is registered under `siteAssets.socialOg` with the stable ID `social-default-og-emerald-legacy-systems`. Social metadata should resolve this asset by ID instead of hardcoding its path in route metadata.
+
 Current approved brand assets:
 
 ```text

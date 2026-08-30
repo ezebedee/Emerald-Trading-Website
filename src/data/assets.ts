@@ -187,7 +187,22 @@ export const siteAssets = {
     },
   ] satisfies ImageAsset[],
   general: [] satisfies ImageAsset[],
-  socialOg: [] satisfies ImageAsset[],
+  socialOg: [
+    {
+      id: "social-default-og-emerald-legacy-systems",
+      kind: "image",
+      src: "/social/og/emerald-legacy-systems-default-og.png",
+      alt: "Emerald Legacy Systems - Quantitative Trading Technology",
+      format: "png",
+      width: 1200,
+      height: 630,
+      description:
+        "Default Open Graph and social-sharing image for Emerald Legacy Systems, using approved brand identity and evergreen positioning.",
+      provenance: {
+        source: "Emerald Legacy Systems",
+      },
+    },
+  ] satisfies ImageAsset[],
   socialThumbnails: [] satisfies ImageAsset[],
 } as const;
 

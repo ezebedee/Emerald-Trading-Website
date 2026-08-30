@@ -1,9 +1,12 @@
 import type { Metadata } from "next";
 
+import { siteAssets } from "@/data/assets";
 import { siteBrand } from "@/data/site";
 
 export const siteUrl = `https://${siteBrand.domain}`;
 export const siteMetadataBase = new URL(siteUrl);
+export const defaultSocialImageAssetId =
+  "social-default-og-emerald-legacy-systems";
 
 export type PageMetadataInput = Readonly<{
   title: string;
@@ -13,6 +16,7 @@ export type PageMetadataInput = Readonly<{
   noFollow?: boolean;
   type?: "website" | "article";
   keywords?: readonly string[];
+  ogImageAssetId?: string;
 }>;
 
 export const createCanonicalUrl = (path = "/") => {
@@ -28,6 +32,25 @@ export const createCanonicalUrl = (path = "/") => {
   return new URL(withoutTrailingSlash, siteMetadataBase).toString();
 };
 
+export const getSocialImageAsset = (assetId?: string) =>
+  siteAssets.socialOg.find((asset) => asset.id === assetId) ??
+  siteAssets.socialOg.find((asset) => asset.id === defaultSocialImageAssetId);
+
+export const createSocialImageMetadata = (assetId?: string) => {
+  const asset = getSocialImageAsset(assetId);
+
+  if (!asset) {
+    return undefined;
+  }
+
+  return {
+    url: createCanonicalUrl(asset.src),
+    width: asset.width,
+    height: asset.height,
+    alt: asset.alt,
+  };
+};
+
 export const createPageMetadata = ({
   title,
   description = siteBrand.metadataDescription,
@@ -36,8 +59,10 @@ export const createPageMetadata = ({
   noFollow = false,
   type = "website",
   keywords,
+  ogImageAssetId,
 }: PageMetadataInput): Metadata => {
   const canonicalUrl = createCanonicalUrl(path);
+  const socialImage = createSocialImageMetadata(ogImageAssetId);
 
   return {
     title,
@@ -57,11 +82,13 @@ export const createPageMetadata = ({
       siteName: siteBrand.name,
       type,
       locale: "en_US",
+      images: socialImage ? [socialImage] : undefined,
     },
     twitter: {
       card: "summary_large_image",
       title,
       description,
+      images: socialImage ? [socialImage] : undefined,
     },
   };
 };
