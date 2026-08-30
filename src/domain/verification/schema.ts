@@ -1,29 +1,38 @@
 import { z } from "zod";
 
 import {
-  accountReferenceSchema,
+  accountClassificationSchema,
   assetReferenceIdSchema,
   contentStatusSchema,
-  isoDateStringSchema,
   readableIdSchema,
   slugSchema,
+  tradingPlatformSchema,
   visibilitySchema,
 } from "../common/schema";
-import { VERIFICATION_RECORD_TYPES } from "./types";
+import { VERIFICATION_METHODS, VERIFICATION_STATUSES } from "./types";
 
-export const verificationRecordTypeSchema = z.enum(VERIFICATION_RECORD_TYPES);
+export const verificationMethodSchema = z.enum(VERIFICATION_METHODS);
+export const verificationStatusSchema = z.enum(VERIFICATION_STATUSES);
 
 export const verificationRecordSchema = z
   .object({
     id: readableIdSchema,
     slug: slugSchema,
     title: z.string().min(1),
-    type: verificationRecordTypeSchema,
-    status: contentStatusSchema,
+    description: z.string().min(1),
+    method: verificationMethodSchema,
+    status: verificationStatusSchema,
+    contentStatus: contentStatusSchema,
     visibility: visibilitySchema,
-    account: accountReferenceSchema.optional(),
-    effectiveDate: isoDateStringSchema.optional(),
-    evidenceAssetIds: z.array(assetReferenceIdSchema).optional(),
+    assetIds: z.array(assetReferenceIdSchema).optional(),
+    primaryAssetId: assetReferenceIdSchema.optional(),
+    relatedLedgerEntryIds: z.array(readableIdSchema).optional(),
+    relatedSystemIds: z.array(readableIdSchema).optional(),
+    accountClassification: accountClassificationSchema.optional(),
+    publicAccountNumber: z.string().min(1).optional(),
+    brokerName: z.string().min(1).optional(),
+    platform: tradingPlatformSchema.optional(),
+    externalUrl: z.string().url().optional(),
     notes: z.string().min(1).optional(),
   })
   .strict();

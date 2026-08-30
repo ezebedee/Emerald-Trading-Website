@@ -3,26 +3,35 @@ import { z } from "zod";
 import {
   assetReferenceIdSchema,
   contentStatusSchema,
-  isoDateStringSchema,
+  isoDateTimeStringSchema,
   readableIdSchema,
   slugSchema,
-  videoReferenceIdSchema,
   visibilitySchema,
 } from "../common/schema";
+import { VIDEO_PLATFORMS } from "./types";
+
+export const videoPlatformSchema = z.enum(VIDEO_PLATFORMS);
 
 export const videoRecordSchema = z
   .object({
-    id: videoReferenceIdSchema,
+    id: readableIdSchema,
     slug: slugSchema,
     title: z.string().min(1),
-    summary: z.string().min(1),
-    status: contentStatusSchema,
+    description: z.string().min(1),
+    contentStatus: contentStatusSchema,
     visibility: visibilitySchema,
-    publishedDate: isoDateStringSchema.optional(),
-    youtubeReferenceId: videoReferenceIdSchema.optional(),
+    videoPlatform: videoPlatformSchema,
+    externalVideoId: z.string().min(1).optional(),
+    externalUrl: z.string().url().optional(),
+    thumbnailAssetId: assetReferenceIdSchema.optional(),
     posterAssetId: assetReferenceIdSchema.optional(),
+    publishedAt: isoDateTimeStringSchema.optional(),
+    durationSeconds: z.number().int().positive().optional(),
     relatedLedgerEntryIds: z.array(readableIdSchema).optional(),
     relatedSystemIds: z.array(readableIdSchema).optional(),
+    relatedIndicatorIds: z.array(readableIdSchema).optional(),
+    relatedSignalIds: z.array(readableIdSchema).optional(),
+    tags: z.array(z.string().min(1)).optional(),
     notes: z.string().min(1).optional(),
   })
   .strict();

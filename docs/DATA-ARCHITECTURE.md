@@ -214,3 +214,32 @@ Public catalog records should use:
 Private/internal catalog records may be modeled later, but visibility metadata alone is not access control. Future private products must not be shipped to public static data or unauthenticated responses.
 
 Product descriptions should remain factual and avoid pricing, guarantees, live-account claims, risk-free language, or unsupported performance claims.
+
+## Research, Video & Verification Semantics
+
+The canonical public content metadata for research, video archive entries, and verification records lives in `src/data/content/`.
+
+Research records separate publication lifecycle from website visibility:
+
+- `publicationStatus` describes the research/publication state, such as draft, submitted, under-review, accepted, published, or archived.
+- `contentStatus` describes whether the website content record itself is draft, published, or archived.
+
+Do not use website content status as a substitute for peer-review, journal acceptance, DOI registration, publisher listing, or publication date. Optional publication fields such as authors, venue, DOI URL, publisher URL, external URL, and publication year remain absent until authoritative metadata is supplied.
+
+Video records are metadata records, not video assets. They may describe a planned or known archive entry before an external platform ID is registered. When no real platform identifier is supplied, keep `externalVideoId` and `externalUrl` absent. Do not fabricate YouTube video IDs, watch URLs, embed URLs, channel IDs, or fetched platform metadata.
+
+Video entries may use Ledger thumbnail asset IDs, but they must not copy image paths, dimensions, formats, alt text, or provenance. They also must not copy Ledger performance metrics. Link to Ledger entries with `relatedLedgerEntryIds` and let Ledger remain the owner of profit, return, trade-count, balance, equity, and drawdown data.
+
+Verification records describe evidence and review methods. They are not a single verified/unverified boolean. Use concrete method/status language such as account-reference, platform-screenshot, read-only-access, available, pending, unavailable, or retired.
+
+Verification records must avoid unsupported claims such as independently verified, audited, third-party verified, or real-money verified unless an approved source provides that basis. Prefer factual language such as documented, reference account, account information, available for review, and supporting evidence.
+
+Verification data may include public-safe account metadata such as broker, platform, account classification, and public account number. It must never include passwords, investor passwords, API keys, secret tokens, or private credentials. Read-only access can be modeled as an availability record, but credentials must be provided outside source code.
+
+All content relationships are ID-based:
+
+- research records may link to systems, indicators, and signal products
+- video records may link to Ledger entries, systems, indicators, and signal products
+- verification records may link to Ledger entries and systems
+
+Content records reference assets by ID only and are parsed through Zod schemas at module load. The content index performs lightweight cross-reference checks so unknown asset, Ledger, system, indicator, or signal IDs fail fast during development and build validation.
