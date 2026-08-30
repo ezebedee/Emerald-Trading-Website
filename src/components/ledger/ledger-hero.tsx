@@ -10,6 +10,13 @@ type LedgerHeroProps = Readonly<{
 }>;
 
 export function LedgerHero({ overview }: LedgerHeroProps) {
+  const heroTitle = overview.hasPublicRecord
+    ? "The public record of documented forward performance."
+    : "Public Ledger context for the selected configuration.";
+  const heroDescription = overview.hasPublicRecord
+    ? "The Emerald Ledger documents the ongoing Forward Performance history associated with the selected Emerald Quant System configuration."
+    : "The Emerald Ledger will display public Forward Performance records for the selected Emerald Quant System configuration when eligible records are available.";
+
   return (
     <section className="border-b border-[var(--border)] py-12 md:py-14 xl:py-16">
       <Container size="wide">
@@ -17,12 +24,10 @@ export function LedgerHero({ overview }: LedgerHeroProps) {
           <div className="max-w-4xl">
             <SectionLabel variant="gold">Emerald Ledger</SectionLabel>
             <h1 className="type-heading-1 text-foreground mt-4 max-w-4xl text-balance">
-              The public record of documented forward performance.
+              {heroTitle}
             </h1>
             <p className="type-body-large text-muted-foreground mt-5 max-w-3xl">
-              The Emerald Ledger documents the ongoing Forward Performance
-              history of the Emerald Quant System using the Public Demo
-              Reference Account.
+              {heroDescription}
             </p>
 
             <dl className="mt-8 grid gap-3 sm:grid-cols-3">

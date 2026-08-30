@@ -232,7 +232,7 @@ export function LedgerPerformanceSummary({
             </h2>
             <p className="type-body text-muted-foreground mt-5">
               This section summarizes the most recent cumulative public record
-              for the Public Demo Reference Account.
+              for the {snapshot.accountClassification}.
             </p>
           </div>
           <div className="flex flex-wrap gap-2">
