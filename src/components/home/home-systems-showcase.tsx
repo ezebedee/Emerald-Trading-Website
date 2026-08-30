@@ -11,8 +11,8 @@ import { Container } from "@/components/ui/container";
 import { SectionLabel } from "@/components/ui/section-label";
 import {
   getHomepageFeaturedTradingSystem,
-  getIndicatorsForSystem,
-  getSignalsForSystem,
+  getPublicIndicatorsForSystem,
+  getPublicSignalsForSystem,
 } from "@/data/selectors";
 import type { TradingSystem } from "@/domain";
 
@@ -112,8 +112,8 @@ export function HomeSystemsShowcase() {
   }
 
   const capabilityItems = getCapabilityItems(system);
-  const relatedIndicators = getIndicatorsForSystem(system.id);
-  const relatedSignals = getSignalsForSystem(system.id);
+  const relatedIndicators = getPublicIndicatorsForSystem(system.id);
+  const relatedSignals = getPublicSignalsForSystem(system.id);
   const supportedMarkets = [
     ...(system.instruments ?? []),
     ...system.marketCategories.map(formatMarketCategory),

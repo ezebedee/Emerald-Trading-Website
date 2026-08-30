@@ -50,6 +50,9 @@ export const getIndicatorsForSystem = (systemId: string) => {
     );
 };
 
+export const getPublicIndicatorsForSystem = (systemId: string) =>
+  getIndicatorsForSystem(systemId).filter(isPublicPublished);
+
 export const getSignalsForSystem = (systemId: string) => {
   const system = getTradingSystemById(systemId);
 
@@ -57,6 +60,9 @@ export const getSignalsForSystem = (systemId: string) => {
     .map(getSignalProductById)
     .filter((signal): signal is NonNullable<typeof signal> => Boolean(signal));
 };
+
+export const getPublicSignalsForSystem = (systemId: string) =>
+  getSignalsForSystem(systemId).filter(isPublicPublished);
 
 export const getSystemsForIndicator = (indicatorId: string) => {
   const indicator = getIndicatorById(indicatorId);
