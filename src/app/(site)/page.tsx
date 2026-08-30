@@ -3,6 +3,7 @@ import { HomeIndicatorsSignalsShowcase } from "@/components/home/home-indicators
 import { HomeLedgerTeaser } from "@/components/home/home-ledger-teaser";
 import { HomePerformanceSnapshot } from "@/components/home/home-performance-snapshot";
 import { HomeSystemsShowcase } from "@/components/home/home-systems-showcase";
+import { HomeTechnologyResearch } from "@/components/home/home-technology-research";
 import { HomeTrustStrip } from "@/components/home/home-trust-strip";
 
 export default function Home() {
@@ -14,6 +15,7 @@ export default function Home() {
       <HomeLedgerTeaser />
       <HomeSystemsShowcase />
       <HomeIndicatorsSignalsShowcase />
+      <HomeTechnologyResearch />
     </>
   );
 }
