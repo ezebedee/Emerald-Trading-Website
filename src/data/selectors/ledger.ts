@@ -11,6 +11,7 @@ import { getAssetById } from "./assets";
 import type {
   CumulativePerformancePoint,
   LedgerConsistencyIssue,
+  LedgerLatestPerformanceSnapshot,
   LedgerPublicRecordOverview,
   PerformanceSummary,
 } from "./types";
@@ -210,6 +211,19 @@ export const getLatestCumulativeLedgerEntry = () =>
 
 export const getPublicLedgerEntries = () => ledgerEntries.filter(isPublic);
 
+const assertTradeOutcomeConsistency = (entry: LedgerEntry) => {
+  const metrics = getEffectiveCumulativeMetrics(entry);
+
+  if (
+    metrics &&
+    metrics.winningTrades + metrics.losingTrades !== metrics.totalTrades
+  ) {
+    throw new Error(
+      `Ledger entry ${entry.id} has cumulative trade outcomes that do not sum to total trades.`,
+    );
+  }
+};
+
 export const getLedgerPublicRecordOverview = (): LedgerPublicRecordOverview => {
   const publicForwardEntries = ledgerEntries.filter(isPublicForwardPerformance);
   const earliestEntry = publicForwardEntries.reduce<LedgerEntry | undefined>(
@@ -245,6 +259,48 @@ export const getLedgerPublicRecordOverview = (): LedgerPublicRecordOverview => {
   };
 };
 
+export const getLatestPublicCumulativeLedgerRecord = ():
+  LedgerLatestPerformanceSnapshot | undefined => {
+  const latestEntry = latestByEndDate(
+    cumulativeLedgerEntries.filter(isPublicForwardPerformance),
+  );
+
+  if (!latestEntry) {
+    return undefined;
+  }
+
+  assertTradeOutcomeConsistency(latestEntry);
+
+  const metrics = getEffectiveCumulativeMetrics(latestEntry);
+
+  if (!metrics) {
+    return undefined;
+  }
+
+  return {
+    recordId: latestEntry.id,
+    title: latestEntry.title,
+    periodType: periodTypeLabels[latestEntry.periodType],
+    coverageLabel: formatPublicRecordCoverage(
+      latestEntry.startDate,
+      latestEntry.endDate,
+    ),
+    accountClassification:
+      accountClassificationLabels[latestEntry.accountClassification],
+    performanceClassification:
+      performanceClassificationLabels[latestEntry.performanceClassification],
+    netProfit: metrics.netProfit,
+    returnPct: metrics.returnPct,
+    endingBalance: metrics.endingBalance,
+    equity: metrics.equity,
+    totalTrades: metrics.totalTrades,
+    winningTrades: metrics.winningTrades,
+    losingTrades: metrics.losingTrades,
+    winRatePct: metrics.winRatePct,
+    maxDrawdownPct: metrics.maxDrawdownPct,
+  };
+};
+
 export const getHomepageLedgerTeaserEntries = () => {
   const selectedEntries: LedgerEntry[] = [];
   const selectedEndDates = new Set<string>();
@@ -272,7 +328,9 @@ export const getHomepageLedgerTeaserEntries = () => {
 };
 
 export const getLatestPublicPerformanceSummary = () => {
-  const latestEntry = latestByEndDate(cumulativeLedgerEntries.filter(isPublic));
+  const latestEntry = latestByEndDate(
+    cumulativeLedgerEntries.filter(isPublicForwardPerformance),
+  );
 
   if (!latestEntry) {
     return undefined;
