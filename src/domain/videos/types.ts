@@ -1,24 +1,38 @@
 import type {
   AssetReferenceId,
   ContentStatus,
-  ISODateString,
+  ISODateTimeString,
   ReadableId,
   Slug,
-  VideoReferenceId,
   Visibility,
 } from "../common/types";
 
+export const VIDEO_PLATFORMS = [
+  "youtube",
+  "vimeo",
+  "internal",
+  "other",
+] as const;
+export type VideoPlatform = (typeof VIDEO_PLATFORMS)[number];
+
 export type VideoRecord = Readonly<{
-  id: VideoReferenceId;
+  id: ReadableId;
   slug: Slug;
   title: string;
-  summary: string;
-  status: ContentStatus;
+  description: string;
+  contentStatus: ContentStatus;
   visibility: Visibility;
-  publishedDate?: ISODateString;
-  youtubeReferenceId?: VideoReferenceId;
+  videoPlatform: VideoPlatform;
+  externalVideoId?: string;
+  externalUrl?: string;
+  thumbnailAssetId?: AssetReferenceId;
   posterAssetId?: AssetReferenceId;
+  publishedAt?: ISODateTimeString;
+  durationSeconds?: number;
   relatedLedgerEntryIds?: readonly ReadableId[];
   relatedSystemIds?: readonly ReadableId[];
+  relatedIndicatorIds?: readonly ReadableId[];
+  relatedSignalIds?: readonly ReadableId[];
+  tags?: readonly string[];
   notes?: string;
 }>;

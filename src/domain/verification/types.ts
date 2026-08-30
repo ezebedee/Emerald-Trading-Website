@@ -1,30 +1,50 @@
 import type {
-  AccountReference,
+  AccountClassification,
   AssetReferenceId,
   ContentStatus,
-  ISODateString,
   ReadableId,
   Slug,
+  TradingPlatform,
   Visibility,
 } from "../common/types";
 
-export const VERIFICATION_RECORD_TYPES = [
+export const VERIFICATION_METHODS = [
   "account-reference",
-  "statement",
+  "platform-screenshot",
   "trade-history",
-  "methodology",
+  "broker-statement",
+  "read-only-access",
+  "third-party",
+  "manual-review",
+  "other",
 ] as const;
-export type VerificationRecordType = (typeof VERIFICATION_RECORD_TYPES)[number];
+export type VerificationMethod = (typeof VERIFICATION_METHODS)[number];
+
+export const VERIFICATION_STATUSES = [
+  "available",
+  "pending",
+  "unavailable",
+  "retired",
+] as const;
+export type VerificationStatus = (typeof VERIFICATION_STATUSES)[number];
 
 export type VerificationRecord = Readonly<{
   id: ReadableId;
   slug: Slug;
   title: string;
-  type: VerificationRecordType;
-  status: ContentStatus;
+  description: string;
+  method: VerificationMethod;
+  status: VerificationStatus;
+  contentStatus: ContentStatus;
   visibility: Visibility;
-  account?: AccountReference;
-  effectiveDate?: ISODateString;
-  evidenceAssetIds?: readonly AssetReferenceId[];
+  assetIds?: readonly AssetReferenceId[];
+  primaryAssetId?: AssetReferenceId;
+  relatedLedgerEntryIds?: readonly ReadableId[];
+  relatedSystemIds?: readonly ReadableId[];
+  accountClassification?: AccountClassification;
+  publicAccountNumber?: string;
+  brokerName?: string;
+  platform?: TradingPlatform;
+  externalUrl?: string;
   notes?: string;
 }>;
