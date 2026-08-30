@@ -64,6 +64,19 @@ const getPeriodTypeDescription = (periodType: string) => {
   return "Single-day reporting entry";
 };
 
+const formatScopeTypes = (entries: readonly LedgerChronologyEntry[]) => {
+  const orderedTypes = ["Daily", "Weekly", "Cumulative"] as const;
+  const availableTypes = orderedTypes.filter((periodType) =>
+    entries.some((entry) => entry.periodType === periodType),
+  );
+
+  if (availableTypes.length <= 1) {
+    return availableTypes[0]?.toLowerCase() ?? "available";
+  }
+
+  return `${availableTypes.slice(0, -1).join(", ")} and ${availableTypes.at(-1)}`.toLowerCase();
+};
+
 const hasMeaningfulCumulativeContext = (entry: LedgerChronologyEntry) => {
   if (!entry.cumulative || entry.periodType === "Cumulative") {
     return false;
@@ -207,11 +220,11 @@ export function LedgerRecordChronology({
           <div className="surface-elevated rounded-lg p-5 md:p-6">
             <SectionLabel variant="gold">Ledger Chronology</SectionLabel>
             <h2 className="type-heading-2 text-foreground mt-4 text-balance">
-              A chronological record of documented daily, weekly, and cumulative
-              reporting.
+              A chronological record for the selected configuration.
             </h2>
             <p className="type-body text-muted-foreground mt-5">
-              No public Ledger records are currently available.
+              No public Ledger entries are currently available for this
+              configuration.
             </p>
           </div>
         </Container>
@@ -226,7 +239,7 @@ export function LedgerRecordChronology({
           <div className="max-w-3xl">
             <SectionLabel variant="gold">Ledger Chronology</SectionLabel>
             <h2 className="type-heading-2 text-foreground mt-4 text-balance">
-              A chronological record of documented daily, weekly, and cumulative
+              A chronological record of documented {formatScopeTypes(entries)}{" "}
               reporting.
             </h2>
             <p className="type-body text-muted-foreground mt-5">

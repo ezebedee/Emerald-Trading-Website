@@ -171,10 +171,11 @@ export function LedgerPerformanceSummary({
               Current Performance Snapshot
             </SectionLabel>
             <h2 className="type-heading-2 text-foreground mt-4 text-balance">
-              The latest cumulative Forward Performance snapshot.
+              No cumulative public performance snapshot is currently available.
             </h2>
             <p className="type-body text-muted-foreground mt-5">
-              Current cumulative public performance is not available.
+              Available public records for the selected configuration do not yet
+              include a cumulative snapshot.
             </p>
           </div>
         </Container>

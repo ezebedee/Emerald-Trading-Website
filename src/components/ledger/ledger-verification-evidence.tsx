@@ -83,6 +83,8 @@ function EvidenceRecordCard({
 export function LedgerVerificationEvidence({
   records,
 }: LedgerVerificationEvidenceProps) {
+  const hasRecords = records.length > 0;
+
   return (
     <section className="bg-background border-t border-[var(--border)] py-12 md:py-14 xl:py-16">
       <Container size="wide">
@@ -90,12 +92,14 @@ export function LedgerVerificationEvidence({
           <div className="max-w-3xl">
             <SectionLabel variant="gold">Verification & Evidence</SectionLabel>
             <h2 className="type-heading-2 text-foreground mt-4 text-balance">
-              Review mechanisms supporting the public Ledger record.
+              {hasRecords
+                ? "Review mechanisms supporting the public Ledger record."
+                : "Verification context for the selected configuration."}
             </h2>
             <p className="type-body text-muted-foreground mt-5">
-              The public Ledger is accompanied by supporting account-reference
-              information and read-only review mechanisms tied to the selected
-              public record and its account classification.
+              {hasRecords
+                ? "The public Ledger is accompanied by supporting account-reference information and read-only review mechanisms tied to the selected public record and its account classification."
+                : "No public verification material is currently associated with this configuration."}
             </p>
             <p className="text-subtle-foreground mt-4 text-sm leading-6">
               Reviewable documentation does not imply independent audit or
@@ -111,7 +115,7 @@ export function LedgerVerificationEvidence({
             </LinkButton>
           </div>
 
-          {records.length > 0 ? (
+          {hasRecords ? (
             <div className="grid gap-4 md:grid-cols-2 xl:gap-5">
               {records.map((record, index) => (
                 <EvidenceRecordCard
@@ -124,7 +128,8 @@ export function LedgerVerificationEvidence({
           ) : (
             <div className="surface-elevated rounded-lg p-5 md:p-6">
               <p className="type-body text-muted-foreground">
-                Public verification records are not currently available.
+                No public verification material is currently associated with
+                this configuration.
               </p>
             </div>
           )}

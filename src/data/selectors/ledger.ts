@@ -187,6 +187,16 @@ const formatPublicScope = (entries: readonly LedgerEntry[]) => {
   return `${labels.slice(0, -1).join(", ")} & ${labels.at(-1)}`;
 };
 
+const getAvailablePublicPeriodTypeLabels = (
+  entries: readonly LedgerEntry[],
+) => {
+  const availableTypes = new Set(entries.map((entry) => entry.periodType));
+
+  return orderedPublicScope
+    .filter((periodType) => availableTypes.has(periodType))
+    .map((periodType) => periodTypeLabels[periodType]);
+};
+
 const cumulativeSnapshotPrecedence = (entry: LedgerEntry) => {
   if (entry.periodType === "cumulative") {
     return 4;
@@ -345,6 +355,8 @@ export const getLedgerPublicRecordOverviewFromRecords = (
           )
         : undefined,
     scopeLabel: formatPublicScope(publicForwardEntries),
+    availablePeriodTypes:
+      getAvailablePublicPeriodTypeLabels(publicForwardEntries),
     hasPublicRecord: publicForwardEntries.length > 0,
   };
 };

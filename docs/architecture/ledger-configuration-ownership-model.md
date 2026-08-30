@@ -93,6 +93,19 @@ Current cumulative values:
 
 Progression keeps the approved cumulative checkpoint precedence and does not blend across configurations.
 
+## Partial And Empty Configuration States
+
+Ledger sections render independently from the selected configuration's scoped public Forward Performance records.
+
+- Full record: hero, classification, summary, progression, chronology, verification, and media render from the selected configuration's owned records and related content only.
+- Valid empty configuration: the selector remains on the selected configuration, but the hero, record file, classification, summary, progression, chronology, verification, and media sections render neutral unavailable states without substituting Metals / XAUUSD data.
+- Partial chronology: chronology renders only the available scoped records and labels the reporting cadence from the actual selected record types.
+- No cumulative record: summary does not fabricate a cumulative snapshot, and progression renders only available cumulative checkpoints. A single checkpoint is shown as a semantic table without a trend line.
+- No verification: verification renders a neutral selected-configuration message instead of Metals verification records.
+- No media: media renders a neutral selected-configuration message instead of Metals media records.
+
+The Ledger record-file visual reflects the selected configuration's available public period types in deterministic Daily, Weekly, Cumulative order. Future monthly, quarterly, annual, or custom records can remain in chronology and data selectors, while the hero record-file visual intentionally shows the currently recognized public Ledger scope types only.
+
 ## Verification And Media
 
 Verification and media selector foundations can be scoped by selected system/configuration ID and the selected configuration-owned Ledger record IDs.
