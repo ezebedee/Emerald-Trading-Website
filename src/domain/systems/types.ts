@@ -13,6 +13,9 @@ import type {
 
 export type TradingSystem = Readonly<{
   id: ReadableId;
+  familyId: ReadableId;
+  configurationKey: Slug;
+  configurationName: string;
   slug: Slug;
   name: string;
   shortName?: string;

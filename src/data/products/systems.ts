@@ -6,6 +6,9 @@ const ledgerPerformanceRecordIds = ledgerEntries.map((entry) => entry.id);
 const rawTradingSystems = [
   {
     id: "emerald-quant-system",
+    familyId: "emerald-quant-system-family",
+    configurationKey: "metals-xauusd",
+    configurationName: "Metals / XAUUSD",
     slug: "emerald-quant-system",
     name: "Emerald Quant System",
     shortName: "Emerald Quant",

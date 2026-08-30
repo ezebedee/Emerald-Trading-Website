@@ -2,10 +2,12 @@ import { ledgerEntries } from "@/data/ledger";
 import { ledgerAssets, siteAssets } from "@/data/assets";
 import { indicators } from "./indicators";
 import { signalProducts } from "./signals";
+import { systemFamilies } from "./system-families";
 import { tradingSystems } from "./systems";
 
 export * from "./indicators";
 export * from "./signals";
+export * from "./system-families";
 export * from "./systems";
 
 const idsFrom = (records: readonly { id: string }[]) =>
@@ -27,6 +29,7 @@ const assetIds = new Set([
 ]);
 
 const systemIds = new Set(tradingSystems.map((system) => system.id));
+const systemFamilyIds = new Set(systemFamilies.map((family) => family.id));
 const indicatorIds = new Set(indicators.map((indicator) => indicator.id));
 const signalProductIds = new Set(signalProducts.map((signal) => signal.id));
 const performanceRecordIds = new Set(ledgerEntries.map((entry) => entry.id));
@@ -45,6 +48,12 @@ const assertKnownIds = (
 };
 
 for (const system of tradingSystems) {
+  assertKnownIds(
+    system.id,
+    "system family",
+    [system.familyId],
+    systemFamilyIds,
+  );
   assertKnownIds(system.id, "asset", system.assetIds, assetIds);
   assertKnownIds(
     system.id,
@@ -70,6 +79,27 @@ for (const system of tradingSystems) {
     system.performanceRecordIds,
     performanceRecordIds,
   );
+}
+
+for (const family of systemFamilies) {
+  assertKnownIds(
+    family.id,
+    "system configuration",
+    family.configurationIds,
+    systemIds,
+  );
+
+  for (const configurationId of family.configurationIds) {
+    const configuration = tradingSystems.find(
+      (system) => system.id === configurationId,
+    );
+
+    if (configuration?.familyId !== family.id) {
+      throw new Error(
+        `${family.id} references configuration "${configurationId}" without a matching familyId back-reference.`,
+      );
+    }
+  }
 }
 
 for (const indicator of indicators) {
