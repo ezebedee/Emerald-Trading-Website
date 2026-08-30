@@ -18,6 +18,9 @@ const PERCENTAGE_TOLERANCE = 0.01;
 
 const isPublic = (entry: LedgerEntry) => entry.visibility === "public";
 
+const isPublicForwardPerformance = (entry: LedgerEntry) =>
+  isPublic(entry) && entry.performanceClassification === "forward-performance";
+
 const latestByEndDate = <T extends { endDate: string }>(
   entries: readonly T[],
 ) =>
@@ -115,6 +118,32 @@ export const getLatestCumulativeLedgerEntry = () =>
   latestByEndDate(cumulativeLedgerEntries);
 
 export const getPublicLedgerEntries = () => ledgerEntries.filter(isPublic);
+
+export const getHomepageLedgerTeaserEntries = () => {
+  const selectedEntries: LedgerEntry[] = [];
+  const selectedEndDates = new Set<string>();
+
+  const addLatestNonDuplicateEntry = (entries: readonly LedgerEntry[]) => {
+    const entry = latestByEndDate(
+      entries.filter(
+        (candidate) =>
+          isPublicForwardPerformance(candidate) &&
+          !selectedEndDates.has(candidate.endDate),
+      ),
+    );
+
+    if (entry) {
+      selectedEntries.push(entry);
+      selectedEndDates.add(entry.endDate);
+    }
+  };
+
+  addLatestNonDuplicateEntry(cumulativeLedgerEntries);
+  addLatestNonDuplicateEntry(weeklyLedgerEntries);
+  addLatestNonDuplicateEntry(dailyLedgerEntries);
+
+  return selectedEntries;
+};
 
 export const getLatestPublicPerformanceSummary = () => {
   const latestEntry = latestByEndDate(cumulativeLedgerEntries.filter(isPublic));
