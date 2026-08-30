@@ -184,6 +184,8 @@ Daily media must map to a Daily Ledger entry. Weekly media must map to a Weekly 
 
 Do not reuse an old thumbnail with current metrics.
 
+Current approved Ledger thumbnails are registered in `src/data/assets.ts` under `ledgerAssets`. They are preview media only; future Ledger pages must still use structured Ledger records as the authoritative source of performance data.
+
 ## Public Demo Terminology
 
 Do not label public demo record media as:
@@ -262,6 +264,6 @@ For third-party media, document the license and source. Do not download internet
 
 Use `src/data/assets.ts` for canonical asset references and `src/types/assets.ts` for shared types. Page components should consume typed manifest entries rather than scattering raw image and document paths.
 
-The manifest currently contains empty groups because no approved production media has been supplied. It must not reference nonexistent runtime files.
+The manifest currently contains approved brand assets and approved Ledger thumbnails, with other groups left empty until assets are supplied and approved. It must not reference nonexistent runtime files.
 
 Future CMS or database media records may replace or feed the manifest. Do not couple future page components permanently to local-only assumptions.

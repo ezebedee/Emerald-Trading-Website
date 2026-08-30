@@ -41,18 +41,151 @@ export const brandAssets = {
 } as const;
 
 export const ledgerAssets = {
-  daily: [] satisfies LedgerMediaAsset[],
-  weekly: [] satisfies LedgerMediaAsset[],
-  cumulative: [] satisfies LedgerMediaAsset[],
+  daily: [
+    {
+      id: "ledger-day-001-2026-08-17-thumbnail",
+      kind: "image",
+      src: "/images/ledger/daily/ledger-day-001-2026-08-17-thumbnail.png",
+      alt: "Emerald Ledger Day 001 public demo reference account thumbnail.",
+      format: "png",
+      width: 1672,
+      height: 941,
+      description:
+        "Approved public Emerald Ledger thumbnail for Day 001, showing summarized public reference-account results.",
+      provenance: {
+        source: "Emerald Legacy Systems",
+      },
+      ledgerEntryId: "day-001",
+      mediaType: "thumbnail",
+      dateRange: {
+        start: "2026-08-17",
+        end: "2026-08-17",
+      },
+    },
+    {
+      id: "ledger-day-002-2026-08-18-thumbnail",
+      kind: "image",
+      src: "/images/ledger/daily/ledger-day-002-2026-08-18-thumbnail.png",
+      alt: "Emerald Ledger Day 002 public demo record thumbnail.",
+      format: "png",
+      width: 1672,
+      height: 941,
+      description:
+        "Approved public Emerald Ledger thumbnail for Day 002, showing summarized public demo record results.",
+      provenance: {
+        source: "Emerald Legacy Systems",
+      },
+      ledgerEntryId: "day-002",
+      mediaType: "thumbnail",
+      dateRange: {
+        start: "2026-08-18",
+        end: "2026-08-18",
+      },
+    },
+    {
+      id: "ledger-day-003-2026-08-19-thumbnail",
+      kind: "image",
+      src: "/images/ledger/daily/ledger-day-003-2026-08-19-thumbnail.png",
+      alt: "Emerald Ledger Day 003 public performance record thumbnail.",
+      format: "png",
+      width: 1672,
+      height: 941,
+      description:
+        "Approved public Emerald Ledger thumbnail for Day 003, showing summarized public performance record results.",
+      provenance: {
+        source: "Emerald Legacy Systems",
+      },
+      ledgerEntryId: "day-003",
+      mediaType: "thumbnail",
+      dateRange: {
+        start: "2026-08-19",
+        end: "2026-08-19",
+      },
+    },
+  ] satisfies LedgerMediaAsset[],
+  weekly: [
+    {
+      id: "ledger-week-01-2026-08-17-2026-08-21-thumbnail",
+      kind: "image",
+      src: "/images/ledger/weekly/ledger-week-01-2026-08-17_2026-08-21-thumbnail.png",
+      alt: "Emerald Ledger Week 01 public performance thumbnail.",
+      format: "png",
+      width: 1672,
+      height: 941,
+      description:
+        "Approved public Emerald Ledger thumbnail for Week 01, covering 2026-08-17 through 2026-08-21.",
+      provenance: {
+        source: "Emerald Legacy Systems",
+      },
+      ledgerEntryId: "week-01",
+      mediaType: "thumbnail",
+      dateRange: {
+        start: "2026-08-17",
+        end: "2026-08-21",
+      },
+    },
+  ] satisfies LedgerMediaAsset[],
+  cumulative: [
+    {
+      id: "ledger-cumulative-2-weeks-2026-08-17-2026-08-28-thumbnail",
+      kind: "image",
+      src: "/images/ledger/cumulative/ledger-cumulative-2-weeks-2026-08-17_2026-08-28-thumbnail.png",
+      alt: "Emerald Ledger two-week cumulative public performance thumbnail.",
+      format: "png",
+      width: 1672,
+      height: 941,
+      description:
+        "Approved public Emerald Ledger cumulative thumbnail covering 2026-08-17 through 2026-08-28.",
+      provenance: {
+        source: "Emerald Legacy Systems",
+      },
+      ledgerEntryId: "cumulative-2-weeks",
+      mediaType: "thumbnail",
+      dateRange: {
+        start: "2026-08-17",
+        end: "2026-08-28",
+      },
+    },
+  ] satisfies LedgerMediaAsset[],
 } as const;
 
 export const siteAssets = {
   systems: [] satisfies ImageAsset[],
-  indicators: [] satisfies ImageAsset[],
+  indicators: [
+    {
+      id: "indicator-emerald-signal-mt4-01",
+      kind: "image",
+      src: "/images/indicators/emerald-signal-indicator-mt4-01.png",
+      alt: "MT4 chart showing the Emerald Signal Indicator with trade-direction markers and pip annotations.",
+      format: "png",
+      width: 1672,
+      height: 941,
+      description:
+        "Approved Emerald product/interface screenshot showing the Emerald Signal Indicator on an MT4 XAUUSD chart.",
+      provenance: {
+        source: "Emerald Legacy Systems",
+      },
+    },
+  ] satisfies ImageAsset[],
   signals: [] satisfies ImageAsset[],
   technology: [] satisfies ImageAsset[],
   research: [] satisfies ImageAsset[],
-  verification: [] satisfies ImageAsset[],
+  verification: [
+    {
+      id: "public-demo-reference-account-info",
+      kind: "image",
+      src: "/images/verification/public-demo-reference-account-info.png",
+      alt: "Public demo reference account information for the Emerald Legacy Systems performance record.",
+      format: "png",
+      width: 1672,
+      height: 941,
+      description:
+        "Approved verification screenshot documenting the public demo reference account used for the Emerald Ledger performance record.",
+      provenance: {
+        source: "Emerald Legacy Systems",
+      },
+    },
+  ] satisfies ImageAsset[],
   general: [] satisfies ImageAsset[],
   socialOg: [] satisfies ImageAsset[],
   socialThumbnails: [] satisfies ImageAsset[],
