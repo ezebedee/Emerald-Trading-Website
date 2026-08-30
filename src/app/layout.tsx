@@ -2,8 +2,14 @@ import type { Metadata } from "next";
 import { Inter } from "next/font/google";
 import type { ReactNode } from "react";
 
+import { JsonLd } from "@/components/seo/json-ld";
 import { siteBrand } from "@/data/site";
-import { createSocialImageMetadata, siteMetadataBase } from "@/lib/seo";
+import {
+  createOrganizationJsonLd,
+  createSocialImageMetadata,
+  createWebsiteJsonLd,
+  siteMetadataBase,
+} from "@/lib/seo";
 
 import "./globals.css";
 
@@ -14,6 +20,7 @@ const inter = Inter({
 });
 
 const defaultSocialImage = createSocialImageMetadata();
+const rootJsonLd = [createOrganizationJsonLd(), createWebsiteJsonLd()];
 
 export const metadata: Metadata = {
   title: {
@@ -53,7 +60,10 @@ type RootLayoutProps = Readonly<{
 export default function RootLayout({ children }: RootLayoutProps) {
   return (
     <html lang="en" className={inter.variable}>
-      <body>{children}</body>
+      <body>
+        <JsonLd data={rootJsonLd} />
+        {children}
+      </body>
     </html>
   );
 }
