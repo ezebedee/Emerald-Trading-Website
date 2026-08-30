@@ -82,8 +82,7 @@ function ConfigurationSelector({
       <div className="flex flex-col gap-2 md:flex-row md:items-center md:justify-between">
         <p className="type-label text-gold-warm">Asset-Class Configuration</p>
         <p className="text-muted-foreground text-sm leading-6">
-          Select a public configuration to review its configuration-specific
-          documented record. Asset classes without a public configuration remain
+          Select an available public configuration. Other asset classes remain
           family coverage only.
         </p>
       </div>

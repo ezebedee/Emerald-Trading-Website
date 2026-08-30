@@ -154,8 +154,27 @@ export const getPrimaryPublicSystemFamily = () =>
 export const getPublicConfigurationsForFamily = (familyId: string) =>
   getPublicTradingSystems().filter((system) => system.familyId === familyId);
 
+const getListedPublicConfigurationsForFamily = (familyId: string) => {
+  const family = getSystemFamilyById(familyId);
+
+  if (!family || !isPublicPublished(family)) {
+    return [];
+  }
+
+  const publicConfigurationsById = new Map(
+    getPublicConfigurationsForFamily(familyId).map((system) => [
+      system.id,
+      system,
+    ]),
+  );
+
+  return family.configurationIds
+    .map((id) => publicConfigurationsById.get(id))
+    .filter((system): system is NonNullable<typeof system> => Boolean(system));
+};
+
 export const getDefaultPublicConfigurationForFamily = (familyId: string) =>
-  getPublicConfigurationsForFamily(familyId).find(
+  getListedPublicConfigurationsForFamily(familyId).find(
     (system) =>
       system.id === defaultSystemsPageConfigurationId &&
       system.familyId === familyId,
@@ -168,7 +187,7 @@ export const getSystemsPageSelectedConfiguration = ({
   familyId: string;
   requestedConfigurationId?: string;
 }) => {
-  const publicConfigurations = getPublicConfigurationsForFamily(familyId);
+  const publicConfigurations = getListedPublicConfigurationsForFamily(familyId);
   const requestedConfiguration = requestedConfigurationId
     ? publicConfigurations.find(
         (system) => system.id === requestedConfigurationId,
@@ -194,9 +213,9 @@ export const getSystemsPageConfigurationOptions = ({
   const publicConfigurations = getPublicConfigurationsForFamily(family.id);
 
   return family.marketCategories.map((marketCategory) => {
-    const configuration = publicConfigurations
-      .filter((system) => family.configurationIds.includes(system.id))
-      .find((system) => system.marketCategories.includes(marketCategory));
+    const configuration = family.configurationIds
+      .map((id) => publicConfigurations.find((system) => system.id === id))
+      .find((system) => system?.marketCategories.includes(marketCategory));
 
     return {
       marketCategory,
