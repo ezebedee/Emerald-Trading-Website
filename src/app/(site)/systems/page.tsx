@@ -1,7 +1,10 @@
 import type { Metadata } from "next";
 
-import { PagePlaceholder } from "@/components/dev/page-placeholder";
 import { JsonLd } from "@/components/seo/json-ld";
+import { SystemPositioning } from "@/components/systems/system-positioning";
+import { SystemRelationshipOverview } from "@/components/systems/system-relationship-overview";
+import { SystemsHero } from "@/components/systems/systems-hero";
+import { getSystemsPagePrimarySystem } from "@/data/selectors";
 import {
   createPageMetadata,
   createRouteWebPageJsonLd,
@@ -18,10 +21,14 @@ const pageJsonLd = createRouteWebPageJsonLd("/systems", [
 ]);
 
 export default function SystemsPage() {
+  const system = getSystemsPagePrimarySystem();
+
   return (
     <>
       <JsonLd data={pageJsonLd} />
-      <PagePlaceholder title="Systems" />
+      <SystemsHero system={system} />
+      <SystemPositioning system={system} />
+      <SystemRelationshipOverview system={system} />
     </>
   );
 }

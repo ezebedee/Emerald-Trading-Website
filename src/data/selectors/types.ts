@@ -93,6 +93,27 @@ export type LedgerMediaContextRecord = Readonly<{
   description: string;
 }>;
 
+export type SystemsPageRelatedProduct = Readonly<{
+  id: ReadableId;
+  name: string;
+  role: string;
+  href: string;
+}>;
+
+export type SystemsPagePrimarySystem = Readonly<{
+  id: ReadableId;
+  name: string;
+  shortName?: string;
+  systemType: string;
+  status: string;
+  platforms: readonly string[];
+  markets: readonly string[];
+  instruments: readonly string[];
+  relatedIndicator?: SystemsPageRelatedProduct;
+  relatedSignal?: SystemsPageRelatedProduct;
+  publicRecordLabel: string;
+}>;
+
 export type LedgerConsistencyIssue = Readonly<{
   recordId: ReadableId;
   field: string;
