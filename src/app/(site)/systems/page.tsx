@@ -7,8 +7,11 @@ import { SystemPositioning } from "@/components/systems/system-positioning";
 import { SystemRelationshipOverview } from "@/components/systems/system-relationship-overview";
 import { SystemsHero } from "@/components/systems/systems-hero";
 import {
+  getPrimaryPublicSystemFamily,
+  getSystemsPageConfigurationOptions,
   getSystemsPagePerformanceContext,
   getSystemsPagePrimarySystem,
+  getSystemsPageSelectedConfiguration,
 } from "@/data/selectors";
 import {
   createPageMetadata,
@@ -25,10 +28,31 @@ const pageJsonLd = createRouteWebPageJsonLd("/systems", [
   { name: "Trading Systems", path: "/systems" },
 ]);
 
-export default function SystemsPage() {
+type SystemsPageProps = Readonly<{
+  searchParams?: Promise<{
+    configuration?: string | string[];
+  }>;
+}>;
+
+export default async function SystemsPage({ searchParams }: SystemsPageProps) {
+  const resolvedSearchParams = await searchParams;
+  const requestedConfigurationId =
+    typeof resolvedSearchParams?.configuration === "string"
+      ? resolvedSearchParams.configuration
+      : undefined;
   const system = getSystemsPagePrimarySystem();
-  const performanceContext = system
-    ? getSystemsPagePerformanceContext(system.id)
+  const family = getPrimaryPublicSystemFamily();
+  const selectedConfiguration = family
+    ? getSystemsPageSelectedConfiguration({
+        familyId: family.id,
+        requestedConfigurationId,
+      })
+    : undefined;
+  const configurationOptions = getSystemsPageConfigurationOptions({
+    selectedConfigurationId: selectedConfiguration?.id,
+  });
+  const performanceContext = selectedConfiguration
+    ? getSystemsPagePerformanceContext(selectedConfiguration.id)
     : undefined;
 
   return (
@@ -38,7 +62,10 @@ export default function SystemsPage() {
       <SystemPositioning system={system} />
       <SystemRelationshipOverview system={system} />
       <SystemCapabilityArchitecture system={system} />
-      <SystemPerformanceContext context={performanceContext} />
+      <SystemPerformanceContext
+        configurationOptions={configurationOptions}
+        context={performanceContext}
+      />
     </>
   );
 }

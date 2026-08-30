@@ -327,6 +327,50 @@ if (!ledgerEntryIds.includes("cumulative-2-weeks")) {
   );
 }
 
+if (!productsSelectorSource.includes("family.configurationIds")) {
+  failures.push(
+    "Systems configuration options must source availability from the public family.",
+  );
+}
+
+if (!productsSelectorSource.includes("getSystemsPageConfigurationOptions")) {
+  failures.push("Missing Systems page configuration options selector.");
+}
+
+if (!productsSelectorSource.includes("getSystemsPageSelectedConfiguration")) {
+  failures.push("Missing Systems page selected configuration resolver.");
+}
+
+if (
+  !productsSelectorSource.includes("getDefaultPublicConfigurationForFamily")
+) {
+  failures.push(
+    "Missing explicit Systems page default configuration selector.",
+  );
+}
+
+if (
+  !productsSelectorSource.includes(
+    'const defaultSystemsPageConfigurationId = "emerald-quant-system"',
+  )
+) {
+  failures.push(
+    `${currentSystemId} must remain the explicit default Systems page configuration.`,
+  );
+}
+
+if (familyMarketCategories.length !== 4) {
+  failures.push(
+    `${currentFamilyId} must currently expose exactly four family market categories.`,
+  );
+}
+
+if (familyConfigurationIds.length !== 1) {
+  failures.push(
+    `${currentFamilyId} must currently expose exactly one public canonical configuration.`,
+  );
+}
+
 console.log("Data source text audit");
 console.log(`Domains checked: ${domains.length}`);
 console.log(`Production data files scanned: ${productionDataFiles.length}`);

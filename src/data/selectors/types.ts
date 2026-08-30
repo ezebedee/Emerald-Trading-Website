@@ -157,6 +157,16 @@ export type SystemsPagePerformanceContext = Readonly<{
   publicRecordCount: number;
 }>;
 
+export type SystemsPageConfigurationOption = Readonly<{
+  marketCategory: string;
+  label: string;
+  available: boolean;
+  isSelected: boolean;
+  configurationId?: ReadableId;
+  configurationName?: string;
+  href?: string;
+}>;
+
 export type LedgerConsistencyIssue = Readonly<{
   recordId: ReadableId;
   field: string;

@@ -13,9 +13,12 @@ import {
 } from "./ledger";
 import type {
   SystemsPageCapability,
+  SystemsPageConfigurationOption,
   SystemsPagePerformanceContext,
   SystemsPagePrimarySystem,
 } from "./types";
+
+const defaultSystemsPageConfigurationId = "emerald-quant-system";
 
 const lifecycleStatusLabels = {
   research: "Research",
@@ -150,6 +153,67 @@ export const getPrimaryPublicSystemFamily = () =>
 
 export const getPublicConfigurationsForFamily = (familyId: string) =>
   getPublicTradingSystems().filter((system) => system.familyId === familyId);
+
+export const getDefaultPublicConfigurationForFamily = (familyId: string) =>
+  getPublicConfigurationsForFamily(familyId).find(
+    (system) =>
+      system.id === defaultSystemsPageConfigurationId &&
+      system.familyId === familyId,
+  );
+
+export const getSystemsPageSelectedConfiguration = ({
+  familyId,
+  requestedConfigurationId,
+}: {
+  familyId: string;
+  requestedConfigurationId?: string;
+}) => {
+  const publicConfigurations = getPublicConfigurationsForFamily(familyId);
+  const requestedConfiguration = requestedConfigurationId
+    ? publicConfigurations.find(
+        (system) => system.id === requestedConfigurationId,
+      )
+    : undefined;
+
+  return (
+    requestedConfiguration ?? getDefaultPublicConfigurationForFamily(familyId)
+  );
+};
+
+export const getSystemsPageConfigurationOptions = ({
+  selectedConfigurationId,
+}: {
+  selectedConfigurationId?: string;
+} = {}): readonly SystemsPageConfigurationOption[] => {
+  const family = getPrimaryPublicSystemFamily();
+
+  if (!family) {
+    return [];
+  }
+
+  const publicConfigurations = getPublicConfigurationsForFamily(family.id);
+
+  return family.marketCategories.map((marketCategory) => {
+    const configuration = publicConfigurations
+      .filter((system) => family.configurationIds.includes(system.id))
+      .find((system) => system.marketCategories.includes(marketCategory));
+
+    return {
+      marketCategory,
+      label: marketCategoryLabels[marketCategory],
+      available: Boolean(configuration),
+      isSelected: configuration?.id === selectedConfigurationId,
+      configurationId: configuration?.id,
+      configurationName: configuration?.configurationName,
+      href:
+        configuration && configuration.id !== defaultSystemsPageConfigurationId
+          ? `/systems?configuration=${encodeURIComponent(configuration.id)}`
+          : configuration
+            ? "/systems"
+            : undefined,
+    };
+  });
+};
 
 export const getHomepageFeaturedTradingSystem = () =>
   getPublicTradingSystems().find(

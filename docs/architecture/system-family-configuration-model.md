@@ -106,6 +106,8 @@ Public UI should preserve the distinction between:
 
 This wording prevents family-wide market coverage from being mistaken for family-wide public performance.
 
+The Systems page performance section renders a configuration-aware asset-class selector from family coverage and public configuration records. Family markets remain visible as coverage, but only asset classes with a real public configuration become selectable. The selected configuration controls the performance context, so future configurations can surface their own record without blending results across the family.
+
 ## Claim Safety
 
 Metals, Forex, Futures, and Equities family coverage must never be used to imply the existing Ledger results cover all four asset classes.
