@@ -88,6 +88,8 @@ Asset architecture, naming rules, public/private media policy, provenance requir
 
 Shared domain types, Zod schemas, performance metric conventions, visibility rules, and public/private data boundaries live in [docs/DATA-ARCHITECTURE.md](docs/DATA-ARCHITECTURE.md).
 
+Phase 0.5 seed-data integrity, cross-domain QA findings, selector checks, and deferred data items live in [docs/DATA-INTEGRITY.md](docs/DATA-INTEGRITY.md).
+
 ## Intended Website Areas
 
 - Home
