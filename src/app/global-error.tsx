@@ -9,6 +9,7 @@ import {
 import { Button } from "@/components/ui/button";
 import { ANALYTICS_CATEGORIES, ANALYTICS_EVENTS } from "@/lib/analytics";
 import { trackAnalyticsEvent } from "@/lib/analytics";
+import { isDevelopmentEnvironment } from "@/lib/config";
 
 import "./globals.css";
 
@@ -19,7 +20,7 @@ type GlobalErrorProps = Readonly<{
 
 export default function GlobalError({ error, reset }: GlobalErrorProps) {
   useEffect(() => {
-    if (process.env.NODE_ENV === "development") {
+    if (isDevelopmentEnvironment()) {
       console.error(error);
     }
 

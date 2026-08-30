@@ -3,16 +3,16 @@ import {
   ANALYTICS_EVENTS,
   SENSITIVE_ANALYTICS_PROPERTY_KEYS,
 } from "./events";
+import { isDevelopmentEnvironment, publicConfig } from "@/lib/config";
 import type {
   AnalyticsEvent,
   AnalyticsProvider,
   PageViewAnalyticsEvent,
 } from "./types";
 
-const analyticsEnabled = process.env.NEXT_PUBLIC_ANALYTICS_ENABLED === "true";
-const analyticsDebugEnabled =
-  process.env.NEXT_PUBLIC_ANALYTICS_DEBUG === "true";
-const isDevelopment = process.env.NODE_ENV === "development";
+const analyticsEnabled = publicConfig.analyticsEnabled;
+const analyticsDebugEnabled = publicConfig.analyticsDebug;
+const isDevelopment = isDevelopmentEnvironment();
 
 let activeProvider: AnalyticsProvider | undefined;
 

@@ -170,6 +170,44 @@ The blocklist applies to context keys. A top-level logger `message` field is all
 
 The current backend writes to console only. Future monitoring transports can replace the transport through `setLoggerTransport()` after a provider is approved.
 
+## Environment & Deployment Configuration
+
+Task 0.7D centralizes environment access in:
+
+```text
+src/lib/config/
+```
+
+Browser-safe public flags live in `publicConfig`. Server-only deployment values live behind `getServerConfig()`. Future features should import these helpers rather than reading arbitrary environment variables throughout the codebase.
+
+Current public config fields:
+
+- `analyticsEnabled`
+- `analyticsDebug`
+
+Current server config fields:
+
+- `commitSha`
+
+All current environment values are optional. The site must build safely when analytics flags and commit SHA values are absent.
+
+Boolean flags are parsed with `parseBooleanEnv()`:
+
+- `"true"` resolves to `true`
+- `"false"` resolves to `false`
+- `undefined` resolves to the supplied fallback
+- invalid values such as `"yes"` resolve to the fallback and do not crash the build
+
+The canonical production site URL remains `https://emeraldforexsystem.com` through the SEO configuration. Do not make canonical URLs depend on an optional environment variable.
+
+`.env.example` documents only browser-safe analytics flags and optional provider-supplied deployment SHA variables. It must not contain real API keys, passwords, tokens, broker credentials, account credentials, or secret placeholders that look usable.
+
+Local environment files such as `.env`, `.env.local`, and `.env.*.local` remain ignored by Git, while `.env.example` remains trackable.
+
+Future database, authentication, analytics provider, monitoring provider, or deployment integrations may introduce required server-only configuration. Required values should be validated explicitly when those systems exist; do not invent required secrets before they are needed.
+
+Commit SHA values may be read from common provider variables for internal deployment metadata, but the public health response does not expose commit SHA.
+
 ## Current Exclusions
 
 Tasks 0.7B and 0.7C do not add:

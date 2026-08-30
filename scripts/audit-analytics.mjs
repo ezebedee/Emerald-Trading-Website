@@ -5,6 +5,7 @@ import { fileURLToPath } from "node:url";
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const root = path.resolve(__dirname, "..");
 const analyticsRoot = path.join(root, "src", "lib", "analytics");
+const publicConfigPath = path.join(root, "src", "lib", "config", "public.ts");
 const packageJsonPath = path.join(root, "package.json");
 
 const requiredAnalyticsFiles = [
@@ -75,6 +76,7 @@ const analyticsSource = existsSync(analyticsRoot)
       .map((fileName) => readIfExists(path.join(analyticsRoot, fileName)))
       .join("\n")
   : "";
+const publicConfigSource = readIfExists(publicConfigPath);
 
 if (!analyticsSource.includes("AnalyticsProvider")) {
   failures.push("AnalyticsProvider interface is missing.");
@@ -92,10 +94,16 @@ if (!analyticsSource.includes("normalizeAnalyticsPath")) {
   failures.push("normalizeAnalyticsPath helper is missing.");
 }
 
-if (!analyticsSource.includes('NEXT_PUBLIC_ANALYTICS_ENABLED === "true"')) {
-  failures.push(
-    "Analytics enablement must parse NEXT_PUBLIC_ANALYTICS_ENABLED explicitly as true.",
-  );
+if (!analyticsSource.includes("publicConfig.analyticsEnabled")) {
+  failures.push("Analytics module must use centralized public config.");
+}
+
+if (!publicConfigSource.includes("process.env.NEXT_PUBLIC_ANALYTICS_ENABLED")) {
+  failures.push("Public config must centralize NEXT_PUBLIC_ANALYTICS_ENABLED.");
+}
+
+if (!publicConfigSource.includes("parseBooleanEnv")) {
+  failures.push("Public config must parse analytics booleans safely.");
 }
 
 if (!analyticsSource.includes("SENSITIVE_ANALYTICS_PROPERTY_KEYS")) {
