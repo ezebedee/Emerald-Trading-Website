@@ -57,8 +57,8 @@ function EmptyCapabilityState() {
         <div className="surface-elevated rounded-lg p-5 md:p-6">
           <SectionLabel variant="gold">System Capabilities</SectionLabel>
           <h2 className="type-heading-2 text-foreground mt-4 max-w-3xl text-balance">
-            Five system-level capabilities govern how signals become managed
-            trade execution.
+            System-level capabilities govern how signals become managed trade
+            execution.
           </h2>
           <p className="type-body text-muted-foreground mt-5 max-w-3xl">
             Public system capability details are not currently available.
@@ -165,8 +165,8 @@ export function SystemCapabilityArchitecture({
           <SectionLabel variant="gold">System Capabilities</SectionLabel>
           <div className="mt-4 flex flex-col gap-4 sm:flex-row sm:items-start sm:justify-between">
             <h2 className="type-heading-2 text-foreground text-balance">
-              Five system-level capabilities govern how signals become managed
-              trade execution.
+              System-level capabilities govern how signals become managed trade
+              execution.
             </h2>
             <Badge className="shrink-0" variant="premium">
               {system.capabilities.length} Canonical Capabilities
