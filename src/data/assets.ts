@@ -25,7 +25,7 @@ export const brandAssets = {
     id: "brand-emerald-legacy-systems-horizontal",
     kind: "brand",
     src: "/brand/logos/emerald-legacy-systems-horizontal.png",
-    alt: "Emerald Legacy Systems — Quantitative Trading Technology",
+    alt: "Emerald Legacy Systems - Quantitative Trading Technology",
     format: "png",
     width: 1672,
     height: 941,
@@ -45,9 +45,9 @@ export const ledgerAssets = {
     {
       id: "ledger-day-001-2026-08-17-thumbnail",
       kind: "image",
-      src: "/images/ledger/daily/ledger-day-001-2026-08-17-thumbnail.png",
+      src: "/images/ledger/daily/ledger-day-001-2026-08-17-thumbnail.webp",
       alt: "Emerald Ledger Day 001 public demo reference account thumbnail.",
-      format: "png",
+      format: "webp",
       width: 1672,
       height: 941,
       description:
@@ -65,9 +65,9 @@ export const ledgerAssets = {
     {
       id: "ledger-day-002-2026-08-18-thumbnail",
       kind: "image",
-      src: "/images/ledger/daily/ledger-day-002-2026-08-18-thumbnail.png",
+      src: "/images/ledger/daily/ledger-day-002-2026-08-18-thumbnail.webp",
       alt: "Emerald Ledger Day 002 public demo record thumbnail.",
-      format: "png",
+      format: "webp",
       width: 1672,
       height: 941,
       description:
@@ -85,9 +85,9 @@ export const ledgerAssets = {
     {
       id: "ledger-day-003-2026-08-19-thumbnail",
       kind: "image",
-      src: "/images/ledger/daily/ledger-day-003-2026-08-19-thumbnail.png",
+      src: "/images/ledger/daily/ledger-day-003-2026-08-19-thumbnail.webp",
       alt: "Emerald Ledger Day 003 public performance record thumbnail.",
-      format: "png",
+      format: "webp",
       width: 1672,
       height: 941,
       description:
@@ -107,9 +107,9 @@ export const ledgerAssets = {
     {
       id: "ledger-week-01-2026-08-17-2026-08-21-thumbnail",
       kind: "image",
-      src: "/images/ledger/weekly/ledger-week-01-2026-08-17_2026-08-21-thumbnail.png",
+      src: "/images/ledger/weekly/ledger-week-01-2026-08-17_2026-08-21-thumbnail.webp",
       alt: "Emerald Ledger Week 01 public performance thumbnail.",
-      format: "png",
+      format: "webp",
       width: 1672,
       height: 941,
       description:
@@ -129,9 +129,9 @@ export const ledgerAssets = {
     {
       id: "ledger-cumulative-2-weeks-2026-08-17-2026-08-28-thumbnail",
       kind: "image",
-      src: "/images/ledger/cumulative/ledger-cumulative-2-weeks-2026-08-17_2026-08-28-thumbnail.png",
+      src: "/images/ledger/cumulative/ledger-cumulative-2-weeks-2026-08-17_2026-08-28-thumbnail.webp",
       alt: "Emerald Ledger two-week cumulative public performance thumbnail.",
-      format: "png",
+      format: "webp",
       width: 1672,
       height: 941,
       description:
@@ -155,9 +155,9 @@ export const siteAssets = {
     {
       id: "indicator-emerald-signal-mt4-01",
       kind: "image",
-      src: "/images/indicators/emerald-signal-indicator-mt4-01.png",
+      src: "/images/indicators/emerald-signal-indicator-mt4-01.webp",
       alt: "MT4 chart showing the Emerald Signal Indicator with trade-direction markers and pip annotations.",
-      format: "png",
+      format: "webp",
       width: 1672,
       height: 941,
       description:
@@ -174,9 +174,9 @@ export const siteAssets = {
     {
       id: "public-demo-reference-account-info",
       kind: "image",
-      src: "/images/verification/public-demo-reference-account-info.png",
+      src: "/images/verification/public-demo-reference-account-info.webp",
       alt: "Public demo reference account information for the Emerald Legacy Systems performance record.",
-      format: "png",
+      format: "webp",
       width: 1672,
       height: 941,
       description:
