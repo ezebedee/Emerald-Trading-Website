@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 
 import { JsonLd } from "@/components/seo/json-ld";
+import { SystemCapabilityArchitecture } from "@/components/systems/system-capability-architecture";
 import { SystemPositioning } from "@/components/systems/system-positioning";
 import { SystemRelationshipOverview } from "@/components/systems/system-relationship-overview";
 import { SystemsHero } from "@/components/systems/systems-hero";
@@ -29,6 +30,7 @@ export default function SystemsPage() {
       <SystemsHero system={system} />
       <SystemPositioning system={system} />
       <SystemRelationshipOverview system={system} />
+      <SystemCapabilityArchitecture system={system} />
     </>
   );
 }

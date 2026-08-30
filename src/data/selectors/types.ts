@@ -100,6 +100,13 @@ export type SystemsPageRelatedProduct = Readonly<{
   href: string;
 }>;
 
+export type SystemsPageCapability = Readonly<{
+  id: string;
+  label: string;
+  description: string;
+  category: string;
+}>;
+
 export type SystemsPagePrimarySystem = Readonly<{
   id: ReadableId;
   name: string;
@@ -109,6 +116,7 @@ export type SystemsPagePrimarySystem = Readonly<{
   platforms: readonly string[];
   markets: readonly string[];
   instruments: readonly string[];
+  capabilities: readonly SystemsPageCapability[];
   relatedIndicator?: SystemsPageRelatedProduct;
   relatedSignal?: SystemsPageRelatedProduct;
   publicRecordLabel: string;

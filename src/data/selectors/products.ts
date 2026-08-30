@@ -2,7 +2,7 @@ import { indicators, signalProducts, tradingSystems } from "@/data/products";
 
 import { getAssetById } from "./assets";
 import { getLedgerEntryById } from "./ledger";
-import type { SystemsPagePrimarySystem } from "./types";
+import type { SystemsPageCapability, SystemsPagePrimarySystem } from "./types";
 
 const lifecycleStatusLabels = {
   research: "Research",
@@ -23,6 +23,62 @@ const marketCategoryLabels = {
   crypto: "Crypto",
   other: "Other",
 } as const;
+
+const capabilityPresentation: Record<
+  string,
+  Omit<SystemsPageCapability, "id">
+> = {
+  "signal interpretation": {
+    label: "Signal Interpretation",
+    description:
+      "Processes signal-generation inputs within the broader system rule set.",
+    category: "Input Processing",
+  },
+  "automated trade execution": {
+    label: "Automated Trade Execution",
+    description:
+      "Applies system rules to automated trade implementation on the supported execution platform.",
+    category: "Execution",
+  },
+  "risk-management logic": {
+    label: "Risk-Management Logic",
+    description:
+      "Applies defined risk-management logic as part of system-level trade handling.",
+    category: "System Control",
+  },
+  "position management": {
+    label: "Position Management",
+    description:
+      "Manages open-position handling within the system's defined rule framework.",
+    category: "Trade Management",
+  },
+  "trade lifecycle management": {
+    label: "Trade Lifecycle Management",
+    description:
+      "Coordinates trade handling across system-defined stages from initiation through closure.",
+    category: "Lifecycle Coordination",
+  },
+};
+
+const titleCaseCapability = (capability: string) =>
+  capability
+    .split(/[\s-]+/)
+    .filter(Boolean)
+    .map((word) => `${word.charAt(0).toUpperCase()}${word.slice(1)}`)
+    .join(" ");
+
+const toSystemsPageCapability = (capability: string): SystemsPageCapability => {
+  const presentation = capabilityPresentation[capability] ?? {
+    label: titleCaseCapability(capability),
+    description: "Canonical system capability.",
+    category: "System Capability",
+  };
+
+  return {
+    id: capability,
+    ...presentation,
+  };
+};
 
 const isPublicPublished = <
   T extends { visibility: string; contentStatus: string },
@@ -66,6 +122,7 @@ export const getSystemsPagePrimarySystem = ():
       (category) => marketCategoryLabels[category],
     ),
     instruments: system.instruments ?? [],
+    capabilities: (system.capabilities ?? []).map(toSystemsPageCapability),
     relatedIndicator: indicator
       ? {
           id: indicator.id,
