@@ -26,8 +26,8 @@ export const performancePeriodTypeSchema = z.enum(PERFORMANCE_PERIOD_TYPES);
 export const performanceMetricsSchema = z
   .object({
     netProfit: moneyValueSchema,
-    grossProfit: nonNegativeMoneyValueSchema,
-    grossLoss: nonNegativeMoneyValueSchema,
+    grossProfit: nonNegativeMoneyValueSchema.optional(),
+    grossLoss: nonNegativeMoneyValueSchema.optional(),
     returnPct: percentageValueSchema,
     startingBalance: moneyValueSchema,
     endingBalance: moneyValueSchema,
@@ -38,8 +38,8 @@ export const performanceMetricsSchema = z
     breakevenTrades: nonNegativeIntegerSchema.optional(),
     winRatePct: percentageRateSchema,
     profitFactor: z.number().finite().nonnegative().nullable().optional(),
-    maxDrawdownAmount: nonNegativeMoneyValueSchema,
-    maxDrawdownPct: percentageRateSchema,
+    maxDrawdownAmount: nonNegativeMoneyValueSchema.optional(),
+    maxDrawdownPct: percentageRateSchema.optional(),
     expectedPayoff: moneyValueSchema.optional(),
     largestWinningTrade: moneyValueSchema.optional(),
     largestLosingTrade: moneyValueSchema.optional(),

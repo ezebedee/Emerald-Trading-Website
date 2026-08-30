@@ -27,8 +27,8 @@ export type PerformancePeriodType = (typeof PERFORMANCE_PERIOD_TYPES)[number];
 
 export type PerformanceMetrics = Readonly<{
   netProfit: MoneyValue;
-  grossProfit: MoneyValue;
-  grossLoss: MoneyValue;
+  grossProfit?: MoneyValue;
+  grossLoss?: MoneyValue;
   returnPct: PercentageValue;
   startingBalance: MoneyValue;
   endingBalance: MoneyValue;
@@ -39,8 +39,8 @@ export type PerformanceMetrics = Readonly<{
   breakevenTrades?: number;
   winRatePct: PercentageValue;
   profitFactor?: number | null;
-  maxDrawdownAmount: MoneyValue;
-  maxDrawdownPct: PercentageValue;
+  maxDrawdownAmount?: MoneyValue;
+  maxDrawdownPct?: PercentageValue;
   expectedPayoff?: MoneyValue;
   largestWinningTrade?: MoneyValue;
   largestLosingTrade?: MoneyValue;
