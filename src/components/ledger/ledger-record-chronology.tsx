@@ -1,11 +1,10 @@
 import { Badge } from "@/components/ui/badge";
 import { Container } from "@/components/ui/container";
 import { SectionLabel } from "@/components/ui/section-label";
-import { getPublicLedgerChronologyEntries } from "@/data/selectors";
 import type { LedgerChronologyEntry } from "@/data/selectors";
 
 type LedgerRecordChronologyProps = Readonly<{
-  entries?: readonly LedgerChronologyEntry[];
+  entries: readonly LedgerChronologyEntry[];
 }>;
 
 const CUMULATIVE_DISPLAY_TOLERANCE = 0.01;
@@ -199,7 +198,7 @@ function ChronologyRecordCard({
 }
 
 export function LedgerRecordChronology({
-  entries = getPublicLedgerChronologyEntries(),
+  entries,
 }: LedgerRecordChronologyProps) {
   if (entries.length === 0) {
     return (

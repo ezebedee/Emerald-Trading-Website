@@ -4,11 +4,10 @@ import { Badge } from "@/components/ui/badge";
 import { LinkButton } from "@/components/ui/button";
 import { Container } from "@/components/ui/container";
 import { SectionLabel } from "@/components/ui/section-label";
-import { getLedgerMediaContextRecords } from "@/data/selectors";
 import type { LedgerMediaContextRecord } from "@/data/selectors";
 
 type LedgerMediaContextProps = Readonly<{
-  records?: readonly LedgerMediaContextRecord[];
+  records: readonly LedgerMediaContextRecord[];
 }>;
 
 function MediaRecordCard({ record }: { record: LedgerMediaContextRecord }) {
@@ -70,9 +69,7 @@ function MediaRecordCard({ record }: { record: LedgerMediaContextRecord }) {
   );
 }
 
-export function LedgerMediaContext({
-  records = getLedgerMediaContextRecords(),
-}: LedgerMediaContextProps) {
+export function LedgerMediaContext({ records }: LedgerMediaContextProps) {
   return (
     <section className="bg-surface/70 border-t border-[var(--border)] py-12 md:py-14 xl:py-16">
       <Container size="wide">

@@ -9,7 +9,6 @@ import {
 import { Badge } from "@/components/ui/badge";
 import { Container } from "@/components/ui/container";
 import { SectionLabel } from "@/components/ui/section-label";
-import { getLatestPublicCumulativeLedgerRecord } from "@/data/selectors";
 import type { LedgerLatestPerformanceSnapshot } from "@/data/selectors";
 
 const currencyFormatter = new Intl.NumberFormat("en-US", {
@@ -161,7 +160,7 @@ function LedgerLatestRecordCard({
 }
 
 export function LedgerPerformanceSummary({
-  snapshot = getLatestPublicCumulativeLedgerRecord(),
+  snapshot,
 }: LedgerPerformanceSummaryProps) {
   if (!snapshot) {
     return (
