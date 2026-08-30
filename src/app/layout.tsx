@@ -3,7 +3,7 @@ import { Inter } from "next/font/google";
 import type { ReactNode } from "react";
 
 import { siteBrand } from "@/data/site";
-import { siteMetadataBase } from "@/lib/seo";
+import { createSocialImageMetadata, siteMetadataBase } from "@/lib/seo";
 
 import "./globals.css";
 
@@ -12,6 +12,8 @@ const inter = Inter({
   variable: "--font-inter",
   display: "swap",
 });
+
+const defaultSocialImage = createSocialImageMetadata();
 
 export const metadata: Metadata = {
   title: {
@@ -34,11 +36,13 @@ export const metadata: Metadata = {
     siteName: siteBrand.name,
     type: "website",
     locale: "en_US",
+    images: defaultSocialImage ? [defaultSocialImage] : undefined,
   },
   twitter: {
     card: "summary_large_image",
     title: `${siteBrand.name} | ${siteBrand.descriptor}`,
     description: siteBrand.metadataDescription,
+    images: defaultSocialImage ? [defaultSocialImage] : undefined,
   },
 };
 

@@ -11,6 +11,14 @@ const siteAppRoot = path.join(root, "src", "app", "(site)");
 
 const routePathPattern = /path:\s*"([^"]+)"/g;
 const registrySource = readFileSync(routeRegistryPath, "utf8");
+const metadataSource = readFileSync(
+  path.join(root, "src", "lib", "seo", "metadata.ts"),
+  "utf8",
+);
+const assetSource = readFileSync(
+  path.join(root, "src", "data", "assets.ts"),
+  "utf8",
+);
 
 const sourceSlice = (exportName) => {
   const start = registrySource.indexOf(`export const ${exportName} = [`);
@@ -67,6 +75,10 @@ const publicRegistryPaths = routePathsFromSource("publicRouteRegistry");
 const internalRoutePaths = routePathsFromSource("internalRoutes");
 const publicAppRoutes = findPageRoutes(siteAppRoot);
 const failures = [];
+const defaultSocialImageAssetIdMatch = metadataSource.match(
+  /defaultSocialImageAssetId\s*=\s*"([^"]+)"/,
+);
+const defaultSocialImageAssetId = defaultSocialImageAssetIdMatch?.[1];
 
 if (!existsSync(sitemapPath)) {
   failures.push("src/app/sitemap.ts is missing.");
@@ -100,10 +112,21 @@ if (!internalRoutePaths.includes("/design-system")) {
   failures.push("/design-system must be listed as an internal route.");
 }
 
+if (!defaultSocialImageAssetId) {
+  failures.push("Default social image asset ID is not defined.");
+} else if (!assetSource.includes(`id: "${defaultSocialImageAssetId}"`)) {
+  failures.push(
+    `Default social image asset ID is not registered: ${defaultSocialImageAssetId}`,
+  );
+}
+
 console.log("SEO route audit");
 console.log(`Public route registry paths: ${publicRegistryPaths.length}`);
 console.log(`Current public app routes: ${publicAppRoutes.length}`);
 console.log(`Internal route paths: ${internalRoutePaths.length}`);
+console.log(
+  `Default social image asset ID: ${defaultSocialImageAssetId ?? "missing"}`,
+);
 
 if (failures.length) {
   console.error("");

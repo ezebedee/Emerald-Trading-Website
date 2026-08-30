@@ -172,11 +172,26 @@ card: summary_large_image
 
 Do not invent `site` or `creator` handles.
 
-## Social Image Deferment
+## Default Social Image
 
-No default Open Graph or Twitter image is configured in Task 0.6A because no final social OG image has been approved.
+The default Open Graph and Twitter image is:
 
-Do not reference a broken or placeholder social image path. A later asset task should add approved social images before metadata points to them.
+```text
+Asset ID: social-default-og-emerald-legacy-systems
+File: /social/og/emerald-legacy-systems-default-og.png
+Dimensions: 1200x630
+Format: PNG
+```
+
+`createPageMetadata()` resolves this registered asset by default, so representative routes such as `/ledger` and `/systems` inherit the same social image without duplicating image configuration.
+
+Route-specific social images may be added later by passing `ogImageAssetId` to `createPageMetadata()`. If a page-specific asset ID is missing, the helper falls back to the default social image rather than emitting broken image metadata.
+
+Do not reference broken or placeholder social image paths. Social images should be registered in `src/data/assets.ts` before metadata points to them.
+
+No dynamic Open Graph image generation is configured yet. Do not add `opengraph-image.tsx`, `ImageResponse`, or edge-runtime image generation until that work is explicitly approved.
+
+No Twitter `site` or `creator` handles are configured because no official handles have been supplied.
 
 ## Claim-Language Safety
 
