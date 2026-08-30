@@ -90,6 +90,8 @@ Shared domain types, Zod schemas, performance metric conventions, visibility rul
 
 Phase 0.5 seed-data integrity, cross-domain QA findings, selector checks, and deferred data items live in [docs/DATA-INTEGRITY.md](docs/DATA-INTEGRITY.md).
 
+SEO metadata architecture, canonical URL policy, indexing rules, and claim-language guidance live in [docs/SEO.md](docs/SEO.md).
+
 ## Intended Website Areas
 
 - Home
