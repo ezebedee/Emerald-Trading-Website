@@ -115,9 +115,34 @@ for (const projectPath of productionDataFiles) {
   }
 }
 
+const systemsSource = readProjectFile("src/data/products/systems.ts");
+const productsSelectorSource = readProjectFile(
+  "src/data/selectors/products.ts",
+);
+const systemCapabilityValues = [
+  ...new Set(
+    [...systemsSource.matchAll(/capabilities:\s*\[([\s\S]*?)\]/g)].flatMap(
+      ([, capabilityBlock]) =>
+        [...capabilityBlock.matchAll(/"([^"]+)"/g)].map((match) => match[1]),
+    ),
+  ),
+];
+const unmappedSystemCapabilities = systemCapabilityValues.filter(
+  (capability) => !productsSelectorSource.includes(`"${capability}"`),
+);
+
+if (unmappedSystemCapabilities.length) {
+  failures.push(
+    `Systems capabilities missing selector presentation mapping: ${unmappedSystemCapabilities.join(", ")}`,
+  );
+}
+
 console.log("Data source text audit");
 console.log(`Domains checked: ${domains.length}`);
 console.log(`Production data files scanned: ${productionDataFiles.length}`);
+console.log(
+  `System capability mappings checked: ${systemCapabilityValues.length}`,
+);
 
 if (failures.length) {
   console.error("");
