@@ -63,13 +63,15 @@ const hasSensitivePropertyKeys = (event: AnalyticsEvent) => {
 };
 
 const assertSafeAnalyticsEvent = (event: AnalyticsEvent) => {
-  if (!isDevelopment || !hasSensitivePropertyKeys(event)) {
+  if (!hasSensitivePropertyKeys(event)) {
     return true;
   }
 
-  console.warn(
-    `Analytics event "${event.name}" contains a sensitive property key and was not tracked.`,
-  );
+  if (isDevelopment) {
+    console.warn(
+      `Analytics event "${event.name}" contains a sensitive property key and was not tracked.`,
+    );
+  }
 
   return false;
 };

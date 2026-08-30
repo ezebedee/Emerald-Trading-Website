@@ -102,6 +102,22 @@ if (!analyticsSource.includes("SENSITIVE_ANALYTICS_PROPERTY_KEYS")) {
   failures.push("Sensitive analytics property key guard is missing.");
 }
 
+if (!analyticsSource.includes("if (!hasSensitivePropertyKeys(event))")) {
+  failures.push(
+    "Sensitive analytics property guard must check for safe events before environment checks.",
+  );
+}
+
+if (!analyticsSource.includes("return false;")) {
+  failures.push("Sensitive analytics property guard must block unsafe events.");
+}
+
+if (analyticsSource.includes("!isDevelopment || !hasSensitivePropertyKeys")) {
+  failures.push(
+    "Sensitive analytics property guard must not be development-only.",
+  );
+}
+
 for (const eventName of [
   "page_view",
   "cta_click",

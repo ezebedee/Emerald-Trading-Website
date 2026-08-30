@@ -111,7 +111,7 @@ Event properties are restricted to JSON-safe primitives and small primitive arra
 
 ## Sensitive Property Keys
 
-Development builds guard against obvious sensitive property keys in event properties:
+Analytics blocks obvious sensitive property keys in event properties in every environment:
 
 - `email`
 - `password`
@@ -124,6 +124,8 @@ Development builds guard against obvious sensitive property keys in event proper
 - `message`
 
 This restriction applies to event property keys, not to the event `name` field.
+
+Development additionally logs a console warning when an unsafe event is blocked. Production drops unsafe events silently without forwarding them to a configured provider.
 
 ## Query-String Stripping
 
