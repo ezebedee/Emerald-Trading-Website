@@ -134,6 +134,15 @@ Preferred formats:
 
 Do not convert or optimize source files destructively. Original supplied source assets must not be overwritten.
 
+Current optimization decisions:
+
+- Ledger thumbnails: use high-quality WebP runtime derivatives. The current approved thumbnails are graphic preview media, and WebP provides large savings while keeping text readable at normal display sizes.
+- Indicator screenshots: use high-quality WebP runtime derivatives when chart labels and product details remain crisp.
+- Verification screenshots: use high-quality WebP runtime derivatives when account labels and disclosure text remain readable.
+- Brand mark: keep PNG unless a later favicon/icon task creates approved derivatives; the current detailed mark needs crisp source fidelity.
+- Horizontal brand banner: keep PNG as the approved high-fidelity brand media source until a page-specific display derivative is needed.
+- Trade-history, terminal, or dense account-history evidence: prefer PNG or very high-quality WebP only after full-size visual review. Do not optimize so aggressively that table rows, columns, or account context become unclear.
+
 ## Source And Optimized Assets
 
 Keep a clear distinction between source/master assets and web-optimized runtime assets.
@@ -248,6 +257,30 @@ Do not replace lucide icons with bitmap images.
 
 Future manifest entries should include `width` and `height` when known to reduce layout shift. Do not invent dimensions for assets that do not yet exist.
 
+Use `next/image` with:
+
+- `width` and `height`, or `fill` with a stable parent aspect ratio.
+- meaningful `alt` text from the manifest, or empty alt only for decorative imagery inside already labeled UI.
+- `sizes` whenever an image responds to viewport or layout width.
+- `priority` only for likely LCP imagery, such as an above-the-fold hero image or a primary brand mark when measurement proves it helps.
+
+Do not use `priority` on footer images, galleries, below-fold Ledger thumbnails, or every card image. Let Next.js lazy-load below-fold images by default; do not add custom image IntersectionObserver loading unless a later measured performance task requires it.
+
+Responsive `sizes` guidance:
+
+- Header mark: use an exact small size that matches the rendered slot.
+- Footer mark: use an exact small size that matches the rendered slot.
+- Full-width content media: use a layout-aware rule such as `(min-width: 1440px) 1200px, (min-width: 768px) 90vw, 100vw`.
+- Two-column media: use a layout-aware rule such as `(min-width: 1024px) 50vw, 100vw`.
+- Dense evidence screenshots: prefer enough rendered width for legibility; do not render a giant source into a tiny slot when a smaller approved derivative would be clearer and faster.
+
+Object-fit guidance:
+
+- Brand marks: use `object-contain` unless an approved crop exists.
+- Ledger thumbnails: `object-cover` is acceptable in preview cards when the card links to a full view.
+- Evidence screenshots and trade-history tables: prefer `object-contain`; do not crop away columns, account context, disclosure text, or P/L information.
+- Indicator screenshots: preserve the native ratio unless a later component intentionally frames a preview crop.
+
 ## Provenance
 
 Every externally sourced asset must have known provenance and usage rights before it is committed.
@@ -264,6 +297,6 @@ For third-party media, document the license and source. Do not download internet
 
 Use `src/data/assets.ts` for canonical asset references and `src/types/assets.ts` for shared types. Page components should consume typed manifest entries rather than scattering raw image and document paths.
 
-The manifest currently contains approved brand assets and approved Ledger thumbnails, with other groups left empty until assets are supplied and approved. It must not reference nonexistent runtime files.
+The manifest currently contains approved brand assets, optimized Ledger thumbnails, optimized indicator media, and optimized verification media, with other groups left empty until assets are supplied and approved. It must not reference nonexistent runtime files.
 
 Future CMS or database media records may replace or feed the manifest. Do not couple future page components permanently to local-only assumptions.
