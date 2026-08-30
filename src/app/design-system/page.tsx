@@ -1,3 +1,5 @@
+import type { Metadata } from "next";
+
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import {
@@ -17,6 +19,16 @@ import { SectionLabel } from "@/components/ui/section-label";
 import { StatusDot } from "@/components/ui/status-dot";
 import { Textarea } from "@/components/ui/textarea";
 import { TextLink } from "@/components/ui/text-link";
+import { createPageMetadata } from "@/lib/seo";
+
+export const metadata: Metadata = createPageMetadata({
+  title: "Design System",
+  description:
+    "Internal design-system QA route for Emerald Legacy Systems visual primitives.",
+  path: "/design-system",
+  noIndex: true,
+  noFollow: true,
+});
 
 const colorTokens = [
   ["Background", "--background"],
