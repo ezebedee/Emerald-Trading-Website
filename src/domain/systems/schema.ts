@@ -16,6 +16,9 @@ import {
 export const tradingSystemSchema = z
   .object({
     id: readableIdSchema,
+    familyId: readableIdSchema,
+    configurationKey: slugSchema,
+    configurationName: z.string().min(1),
     slug: slugSchema,
     name: z.string().min(1),
     shortName: z.string().min(1).optional(),

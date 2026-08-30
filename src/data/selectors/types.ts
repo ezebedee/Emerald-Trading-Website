@@ -107,8 +107,17 @@ export type SystemsPageCapability = Readonly<{
   category: string;
 }>;
 
+export type SystemsPageSystemFamily = Readonly<{
+  id: ReadableId;
+  name: string;
+  marketCoverage: readonly string[];
+}>;
+
 export type SystemsPagePrimarySystem = Readonly<{
   id: ReadableId;
+  family: SystemsPageSystemFamily;
+  configurationKey: string;
+  configurationName: string;
   name: string;
   shortName?: string;
   systemType: string;

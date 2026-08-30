@@ -1,4 +1,9 @@
-import { indicators, signalProducts, tradingSystems } from "@/data/products";
+import {
+  indicators,
+  signalProducts,
+  systemFamilies,
+  tradingSystems,
+} from "@/data/products";
 
 import { getAssetById } from "./assets";
 import { getLedgerEntryById } from "./ledger";
@@ -89,6 +94,20 @@ const isPublicPublished = <
 export const getPublicTradingSystems = () =>
   tradingSystems.filter(isPublicPublished);
 
+export const getPublicSystemFamilies = () =>
+  systemFamilies.filter(isPublicPublished);
+
+export const getSystemFamilyById = (id: string) =>
+  systemFamilies.find((family) => family.id === id);
+
+export const getPrimaryPublicSystemFamily = () =>
+  getPublicSystemFamilies().find(
+    (family) => family.id === "emerald-quant-system-family",
+  );
+
+export const getPublicConfigurationsForFamily = (familyId: string) =>
+  getPublicTradingSystems().filter((system) => system.familyId === familyId);
+
 export const getHomepageFeaturedTradingSystem = () =>
   getPublicTradingSystems().find(
     (system) => system.id === "emerald-quant-system",
@@ -99,8 +118,9 @@ export const getSystemsPagePrimarySystem = ():
   const system = getPublicTradingSystems().find(
     (candidate) => candidate.id === "emerald-quant-system",
   );
+  const family = system ? getSystemFamilyById(system.familyId) : undefined;
 
-  if (!system) {
+  if (!system || !family || !isPublicPublished(family)) {
     return undefined;
   }
 
@@ -113,6 +133,15 @@ export const getSystemsPagePrimarySystem = ():
 
   return {
     id: system.id,
+    family: {
+      id: family.id,
+      name: family.name,
+      marketCoverage: family.marketCategories.map(
+        (category) => marketCategoryLabels[category],
+      ),
+    },
+    configurationKey: system.configurationKey,
+    configurationName: system.configurationName,
     name: system.name,
     shortName: system.shortName,
     systemType: "Algorithmic Trading System",

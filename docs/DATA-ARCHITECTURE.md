@@ -189,13 +189,24 @@ The canonical public product catalog lives in `src/data/products/`.
 
 Systems, indicators, and signal streams are distinct domains:
 
-- Trading systems are complete strategy or automation products. They may link to performance records when the public record belongs to that system/account relationship.
+- System families describe broader quantitative trading-system product lines and supported asset-class coverage.
+- Trading systems are concrete configurations under a system family. They may link to performance records when the public record belongs to that configuration/account relationship.
 - Indicators are market-analysis or signal-generating tools. They may link to systems and signal streams, but should not duplicate or claim Ledger performance unless a later approved source supports that attribution.
 - Signal products are structured streams of trade ideas, directional events, alerts, or indicator-generated outputs. They are product definitions, not individual buy/sell events.
 
+The current Emerald Quant System architecture separates family coverage from configuration scope:
+
+- `emerald-quant-system-family`: the Emerald Quant System family. It covers Metals, Forex, Futures, and Equities as supported asset-class development categories.
+- `emerald-quant-system`: the current concrete Metals / XAUUSD configuration. It preserves the existing ID for current relationships and remains scoped to Metals, XAUUSD, MT4, and `public-forward-test`.
+
+Family coverage does not imply configuration deployment, platform support, or public performance coverage for every asset class. The current public Forward Performance Ledger relationship remains configuration-specific to the Metals / XAUUSD system record.
+
+Family and configuration slugs live in distinct collections. Slug overlap is acceptable until a future routing task introduces shared family/configuration route lookup.
+
 Relationships use stable IDs only:
 
-- systems reference `relatedIndicatorIds`, `relatedSignalIds`, and `performanceRecordIds`
+- system families reference current concrete configurations with `configurationIds`
+- systems reference `familyId`, `relatedIndicatorIds`, `relatedSignalIds`, and `performanceRecordIds`
 - indicators reference `relatedSystemIds` and `relatedSignalIds`
 - signal products reference `relatedSystemIds` and `relatedIndicatorIds`
 

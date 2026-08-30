@@ -1,4 +1,4 @@
-import { Database, Monitor, Shapes, Target } from "lucide-react";
+import { Database, Layers3, Monitor, Shapes, Target } from "lucide-react";
 
 import { Badge } from "@/components/ui/badge";
 import { Container } from "@/components/ui/container";
@@ -9,7 +9,7 @@ type SystemPositioningProps = Readonly<{
   system?: SystemsPagePrimarySystem;
 }>;
 
-const positioningIcons = [Shapes, Monitor, Target, Database] as const;
+const positioningIcons = [Shapes, Layers3, Target, Monitor, Database] as const;
 
 function EmptyPositioningState() {
   return (
@@ -37,28 +37,35 @@ export function SystemPositioning({ system }: SystemPositioningProps) {
   const positioningItems = [
     {
       term: "System Type",
-      value: system.systemType,
+      values: [system.systemType],
       description:
         "The product is positioned as a broader algorithmic system layer rather than a standalone chart signal.",
       badgeVariant: "neutral" as const,
     },
     {
-      term: "Platform",
-      value: system.platforms.join(" / "),
+      term: "Family Coverage",
+      values: system.family.marketCoverage,
       description:
-        "Platform support is taken from the system record, separate from indicator platform coverage.",
+        "Family-level coverage describes where Emerald Legacy Systems develops quantitative system architecture.",
       badgeVariant: "info" as const,
     },
     {
-      term: "Market Scope",
-      value: [...system.markets, ...system.instruments].join(" / "),
+      term: "Current Public Configuration",
+      values: [system.configurationName],
       description:
-        "The current public system scope is limited to its canonical market and instrument.",
+        "The documented public Forward Performance program is scoped to this concrete configuration.",
       badgeVariant: "premium" as const,
     },
     {
+      term: "Platform",
+      values: system.platforms,
+      description:
+        "Platform support is taken from the current configuration record, separate from family-level coverage.",
+      badgeVariant: "neutral" as const,
+    },
+    {
       term: "Public Record",
-      value: system.publicRecordLabel,
+      values: [system.publicRecordLabel],
       description:
         "Documented public Forward Performance is maintained separately in the Emerald Ledger.",
       badgeVariant: "positive" as const,
@@ -100,7 +107,13 @@ export function SystemPositioning({ system }: SystemPositioningProps) {
                     />
                   </dt>
                   <dd className="mt-4">
-                    <Badge variant={item.badgeVariant}>{item.value}</Badge>
+                    <div className="flex flex-wrap gap-2">
+                      {item.values.map((value) => (
+                        <Badge key={value} variant={item.badgeVariant}>
+                          {value}
+                        </Badge>
+                      ))}
+                    </div>
                     <p className="text-muted-foreground mt-4 text-sm leading-6">
                       {item.description}
                     </p>
