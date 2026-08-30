@@ -21,6 +21,19 @@ export const getHomepageFeaturedResearch = () =>
 export const getPublicVideoEntries = () =>
   videoEntries.filter(isPublicPublished);
 
+export const getHomepageVideoPreviewEntries = () => {
+  const publicVideos = getPublicVideoEntries();
+  const previewVideoIds = [
+    "emerald-ledger-cumulative-two-weeks-video",
+    "emerald-ledger-week-01-video",
+    "emerald-ledger-day-003-video",
+  ] as const;
+
+  return previewVideoIds
+    .map((id) => publicVideos.find((entry) => entry.id === id))
+    .filter((entry): entry is NonNullable<typeof entry> => Boolean(entry));
+};
+
 export const getPublicVerificationRecords = () =>
   verificationRecords.filter(isPublicPublished);
 
