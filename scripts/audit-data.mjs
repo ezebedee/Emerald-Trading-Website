@@ -130,6 +130,7 @@ const systemsSource = readProjectFile("src/data/products/systems.ts");
 const systemFamiliesSource = readProjectFile(
   "src/data/products/system-families.ts",
 );
+const ledgerSource = readProjectFile("src/data/ledger/entries.ts");
 const productsSelectorSource = readProjectFile(
   "src/data/selectors/products.ts",
 );
@@ -184,7 +185,16 @@ const systemInstruments =
 const systemPlatforms =
   literalArrayValuesForKey(systemsSource, "platforms")[currentSystemIndex] ??
   [];
+const ledgerEntryIds = literalValuesForKey(ledgerSource, "id");
 const requiredFamilyMarkets = ["metals", "forex", "futures", "equities"];
+const currentPublicLedgerIds = [
+  "day-001",
+  "day-002",
+  "day-003",
+  "week-01",
+  "week-02",
+  "cumulative-2-weeks",
+];
 
 for (const configurationId of familyConfigurationIds) {
   if (!systemIds.includes(configurationId)) {
@@ -273,6 +283,50 @@ if (
   );
 }
 
+for (const ledgerId of currentPublicLedgerIds) {
+  if (!ledgerEntryIds.includes(ledgerId)) {
+    failures.push(`Expected public Ledger entry "${ledgerId}" is missing.`);
+  }
+}
+
+if (
+  !systemsSource.includes(
+    "const ledgerPerformanceRecordIds = ledgerEntries.map",
+  )
+) {
+  failures.push(
+    `${currentSystemId} must derive performanceRecordIds from canonical Ledger entries.`,
+  );
+}
+
+if (!productsSelectorSource.includes("getPublicPerformanceRecordsForSystem")) {
+  failures.push("Missing public-safe system performance selector.");
+}
+
+if (!productsSelectorSource.includes("getSystemsPagePerformanceContext")) {
+  failures.push("Missing Systems page performance context selector.");
+}
+
+if (!productsSelectorSource.includes('entry.periodType === "cumulative"')) {
+  failures.push(
+    "Systems performance context must select a cumulative Ledger record.",
+  );
+}
+
+if (
+  !productsSelectorSource.includes("getPerformanceRecordsForSystem(systemId)")
+) {
+  failures.push(
+    "Public performance selector must resolve records from configuration performanceRecordIds.",
+  );
+}
+
+if (!ledgerEntryIds.includes("cumulative-2-weeks")) {
+  failures.push(
+    `${currentSystemId} latest cumulative public performance record must remain cumulative-2-weeks.`,
+  );
+}
+
 console.log("Data source text audit");
 console.log(`Domains checked: ${domains.length}`);
 console.log(`Production data files scanned: ${productionDataFiles.length}`);
@@ -281,6 +335,9 @@ console.log(
 );
 console.log(
   `System family configuration links checked: ${familyConfigurationIds.length}`,
+);
+console.log(
+  `Configuration performance ownership checked: ${currentPublicLedgerIds.length}`,
 );
 
 if (failures.length) {

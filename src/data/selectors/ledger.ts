@@ -134,7 +134,10 @@ const parseIsoDateParts = (date: string) => {
   return { year, month, day };
 };
 
-const formatPublicRecordCoverage = (startDate: string, endDate: string) => {
+export const formatPublicRecordCoverage = (
+  startDate: string,
+  endDate: string,
+) => {
   const start = parseIsoDateParts(startDate);
   const end = parseIsoDateParts(endDate);
   const startMonth = monthLabels[start.month - 1];

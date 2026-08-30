@@ -6,8 +6,16 @@ import {
 } from "@/data/products";
 
 import { getAssetById } from "./assets";
-import { getLedgerEntryById } from "./ledger";
-import type { SystemsPageCapability, SystemsPagePrimarySystem } from "./types";
+import {
+  formatPublicRecordCoverage,
+  getEffectiveCumulativeMetrics,
+  getLedgerEntryById,
+} from "./ledger";
+import type {
+  SystemsPageCapability,
+  SystemsPagePerformanceContext,
+  SystemsPagePrimarySystem,
+} from "./types";
 
 const lifecycleStatusLabels = {
   research: "Research",
@@ -27,6 +35,13 @@ const marketCategoryLabels = {
   cfds: "CFDs",
   crypto: "Crypto",
   other: "Other",
+} as const;
+
+const performanceClassificationLabels = {
+  "forward-performance": "Forward Performance",
+  backtest: "Backtest",
+  simulation: "Simulation",
+  "private-live-performance": "Private Performance",
 } as const;
 
 const capabilityPresentation: Record<
@@ -90,6 +105,34 @@ const isPublicPublished = <
 >(
   record: T,
 ) => record.visibility === "public" && record.contentStatus === "published";
+
+const isPublicForwardPerformance = (entry: {
+  visibility: string;
+  performanceClassification: string;
+}) =>
+  entry.visibility === "public" &&
+  entry.performanceClassification === "forward-performance";
+
+const latestByEndDateThenId = <T extends { endDate: string; id: string }>(
+  entries: readonly T[],
+) =>
+  entries.reduce<T | undefined>((latest, entry) => {
+    if (!latest) {
+      return entry;
+    }
+
+    const dateSort = entry.endDate.localeCompare(latest.endDate);
+
+    if (dateSort > 0) {
+      return entry;
+    }
+
+    if (dateSort === 0 && entry.id.localeCompare(latest.id) > 0) {
+      return entry;
+    }
+
+    return latest;
+  }, undefined);
 
 export const getPublicTradingSystems = () =>
   tradingSystems.filter(isPublicPublished);
@@ -281,6 +324,87 @@ export const getPerformanceRecordsForSystem = (systemId: string) => {
   return (system?.performanceRecordIds ?? [])
     .map(getLedgerEntryById)
     .filter((entry): entry is NonNullable<typeof entry> => Boolean(entry));
+};
+
+export const getPublicPerformanceRecordsForSystem = (systemId: string) =>
+  getPerformanceRecordsForSystem(systemId).filter(isPublicForwardPerformance);
+
+export const getSystemsPagePerformanceContext = (
+  systemId: string,
+): SystemsPagePerformanceContext | undefined => {
+  const system = getPublicTradingSystems().find(
+    (candidate) => candidate.id === systemId,
+  );
+  const family = system ? getSystemFamilyById(system.familyId) : undefined;
+
+  if (!system || !family || !isPublicPublished(family)) {
+    return undefined;
+  }
+
+  const publicRecords = getPublicPerformanceRecordsForSystem(system.id);
+  const latestCumulativeRecord = latestByEndDateThenId(
+    publicRecords.filter((entry) => entry.periodType === "cumulative"),
+  );
+  const metrics = latestCumulativeRecord
+    ? getEffectiveCumulativeMetrics(latestCumulativeRecord)
+    : undefined;
+
+  return {
+    systemId: system.id,
+    familyId: family.id,
+    familyName: family.name,
+    familyMarketCoverage: family.marketCategories.map(
+      (category) => marketCategoryLabels[category],
+    ),
+    configurationName: system.configurationName,
+    configurationMarkets: system.marketCategories.map(
+      (category) => marketCategoryLabels[category],
+    ),
+    configurationInstruments: system.instruments ?? [],
+    platforms: system.platforms,
+    lifecycleStatus: lifecycleStatusLabels[system.lifecycleStatus],
+    performanceClassification:
+      performanceClassificationLabels["forward-performance"],
+    latestCumulativeRecord:
+      latestCumulativeRecord && metrics
+        ? {
+            id: latestCumulativeRecord.id,
+            title: latestCumulativeRecord.title,
+            coverageLabel: formatPublicRecordCoverage(
+              latestCumulativeRecord.startDate,
+              latestCumulativeRecord.endDate,
+            ),
+            metrics: [
+              {
+                label: "Cumulative Net Profit",
+                value: metrics.netProfit,
+                kind: "currency",
+              },
+              {
+                label: "Cumulative Return",
+                value: metrics.returnPct,
+                kind: "percentage",
+              },
+              {
+                label: "Total Trades",
+                value: metrics.totalTrades,
+                kind: "count",
+              },
+              {
+                label: "Win Rate",
+                value: metrics.winRatePct,
+                kind: "percentage",
+              },
+              {
+                label: "Maximum Drawdown",
+                value: metrics.maxDrawdownPct,
+                kind: "percentage",
+              },
+            ],
+          }
+        : undefined,
+    publicRecordCount: publicRecords.length,
+  };
 };
 
 export const getFeaturedAssetForSystem = (systemId: string) => {
