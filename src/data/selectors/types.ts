@@ -71,6 +71,16 @@ export type LedgerChronologyEntry = Readonly<{
   cumulative?: Pick<LedgerChronologyMetricSnapshot, "netProfit" | "returnPct">;
 }>;
 
+export type LedgerVerificationEvidenceRecord = Readonly<{
+  id: ReadableId;
+  title: string;
+  method: string;
+  status?: string;
+  accountClassification?: string;
+  description: string;
+  relatedLedgerRecordScope?: string;
+}>;
+
 export type LedgerConsistencyIssue = Readonly<{
   recordId: ReadableId;
   field: string;
