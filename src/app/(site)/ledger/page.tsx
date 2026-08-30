@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 
 import { LedgerHero } from "@/components/ledger/ledger-hero";
+import { LedgerMediaContext } from "@/components/ledger/ledger-media-context";
 import { LedgerPerformanceProgression } from "@/components/ledger/ledger-performance-progression";
 import { LedgerPerformanceSummary } from "@/components/ledger/ledger-performance-summary";
 import { LedgerRecordChronology } from "@/components/ledger/ledger-record-chronology";
@@ -35,6 +36,7 @@ export default function LedgerPage() {
       <LedgerPerformanceProgression />
       <LedgerRecordChronology />
       <LedgerVerificationEvidence />
+      <LedgerMediaContext />
     </>
   );
 }
