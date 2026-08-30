@@ -40,7 +40,8 @@ export function LedgerHero({ overview }: LedgerHeroProps) {
                   Account Type
                 </dt>
                 <dd className="text-foreground mt-2 text-base font-semibold">
-                  {overview.accountClassification}
+                  {overview.accountClassification ??
+                    "Public account classification unavailable"}
                 </dd>
               </div>
               <div className="surface-default rounded-lg p-4">

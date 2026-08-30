@@ -82,6 +82,14 @@ const literalArrayValuesForKey = (source, key) =>
     ([, block]) => [...block.matchAll(/"([^"]+)"/g)].map((match) => match[1]),
   );
 
+const literalValueForKeyInBlock = (source, key) =>
+  source.match(new RegExp(`\\b${key}:\\s*"([^"]+)"`))?.[1];
+
+const objectBlocksWithIds = (source) =>
+  [...source.matchAll(/\{\s*id:\s*"([^"]+)"([\s\S]*?)\n\s*\},/g)].map(
+    ([block, id]) => ({ id, block }),
+  );
+
 const findDuplicates = (values) => {
   const seen = new Set();
   const duplicates = new Set();
@@ -198,6 +206,40 @@ const systemPerformanceRecordIds =
     currentSystemIndex
   ] ?? currentPublicLedgerIds;
 const ledgerEntryIds = literalValuesForKey(ledgerSource, "id");
+const ledgerSharedAccountClassification = literalValueForKeyInBlock(
+  ledgerSource.match(
+    /const sharedLedgerFields = \{([\s\S]*?)\} as const;/,
+  )?.[1] ?? "",
+  "accountClassification",
+);
+const ledgerSharedPerformanceClassification = literalValueForKeyInBlock(
+  ledgerSource.match(
+    /const sharedLedgerFields = \{([\s\S]*?)\} as const;/,
+  )?.[1] ?? "",
+  "performanceClassification",
+);
+const ledgerSharedVisibility = literalValueForKeyInBlock(
+  ledgerSource.match(
+    /const sharedLedgerFields = \{([\s\S]*?)\} as const;/,
+  )?.[1] ?? "",
+  "visibility",
+);
+const ledgerEntryMetadataById = new Map(
+  objectBlocksWithIds(ledgerSource).map(({ id, block }) => [
+    id,
+    {
+      accountClassification:
+        literalValueForKeyInBlock(block, "accountClassification") ??
+        ledgerSharedAccountClassification,
+      performanceClassification:
+        literalValueForKeyInBlock(block, "performanceClassification") ??
+        ledgerSharedPerformanceClassification,
+      visibility:
+        literalValueForKeyInBlock(block, "visibility") ??
+        ledgerSharedVisibility,
+    },
+  ]),
+);
 const requiredFamilyMarkets = ["metals", "forex", "futures", "equities"];
 
 for (const configurationId of familyConfigurationIds) {
@@ -394,6 +436,44 @@ for (const [recordId, owners] of performanceOwners.entries()) {
   if (owners.length > 1) {
     failures.push(
       `Ledger performance record "${recordId}" is owned by multiple configurations: ${owners.join(", ")}.`,
+    );
+  }
+}
+
+for (const [index, systemId] of systemIds.entries()) {
+  const ownedRecordIds =
+    literalArrayValuesForKey(systemsSource, "performanceRecordIds")[index] ??
+    (systemId === currentSystemId ? currentPublicLedgerIds : []);
+  const publicForwardOwnedRecords = ownedRecordIds
+    .map((recordId) => ({
+      id: recordId,
+      metadata: ledgerEntryMetadataById.get(recordId),
+    }))
+    .filter(
+      ({ metadata }) =>
+        metadata?.visibility === "public" &&
+        metadata.performanceClassification === "forward-performance",
+    );
+  const classifications = new Map();
+
+  for (const { id, metadata } of publicForwardOwnedRecords) {
+    const classification = metadata?.accountClassification ?? "undefined";
+    const recordIds = classifications.get(classification) ?? [];
+
+    recordIds.push(id);
+    classifications.set(classification, recordIds);
+  }
+
+  if (classifications.size > 1) {
+    failures.push(
+      `Configuration "${systemId}" mixes public Forward Performance account classifications: ${[
+        ...classifications.entries(),
+      ]
+        .map(
+          ([classification, recordIds]) =>
+            `${classification} (${recordIds.join(", ")})`,
+        )
+        .join("; ")}.`,
     );
   }
 }

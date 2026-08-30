@@ -2,7 +2,6 @@ import {
   cumulativeLedgerEntries,
   dailyLedgerEntries,
   ledgerEntries,
-  publicLedgerAccount,
   weeklyLedgerEntries,
 } from "@/data/ledger";
 import type { LedgerEntry, PerformanceMetrics } from "@/domain";
@@ -325,10 +324,18 @@ export const getLedgerPublicRecordOverviewFromRecords = (
         publicForwardEntries[0].performanceClassification
       ]
     : undefined;
+  const accountClassifications = [
+    ...new Set(
+      publicForwardEntries.map((entry) => entry.accountClassification),
+    ),
+  ];
+  const accountClassification =
+    accountClassifications.length === 1
+      ? accountClassificationLabels[accountClassifications[0]]
+      : undefined;
 
   return {
-    accountClassification:
-      accountClassificationLabels[publicLedgerAccount.accountClassification],
+    accountClassification,
     performanceClassification,
     coverageLabel:
       earliestEntry && latestEntry
