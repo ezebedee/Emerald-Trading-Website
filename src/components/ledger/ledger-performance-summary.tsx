@@ -29,13 +29,13 @@ const integerFormatter = new Intl.NumberFormat("en-US", {
 });
 
 const formatCurrency = (value?: number) =>
-  value === undefined ? "-" : currencyFormatter.format(value);
+  value === undefined ? "—" : currencyFormatter.format(value);
 
 const formatPercent = (value?: number) =>
-  value === undefined ? "-" : `${percentFormatter.format(value)}%`;
+  value === undefined ? "—" : `${percentFormatter.format(value)}%`;
 
 const formatInteger = (value?: number) =>
-  value === undefined ? "-" : integerFormatter.format(value);
+  value === undefined ? "—" : integerFormatter.format(value);
 
 type KpiCardProps = Readonly<{
   label: string;
@@ -61,7 +61,7 @@ function KpiCard({
       }
     >
       <div className="flex items-start justify-between gap-3">
-        <p className="type-label text-subtle-foreground">{label}</p>
+        <dt className="type-label text-subtle-foreground">{label}</dt>
         <Icon
           aria-hidden="true"
           className={
@@ -71,16 +71,18 @@ function KpiCard({
           }
         />
       </div>
-      <p
-        className={
-          emphasis === "primary"
-            ? "numeric text-foreground mt-4 text-2xl font-semibold md:text-3xl"
-            : "numeric text-foreground mt-4 text-xl font-semibold md:text-2xl"
-        }
-      >
-        {value}
-      </p>
-      <p className="text-muted-foreground mt-3 text-sm leading-6">{helper}</p>
+      <dd>
+        <p
+          className={
+            emphasis === "primary"
+              ? "numeric text-foreground mt-4 text-2xl font-semibold md:text-3xl"
+              : "numeric text-foreground mt-4 text-xl font-semibold md:text-2xl"
+          }
+        >
+          {value}
+        </p>
+        <p className="text-muted-foreground mt-3 text-sm leading-6">{helper}</p>
+      </dd>
     </div>
   );
 }
