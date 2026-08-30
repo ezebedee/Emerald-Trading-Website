@@ -6,8 +6,8 @@ import {
 } from "./content";
 import {
   getEffectiveCumulativeMetrics,
-  formatPublicRecordCoverage,
-  getLatestPublicPerformanceSummaryFromRecords,
+  getLatestPublicCumulativeLedgerRecordFromRecords,
+  getPublicLedgerChronologyEntriesFromRecords,
 } from "./ledger";
 import {
   getHomepageFeaturedIndicator,
@@ -19,8 +19,8 @@ import {
 import type {
   HomepageFeaturedSystemContext,
   LedgerMediaContextRecord,
+  LedgerLatestPerformanceSnapshot,
   LedgerVerificationEvidenceRecord,
-  PerformanceSummary,
 } from "./types";
 
 export const homepageFeaturedConfigurationId = "emerald-quant-system";
@@ -140,8 +140,8 @@ export const getHomepageFeaturedSystemContext = ():
 
 export const getHomepagePerformanceSnapshotForConfiguration = (
   configurationId: string,
-): PerformanceSummary | undefined =>
-  getLatestPublicPerformanceSummaryFromRecords(
+): LedgerLatestPerformanceSnapshot | undefined =>
+  getLatestPublicCumulativeLedgerRecordFromRecords(
     getPublicLedgerEntriesForConfiguration(configurationId),
   );
 
@@ -196,33 +196,8 @@ export const getHomepageVideoPreviewEntriesForConfiguration = (
     getHomepageLedgerTeaserEntriesForConfiguration(configurationId);
 
   return getLedgerMediaContextRecords({
-    chronologyEntries: teaserEntries.map((entry) => ({
-      id: entry.id,
-      title: entry.title,
-      periodType:
-        entry.periodType === "cumulative"
-          ? "Cumulative"
-          : entry.periodType === "weekly"
-            ? "Weekly"
-            : "Daily",
-      startDate: entry.startDate,
-      endDate: entry.endDate,
-      coverageLabel: formatPublicRecordCoverage(entry.startDate, entry.endDate),
-      accountClassification: "Public Demo Reference Account",
-      performanceClassification: "Forward Performance",
-      period: {
-        netProfit: entry.periodMetrics.netProfit,
-        returnPct: entry.periodMetrics.returnPct,
-        totalTrades: entry.periodMetrics.totalTrades,
-        winRatePct: entry.periodMetrics.winRatePct,
-      },
-      cumulative: entry.cumulativeMetrics
-        ? {
-            netProfit: entry.cumulativeMetrics.netProfit,
-            returnPct: entry.cumulativeMetrics.returnPct,
-          }
-        : undefined,
-    })),
+    chronologyEntries:
+      getPublicLedgerChronologyEntriesFromRecords(teaserEntries),
     systemId: configurationId,
   });
 };

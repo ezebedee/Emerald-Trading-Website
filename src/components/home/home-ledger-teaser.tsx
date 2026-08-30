@@ -111,8 +111,7 @@ export function HomeLedgerTeaser({
             </h2>
             <p className="type-body text-muted-foreground mt-5 max-w-2xl">
               The Emerald Ledger presents structured public Forward Performance
-              updates across daily, weekly, and cumulative periods for the
-              Public Demo Reference Account.
+              updates over time for the current public configuration.
             </p>
             {configurationScope ? (
               <p className="text-subtle-foreground mt-4 text-sm leading-6">

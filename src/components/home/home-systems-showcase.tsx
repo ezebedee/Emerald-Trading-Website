@@ -115,14 +115,11 @@ export function HomeSystemsShowcase({
             </p>
 
             <article className="surface-elevated mt-8 rounded-lg p-5 md:p-6">
-              <div className="flex flex-col gap-4 sm:flex-row sm:items-start sm:justify-between">
-                <div>
-                  <Badge variant="neutral">System Family</Badge>
-                  <h3 className="type-heading-3 text-foreground mt-4 text-balance">
-                    {family.name}
-                  </h3>
-                </div>
-                <Badge variant="premium">{configuration.status}</Badge>
+              <div>
+                <Badge variant="neutral">System Family</Badge>
+                <h3 className="type-heading-3 text-foreground mt-4 text-balance">
+                  {family.name}
+                </h3>
               </div>
 
               <p className="type-body-small text-muted-foreground mt-4 max-w-2xl">
@@ -155,6 +152,7 @@ export function HomeSystemsShowcase({
                         {platform} Platform
                       </Badge>
                     ))}
+                    <Badge variant="premium">{configuration.status}</Badge>
                   </div>
                 </div>
               </div>

@@ -446,6 +446,10 @@ Implemented performance behavior:
   `getLatestPublicPerformanceSummary()`.
 - Snapshot metrics resolve through the featured configuration's owned Ledger
   records.
+- Snapshot account and performance classifications are derived from the scoped
+  latest cumulative record.
+- The heading is future-safe:
+  `Documented performance for the current public configuration.`
 - Current visible metrics remain unchanged:
   - Cumulative Net Profit: `$204,966.54`
   - Cumulative Return: `20.50%`
@@ -461,6 +465,8 @@ Implemented Ledger teaser behavior:
 - Homepage Ledger Teaser no longer calls `getHomepageLedgerTeaserEntries()`.
 - Teaser records resolve through the featured configuration's owned Ledger
   records.
+- Teaser intro copy no longer hardcodes Public Demo Reference Account or
+  assumes daily/weekly/cumulative completeness.
 - The current teaser remains three records:
   - `cumulative-2-weeks`
   - `week-01`
@@ -472,9 +478,11 @@ Implemented Systems Showcase presentation:
 - The primary identity remains `Emerald Quant System`.
 - The section now presents `System Family` separately from
   `Current Public Configuration`.
+- The family header contains only family-level information.
 - Family coverage is shown passively as: Metals, Forex, Futures, Equities.
 - Current public configuration is shown as: Metals / XAUUSD.
-- MT4 is labeled as the current configuration platform.
+- MT4 and Public Forward Test are shown inside the Current Public Configuration
+  badge group.
 
 Implemented verification and video treatment:
 
@@ -482,6 +490,8 @@ Implemented verification and video treatment:
   owned Ledger records and system relationship.
 - Homepage video preview records are scoped through the featured configuration,
   its owned Ledger records, and related system/video relationships.
+- Video preview chronology context reuses Ledger chronology presentation mapping
+  rather than hardcoded account/performance classification labels.
 - External video links remain pending; no URLs were invented.
 
 Implemented audit protection:

@@ -5,7 +5,7 @@ import { Container } from "@/components/ui/container";
 import { SectionLabel } from "@/components/ui/section-label";
 import type {
   HomepageFeaturedSystemContext,
-  PerformanceSummary,
+  LedgerLatestPerformanceSnapshot,
 } from "@/data/selectors/types";
 
 const currencyFormatter = new Intl.NumberFormat("en-US", {
@@ -24,13 +24,6 @@ const integerFormatter = new Intl.NumberFormat("en-US", {
   maximumFractionDigits: 0,
 });
 
-const dateFormatter = new Intl.DateTimeFormat("en-US", {
-  month: "short",
-  day: "numeric",
-  year: "numeric",
-  timeZone: "UTC",
-});
-
 const formatCurrency = (value?: number) =>
   value === undefined ? "-" : currencyFormatter.format(value);
 
@@ -40,29 +33,7 @@ const formatPercent = (value?: number) =>
 const formatInteger = (value?: number) =>
   value === undefined ? "-" : integerFormatter.format(value);
 
-const formatPeriodRange = (startDate: string, endDate: string) => {
-  const start = new Date(`${startDate}T00:00:00Z`);
-  const end = new Date(`${endDate}T00:00:00Z`);
-
-  if (start.getUTCFullYear() === end.getUTCFullYear()) {
-    const startMonth = new Intl.DateTimeFormat("en-US", {
-      month: "short",
-      timeZone: "UTC",
-    }).format(start);
-    const endMonth = new Intl.DateTimeFormat("en-US", {
-      month: "short",
-      timeZone: "UTC",
-    }).format(end);
-
-    if (startMonth === endMonth) {
-      return `${startMonth} ${start.getUTCDate()}-${end.getUTCDate()}, ${end.getUTCFullYear()}`;
-    }
-  }
-
-  return `${dateFormatter.format(start)} - ${dateFormatter.format(end)}`;
-};
-
-const getSnapshotMetrics = (summary: PerformanceSummary) =>
+const getSnapshotMetrics = (summary: LedgerLatestPerformanceSnapshot) =>
   [
     {
       label: "Cumulative Net Profit",
@@ -96,7 +67,7 @@ export function HomePerformanceSnapshot({
   summary,
 }: {
   configurationScope?: HomepageFeaturedSystemContext["configuration"];
-  summary?: PerformanceSummary;
+  summary?: LedgerLatestPerformanceSnapshot;
 }) {
   return (
     <section className="bg-surface-soft/45 py-14 md:py-16 xl:py-20">
@@ -104,7 +75,7 @@ export function HomePerformanceSnapshot({
         <div className="max-w-3xl">
           <SectionLabel variant="gold">Public Forward Performance</SectionLabel>
           <h2 className="type-heading-2 text-foreground mt-4 max-w-3xl text-balance">
-            Documented performance from the public demo reference account.
+            Documented performance for the current public configuration.
           </h2>
           <p className="type-body text-muted-foreground mt-5 max-w-2xl">
             Current cumulative results are derived from the documented public
@@ -126,10 +97,12 @@ export function HomePerformanceSnapshot({
                   </Badge>
                 </span>
               ) : null}
-              <Badge variant="premium">Public Demo Reference Account</Badge>
-              <Badge variant="positive">Forward Performance</Badge>
+              <Badge variant="premium">{summary.accountClassification}</Badge>
+              <Badge variant="positive">
+                {summary.performanceClassification}
+              </Badge>
               <span className="text-muted-foreground text-sm">
-                Period: {formatPeriodRange(summary.startDate, summary.endDate)}
+                Period: {summary.coverageLabel}
               </span>
             </div>
 
