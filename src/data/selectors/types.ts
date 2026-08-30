@@ -131,6 +131,32 @@ export type SystemsPagePrimarySystem = Readonly<{
   publicRecordLabel: string;
 }>;
 
+export type SystemsPagePerformanceMetric = Readonly<{
+  label: string;
+  value: MoneyValue | PercentageValue | number;
+  kind: "currency" | "percentage" | "count";
+}>;
+
+export type SystemsPagePerformanceContext = Readonly<{
+  systemId: ReadableId;
+  familyId: ReadableId;
+  familyName: string;
+  familyMarketCoverage: readonly string[];
+  configurationName: string;
+  configurationMarkets: readonly string[];
+  configurationInstruments: readonly string[];
+  platforms: readonly string[];
+  lifecycleStatus: string;
+  performanceClassification: string;
+  latestCumulativeRecord?: Readonly<{
+    id: ReadableId;
+    title: string;
+    coverageLabel: string;
+    metrics: readonly SystemsPagePerformanceMetric[];
+  }>;
+  publicRecordCount: number;
+}>;
+
 export type LedgerConsistencyIssue = Readonly<{
   recordId: ReadableId;
   field: string;
