@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 
 import { LedgerHero } from "@/components/ledger/ledger-hero";
+import { LedgerPerformanceProgression } from "@/components/ledger/ledger-performance-progression";
 import { LedgerPerformanceSummary } from "@/components/ledger/ledger-performance-summary";
 import { LedgerRecordClassification } from "@/components/ledger/ledger-record-classification";
 import { JsonLd } from "@/components/seo/json-ld";
@@ -29,6 +30,7 @@ export default function LedgerPage() {
       <LedgerHero overview={overview} />
       <LedgerRecordClassification overview={overview} />
       <LedgerPerformanceSummary />
+      <LedgerPerformanceProgression />
     </>
   );
 }

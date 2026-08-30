@@ -360,7 +360,7 @@ export const getEffectiveCumulativeMetrics = (entry: LedgerEntry) => {
 export const getCumulativePerformanceSeries = () =>
   Array.from(
     ledgerEntries
-      .filter(isPublic)
+      .filter(isPublicForwardPerformance)
       .reduce((snapshotsByDate, entry) => {
         const metrics = getEffectiveCumulativeMetrics(entry);
 
@@ -387,7 +387,7 @@ export const getCumulativePerformanceSeries = () =>
 
 export const getDailyCumulativePerformanceSeries = () =>
   dailyLedgerEntries
-    .filter(isPublic)
+    .filter(isPublicForwardPerformance)
     .map((entry) => {
       const metrics = getEffectiveCumulativeMetrics(entry);
 
@@ -402,7 +402,7 @@ export const getDailyCumulativePerformanceSeries = () =>
 
 export const getWeeklyCumulativePerformanceSeries = () =>
   weeklyLedgerEntries
-    .filter(isPublic)
+    .filter(isPublicForwardPerformance)
     .map((entry) => {
       if (!entry.cumulativeMetrics) {
         return undefined;
