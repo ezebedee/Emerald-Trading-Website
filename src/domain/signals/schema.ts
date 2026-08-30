@@ -4,33 +4,37 @@ import {
   assetReferenceIdSchema,
   contentStatusSchema,
   instrumentSymbolSchema,
-  isoDateTimeStringSchema,
   marketCategorySchema,
   readableIdSchema,
   slugSchema,
   tradingPlatformSchema,
   visibilitySchema,
 } from "../common/schema";
-import { SIGNAL_DIRECTIONS } from "./types";
+import { SIGNAL_CATEGORIES, SIGNAL_DELIVERY_METHODS } from "./types";
 
-export const signalDirectionSchema = z.enum(SIGNAL_DIRECTIONS);
+export const signalCategorySchema = z.enum(SIGNAL_CATEGORIES);
+export const signalDeliveryMethodSchema = z.enum(SIGNAL_DELIVERY_METHODS);
 
-export const signalDefinitionSchema = z
+export const signalProductSchema = z
   .object({
     id: readableIdSchema,
     slug: slugSchema,
-    title: z.string().min(1),
-    status: contentStatusSchema,
+    name: z.string().min(1),
+    shortName: z.string().min(1).optional(),
+    description: z.string().min(1),
+    contentStatus: contentStatusSchema,
     visibility: visibilitySchema,
-    platform: tradingPlatformSchema.optional(),
-    market: marketCategorySchema.optional(),
-    instrument: instrumentSymbolSchema.optional(),
-    direction: signalDirectionSchema.optional(),
-    generatedAt: isoDateTimeStringSchema.optional(),
-    expiresAt: isoDateTimeStringSchema.optional(),
-    relatedSystemId: readableIdSchema.optional(),
+    signalCategory: signalCategorySchema,
+    deliveryMethods: z.array(signalDeliveryMethodSchema).optional(),
+    platforms: z.array(tradingPlatformSchema).min(1),
+    marketCategories: z.array(marketCategorySchema).min(1),
+    instruments: z.array(instrumentSymbolSchema).optional(),
+    capabilities: z.array(z.string().min(1)).optional(),
+    featuredAssetId: assetReferenceIdSchema.optional(),
+    assetIds: z.array(assetReferenceIdSchema).optional(),
+    relatedSystemIds: z.array(readableIdSchema).optional(),
     relatedIndicatorIds: z.array(readableIdSchema).optional(),
-    screenshotAssetId: assetReferenceIdSchema.optional(),
+    tags: z.array(z.string().min(1)).optional(),
     notes: z.string().min(1).optional(),
   })
   .strict();

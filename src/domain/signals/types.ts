@@ -1,7 +1,6 @@
 import type {
   AssetReferenceId,
   ContentStatus,
-  ISODateTimeString,
   InstrumentSymbol,
   MarketCategory,
   ReadableId,
@@ -10,23 +9,44 @@ import type {
   Visibility,
 } from "../common/types";
 
-export const SIGNAL_DIRECTIONS = ["buy", "sell", "neutral"] as const;
-export type SignalDirection = (typeof SIGNAL_DIRECTIONS)[number];
+export const SIGNAL_CATEGORIES = [
+  "directional",
+  "entry",
+  "exit",
+  "trend",
+  "momentum",
+  "reversal",
+  "risk",
+  "other",
+] as const;
+export type SignalCategory = (typeof SIGNAL_CATEGORIES)[number];
 
-export type SignalDefinition = Readonly<{
+export const SIGNAL_DELIVERY_METHODS = [
+  "chart",
+  "dashboard",
+  "notification",
+  "manual",
+] as const;
+export type SignalDeliveryMethod = (typeof SIGNAL_DELIVERY_METHODS)[number];
+
+export type SignalProduct = Readonly<{
   id: ReadableId;
   slug: Slug;
-  title: string;
-  status: ContentStatus;
+  name: string;
+  shortName?: string;
+  description: string;
+  contentStatus: ContentStatus;
   visibility: Visibility;
-  platform?: TradingPlatform;
-  market?: MarketCategory;
-  instrument?: InstrumentSymbol;
-  direction?: SignalDirection;
-  generatedAt?: ISODateTimeString;
-  expiresAt?: ISODateTimeString;
-  relatedSystemId?: ReadableId;
+  signalCategory: SignalCategory;
+  deliveryMethods?: readonly SignalDeliveryMethod[];
+  platforms: readonly TradingPlatform[];
+  marketCategories: readonly MarketCategory[];
+  instruments?: readonly InstrumentSymbol[];
+  capabilities?: readonly string[];
+  featuredAssetId?: AssetReferenceId;
+  assetIds?: readonly AssetReferenceId[];
+  relatedSystemIds?: readonly ReadableId[];
   relatedIndicatorIds?: readonly ReadableId[];
-  screenshotAssetId?: AssetReferenceId;
+  tags?: readonly string[];
   notes?: string;
 }>;
