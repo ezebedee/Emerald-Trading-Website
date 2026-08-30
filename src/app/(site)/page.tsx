@@ -5,6 +5,7 @@ import { HomePerformanceSnapshot } from "@/components/home/home-performance-snap
 import { HomeSystemsShowcase } from "@/components/home/home-systems-showcase";
 import { HomeTechnologyResearch } from "@/components/home/home-technology-research";
 import { HomeTrustStrip } from "@/components/home/home-trust-strip";
+import { HomeVerificationTransparency } from "@/components/home/home-verification-transparency";
 
 export default function Home() {
   return (
@@ -16,6 +17,7 @@ export default function Home() {
       <HomeSystemsShowcase />
       <HomeIndicatorsSignalsShowcase />
       <HomeTechnologyResearch />
+      <HomeVerificationTransparency />
     </>
   );
 }
