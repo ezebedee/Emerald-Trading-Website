@@ -1,7 +1,7 @@
 export type AssetKind = "image" | "brand" | "document" | "video";
 
 export type AssetFormat =
-  "webp" | "avif" | "png" | "jpg" | "jpeg" | "svg" | "pdf";
+  "webp" | "avif" | "png" | "jpg" | "jpeg" | "svg" | "ico" | "pdf";
 
 export type AssetSource = "Emerald Legacy Systems" | "Third Party";
 
@@ -23,7 +23,7 @@ export type ImageAsset = BaseAsset &
     kind: "image";
     src: string;
     alt: string;
-    format: Exclude<AssetFormat, "pdf">;
+    format: Exclude<AssetFormat, "ico" | "pdf">;
     width?: number;
     height?: number;
   }>;
@@ -32,8 +32,8 @@ export type BrandAsset = BaseAsset &
   Readonly<{
     kind: "brand";
     src: string;
-    alt: "Emerald Legacy Systems" | "";
-    format: "svg" | "png" | "webp" | "ico";
+    alt: string;
+    format: Extract<AssetFormat, "svg" | "png" | "webp" | "ico">;
     width?: number;
     height?: number;
   }>;

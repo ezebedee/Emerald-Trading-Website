@@ -1,6 +1,8 @@
 import Link from "next/link";
+import { BrandLockup } from "@/components/brand/brand-lockup";
 import { Badge } from "@/components/ui/badge";
 import { Container } from "@/components/ui/container";
+import { siteBrand } from "@/data/site";
 
 const footerSections = [
   {
@@ -58,21 +60,14 @@ export function SiteFooter() {
         <section aria-label="Emerald Legacy Systems positioning">
           <Link
             href="/"
-            aria-label="Emerald Legacy Systems home"
+            aria-label={`${siteBrand.name} home`}
             className="focus-emerald transition-standard text-foreground hover:text-gold-warm inline-flex items-center gap-3"
           >
-            <span aria-hidden="true" className="bg-emerald h-8 w-px" />
-            <span className="flex flex-col leading-none">
-              <span className="text-sm font-semibold">EMERALD</span>
-              <span className="text-gold-muted mt-1 text-[0.68rem] font-semibold tracking-[0.16em]">
-                LEGACY SYSTEMS
-              </span>
-            </span>
+            <BrandLockup variant="footer" showDescriptor />
           </Link>
 
           <p className="type-body-small text-muted-foreground mt-5 max-w-md">
-            Quantitative trading systems, signals, automation, and documented
-            performance.
+            {siteBrand.positioning}
           </p>
 
           <div className="mt-6 flex flex-wrap gap-2">
@@ -81,12 +76,12 @@ export function SiteFooter() {
           </div>
 
           <div className="mt-8 grid gap-2 text-sm">
-            <p className="text-subtle-foreground">emeraldforexsystem.com</p>
+            <p className="text-subtle-foreground">{siteBrand.domain}</p>
             <a
-              href="mailto:support@emeraldforexsystem.com"
+              href={`mailto:${siteBrand.supportEmail}`}
               className={footerLinkClassName}
             >
-              support@emeraldforexsystem.com
+              {siteBrand.supportEmail}
             </a>
           </div>
         </section>
@@ -121,9 +116,9 @@ export function SiteFooter() {
           </p>
           <p className="type-body-small text-muted-foreground mt-4 max-w-5xl">
             Trading involves substantial risk. Past or simulated performance is
-            not indicative of future results. Public performance shown by
-            Emerald Legacy Systems may include demo/reference-account results
-            and should not be interpreted as a guarantee of future performance.
+            not indicative of future results. Public performance shown by{" "}
+            {siteBrand.name} may include demo/reference-account results and
+            should not be interpreted as a guarantee of future performance.
           </p>
           <p className="type-body-small text-muted-foreground mt-3 max-w-5xl">
             Information provided is for technology, research, and informational
@@ -137,7 +132,9 @@ export function SiteFooter() {
           size="wide"
           className="text-subtle-foreground flex flex-col gap-4 py-6 text-sm sm:flex-row sm:items-center sm:justify-between"
         >
-          <p>&copy; {year} Emerald Legacy Systems</p>
+          <p>
+            &copy; {year} {siteBrand.name}
+          </p>
           <nav aria-label="Footer legal">
             <ul className="flex flex-wrap gap-x-5 gap-y-2">
               {legalLinks.map((link) => (
