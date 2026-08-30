@@ -5,6 +5,7 @@ import {
 } from "@/data/content";
 import { getPublicLedgerChronologyEntries } from "@/data/selectors/ledger";
 import type {
+  LedgerChronologyEntry,
   LedgerMediaContextRecord,
   LedgerVerificationEvidenceRecord,
 } from "@/data/selectors/types";
@@ -83,8 +84,13 @@ const getVideoAvailabilityState = (record: {
     ? "External video link available"
     : "External video link pending";
 
-export const getLedgerMediaContextRecords = (): LedgerMediaContextRecord[] => {
-  const chronologyEntries = getPublicLedgerChronologyEntries();
+export const getLedgerMediaContextRecords = ({
+  chronologyEntries = getPublicLedgerChronologyEntries(),
+  systemId,
+}: {
+  chronologyEntries?: readonly LedgerChronologyEntry[];
+  systemId?: string;
+} = {}): LedgerMediaContextRecord[] => {
   const chronologyById = new Map(
     chronologyEntries.map((entry, index) => [entry.id, { entry, index }]),
   );
@@ -94,6 +100,10 @@ export const getLedgerMediaContextRecords = (): LedgerMediaContextRecord[] => {
   }> = [];
 
   for (const video of getPublicVideoEntries()) {
+    if (systemId && !video.relatedSystemIds?.includes(systemId)) {
+      continue;
+    }
+
     const relatedLedgerEntries = (video.relatedLedgerEntryIds ?? [])
       .map((id) => chronologyById.get(id))
       .filter((entry): entry is NonNullable<typeof entry> => Boolean(entry))
@@ -146,33 +156,51 @@ export const getHomepageVerificationRecords = () => {
     .filter((record): record is NonNullable<typeof record> => Boolean(record));
 };
 
-export const getLedgerVerificationEvidenceRecords =
-  (): LedgerVerificationEvidenceRecord[] => {
-    const publicRecords = getPublicVerificationRecords();
+export const getLedgerVerificationEvidenceRecords = ({
+  ledgerEntryIds,
+  systemId,
+}: {
+  ledgerEntryIds?: readonly string[];
+  systemId?: string;
+} = {}): LedgerVerificationEvidenceRecord[] => {
+  const allowedLedgerEntryIds = ledgerEntryIds
+    ? new Set(ledgerEntryIds)
+    : undefined;
+  const publicRecords = getPublicVerificationRecords();
 
-    return ledgerVerificationEvidenceRecordIds
-      .map((id) => publicRecords.find((record) => record.id === id))
-      .filter((record): record is NonNullable<typeof record> => Boolean(record))
-      .map((record) => ({
-        id: record.id,
-        title: record.title,
-        method:
-          record.id === "public-demo-reference-account"
-            ? "Account Reference"
-            : "Read-Only Review Access",
-        status: verificationStatusLabels[record.status],
-        accountClassification: record.accountClassification
-          ? accountClassificationLabels[record.accountClassification]
-          : undefined,
-        description:
-          record.id === "public-demo-reference-account"
-            ? ledgerVerificationDescriptions["public-demo-reference-account"]
-            : ledgerVerificationDescriptions["public-demo-read-only-access"],
-        relatedLedgerRecordScope: record.relatedLedgerEntryIds?.length
-          ? "Associated with the current public Ledger history."
-          : undefined,
-      }));
-  };
+  return ledgerVerificationEvidenceRecordIds
+    .map((id) => publicRecords.find((record) => record.id === id))
+    .filter((record): record is NonNullable<typeof record> => Boolean(record))
+    .filter((record) =>
+      systemId ? record.relatedSystemIds?.includes(systemId) : true,
+    )
+    .filter((record) =>
+      allowedLedgerEntryIds
+        ? (record.relatedLedgerEntryIds ?? []).some((id) =>
+            allowedLedgerEntryIds.has(id),
+          )
+        : true,
+    )
+    .map((record) => ({
+      id: record.id,
+      title: record.title,
+      method:
+        record.id === "public-demo-reference-account"
+          ? "Account Reference"
+          : "Read-Only Review Access",
+      status: verificationStatusLabels[record.status],
+      accountClassification: record.accountClassification
+        ? accountClassificationLabels[record.accountClassification]
+        : undefined,
+      description:
+        record.id === "public-demo-reference-account"
+          ? ledgerVerificationDescriptions["public-demo-reference-account"]
+          : ledgerVerificationDescriptions["public-demo-read-only-access"],
+      relatedLedgerRecordScope: record.relatedLedgerEntryIds?.length
+        ? "Associated with the current public Ledger history."
+        : undefined,
+    }));
+};
 
 export const getResearchEntryById = (id: string) =>
   researchEntries.find((entry) => entry.id === id);

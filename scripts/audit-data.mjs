@@ -156,6 +156,14 @@ const systemIds = literalValuesForKey(systemsSource, "id");
 const familyIds = literalValuesForKey(systemFamiliesSource, "id");
 const currentFamilyId = "emerald-quant-system-family";
 const currentSystemId = "emerald-quant-system";
+const currentPublicLedgerIds = [
+  "day-001",
+  "day-002",
+  "day-003",
+  "week-01",
+  "week-02",
+  "cumulative-2-weeks",
+];
 const currentFamilyIndex = familyIds.indexOf(currentFamilyId);
 const currentSystemIndex = systemIds.indexOf(currentSystemId);
 const familyConfigurationIds =
@@ -185,16 +193,12 @@ const systemInstruments =
 const systemPlatforms =
   literalArrayValuesForKey(systemsSource, "platforms")[currentSystemIndex] ??
   [];
+const systemPerformanceRecordIds =
+  literalArrayValuesForKey(systemsSource, "performanceRecordIds")[
+    currentSystemIndex
+  ] ?? currentPublicLedgerIds;
 const ledgerEntryIds = literalValuesForKey(ledgerSource, "id");
 const requiredFamilyMarkets = ["metals", "forex", "futures", "equities"];
-const currentPublicLedgerIds = [
-  "day-001",
-  "day-002",
-  "day-003",
-  "week-01",
-  "week-02",
-  "cumulative-2-weeks",
-];
 
 for (const configurationId of familyConfigurationIds) {
   if (!systemIds.includes(configurationId)) {
@@ -368,6 +372,85 @@ if (familyMarketCategories.length !== 4) {
 if (familyConfigurationIds.length !== 1) {
   failures.push(
     `${currentFamilyId} must currently expose exactly one public canonical configuration.`,
+  );
+}
+
+const performanceOwners = new Map();
+
+for (const [index, systemId] of systemIds.entries()) {
+  const ownedRecordIds =
+    literalArrayValuesForKey(systemsSource, "performanceRecordIds")[index] ??
+    (systemId === currentSystemId ? currentPublicLedgerIds : []);
+
+  for (const recordId of ownedRecordIds) {
+    const owners = performanceOwners.get(recordId) ?? [];
+
+    owners.push(systemId);
+    performanceOwners.set(recordId, owners);
+  }
+}
+
+for (const [recordId, owners] of performanceOwners.entries()) {
+  if (owners.length > 1) {
+    failures.push(
+      `Ledger performance record "${recordId}" is owned by multiple configurations: ${owners.join(", ")}.`,
+    );
+  }
+}
+
+for (const recordId of systemPerformanceRecordIds) {
+  if (!ledgerEntryIds.includes(recordId)) {
+    failures.push(
+      `${currentSystemId} references unknown Ledger performance record "${recordId}".`,
+    );
+  }
+}
+
+if (
+  currentPublicLedgerIds.some(
+    (recordId) => !systemPerformanceRecordIds.includes(recordId),
+  )
+) {
+  failures.push(
+    `${currentSystemId} must own all current public Ledger performance records.`,
+  );
+}
+
+const requiredLedgerSelectorNames = [
+  "getPublicLedgerEntriesForConfiguration",
+  "getDefaultPublicLedgerConfiguration",
+  "getSelectedPublicLedgerConfiguration",
+  "getLedgerConfigurationOptions",
+  "getLatestPublicCumulativeLedgerRecordForConfiguration",
+  "getPublicLedgerSummaryForConfiguration",
+  "getPublicLedgerChronologyForConfiguration",
+  "getPublicLedgerProgressionForConfiguration",
+  "getLedgerPageContext",
+];
+
+for (const selectorName of requiredLedgerSelectorNames) {
+  if (!productsSelectorSource.includes(selectorName)) {
+    failures.push(
+      `Missing Ledger configuration-scoped selector "${selectorName}".`,
+    );
+  }
+}
+
+if (
+  !productsSelectorSource.includes(
+    "getListedPublicConfigurationsForFamily(family.id)",
+  )
+) {
+  failures.push(
+    "Ledger configuration selection must require public, published, family-listed configurations.",
+  );
+}
+
+if (
+  !productsSelectorSource.includes("getPublicLedgerEntriesForConfiguration")
+) {
+  failures.push(
+    "Ledger page context must resolve records through configuration performanceRecordIds.",
   );
 }
 

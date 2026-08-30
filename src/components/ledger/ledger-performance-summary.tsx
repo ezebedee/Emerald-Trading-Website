@@ -45,6 +45,10 @@ type KpiCardProps = Readonly<{
   icon: typeof Activity;
 }>;
 
+type LedgerPerformanceSummaryProps = Readonly<{
+  snapshot?: LedgerLatestPerformanceSnapshot;
+}>;
+
 function KpiCard({
   label,
   value,
@@ -156,9 +160,9 @@ function LedgerLatestRecordCard({
   );
 }
 
-export function LedgerPerformanceSummary() {
-  const snapshot = getLatestPublicCumulativeLedgerRecord();
-
+export function LedgerPerformanceSummary({
+  snapshot = getLatestPublicCumulativeLedgerRecord(),
+}: LedgerPerformanceSummaryProps) {
   if (!snapshot) {
     return (
       <section className="border-t border-[var(--border)] py-12 md:py-14 xl:py-16">

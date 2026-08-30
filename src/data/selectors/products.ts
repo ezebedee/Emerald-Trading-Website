@@ -7,11 +7,22 @@ import {
 
 import { getAssetById } from "./assets";
 import {
+  getLedgerMediaContextRecords,
+  getLedgerVerificationEvidenceRecords,
+} from "./content";
+import {
+  getCumulativePerformanceSeriesFromRecords,
   formatPublicRecordCoverage,
   getEffectiveCumulativeMetrics,
+  getLatestPublicCumulativeLedgerRecordFromRecords,
+  getLatestPublicPerformanceSummaryFromRecords,
+  getLedgerPublicRecordOverviewFromRecords,
   getLedgerEntryById,
+  getPublicLedgerChronologyEntriesFromRecords,
 } from "./ledger";
 import type {
+  LedgerConfigurationOption,
+  LedgerPageContext,
   SystemsPageCapability,
   SystemsPageConfigurationOption,
   SystemsPagePerformanceContext,
@@ -232,6 +243,176 @@ export const getSystemsPageConfigurationOptions = ({
             : undefined,
     };
   });
+};
+
+export const getPublicLedgerEntriesForConfiguration = (
+  configurationId: string,
+) => {
+  const family = getPrimaryPublicSystemFamily();
+
+  if (!family) {
+    return [];
+  }
+
+  const configuration = getListedPublicConfigurationsForFamily(family.id).find(
+    (system) => system.id === configurationId,
+  );
+
+  if (!configuration) {
+    return [];
+  }
+
+  return (configuration.performanceRecordIds ?? [])
+    .map(getLedgerEntryById)
+    .filter((entry): entry is NonNullable<typeof entry> => Boolean(entry))
+    .filter(isPublicForwardPerformance);
+};
+
+export const getDefaultPublicLedgerConfiguration = () => {
+  const family = getPrimaryPublicSystemFamily();
+
+  return family ? getDefaultPublicConfigurationForFamily(family.id) : undefined;
+};
+
+export const getSelectedPublicLedgerConfiguration = ({
+  requestedConfigurationId,
+}: {
+  requestedConfigurationId?: string;
+} = {}) => {
+  const family = getPrimaryPublicSystemFamily();
+
+  return family
+    ? getSystemsPageSelectedConfiguration({
+        familyId: family.id,
+        requestedConfigurationId,
+      })
+    : undefined;
+};
+
+export const getLedgerConfigurationOptions = ({
+  selectedConfigurationId,
+}: {
+  selectedConfigurationId?: string;
+} = {}): readonly LedgerConfigurationOption[] => {
+  const family = getPrimaryPublicSystemFamily();
+
+  if (!family) {
+    return [];
+  }
+
+  const publicConfigurations = getListedPublicConfigurationsForFamily(
+    family.id,
+  );
+
+  return family.marketCategories.map((marketCategory) => {
+    const configuration = publicConfigurations.find((system) =>
+      system.marketCategories.includes(marketCategory),
+    );
+
+    return {
+      marketCategory,
+      label: marketCategoryLabels[marketCategory],
+      available: Boolean(configuration),
+      isSelected: configuration?.id === selectedConfigurationId,
+      configurationId: configuration?.id,
+      configurationName: configuration?.configurationName,
+      href:
+        configuration && configuration.id !== defaultSystemsPageConfigurationId
+          ? `/ledger?configuration=${encodeURIComponent(configuration.id)}`
+          : configuration
+            ? "/ledger"
+            : undefined,
+    };
+  });
+};
+
+export const getLatestPublicCumulativeLedgerRecordForConfiguration = (
+  configurationId: string,
+) =>
+  getLatestPublicCumulativeLedgerRecordFromRecords(
+    getPublicLedgerEntriesForConfiguration(configurationId),
+  );
+
+export const getPublicLedgerSummaryForConfiguration = (
+  configurationId: string,
+) =>
+  getLatestPublicPerformanceSummaryFromRecords(
+    getPublicLedgerEntriesForConfiguration(configurationId),
+  );
+
+export const getPublicLedgerChronologyForConfiguration = (
+  configurationId: string,
+) =>
+  getPublicLedgerChronologyEntriesFromRecords(
+    getPublicLedgerEntriesForConfiguration(configurationId),
+  );
+
+export const getPublicLedgerProgressionForConfiguration = (
+  configurationId: string,
+) =>
+  getCumulativePerformanceSeriesFromRecords(
+    getPublicLedgerEntriesForConfiguration(configurationId),
+  );
+
+export const getLedgerPageContext = ({
+  requestedConfigurationId,
+}: {
+  requestedConfigurationId?: string;
+} = {}): LedgerPageContext => {
+  const family = getPrimaryPublicSystemFamily();
+  const selectedConfiguration = getSelectedPublicLedgerConfiguration({
+    requestedConfigurationId,
+  });
+  const records = selectedConfiguration
+    ? getPublicLedgerEntriesForConfiguration(selectedConfiguration.id)
+    : [];
+  const chronology = selectedConfiguration
+    ? getPublicLedgerChronologyForConfiguration(selectedConfiguration.id)
+    : [];
+
+  return {
+    selectedConfiguration:
+      family && selectedConfiguration
+        ? {
+            familyId: family.id,
+            familyName: family.name,
+            configurationId: selectedConfiguration.id,
+            configurationName: selectedConfiguration.configurationName,
+            markets: selectedConfiguration.marketCategories.map(
+              (category) => marketCategoryLabels[category],
+            ),
+            instruments: selectedConfiguration.instruments ?? [],
+            platforms: selectedConfiguration.platforms,
+            lifecycleStatus:
+              lifecycleStatusLabels[selectedConfiguration.lifecycleStatus],
+            publicRecordCount: records.length,
+          }
+        : undefined,
+    configurationOptions: getLedgerConfigurationOptions({
+      selectedConfigurationId: selectedConfiguration?.id,
+    }),
+    overview: getLedgerPublicRecordOverviewFromRecords(records),
+    latestCumulative: selectedConfiguration
+      ? getLatestPublicCumulativeLedgerRecordForConfiguration(
+          selectedConfiguration.id,
+        )
+      : undefined,
+    summary: selectedConfiguration
+      ? getPublicLedgerSummaryForConfiguration(selectedConfiguration.id)
+      : undefined,
+    progression: selectedConfiguration
+      ? getPublicLedgerProgressionForConfiguration(selectedConfiguration.id)
+      : [],
+    chronology,
+    verification: getLedgerVerificationEvidenceRecords({
+      ledgerEntryIds: records.map((record) => record.id),
+      systemId: selectedConfiguration?.id,
+    }),
+    media: getLedgerMediaContextRecords({
+      chronologyEntries: chronology,
+      systemId: selectedConfiguration?.id,
+    }),
+  };
 };
 
 export const getHomepageFeaturedTradingSystem = () =>

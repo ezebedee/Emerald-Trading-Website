@@ -84,6 +84,15 @@ const latestByEndDate = <T extends { endDate: string }>(
       return entry;
     }
 
+    if (
+      "id" in entry &&
+      "id" in latest &&
+      entry.endDate === latest.endDate &&
+      String(entry.id).localeCompare(String(latest.id)) > 0
+    ) {
+      return entry;
+    }
+
     return latest;
   }, undefined);
 
@@ -232,8 +241,10 @@ export const getLatestCumulativeLedgerEntry = () =>
 
 export const getPublicLedgerEntries = () => ledgerEntries.filter(isPublic);
 
-export const getPublicLedgerChronologyEntries = (): LedgerChronologyEntry[] =>
-  ledgerEntries
+export const getPublicLedgerChronologyEntriesFromRecords = (
+  entries: readonly LedgerEntry[],
+): LedgerChronologyEntry[] =>
+  entries
     .filter(isPublicForwardPerformance)
     .toSorted((first, second) => {
       const endDateSort = first.endDate.localeCompare(second.endDate);
@@ -278,6 +289,9 @@ export const getPublicLedgerChronologyEntries = (): LedgerChronologyEntry[] =>
         : undefined,
     }));
 
+export const getPublicLedgerChronologyEntries = (): LedgerChronologyEntry[] =>
+  getPublicLedgerChronologyEntriesFromRecords(ledgerEntries);
+
 const assertTradeOutcomeConsistency = (entry: LedgerEntry) => {
   const metrics = getEffectiveCumulativeMetrics(entry);
 
@@ -291,8 +305,10 @@ const assertTradeOutcomeConsistency = (entry: LedgerEntry) => {
   }
 };
 
-export const getLedgerPublicRecordOverview = (): LedgerPublicRecordOverview => {
-  const publicForwardEntries = ledgerEntries.filter(isPublicForwardPerformance);
+export const getLedgerPublicRecordOverviewFromRecords = (
+  entries: readonly LedgerEntry[],
+): LedgerPublicRecordOverview => {
+  const publicForwardEntries = entries.filter(isPublicForwardPerformance);
   const earliestEntry = publicForwardEntries.reduce<LedgerEntry | undefined>(
     (earliest, entry) => {
       if (!earliest || entry.startDate < earliest.startDate) {
@@ -326,10 +342,17 @@ export const getLedgerPublicRecordOverview = (): LedgerPublicRecordOverview => {
   };
 };
 
-export const getLatestPublicCumulativeLedgerRecord = ():
-  LedgerLatestPerformanceSnapshot | undefined => {
+export const getLedgerPublicRecordOverview = (): LedgerPublicRecordOverview =>
+  getLedgerPublicRecordOverviewFromRecords(ledgerEntries);
+
+export const getLatestPublicCumulativeLedgerRecordFromRecords = (
+  entries: readonly LedgerEntry[],
+): LedgerLatestPerformanceSnapshot | undefined => {
   const latestEntry = latestByEndDate(
-    cumulativeLedgerEntries.filter(isPublicForwardPerformance),
+    entries.filter(
+      (entry) =>
+        entry.periodType === "cumulative" && isPublicForwardPerformance(entry),
+    ),
   );
 
   if (!latestEntry) {
@@ -368,6 +391,10 @@ export const getLatestPublicCumulativeLedgerRecord = ():
   };
 };
 
+export const getLatestPublicCumulativeLedgerRecord = ():
+  LedgerLatestPerformanceSnapshot | undefined =>
+  getLatestPublicCumulativeLedgerRecordFromRecords(cumulativeLedgerEntries);
+
 export const getHomepageLedgerTeaserEntries = () => {
   const selectedEntries: LedgerEntry[] = [];
   const selectedEndDates = new Set<string>();
@@ -394,9 +421,14 @@ export const getHomepageLedgerTeaserEntries = () => {
   return selectedEntries;
 };
 
-export const getLatestPublicPerformanceSummary = () => {
+export const getLatestPublicPerformanceSummaryFromRecords = (
+  entries: readonly LedgerEntry[],
+) => {
   const latestEntry = latestByEndDate(
-    cumulativeLedgerEntries.filter(isPublicForwardPerformance),
+    entries.filter(
+      (entry) =>
+        entry.periodType === "cumulative" && isPublicForwardPerformance(entry),
+    ),
   );
 
   if (!latestEntry) {
@@ -412,6 +444,9 @@ export const getLatestPublicPerformanceSummary = () => {
   return toPerformanceSummary(latestEntry, metrics);
 };
 
+export const getLatestPublicPerformanceSummary = () =>
+  getLatestPublicPerformanceSummaryFromRecords(cumulativeLedgerEntries);
+
 export const getEffectiveCumulativeMetrics = (entry: LedgerEntry) => {
   if (entry.cumulativeMetrics) {
     return entry.cumulativeMetrics;
@@ -424,9 +459,11 @@ export const getEffectiveCumulativeMetrics = (entry: LedgerEntry) => {
   return undefined;
 };
 
-export const getCumulativePerformanceSeries = () =>
+export const getCumulativePerformanceSeriesFromRecords = (
+  entries: readonly LedgerEntry[],
+) =>
   Array.from(
-    ledgerEntries
+    entries
       .filter(isPublicForwardPerformance)
       .reduce((snapshotsByDate, entry) => {
         const metrics = getEffectiveCumulativeMetrics(entry);
@@ -451,6 +488,9 @@ export const getCumulativePerformanceSeries = () =>
   )
     .map(({ entry, metrics }) => toCumulativePoint(entry, metrics))
     .toSorted((first, second) => first.date.localeCompare(second.date));
+
+export const getCumulativePerformanceSeries = () =>
+  getCumulativePerformanceSeriesFromRecords(ledgerEntries);
 
 export const getDailyCumulativePerformanceSeries = () =>
   dailyLedgerEntries

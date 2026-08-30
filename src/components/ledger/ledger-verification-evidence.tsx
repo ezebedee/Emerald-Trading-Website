@@ -9,6 +9,10 @@ import type { LedgerVerificationEvidenceRecord } from "@/data/selectors";
 
 const evidenceIcons = [FileSearch, Eye] as const;
 
+type LedgerVerificationEvidenceProps = Readonly<{
+  records?: readonly LedgerVerificationEvidenceRecord[];
+}>;
+
 function EvidenceRecordCard({
   record,
   index,
@@ -77,9 +81,9 @@ function EvidenceRecordCard({
   );
 }
 
-export function LedgerVerificationEvidence() {
-  const records = getLedgerVerificationEvidenceRecords();
-
+export function LedgerVerificationEvidence({
+  records = getLedgerVerificationEvidenceRecords(),
+}: LedgerVerificationEvidenceProps) {
   return (
     <section className="bg-background border-t border-[var(--border)] py-12 md:py-14 xl:py-16">
       <Container size="wide">
