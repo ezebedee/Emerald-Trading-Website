@@ -182,3 +182,35 @@ Ledger media references use asset IDs such as `thumbnailAssetId` and `mediaAsset
 Public Ledger records must not contain passwords, investor passwords, API keys, secret tokens, private live-account credentials, or fabricated video IDs. Private live-performance records belong in a later authenticated data path, not in this public dataset.
 
 The current data shape is static TypeScript validated by Zod, but it is intentionally compatible with future JSON files, PostgreSQL, Supabase, Prisma, or CMS-backed records.
+
+## Product Domain Semantics
+
+The canonical public product catalog lives in `src/data/products/`.
+
+Systems, indicators, and signal streams are distinct domains:
+
+- Trading systems are complete strategy or automation products. They may link to performance records when the public record belongs to that system/account relationship.
+- Indicators are market-analysis or signal-generating tools. They may link to systems and signal streams, but should not duplicate or claim Ledger performance unless a later approved source supports that attribution.
+- Signal products are structured streams of trade ideas, directional events, alerts, or indicator-generated outputs. They are product definitions, not individual buy/sell events.
+
+Relationships use stable IDs only:
+
+- systems reference `relatedIndicatorIds`, `relatedSignalIds`, and `performanceRecordIds`
+- indicators reference `relatedSystemIds` and `relatedSignalIds`
+- signal products reference `relatedSystemIds` and `relatedIndicatorIds`
+
+Do not embed full related objects inside catalog records. This keeps records JSON-serializable and database-compatible.
+
+Product media also uses asset IDs only. Fields such as `featuredAssetId` and `assetIds` must point to entries in `src/data/assets.ts`; product records must not copy asset paths, dimensions, formats, or alt text.
+
+Performance metrics remain owned by Ledger/performance records. Product records may link to performance record IDs, but must not duplicate net profit, return, trade count, or drawdown fields.
+
+Public catalog records should use:
+
+- `visibility: "public"`
+- `contentStatus: "published"`
+- conservative lifecycle/runtime fields, such as `public-forward-test` and `unknown`
+
+Private/internal catalog records may be modeled later, but visibility metadata alone is not access control. Future private products must not be shipped to public static data or unauthenticated responses.
+
+Product descriptions should remain factual and avoid pricing, guarantees, live-account claims, risk-free language, or unsupported performance claims.
