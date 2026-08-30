@@ -4,7 +4,7 @@ Audit date: 2026-08-30
 
 Branch: `task-homepage-multi-asset-positioning-audit`
 
-Status: AUDIT COMPLETE - HMA-2 REQUIRED
+Status: HMA-2 IMPLEMENTED
 
 ## Purpose
 
@@ -409,6 +409,86 @@ HMA-2 should not add:
 - new dependencies
 - new client JavaScript
 - a redesign of the Homepage layout
+
+## HMA-2 Implemented Alignment
+
+HMA-2 implements the targeted Homepage alignment without redesigning the page.
+
+Implemented featured configuration policy:
+
+- `homepageFeaturedConfigurationId = "emerald-quant-system"`
+- The featured configuration must be public, published, part of the primary
+  public family, and listed in `family.configurationIds`.
+- The Homepage does not choose the featured configuration from newest record
+  date, newest video date, record count, asset-class order, or newest available
+  market.
+
+Implemented selector model:
+
+- `getHomepageFeaturedConfiguration()`
+- `getHomepageFeaturedSystemContext()`
+- `getHomepagePerformanceSnapshotForConfiguration(configurationId)`
+- `getHomepageLedgerTeaserEntriesForConfiguration(configurationId)`
+- `getHomepageVerificationRecordsForConfiguration(configurationId)`
+- `getHomepageVideoPreviewEntriesForConfiguration(configurationId)`
+
+Implemented root-page ownership:
+
+- The root Homepage resolves the featured configuration once.
+- The Performance Snapshot, Ledger Teaser, Trading Systems Showcase,
+  Verification section, and Video Preview receive scoped presentation data.
+- Hero, Trust Strip, Indicators/Signals, Technology/Research, Professional
+  Access, and Final CTA retain their approved role and structure.
+
+Implemented performance behavior:
+
+- Homepage Performance Snapshot no longer calls
+  `getLatestPublicPerformanceSummary()`.
+- Snapshot metrics resolve through the featured configuration's owned Ledger
+  records.
+- Current visible metrics remain unchanged:
+  - Cumulative Net Profit: `$204,966.54`
+  - Cumulative Return: `20.50%`
+  - Total Trades: `499`
+  - Win Rate: `69.34%`
+  - Maximum Drawdown: `10.67%`
+  - Coverage: `Aug 17-28, 2026`
+- A visible `Current Public Configuration` label identifies
+  `Metals / XAUUSD`.
+
+Implemented Ledger teaser behavior:
+
+- Homepage Ledger Teaser no longer calls `getHomepageLedgerTeaserEntries()`.
+- Teaser records resolve through the featured configuration's owned Ledger
+  records.
+- The current teaser remains three records:
+  - `cumulative-2-weeks`
+  - `week-01`
+  - `day-003`
+- The teaser does not mix records across configurations.
+
+Implemented Systems Showcase presentation:
+
+- The primary identity remains `Emerald Quant System`.
+- The section now presents `System Family` separately from
+  `Current Public Configuration`.
+- Family coverage is shown passively as: Metals, Forex, Futures, Equities.
+- Current public configuration is shown as: Metals / XAUUSD.
+- MT4 is labeled as the current configuration platform.
+
+Implemented verification and video treatment:
+
+- Homepage verification records are scoped through the featured configuration's
+  owned Ledger records and system relationship.
+- Homepage video preview records are scoped through the featured configuration,
+  its owned Ledger records, and related system/video relationships.
+- External video links remain pending; no URLs were invented.
+
+Implemented audit protection:
+
+- `pnpm data:audit` checks that the Homepage featured configuration remains
+  explicit and that the Homepage no longer uses global snapshot/teaser selectors
+  in visible section components.
 
 ## Sections To Leave Untouched Unless Needed
 

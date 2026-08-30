@@ -4,73 +4,13 @@ import { Badge } from "@/components/ui/badge";
 import { LinkButton } from "@/components/ui/button";
 import { Container } from "@/components/ui/container";
 import { SectionLabel } from "@/components/ui/section-label";
-import {
-  getHomepageVideoPreviewEntries,
-  getLedgerEntryById,
-} from "@/data/selectors";
-import type { LedgerEntry, VideoRecord } from "@/domain";
-
-const dateFormatter = new Intl.DateTimeFormat("en-US", {
-  month: "short",
-  day: "numeric",
-  year: "numeric",
-  timeZone: "UTC",
-});
+import type { LedgerMediaContextRecord } from "@/data/selectors/types";
 
 const videoCategoryLabels = {
   "performance-update": "Performance Update",
 } as const;
 
-const formatDate = (date: string) =>
-  dateFormatter.format(new Date(`${date}T00:00:00Z`));
-
-const formatPeriodRange = (entry: LedgerEntry) => {
-  if (entry.startDate === entry.endDate) {
-    return formatDate(entry.endDate);
-  }
-
-  return `${formatDate(entry.startDate)} - ${formatDate(entry.endDate)}`;
-};
-
-const getVideoCategoryLabel = (video: VideoRecord) => {
-  const categoryTag = video.tags?.find(
-    (tag): tag is keyof typeof videoCategoryLabels =>
-      tag in videoCategoryLabels,
-  );
-
-  return categoryTag ? videoCategoryLabels[categoryTag] : "Archive Entry";
-};
-
-const getRelatedPublicLedgerEntry = (video: VideoRecord) => {
-  const relatedLedgerEntryId = video.relatedLedgerEntryIds?.[0];
-
-  if (!relatedLedgerEntryId) {
-    return undefined;
-  }
-
-  const ledgerEntry = getLedgerEntryById(relatedLedgerEntryId);
-
-  return ledgerEntry?.visibility === "public" ? ledgerEntry : undefined;
-};
-
-const getConciseLedgerContext = (entry?: LedgerEntry) => {
-  if (!entry) {
-    return "Related Ledger context pending";
-  }
-
-  const conciseTitle = entry.title
-    .replace("Emerald Ledger - ", "")
-    .replace("Day 00", "Day ")
-    .replace("Week 0", "Week ");
-
-  return entry.periodType === "cumulative"
-    ? `Cumulative - ${conciseTitle}`
-    : conciseTitle;
-};
-
-function VideoArchiveCard({ video }: { video: VideoRecord }) {
-  const relatedLedgerEntry = getRelatedPublicLedgerEntry(video);
-
+function VideoArchiveCard({ video }: { video: LedgerMediaContextRecord }) {
   return (
     <article className="surface-elevated flex min-h-full flex-col overflow-hidden rounded-lg">
       <div
@@ -95,8 +35,10 @@ function VideoArchiveCard({ video }: { video: VideoRecord }) {
 
       <div className="flex flex-1 flex-col p-5 md:p-6">
         <div className="flex flex-wrap gap-2">
-          <Badge variant="neutral">{getVideoCategoryLabel(video)}</Badge>
-          <Badge variant="premium">External video link pending</Badge>
+          <Badge variant="neutral">
+            {videoCategoryLabels["performance-update"]}
+          </Badge>
+          <Badge variant="premium">{video.availabilityState}</Badge>
         </div>
 
         <h3 className="type-heading-3 text-foreground mt-4 text-balance">
@@ -113,20 +55,18 @@ function VideoArchiveCard({ video }: { video: VideoRecord }) {
               className="text-gold-warm mt-0.5 size-4 shrink-0"
             />
             <p className="text-muted-foreground text-sm leading-6">
-              {getConciseLedgerContext(relatedLedgerEntry)}
+              {video.relatedLedgerTitle}
             </p>
           </div>
-          {relatedLedgerEntry ? (
-            <div className="bg-surface/70 flex items-start gap-3 rounded-md border border-[var(--border)] p-3.5">
-              <CalendarRange
-                aria-hidden="true"
-                className="text-gold-warm mt-0.5 size-4 shrink-0"
-              />
-              <p className="text-muted-foreground text-sm leading-6">
-                {formatPeriodRange(relatedLedgerEntry)}
-              </p>
-            </div>
-          ) : null}
+          <div className="bg-surface/70 flex items-start gap-3 rounded-md border border-[var(--border)] p-3.5">
+            <CalendarRange
+              aria-hidden="true"
+              className="text-gold-warm mt-0.5 size-4 shrink-0"
+            />
+            <p className="text-muted-foreground text-sm leading-6">
+              {video.relatedLedgerCoverageLabel}
+            </p>
+          </div>
         </div>
 
         <Link
@@ -141,9 +81,11 @@ function VideoArchiveCard({ video }: { video: VideoRecord }) {
   );
 }
 
-export function HomeVideoArchivePreview() {
-  const videos = getHomepageVideoPreviewEntries();
-
+export function HomeVideoArchivePreview({
+  videos,
+}: {
+  videos: readonly LedgerMediaContextRecord[];
+}) {
   return (
     <section className="bg-surface-soft/25 py-14 md:py-16 xl:py-20">
       <Container size="wide">

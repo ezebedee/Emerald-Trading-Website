@@ -4,7 +4,7 @@ import { Badge } from "@/components/ui/badge";
 import { LinkButton } from "@/components/ui/button";
 import { Container } from "@/components/ui/container";
 import { SectionLabel } from "@/components/ui/section-label";
-import { getHomepageLedgerTeaserEntries } from "@/data/selectors";
+import type { HomepageFeaturedSystemContext } from "@/data/selectors/types";
 import type { LedgerEntry, PerformanceMetrics } from "@/domain";
 
 const currencyFormatter = new Intl.NumberFormat("en-US", {
@@ -93,9 +93,13 @@ const getEntryMetrics = (metrics: PerformanceMetrics) =>
     { label: "Win Rate", value: formatPercent(metrics.winRatePct) },
   ] as const;
 
-export function HomeLedgerTeaser() {
-  const entries = getHomepageLedgerTeaserEntries();
-
+export function HomeLedgerTeaser({
+  configurationScope,
+  entries,
+}: {
+  configurationScope?: HomepageFeaturedSystemContext["configuration"];
+  entries: readonly LedgerEntry[];
+}) {
   return (
     <section className="py-14 md:py-16 xl:py-20">
       <Container size="wide">
@@ -110,6 +114,12 @@ export function HomeLedgerTeaser() {
               updates across daily, weekly, and cumulative periods for the
               Public Demo Reference Account.
             </p>
+            {configurationScope ? (
+              <p className="text-subtle-foreground mt-4 text-sm leading-6">
+                Public Ledger entries for the current{" "}
+                {configurationScope.configurationName} configuration.
+              </p>
+            ) : null}
             <div className="mt-6">
               <LinkButton
                 href="/ledger"

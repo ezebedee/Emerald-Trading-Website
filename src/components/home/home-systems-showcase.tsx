@@ -9,24 +9,7 @@ import { Badge } from "@/components/ui/badge";
 import { LinkButton } from "@/components/ui/button";
 import { Container } from "@/components/ui/container";
 import { SectionLabel } from "@/components/ui/section-label";
-import {
-  getHomepageFeaturedTradingSystem,
-  getPublicIndicatorsForSystem,
-  getPublicSignalsForSystem,
-} from "@/data/selectors";
-import type { TradingSystem } from "@/domain";
-
-const lifecycleStatusLabels = {
-  research: "Research",
-  testing: "Testing",
-  "public-forward-test": "Public Forward Test",
-  "private-production": "Private Production",
-  retired: "Retired",
-} as const;
-
-const marketCategoryLabels: Record<string, string> = {
-  metals: "Metals",
-};
+import type { HomepageFeaturedSystemContext } from "@/data/selectors/types";
 
 const architectureSteps = [
   "Signal Input",
@@ -35,8 +18,10 @@ const architectureSteps = [
   "Execution",
 ] as const;
 
-const getCapabilityItems = (system: TradingSystem) => {
-  const capabilities = new Set(system.capabilities ?? []);
+const getCapabilityItems = (
+  configuration: HomepageFeaturedSystemContext["configuration"],
+) => {
+  const capabilities = new Set(configuration.capabilities);
 
   return [
     {
@@ -67,13 +52,10 @@ const getCapabilityItems = (system: TradingSystem) => {
       description:
         "Connects to documented public forward-performance records in the Ledger.",
       icon: GitBranch,
-      isSupported: (system.performanceRecordIds?.length ?? 0) > 0,
+      isSupported: true,
     },
   ].filter((item) => item.isSupported);
 };
-
-const formatMarketCategory = (category: string) =>
-  marketCategoryLabels[category] ?? category;
 
 function EmptySystemsShowcase() {
   return (
@@ -104,20 +86,17 @@ function EmptySystemsShowcase() {
   );
 }
 
-export function HomeSystemsShowcase() {
-  const system = getHomepageFeaturedTradingSystem();
-
-  if (!system) {
+export function HomeSystemsShowcase({
+  context,
+}: {
+  context?: HomepageFeaturedSystemContext;
+}) {
+  if (!context) {
     return <EmptySystemsShowcase />;
   }
 
-  const capabilityItems = getCapabilityItems(system);
-  const relatedIndicators = getPublicIndicatorsForSystem(system.id);
-  const relatedSignals = getPublicSignalsForSystem(system.id);
-  const supportedMarkets = [
-    ...(system.instruments ?? []),
-    ...system.marketCategories.map(formatMarketCategory),
-  ];
+  const { configuration, family } = context;
+  const capabilityItems = getCapabilityItems(configuration);
 
   return (
     <section className="bg-surface-soft/25 py-14 md:py-16 xl:py-20">
@@ -130,22 +109,20 @@ export function HomeSystemsShowcase() {
               logic, and execution.
             </h2>
             <p className="type-body text-muted-foreground mt-5 max-w-2xl">
-              {system.name} combines signal-generation inputs, system rules,
+              {family.name} combines signal-generation inputs, system rules,
               risk-management logic, and automated execution into a structured
-              trading workflow.
+              trading workflow across supported asset-class coverage.
             </p>
 
             <article className="surface-elevated mt-8 rounded-lg p-5 md:p-6">
               <div className="flex flex-col gap-4 sm:flex-row sm:items-start sm:justify-between">
                 <div>
-                  <Badge variant="neutral">Algorithmic Trading System</Badge>
+                  <Badge variant="neutral">System Family</Badge>
                   <h3 className="type-heading-3 text-foreground mt-4 text-balance">
-                    {system.name}
+                    {family.name}
                   </h3>
                 </div>
-                <Badge variant="premium">
-                  {lifecycleStatusLabels[system.lifecycleStatus]}
-                </Badge>
+                <Badge variant="premium">{configuration.status}</Badge>
               </div>
 
               <p className="type-body-small text-muted-foreground mt-4 max-w-2xl">
@@ -154,17 +131,32 @@ export function HomeSystemsShowcase() {
                 position handling.
               </p>
 
-              <div className="mt-5 flex flex-wrap gap-2">
-                {system.platforms.map((platform) => (
-                  <Badge key={platform} variant="neutral">
-                    {platform}
-                  </Badge>
-                ))}
-                {supportedMarkets.map((market) => (
-                  <Badge key={market} variant="neutral">
-                    {market}
-                  </Badge>
-                ))}
+              <div className="mt-6 grid gap-4 md:grid-cols-2">
+                <div className="bg-surface/70 rounded-md border border-[var(--border)] p-4">
+                  <p className="type-label text-gold-warm">Family Coverage</p>
+                  <div className="mt-3 flex flex-wrap gap-2">
+                    {family.marketCoverage.map((market) => (
+                      <Badge key={market} variant="neutral">
+                        {market}
+                      </Badge>
+                    ))}
+                  </div>
+                </div>
+                <div className="bg-surface/70 rounded-md border border-[var(--border)] p-4">
+                  <p className="type-label text-gold-warm">
+                    Current Public Configuration
+                  </p>
+                  <div className="mt-3 flex flex-wrap gap-2">
+                    <Badge variant="premium">
+                      {configuration.configurationName}
+                    </Badge>
+                    {configuration.platforms.map((platform) => (
+                      <Badge key={platform} variant="neutral">
+                        {platform} Platform
+                      </Badge>
+                    ))}
+                  </div>
+                </div>
               </div>
 
               <dl className="mt-6 grid gap-3 sm:grid-cols-2">
@@ -192,8 +184,8 @@ export function HomeSystemsShowcase() {
               </dl>
 
               <p className="text-muted-foreground mt-6 text-sm leading-6">
-                Documented public forward-performance records are maintained
-                separately in the Emerald Ledger.
+                Documented public forward-performance records are maintained in
+                the Emerald Ledger for the current public configuration.
               </p>
 
               <div className="mt-6 flex flex-col gap-3 sm:flex-row">
@@ -219,7 +211,7 @@ export function HomeSystemsShowcase() {
             <div className="flex items-center justify-between gap-4 border-b border-[var(--border)] pb-4">
               <span className="type-label text-gold-warm">System Logic</span>
               <span className="text-muted-foreground text-xs">
-                {system.shortName ?? system.name}
+                {configuration.shortName ?? family.name}
               </span>
             </div>
 
@@ -248,9 +240,9 @@ export function HomeSystemsShowcase() {
                 Related product layer
               </p>
               <p className="text-muted-foreground mt-2 text-sm leading-6">
-                {relatedIndicators[0]?.name ?? "Indicator input"} and{" "}
-                {relatedSignals[0]?.name ?? "signal stream"} provide context for
-                the system architecture.
+                {context.relatedIndicator?.name ?? "Indicator input"} and{" "}
+                {context.relatedSignal?.name ?? "signal stream"} provide context
+                for the current configuration architecture.
               </p>
             </div>
           </div>

@@ -3,34 +3,7 @@ import { Badge } from "@/components/ui/badge";
 import { LinkButton } from "@/components/ui/button";
 import { Container } from "@/components/ui/container";
 import { SectionLabel } from "@/components/ui/section-label";
-import { getHomepageVerificationRecords } from "@/data/selectors";
-import type { VerificationRecord } from "@/domain";
-
-const verificationStatusLabels = {
-  available: "Available",
-  pending: "Pending",
-  unavailable: "Unavailable",
-  retired: "Retired",
-} as const;
-
-const verificationMethodLabels: Partial<
-  Record<VerificationRecord["method"], string>
-> = {
-  "account-reference": "Account Reference",
-  "platform-screenshot": "Platform Screenshot",
-  "trade-history": "Trade History",
-  "read-only-access": "Read-Only Access",
-  "third-party": "External Review",
-  "manual-review": "Manual Review",
-  other: "Other",
-} as const;
-
-const accountClassificationLabels = {
-  "public-demo-reference": "Public Demo Reference Account",
-  "private-live": "Private Account",
-  backtest: "Backtest",
-  simulation: "Simulation",
-} as const;
+import type { LedgerVerificationEvidenceRecord } from "@/data/selectors/types";
 
 const transparencyPrinciples = [
   {
@@ -66,36 +39,42 @@ const processSteps = [
   "Read-Only Review",
 ] as const;
 
-function VerificationRecordCard({ record }: { record: VerificationRecord }) {
+function VerificationRecordCard({
+  record,
+}: {
+  record: LedgerVerificationEvidenceRecord;
+}) {
   return (
     <article className="bg-surface/70 rounded-md border border-[var(--border)] p-4">
       <div className="flex flex-col gap-2 sm:flex-row sm:items-start sm:justify-between">
         <div>
-          <Badge variant="neutral">
-            {verificationMethodLabels[record.method] ?? "Supporting Evidence"}
-          </Badge>
+          <Badge variant="neutral">{record.method}</Badge>
           <h3 className="text-foreground mt-3 text-base font-semibold">
             {record.title}
           </h3>
         </div>
-        <Badge variant="premium">
-          {verificationStatusLabels[record.status]}
-        </Badge>
+        {record.status ? (
+          <Badge variant="premium">{record.status}</Badge>
+        ) : null}
       </div>
 
       {record.accountClassification ? (
         <p className="text-muted-foreground mt-3 text-sm leading-6">
-          Classification:{" "}
-          {accountClassificationLabels[record.accountClassification]}
+          Classification: {record.accountClassification}
         </p>
       ) : null}
+      <p className="text-muted-foreground mt-3 text-sm leading-6">
+        {record.description}
+      </p>
     </article>
   );
 }
 
-export function HomeVerificationTransparency() {
-  const verificationRecords = getHomepageVerificationRecords();
-
+export function HomeVerificationTransparency({
+  records,
+}: {
+  records: readonly LedgerVerificationEvidenceRecord[];
+}) {
   return (
     <section className="bg-surface/70 border-y border-[var(--border)] py-14 md:py-16 xl:py-20">
       <Container size="wide">
@@ -166,9 +145,9 @@ export function HomeVerificationTransparency() {
               </p>
             </div>
 
-            {verificationRecords.length > 0 ? (
+            {records.length > 0 ? (
               <div className="mt-6 grid gap-3">
-                {verificationRecords.map((record) => (
+                {records.map((record) => (
                   <VerificationRecordCard key={record.id} record={record} />
                 ))}
               </div>

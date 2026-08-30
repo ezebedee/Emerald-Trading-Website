@@ -3,8 +3,10 @@ import { Badge } from "@/components/ui/badge";
 import { LinkButton } from "@/components/ui/button";
 import { Container } from "@/components/ui/container";
 import { SectionLabel } from "@/components/ui/section-label";
-import { getLatestPublicPerformanceSummary } from "@/data/selectors";
-import type { PerformanceSummary } from "@/data/selectors/types";
+import type {
+  HomepageFeaturedSystemContext,
+  PerformanceSummary,
+} from "@/data/selectors/types";
 
 const currencyFormatter = new Intl.NumberFormat("en-US", {
   style: "currency",
@@ -89,9 +91,13 @@ const getSnapshotMetrics = (summary: PerformanceSummary) =>
     },
   ] as const;
 
-export function HomePerformanceSnapshot() {
-  const summary = getLatestPublicPerformanceSummary();
-
+export function HomePerformanceSnapshot({
+  configurationScope,
+  summary,
+}: {
+  configurationScope?: HomepageFeaturedSystemContext["configuration"];
+  summary?: PerformanceSummary;
+}) {
   return (
     <section className="bg-surface-soft/45 py-14 md:py-16 xl:py-20">
       <Container size="wide">
@@ -110,6 +116,16 @@ export function HomePerformanceSnapshot() {
         {summary ? (
           <>
             <div className="mt-7 flex flex-col gap-3 sm:flex-row sm:flex-wrap sm:items-center">
+              {configurationScope ? (
+                <span className="text-muted-foreground flex flex-wrap items-center gap-2 text-sm">
+                  <span className="type-label text-subtle-foreground">
+                    Current Public Configuration
+                  </span>
+                  <Badge variant="neutral">
+                    {configurationScope.configurationName}
+                  </Badge>
+                </span>
+              ) : null}
               <Badge variant="premium">Public Demo Reference Account</Badge>
               <Badge variant="positive">Forward Performance</Badge>
               <span className="text-muted-foreground text-sm">

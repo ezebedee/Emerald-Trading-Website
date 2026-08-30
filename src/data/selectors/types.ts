@@ -202,6 +202,37 @@ export type SystemsPageConfigurationOption = Readonly<{
   href?: string;
 }>;
 
+export type HomepageRelatedProduct = Readonly<{
+  id: ReadableId;
+  name: string;
+  role: string;
+  href: string;
+}>;
+
+export type HomepageFeaturedSystemContext = Readonly<{
+  family: Readonly<{
+    id: ReadableId;
+    name: string;
+    marketCoverage: readonly string[];
+  }>;
+  configuration: Readonly<{
+    id: ReadableId;
+    configurationKey: string;
+    configurationName: string;
+    name: string;
+    shortName?: string;
+    systemType: string;
+    status: string;
+    platforms: readonly string[];
+    markets: readonly string[];
+    instruments: readonly string[];
+    capabilities: readonly string[];
+  }>;
+  relatedIndicator?: HomepageRelatedProduct;
+  relatedSignal?: HomepageRelatedProduct;
+  publicRecordLabel: string;
+}>;
+
 export type LedgerConsistencyIssue = Readonly<{
   recordId: ReadableId;
   field: string;
