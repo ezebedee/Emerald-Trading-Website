@@ -151,11 +151,41 @@ export const ledgerAssets = {
 
 export const siteAssets = {
   systems: [] satisfies ImageAsset[],
-  indicators: [] satisfies ImageAsset[],
+  indicators: [
+    {
+      id: "indicator-emerald-signal-mt4-01",
+      kind: "image",
+      src: "/images/indicators/emerald-signal-indicator-mt4-01.png",
+      alt: "MT4 chart showing the Emerald Signal Indicator with trade-direction markers and pip annotations.",
+      format: "png",
+      width: 1672,
+      height: 941,
+      description:
+        "Approved Emerald product/interface screenshot showing the Emerald Signal Indicator on an MT4 XAUUSD chart.",
+      provenance: {
+        source: "Emerald Legacy Systems",
+      },
+    },
+  ] satisfies ImageAsset[],
   signals: [] satisfies ImageAsset[],
   technology: [] satisfies ImageAsset[],
   research: [] satisfies ImageAsset[],
-  verification: [] satisfies ImageAsset[],
+  verification: [
+    {
+      id: "public-demo-reference-account-info",
+      kind: "image",
+      src: "/images/verification/public-demo-reference-account-info.png",
+      alt: "Public demo reference account information for the Emerald Legacy Systems performance record.",
+      format: "png",
+      width: 1672,
+      height: 941,
+      description:
+        "Approved verification screenshot documenting the public demo reference account used for the Emerald Ledger performance record.",
+      provenance: {
+        source: "Emerald Legacy Systems",
+      },
+    },
+  ] satisfies ImageAsset[],
   general: [] satisfies ImageAsset[],
   socialOg: [] satisfies ImageAsset[],
   socialThumbnails: [] satisfies ImageAsset[],
