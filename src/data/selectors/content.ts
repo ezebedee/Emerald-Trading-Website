@@ -13,6 +13,11 @@ const isPublicPublished = <
 export const getPublicResearchEntries = () =>
   researchEntries.filter(isPublicPublished);
 
+export const getHomepageFeaturedResearch = () =>
+  getPublicResearchEntries().find(
+    (entry) => entry.id === "emerald-quantitative-trading-technology-program",
+  );
+
 export const getPublicVideoEntries = () =>
   videoEntries.filter(isPublicPublished);
 
