@@ -46,6 +46,17 @@ Do not place private or confidential files anywhere under `public/`. Anything in
 
 Do not invent placeholder logos, marks, or favicon art.
 
+Current approved brand assets:
+
+```text
+public/brand/marks/emerald-elq-mark-signature.png
+public/brand/logos/emerald-legacy-systems-horizontal.png
+```
+
+The signature mark is approved for the compact website lockup. The horizontal banner is approved for future brand showcase, media, About, Technology, Video Archive, and social contexts. Do not shrink the full banner into the header or footer.
+
+The detailed signature mark is the current favicon source reference only. Final tiny favicon artwork requires a later approved derivative step because the detailed raster mark may not remain legible at favicon sizes.
+
 ## Filename Standard
 
 All web asset filenames must use:

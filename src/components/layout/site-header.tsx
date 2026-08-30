@@ -1,9 +1,11 @@
 import Link from "next/link";
+import { BrandLockup } from "@/components/brand/brand-lockup";
 import { Container } from "@/components/ui/container";
 import { LinkButton } from "@/components/ui/button";
 import { DesktopNav } from "@/components/layout/desktop-nav";
 import { HeaderScrollState } from "@/components/layout/header-scroll-state";
 import { MobileNav } from "@/components/layout/mobile-nav";
+import { siteBrand } from "@/data/site";
 
 export function SiteHeader() {
   return (
@@ -14,16 +16,10 @@ export function SiteHeader() {
       >
         <Link
           href="/"
-          aria-label="Emerald Legacy Systems home"
+          aria-label={`${siteBrand.name} home`}
           className="focus-emerald transition-standard text-foreground hover:text-gold-warm flex min-w-fit items-center gap-3"
         >
-          <span aria-hidden="true" className="bg-emerald h-7 w-px" />
-          <span className="flex flex-col leading-none">
-            <span className="text-sm font-semibold">EMERALD</span>
-            <span className="text-gold-muted mt-1 text-[0.68rem] font-semibold tracking-[0.16em]">
-              LEGACY SYSTEMS
-            </span>
-          </span>
+          <BrandLockup priority />
         </Link>
 
         <div className="hidden min-w-0 flex-1 items-center justify-end gap-8 xl:flex">

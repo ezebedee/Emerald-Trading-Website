@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { Inter } from "next/font/google";
 import type { ReactNode } from "react";
+import { siteBrand } from "@/data/site";
 import "./globals.css";
 
 const inter = Inter({
@@ -11,12 +12,11 @@ const inter = Inter({
 
 export const metadata: Metadata = {
   title: {
-    default: "Emerald Legacy Systems",
-    template: "%s | Emerald Legacy Systems",
+    default: siteBrand.name,
+    template: `%s | ${siteBrand.name}`,
   },
-  description:
-    "Quantitative trading systems, algorithmic strategies, market signals, automation, and documented performance.",
-  metadataBase: new URL("https://emeraldforexsystem.com"),
+  description: siteBrand.metadataDescription,
+  metadataBase: new URL(`https://${siteBrand.domain}`),
 };
 
 type RootLayoutProps = Readonly<{
