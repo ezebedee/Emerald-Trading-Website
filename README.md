@@ -94,6 +94,8 @@ SEO metadata architecture, canonical URL policy, indexing rules, and claim-langu
 
 Privacy-safe analytics architecture, event naming, provider-adapter policy, and data-collection boundaries live in [docs/ANALYTICS.md](docs/ANALYTICS.md).
 
+Error-boundary behavior, not-found handling, recovery actions, and reliability-event privacy rules live in [docs/RELIABILITY.md](docs/RELIABILITY.md).
+
 ## Intended Website Areas
 
 - Home
