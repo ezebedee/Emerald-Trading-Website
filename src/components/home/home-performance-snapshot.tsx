@@ -3,8 +3,10 @@ import { Badge } from "@/components/ui/badge";
 import { LinkButton } from "@/components/ui/button";
 import { Container } from "@/components/ui/container";
 import { SectionLabel } from "@/components/ui/section-label";
-import { getLatestPublicPerformanceSummary } from "@/data/selectors";
-import type { PerformanceSummary } from "@/data/selectors/types";
+import type {
+  HomepageFeaturedSystemContext,
+  LedgerLatestPerformanceSnapshot,
+} from "@/data/selectors/types";
 
 const currencyFormatter = new Intl.NumberFormat("en-US", {
   style: "currency",
@@ -22,13 +24,6 @@ const integerFormatter = new Intl.NumberFormat("en-US", {
   maximumFractionDigits: 0,
 });
 
-const dateFormatter = new Intl.DateTimeFormat("en-US", {
-  month: "short",
-  day: "numeric",
-  year: "numeric",
-  timeZone: "UTC",
-});
-
 const formatCurrency = (value?: number) =>
   value === undefined ? "-" : currencyFormatter.format(value);
 
@@ -38,29 +33,7 @@ const formatPercent = (value?: number) =>
 const formatInteger = (value?: number) =>
   value === undefined ? "-" : integerFormatter.format(value);
 
-const formatPeriodRange = (startDate: string, endDate: string) => {
-  const start = new Date(`${startDate}T00:00:00Z`);
-  const end = new Date(`${endDate}T00:00:00Z`);
-
-  if (start.getUTCFullYear() === end.getUTCFullYear()) {
-    const startMonth = new Intl.DateTimeFormat("en-US", {
-      month: "short",
-      timeZone: "UTC",
-    }).format(start);
-    const endMonth = new Intl.DateTimeFormat("en-US", {
-      month: "short",
-      timeZone: "UTC",
-    }).format(end);
-
-    if (startMonth === endMonth) {
-      return `${startMonth} ${start.getUTCDate()}-${end.getUTCDate()}, ${end.getUTCFullYear()}`;
-    }
-  }
-
-  return `${dateFormatter.format(start)} - ${dateFormatter.format(end)}`;
-};
-
-const getSnapshotMetrics = (summary: PerformanceSummary) =>
+const getSnapshotMetrics = (summary: LedgerLatestPerformanceSnapshot) =>
   [
     {
       label: "Cumulative Net Profit",
@@ -89,16 +62,20 @@ const getSnapshotMetrics = (summary: PerformanceSummary) =>
     },
   ] as const;
 
-export function HomePerformanceSnapshot() {
-  const summary = getLatestPublicPerformanceSummary();
-
+export function HomePerformanceSnapshot({
+  configurationScope,
+  summary,
+}: {
+  configurationScope?: HomepageFeaturedSystemContext["configuration"];
+  summary?: LedgerLatestPerformanceSnapshot;
+}) {
   return (
     <section className="bg-surface-soft/45 py-14 md:py-16 xl:py-20">
       <Container size="wide">
         <div className="max-w-3xl">
           <SectionLabel variant="gold">Public Forward Performance</SectionLabel>
           <h2 className="type-heading-2 text-foreground mt-4 max-w-3xl text-balance">
-            Documented performance from the public demo reference account.
+            Documented performance for the current public configuration.
           </h2>
           <p className="type-body text-muted-foreground mt-5 max-w-2xl">
             Current cumulative results are derived from the documented public
@@ -110,10 +87,22 @@ export function HomePerformanceSnapshot() {
         {summary ? (
           <>
             <div className="mt-7 flex flex-col gap-3 sm:flex-row sm:flex-wrap sm:items-center">
-              <Badge variant="premium">Public Demo Reference Account</Badge>
-              <Badge variant="positive">Forward Performance</Badge>
+              {configurationScope ? (
+                <span className="text-muted-foreground flex flex-wrap items-center gap-2 text-sm">
+                  <span className="type-label text-subtle-foreground">
+                    Current Public Configuration
+                  </span>
+                  <Badge variant="neutral">
+                    {configurationScope.configurationName}
+                  </Badge>
+                </span>
+              ) : null}
+              <Badge variant="premium">{summary.accountClassification}</Badge>
+              <Badge variant="positive">
+                {summary.performanceClassification}
+              </Badge>
               <span className="text-muted-foreground text-sm">
-                Period: {formatPeriodRange(summary.startDate, summary.endDate)}
+                Period: {summary.coverageLabel}
               </span>
             </div>
 

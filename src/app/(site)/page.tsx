@@ -9,19 +9,49 @@ import { HomeTechnologyResearch } from "@/components/home/home-technology-resear
 import { HomeTrustStrip } from "@/components/home/home-trust-strip";
 import { HomeVideoArchivePreview } from "@/components/home/home-video-archive-preview";
 import { HomeVerificationTransparency } from "@/components/home/home-verification-transparency";
+import {
+  getHomepageFeaturedConfiguration,
+  getHomepageFeaturedSystemContext,
+  getHomepageLedgerTeaserEntriesForConfiguration,
+  getHomepagePerformanceSnapshotForConfiguration,
+  getHomepageVerificationRecordsForConfiguration,
+  getHomepageVideoPreviewEntriesForConfiguration,
+} from "@/data/selectors";
 
 export default function Home() {
+  const featuredConfiguration = getHomepageFeaturedConfiguration();
+  const featuredConfigurationId = featuredConfiguration?.id;
+  const featuredSystemContext = getHomepageFeaturedSystemContext();
+  const performanceSnapshot = featuredConfigurationId
+    ? getHomepagePerformanceSnapshotForConfiguration(featuredConfigurationId)
+    : undefined;
+  const ledgerTeaserEntries = featuredConfigurationId
+    ? getHomepageLedgerTeaserEntriesForConfiguration(featuredConfigurationId)
+    : [];
+  const verificationRecords = featuredConfigurationId
+    ? getHomepageVerificationRecordsForConfiguration(featuredConfigurationId)
+    : [];
+  const videoPreviewEntries = featuredConfigurationId
+    ? getHomepageVideoPreviewEntriesForConfiguration(featuredConfigurationId)
+    : [];
+
   return (
     <>
       <HomeHero />
       <HomeTrustStrip />
-      <HomePerformanceSnapshot />
-      <HomeLedgerTeaser />
-      <HomeSystemsShowcase />
+      <HomePerformanceSnapshot
+        configurationScope={featuredSystemContext?.configuration}
+        summary={performanceSnapshot}
+      />
+      <HomeLedgerTeaser
+        configurationScope={featuredSystemContext?.configuration}
+        entries={ledgerTeaserEntries}
+      />
+      <HomeSystemsShowcase context={featuredSystemContext} />
       <HomeIndicatorsSignalsShowcase />
       <HomeTechnologyResearch />
-      <HomeVerificationTransparency />
-      <HomeVideoArchivePreview />
+      <HomeVerificationTransparency records={verificationRecords} />
+      <HomeVideoArchivePreview videos={videoPreviewEntries} />
       <HomeProfessionalPrivateAccess />
       <HomeFinalCta />
     </>

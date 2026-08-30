@@ -142,6 +142,16 @@ const ledgerSource = readProjectFile("src/data/ledger/entries.ts");
 const productsSelectorSource = readProjectFile(
   "src/data/selectors/products.ts",
 );
+const homepageSelectorSource = readProjectFile(
+  "src/data/selectors/homepage.ts",
+);
+const homepagePageSource = readProjectFile("src/app/(site)/page.tsx");
+const homepagePerformanceSource = readProjectFile(
+  "src/components/home/home-performance-snapshot.tsx",
+);
+const homepageLedgerTeaserSource = readProjectFile(
+  "src/components/home/home-ledger-teaser.tsx",
+);
 const systemCapabilityValues = [
   ...new Set(
     [...systemsSource.matchAll(/capabilities:\s*\[([\s\S]*?)\]/g)].flatMap(
@@ -534,6 +544,67 @@ if (
   );
 }
 
+if (
+  !homepageSelectorSource.includes(
+    'homepageFeaturedConfigurationId = "emerald-quant-system"',
+  )
+) {
+  failures.push(
+    "Homepage featured configuration must remain an explicit editorial policy.",
+  );
+}
+
+for (const selectorName of [
+  "getHomepageFeaturedConfiguration",
+  "getHomepageFeaturedSystemContext",
+  "getHomepagePerformanceSnapshotForConfiguration",
+  "getHomepageLedgerTeaserEntriesForConfiguration",
+  "getHomepageVerificationRecordsForConfiguration",
+  "getHomepageVideoPreviewEntriesForConfiguration",
+]) {
+  if (!homepageSelectorSource.includes(selectorName)) {
+    failures.push(
+      `Missing Homepage configuration-scoped selector "${selectorName}".`,
+    );
+  }
+}
+
+if (!homepageSelectorSource.includes("family.configurationIds.includes")) {
+  failures.push(
+    "Homepage featured configuration must require a family-listed configuration.",
+  );
+}
+
+if (
+  !homepageSelectorSource.includes("getPublicLedgerEntriesForConfiguration")
+) {
+  failures.push(
+    "Homepage scoped selectors must resolve Ledger records through configuration ownership.",
+  );
+}
+
+if (homepagePerformanceSource.includes("getLatestPublicPerformanceSummary")) {
+  failures.push(
+    "Homepage Performance Snapshot must not use the global latest performance selector.",
+  );
+}
+
+if (homepageLedgerTeaserSource.includes("getHomepageLedgerTeaserEntries")) {
+  failures.push(
+    "Homepage Ledger Teaser must not use the global teaser selector.",
+  );
+}
+
+for (const selectorName of [
+  "getHomepageFeaturedConfiguration",
+  "getHomepagePerformanceSnapshotForConfiguration",
+  "getHomepageLedgerTeaserEntriesForConfiguration",
+]) {
+  if (!homepagePageSource.includes(selectorName)) {
+    failures.push(`Homepage root page must use "${selectorName}".`);
+  }
+}
+
 console.log("Data source text audit");
 console.log(`Domains checked: ${domains.length}`);
 console.log(`Production data files scanned: ${productionDataFiles.length}`);
@@ -546,6 +617,7 @@ console.log(
 console.log(
   `Configuration performance ownership checked: ${currentPublicLedgerIds.length}`,
 );
+console.log("Homepage featured configuration checked: emerald-quant-system");
 
 if (failures.length) {
   console.error("");
