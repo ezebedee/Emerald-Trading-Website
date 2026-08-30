@@ -96,6 +96,10 @@ Privacy-safe analytics architecture, event naming, provider-adapter policy, and 
 
 Error-boundary behavior, not-found handling, recovery actions, and reliability-event privacy rules live in [docs/RELIABILITY.md](docs/RELIABILITY.md).
 
+Accessibility baseline rules and current manual/static QA expectations live in [docs/ACCESSIBILITY.md](docs/ACCESSIBILITY.md).
+
+Performance baseline rules, client-boundary expectations, asset warnings, and future measurement requirements live in [docs/PERFORMANCE.md](docs/PERFORMANCE.md).
+
 ## Intended Website Areas
 
 - Home

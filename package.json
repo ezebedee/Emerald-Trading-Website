@@ -14,6 +14,9 @@
     "data:audit": "node scripts/audit-data.mjs",
     "analytics:audit": "node scripts/audit-analytics.mjs",
     "reliability:audit": "node scripts/audit-reliability.mjs",
+    "accessibility:audit": "node scripts/audit-accessibility.mjs",
+    "performance:audit": "node scripts/audit-performance.mjs",
+    "foundation:audit": "node scripts/audit-foundation.mjs",
     "seo:audit": "node scripts/audit-seo.mjs"
   },
   "dependencies": {
