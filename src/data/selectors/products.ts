@@ -19,8 +19,18 @@ export const getHomepageFeaturedTradingSystem = () =>
 
 export const getPublicIndicators = () => indicators.filter(isPublicPublished);
 
+export const getHomepageFeaturedIndicator = () =>
+  getPublicIndicators().find(
+    (indicator) => indicator.id === "emerald-signal-indicator",
+  );
+
 export const getPublicSignalProducts = () =>
   signalProducts.filter(isPublicPublished);
+
+export const getHomepageFeaturedSignalProduct = () =>
+  getPublicSignalProducts().find(
+    (signalProduct) => signalProduct.id === "emerald-directional-signal-stream",
+  );
 
 export const getTradingSystemById = (id: string) =>
   tradingSystems.find((system) => system.id === id);
@@ -72,6 +82,9 @@ export const getSystemsForIndicator = (indicatorId: string) => {
     .filter((system): system is NonNullable<typeof system> => Boolean(system));
 };
 
+export const getPublicSystemsForIndicator = (indicatorId: string) =>
+  getSystemsForIndicator(indicatorId).filter(isPublicPublished);
+
 export const getSignalsForIndicator = (indicatorId: string) => {
   const indicator = getIndicatorById(indicatorId);
 
@@ -80,6 +93,9 @@ export const getSignalsForIndicator = (indicatorId: string) => {
     .filter((signal): signal is NonNullable<typeof signal> => Boolean(signal));
 };
 
+export const getPublicSignalsForIndicator = (indicatorId: string) =>
+  getSignalsForIndicator(indicatorId).filter(isPublicPublished);
+
 export const getSystemsForSignal = (signalId: string) => {
   const signal = getSignalProductById(signalId);
 
@@ -87,6 +103,9 @@ export const getSystemsForSignal = (signalId: string) => {
     .map(getTradingSystemById)
     .filter((system): system is NonNullable<typeof system> => Boolean(system));
 };
+
+export const getPublicSystemsForSignal = (signalId: string) =>
+  getSystemsForSignal(signalId).filter(isPublicPublished);
 
 export const getIndicatorsForSignal = (signalId: string) => {
   const signal = getSignalProductById(signalId);
@@ -97,6 +116,9 @@ export const getIndicatorsForSignal = (signalId: string) => {
       Boolean(indicator),
     );
 };
+
+export const getPublicIndicatorsForSignal = (signalId: string) =>
+  getIndicatorsForSignal(signalId).filter(isPublicPublished);
 
 export const getPerformanceRecordsForSystem = (systemId: string) => {
   const system = getTradingSystemById(systemId);
