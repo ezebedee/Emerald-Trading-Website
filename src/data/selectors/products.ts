@@ -12,6 +12,11 @@ const isPublicPublished = <
 export const getPublicTradingSystems = () =>
   tradingSystems.filter(isPublicPublished);
 
+export const getHomepageFeaturedTradingSystem = () =>
+  getPublicTradingSystems().find(
+    (system) => system.id === "emerald-quant-system",
+  );
+
 export const getPublicIndicators = () => indicators.filter(isPublicPublished);
 
 export const getPublicSignalProducts = () =>

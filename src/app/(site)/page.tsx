@@ -1,6 +1,7 @@
 import { HomeHero } from "@/components/home/home-hero";
 import { HomeLedgerTeaser } from "@/components/home/home-ledger-teaser";
 import { HomePerformanceSnapshot } from "@/components/home/home-performance-snapshot";
+import { HomeSystemsShowcase } from "@/components/home/home-systems-showcase";
 import { HomeTrustStrip } from "@/components/home/home-trust-strip";
 
 export default function Home() {
@@ -10,6 +11,7 @@ export default function Home() {
       <HomeTrustStrip />
       <HomePerformanceSnapshot />
       <HomeLedgerTeaser />
+      <HomeSystemsShowcase />
     </>
   );
 }
