@@ -24,6 +24,18 @@ export const getPublicVideoEntries = () =>
 export const getPublicVerificationRecords = () =>
   verificationRecords.filter(isPublicPublished);
 
+export const getHomepageVerificationRecords = () => {
+  const publicRecords = getPublicVerificationRecords();
+  const homepageRecordIds = [
+    "public-demo-reference-account",
+    "public-demo-read-only-access",
+  ] as const;
+
+  return homepageRecordIds
+    .map((id) => publicRecords.find((record) => record.id === id))
+    .filter((record): record is NonNullable<typeof record> => Boolean(record));
+};
+
 export const getResearchEntryById = (id: string) =>
   researchEntries.find((entry) => entry.id === id);
 
