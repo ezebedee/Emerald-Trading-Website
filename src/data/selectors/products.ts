@@ -397,7 +397,7 @@ export const getSystemsPagePerformanceContext = (
               },
               {
                 label: "Maximum Drawdown",
-                value: metrics.maxDrawdownPct ?? 0,
+                value: metrics.maxDrawdownPct,
                 kind: "percentage",
               },
             ],

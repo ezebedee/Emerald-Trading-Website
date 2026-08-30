@@ -14,6 +14,10 @@ type SystemPerformanceContextProps = Readonly<{
 }>;
 
 const formatMetricValue = (metric: SystemsPagePerformanceMetric) => {
+  if (metric.value === undefined) {
+    return "—";
+  }
+
   if (metric.kind === "currency") {
     return new Intl.NumberFormat("en-US", {
       currency: "USD",

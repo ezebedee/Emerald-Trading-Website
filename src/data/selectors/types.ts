@@ -133,7 +133,7 @@ export type SystemsPagePrimarySystem = Readonly<{
 
 export type SystemsPagePerformanceMetric = Readonly<{
   label: string;
-  value: MoneyValue | PercentageValue | number;
+  value?: number;
   kind: "currency" | "percentage" | "count";
 }>;
 
