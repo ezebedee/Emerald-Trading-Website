@@ -92,6 +92,8 @@ Phase 0.5 seed-data integrity, cross-domain QA findings, selector checks, and de
 
 SEO metadata architecture, canonical URL policy, indexing rules, and claim-language guidance live in [docs/SEO.md](docs/SEO.md).
 
+Privacy-safe analytics architecture, event naming, provider-adapter policy, and data-collection boundaries live in [docs/ANALYTICS.md](docs/ANALYTICS.md).
+
 ## Intended Website Areas
 
 - Home
