@@ -10,6 +10,10 @@ type LedgerHeroProps = Readonly<{
 }>;
 
 export function LedgerHero({ overview }: LedgerHeroProps) {
+  const recordFileRows = overview.availablePeriodTypes.map(
+    (periodType) =>
+      `${periodType} ${periodType === "Daily" ? "Entry" : "Summary"}`,
+  );
   const heroTitle = overview.hasPublicRecord
     ? "The public record of documented forward performance."
     : "Public Ledger context for the selected configuration.";
@@ -95,9 +99,9 @@ export function LedgerHero({ overview }: LedgerHeroProps) {
               </div>
             </div>
 
-            <div className="mt-6 space-y-3">
-              {["Daily Entry", "Weekly Summary", "Cumulative Summary"].map(
-                (label) => (
+            {overview.hasPublicRecord ? (
+              <div className="mt-6 space-y-3">
+                {recordFileRows.map((label) => (
                   <div
                     key={label}
                     className="bg-surface/85 flex items-center justify-between gap-4 rounded-md border border-[var(--border)] p-3"
@@ -107,9 +111,16 @@ export function LedgerHero({ overview }: LedgerHeroProps) {
                     </span>
                     <span className="bg-emerald-dark/70 h-2 w-16 rounded-full" />
                   </div>
-                ),
-              )}
-            </div>
+                ))}
+              </div>
+            ) : (
+              <div className="bg-surface/85 mt-6 rounded-md border border-[var(--border)] p-4">
+                <p className="text-muted-foreground text-sm leading-6">
+                  No public record is currently associated with the selected
+                  configuration.
+                </p>
+              </div>
+            )}
 
             <div className="mt-6 rounded-md border border-[var(--border-gold)] bg-[var(--gold-soft)] p-4">
               <div className="flex items-center gap-3">

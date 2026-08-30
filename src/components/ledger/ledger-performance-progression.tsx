@@ -205,20 +205,25 @@ function LedgerProgressionEmptyState({
 }: {
   points: readonly CumulativePerformancePoint[];
 }) {
+  const hasSinglePoint = points.length === 1;
+
   return (
     <section className="border-t border-[var(--border)] py-12 md:py-14 xl:py-16">
       <Container size="wide">
         <div className="surface-elevated rounded-lg p-5 md:p-6">
           <SectionLabel variant="gold">Performance Progression</SectionLabel>
           <h2 className="type-heading-2 text-foreground mt-4 text-balance">
-            Cumulative performance across documented reporting checkpoints.
+            {hasSinglePoint
+              ? "A single cumulative performance checkpoint is currently available."
+              : "No cumulative performance progression is currently available."}
           </h2>
           <p className="type-body text-muted-foreground mt-5 max-w-3xl">
-            Not enough documented cumulative checkpoints are available to show
-            progression.
+            {hasSinglePoint
+              ? "At least two documented cumulative checkpoints are needed before a trend line is shown for this configuration."
+              : "No documented cumulative checkpoints are currently available for this configuration."}
           </p>
 
-          {points.length === 1 ? (
+          {hasSinglePoint ? (
             <div className="mt-6">
               <CheckpointTable points={points} />
             </div>

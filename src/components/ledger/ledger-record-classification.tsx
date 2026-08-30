@@ -38,8 +38,9 @@ export function LedgerRecordClassification({
     {
       term: "Record Scope",
       value: overview.scopeLabel ?? "Public performance record unavailable",
-      description:
-        "Available public entries define the current daily, weekly, and cumulative reporting scope.",
+      description: overview.scopeLabel
+        ? `Available public entries define the current ${overview.scopeLabel.toLowerCase()} reporting scope.`
+        : "Available public entries define the current reporting scope.",
       badgeVariant: "premium" as const,
     },
     {

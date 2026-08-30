@@ -70,6 +70,8 @@ function MediaRecordCard({ record }: { record: LedgerMediaContextRecord }) {
 }
 
 export function LedgerMediaContext({ records }: LedgerMediaContextProps) {
+  const hasRecords = records.length > 0;
+
   return (
     <section className="bg-surface/70 border-t border-[var(--border)] py-12 md:py-14 xl:py-16">
       <Container size="wide">
@@ -77,35 +79,42 @@ export function LedgerMediaContext({ records }: LedgerMediaContextProps) {
           <div className="max-w-3xl">
             <SectionLabel variant="gold">Media & Video Record</SectionLabel>
             <h2 className="type-heading-2 text-foreground mt-4 text-balance">
-              Supporting video records linked to documented Ledger checkpoints.
+              {hasRecords
+                ? "Supporting video records linked to documented Ledger checkpoints."
+                : "Media record context for the selected configuration."}
             </h2>
             <p className="type-body text-muted-foreground mt-5">
-              Selected public Ledger checkpoints have supporting video metadata
-              records. External video links are pending, and these media records
-              provide context rather than independent performance verification.
+              {hasRecords
+                ? "Selected public Ledger checkpoints have supporting video metadata records. External video links are pending, and these media records provide context rather than independent performance verification."
+                : "No public media records are currently associated with this configuration."}
             </p>
-            <p className="text-subtle-foreground mt-4 text-sm leading-6">
-              Not every Ledger reporting record currently has an associated
-              video record.
-            </p>
+            {hasRecords ? (
+              <p className="text-subtle-foreground mt-4 text-sm leading-6">
+                Not every Ledger reporting record currently has an associated
+                video record.
+              </p>
+            ) : null}
           </div>
 
-          <div className="flex flex-col gap-3 sm:flex-row lg:items-center">
-            <Badge variant="premium">
-              {records.length} video records linked to public Ledger checkpoints
-            </Badge>
-            <LinkButton
-              className="w-full sm:w-auto"
-              href="/videos"
-              variant="secondary"
-              trailingIcon={<ArrowRight className="size-4" />}
-            >
-              Explore Video Archive
-            </LinkButton>
-          </div>
+          {hasRecords ? (
+            <div className="flex flex-col gap-3 sm:flex-row lg:items-center">
+              <Badge variant="premium">
+                {records.length} video records linked to public Ledger
+                checkpoints
+              </Badge>
+              <LinkButton
+                className="w-full sm:w-auto"
+                href="/videos"
+                variant="secondary"
+                trailingIcon={<ArrowRight className="size-4" />}
+              >
+                Explore Video Archive
+              </LinkButton>
+            </div>
+          ) : null}
         </div>
 
-        {records.length > 0 ? (
+        {hasRecords ? (
           <ul className="mt-8 grid list-none gap-4 p-0 md:grid-cols-2 xl:grid-cols-3">
             {records.map((record) => (
               <MediaRecordCard key={record.id} record={record} />
@@ -114,7 +123,8 @@ export function LedgerMediaContext({ records }: LedgerMediaContextProps) {
         ) : (
           <div className="surface-elevated mt-8 rounded-lg p-5 md:p-6">
             <p className="type-body text-muted-foreground">
-              No public Ledger video records are currently available.
+              No public media records are currently associated with this
+              configuration.
             </p>
           </div>
         )}

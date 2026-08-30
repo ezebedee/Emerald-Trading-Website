@@ -5,6 +5,7 @@ export type LedgerPublicRecordOverview = Readonly<{
   performanceClassification?: string;
   coverageLabel?: string;
   scopeLabel?: string;
+  availablePeriodTypes: readonly string[];
   hasPublicRecord: boolean;
 }>;
 
