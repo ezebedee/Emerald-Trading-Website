@@ -95,9 +95,9 @@ export function LedgerVerificationEvidence() {
               Demo Reference Account and Forward Performance record.
             </p>
             <p className="text-subtle-foreground mt-4 text-sm leading-6">
-              Reviewable documentation is not the same as outside review.
-              Sensitive account identifiers and access details are not displayed
-              on the public Ledger.
+              Reviewable documentation does not imply independent audit or
+              third-party certification. Sensitive account identifiers and
+              access details are not displayed on the public Ledger.
             </p>
             <LinkButton
               className="mt-6 w-full sm:w-auto"
