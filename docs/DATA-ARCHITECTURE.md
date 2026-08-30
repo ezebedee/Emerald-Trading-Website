@@ -243,3 +243,29 @@ All content relationships are ID-based:
 - verification records may link to Ledger entries and systems
 
 Content records reference assets by ID only and are parsed through Zod schemas at module load. The content index performs lightweight cross-reference checks so unknown asset, Ledger, system, indicator, or signal IDs fail fast during development and build validation.
+
+## Query & Derived Data Semantics
+
+Reusable selectors live in `src/data/selectors/`. They are a query layer over canonical static data, not a second source of truth.
+
+Canonical records remain owned by their domain data modules:
+
+- Ledger records live in `src/data/ledger/`
+- product catalog records live in `src/data/products/`
+- research, video, and verification records live in `src/data/content/`
+- asset metadata lives in `src/data/assets.ts`
+
+Selectors may filter, sort, resolve relationships, and return lightweight derived views. They must not mutate source arrays, duplicate production records, or rewrite authoritative metrics. Public selectors require `visibility === "public"`, and records with `contentStatus` must also require `contentStatus === "published"` so draft, archived, private, and internal records do not leak into public page data.
+
+Relationship helpers resolve IDs against canonical records at read time. Product helpers resolve systems, indicators, signal products, featured assets, and system performance records without embedding copied related objects in stored data. Content helpers resolve research, videos, and verification records by their related Ledger or product IDs. Asset helpers build an internal lookup map from the canonical manifest so callers do not need to know which asset category owns an ID.
+
+Effective cumulative metrics follow the approved period semantics:
+
+- use `cumulativeMetrics` when present
+- use `periodMetrics` for records whose `periodType` is `cumulative`
+- use `periodMetrics` for the explicit inception daily record, Day 001
+- avoid treating weekly period metrics as cumulative values when `cumulativeMetrics` is absent
+
+Derived helpers such as win rate, profit factor, return percentage, expected ending balance, profit delta, and return delta are pure QA/view utilities. They return raw numbers or `null` for unavailable unsafe calculations, such as profit factor with zero or missing gross loss. They do not overwrite stored values.
+
+Performance summaries and cumulative-series points are presentation-ready shapes, but they still return raw structured numeric values. Currency strings, percentage strings, locale formatting, and display labels beyond record titles belong in later presentation code.
