@@ -1,8 +1,13 @@
 import {
   indicators,
+  platformDefinitions,
+  productPlatformImplementations,
+  productRelationships,
+  signalModules,
   signalProducts,
   systemFamilies,
   tradingSystems,
+  tradingProductCatalog,
 } from "@/data/products";
 
 import { getAssetById } from "./assets";
@@ -150,6 +155,90 @@ const latestByEndDateThenId = <T extends { endDate: string; id: string }>(
 
 export const getPublicTradingSystems = () =>
   tradingSystems.filter(isPublicPublished);
+
+export const getPublicTradingProducts = () =>
+  tradingProductCatalog.filter(isPublicPublished);
+
+export const getTradingProductById = (id: string) =>
+  tradingProductCatalog.find((product) => product.id === id);
+
+export const getTradingProductBySlug = (slug: string) =>
+  tradingProductCatalog.find((product) => product.slug === slug);
+
+export const getPublicTradingProductBySlug = (slug: string) => {
+  const product = getTradingProductBySlug(slug);
+
+  return product && isPublicPublished(product) ? product : undefined;
+};
+
+export const getPublicPlatformDefinitions = () =>
+  platformDefinitions.filter(isPublicPublished);
+
+export const getPlatformDefinitionById = (id: string) =>
+  platformDefinitions.find((platform) => platform.id === id);
+
+export const getPlatformDefinitionBySlug = (slug: string) =>
+  platformDefinitions.find((platform) => platform.slug === slug);
+
+export const getProductsForPlatform = (platformId: string) =>
+  getPublicTradingProducts().filter((product) =>
+    product.supportedPlatformIds.some(
+      (supportedPlatformId) => supportedPlatformId === platformId,
+    ),
+  );
+
+export const getProductPlatformImplementation = ({
+  productId,
+  platformId,
+}: {
+  productId: string;
+  platformId: string;
+}) =>
+  productPlatformImplementations.find(
+    (implementation) =>
+      implementation.productId === productId &&
+      implementation.platformId === platformId,
+  );
+
+export const getPlatformImplementationsForProduct = (productId: string) =>
+  productPlatformImplementations.filter(
+    (implementation) => implementation.productId === productId,
+  );
+
+export const getPublicSignalModules = () =>
+  signalModules.filter(isPublicPublished);
+
+export const getSignalModuleById = (id: string) =>
+  signalModules.find((module) => module.id === id);
+
+export const getSignalModuleBySlug = (slug: string) =>
+  signalModules.find((module) => module.slug === slug);
+
+export const getSignalModulesForProduct = (productId: string) => {
+  const product = getTradingProductById(productId);
+
+  if (!product || !isPublicPublished(product)) {
+    return [];
+  }
+
+  return (product.signalModuleIds ?? [])
+    .map(getSignalModuleById)
+    .filter((module): module is NonNullable<typeof module> => Boolean(module))
+    .filter(isPublicPublished);
+};
+
+export const getPrimarySignalModules = () =>
+  getPublicSignalModules().filter((module) => module.role === "primary");
+
+export const getAuxiliarySignalModules = () =>
+  getPublicSignalModules().filter((module) => module.role === "auxiliary");
+
+export const getProductRelationshipsForProduct = (productId: string) =>
+  productRelationships.filter(
+    (relationship) =>
+      relationship.sourceProductId === productId ||
+      relationship.targetProductId === productId,
+  );
 
 export const getPublicSystemFamilies = () =>
   systemFamilies.filter(isPublicPublished);

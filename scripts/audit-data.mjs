@@ -32,6 +32,21 @@ const domains = [
     checkSlugs: true,
   },
   {
+    name: "Product catalog",
+    file: "src/data/products/product-catalog.ts",
+    checkSlugs: true,
+  },
+  {
+    name: "Signal modules",
+    file: "src/data/products/signal-modules.ts",
+    checkSlugs: true,
+  },
+  {
+    name: "Platforms",
+    file: "src/data/products/platforms.ts",
+    checkSlugs: true,
+  },
+  {
     name: "Research",
     file: "src/data/content/research.ts",
     checkSlugs: true,
@@ -61,6 +76,10 @@ const productionDataFiles = [
   "src/data/products/systems.ts",
   "src/data/products/indicators.ts",
   "src/data/products/signals.ts",
+  "src/data/products/product-catalog.ts",
+  "src/data/products/signal-modules.ts",
+  "src/data/products/platforms.ts",
+  "src/data/products/platform-implementations.ts",
   "src/data/content/research.ts",
   "src/data/content/videos.ts",
   "src/data/content/verification.ts",
@@ -84,6 +103,18 @@ const literalArrayValuesForKey = (source, key) =>
 
 const literalValueForKeyInBlock = (source, key) =>
   source.match(new RegExp(`\\b${key}:\\s*"([^"]+)"`))?.[1];
+
+const sourceBetween = (source, startMarker, endMarker) => {
+  const startIndex = source.indexOf(startMarker);
+  const endIndex =
+    startIndex >= 0 ? source.indexOf(endMarker, startIndex + 1) : -1;
+
+  if (startIndex < 0 || endIndex < 0) {
+    return "";
+  }
+
+  return source.slice(startIndex, endIndex);
+};
 
 const objectBlocksWithIds = (source) =>
   [...source.matchAll(/\{\s*id:\s*"([^"]+)"([\s\S]*?)\n\s*\},/g)].map(
@@ -142,6 +173,18 @@ const ledgerSource = readProjectFile("src/data/ledger/entries.ts");
 const productsSelectorSource = readProjectFile(
   "src/data/selectors/products.ts",
 );
+const indicatorsSource = readProjectFile("src/data/products/indicators.ts");
+const signalsSource = readProjectFile("src/data/products/signals.ts");
+const productCatalogSource = readProjectFile(
+  "src/data/products/product-catalog.ts",
+);
+const signalModulesSource = readProjectFile(
+  "src/data/products/signal-modules.ts",
+);
+const platformsSource = readProjectFile("src/data/products/platforms.ts");
+const platformImplementationsSource = readProjectFile(
+  "src/data/products/platform-implementations.ts",
+);
 const homepageSelectorSource = readProjectFile(
   "src/data/selectors/homepage.ts",
 );
@@ -151,6 +194,9 @@ const homepagePerformanceSource = readProjectFile(
 );
 const homepageLedgerTeaserSource = readProjectFile(
   "src/components/home/home-ledger-teaser.tsx",
+);
+const homepageIndicatorsSignalsSource = readProjectFile(
+  "src/components/home/home-indicators-signals-showcase.tsx",
 );
 const systemCapabilityValues = [
   ...new Set(
@@ -174,6 +220,21 @@ const systemIds = literalValuesForKey(systemsSource, "id");
 const familyIds = literalValuesForKey(systemFamiliesSource, "id");
 const currentFamilyId = "emerald-quant-system-family";
 const currentSystemId = "emerald-quant-system";
+const requiredProductIds = [
+  "emerald-legacy-system",
+  "emerald-signal-scanner",
+  "emerald-recovery-expert",
+  "emerald-quant-system-product",
+];
+const requiredPlatformIds = ["mt4", "mt5", "tradingview", "ninjatrader"];
+const requiredSignalModuleIds = [
+  "emerald-main-signal",
+  "emerald-finescalp",
+  "emerald-scalp-signal",
+  "emerald-range-signal",
+  "emerald-harmonizer",
+  "emerald-harmonizer-safe",
+];
 const currentPublicLedgerIds = [
   "day-001",
   "day-002",
@@ -251,6 +312,368 @@ const ledgerEntryMetadataById = new Map(
   ]),
 );
 const requiredFamilyMarkets = ["metals", "forex", "futures", "equities"];
+
+const productDefinitionBlocks = objectBlocksWithIds(
+  productCatalogSource,
+).filter(({ block }) => block.includes("productLayer:"));
+const signalModuleBlocks = objectBlocksWithIds(signalModulesSource).filter(
+  ({ block }) => block.includes("instrumentScope:"),
+);
+const platformDefinitionBlocks = objectBlocksWithIds(platformsSource).filter(
+  ({ block }) => block.includes("label:"),
+);
+const productCatalogIds = productDefinitionBlocks.map(({ id }) => id);
+const productCatalogSlugs = productDefinitionBlocks
+  .map(({ block }) => literalValueForKeyInBlock(block, "slug"))
+  .filter(Boolean);
+const platformDefinitionIds = platformDefinitionBlocks.map(({ id }) => id);
+const signalModuleIds = signalModuleBlocks.map(({ id }) => id);
+
+if (productCatalogIds.length !== 4) {
+  failures.push("Product ecosystem catalog must contain exactly 4 products.");
+}
+
+if (signalModuleIds.length !== 6) {
+  failures.push("Signal framework must contain exactly 6 signal modules.");
+}
+
+if (platformDefinitionIds.length !== 4) {
+  failures.push("Platform catalog must contain exactly 4 platforms.");
+}
+
+for (const productId of requiredProductIds) {
+  if (!productCatalogIds.includes(productId)) {
+    failures.push(`Product catalog is missing "${productId}".`);
+  }
+}
+
+for (const platformId of requiredPlatformIds) {
+  if (!platformDefinitionIds.includes(platformId)) {
+    failures.push(`Platform catalog is missing "${platformId}".`);
+  }
+
+  if (!productCatalogSource.includes(`"${platformId}"`)) {
+    failures.push(`Product platform matrix is missing "${platformId}".`);
+  }
+}
+
+for (const signalModuleId of requiredSignalModuleIds) {
+  if (!signalModuleIds.includes(signalModuleId)) {
+    failures.push(`Signal framework is missing "${signalModuleId}".`);
+  }
+}
+
+const duplicateProductCatalogIds = findDuplicates(productCatalogIds);
+const duplicateProductCatalogSlugs = findDuplicates(productCatalogSlugs);
+const duplicateSignalModuleIds = findDuplicates(signalModuleIds);
+
+if (duplicateProductCatalogIds.length) {
+  failures.push(
+    `Product catalog duplicate IDs: ${duplicateProductCatalogIds.join(", ")}`,
+  );
+}
+
+if (duplicateProductCatalogSlugs.length) {
+  failures.push(
+    `Product catalog duplicate slugs: ${duplicateProductCatalogSlugs.join(", ")}`,
+  );
+}
+
+if (duplicateSignalModuleIds.length) {
+  failures.push(
+    `Signal module duplicate IDs: ${duplicateSignalModuleIds.join(", ")}`,
+  );
+}
+
+const productExpectations = new Map([
+  [
+    "emerald-legacy-system",
+    {
+      accessModel: "public-subscription",
+      productLayer: "analysis-signal",
+    },
+  ],
+  [
+    "emerald-signal-scanner",
+    {
+      accessModel: "public-subscription",
+      productLayer: "monitoring-scanning",
+    },
+  ],
+  [
+    "emerald-recovery-expert",
+    {
+      accessModel: "public-subscription",
+      productLayer: "assisted-execution",
+    },
+  ],
+  [
+    "emerald-quant-system-product",
+    {
+      accessModel: "private-investor",
+      productLayer: "automated-execution",
+    },
+  ],
+]);
+
+for (const { id, block } of productDefinitionBlocks) {
+  const expectation = productExpectations.get(id);
+
+  if (!expectation) {
+    continue;
+  }
+
+  for (const [key, value] of Object.entries(expectation)) {
+    if (literalValueForKeyInBlock(block, key) !== value) {
+      failures.push(`${id} must use ${key}: "${value}".`);
+    }
+  }
+
+  if (!block.includes("supportedPlatformIds: allPlatformIds")) {
+    failures.push(`${id} must use the canonical all-platform matrix.`);
+  }
+
+  if (block.includes("performanceRecordIds")) {
+    failures.push(
+      `${id} must not own Ledger performanceRecordIds in the product catalog.`,
+    );
+  }
+}
+
+const signalModuleExpectations = new Map([
+  ["emerald-main-signal", { role: "primary", category: "trend", slug: "main" }],
+  [
+    "emerald-finescalp",
+    { role: "primary", category: "high-resolution", slug: "finescalp" },
+  ],
+  [
+    "emerald-scalp-signal",
+    { role: "primary", category: "scalp", slug: "scalp" },
+  ],
+  [
+    "emerald-range-signal",
+    { role: "primary", category: "range", slug: "range" },
+  ],
+  [
+    "emerald-harmonizer",
+    { role: "primary", category: "synthesis", slug: "harmonizer" },
+  ],
+  [
+    "emerald-harmonizer-safe",
+    {
+      role: "auxiliary",
+      category: "defensive-helper",
+      slug: "harmonizer-safe",
+    },
+  ],
+]);
+
+let primarySignalModuleCount = 0;
+let auxiliarySignalModuleCount = 0;
+
+for (const { id, block } of signalModuleBlocks) {
+  const expectation = signalModuleExpectations.get(id);
+
+  if (literalValueForKeyInBlock(block, "role") === "primary") {
+    primarySignalModuleCount += 1;
+  }
+
+  if (literalValueForKeyInBlock(block, "role") === "auxiliary") {
+    auxiliarySignalModuleCount += 1;
+  }
+
+  if (!block.includes('instrumentScope: "multi-instrument"')) {
+    failures.push(`${id} must remain multi-instrument scoped.`);
+  }
+
+  if (!block.includes('generatedByProductId: "emerald-legacy-system"')) {
+    failures.push(`${id} must be generated by Emerald Legacy System.`);
+  }
+
+  if (!expectation) {
+    continue;
+  }
+
+  for (const [key, value] of Object.entries(expectation)) {
+    if (literalValueForKeyInBlock(block, key) !== value) {
+      failures.push(`${id} must use ${key}: "${value}".`);
+    }
+  }
+}
+
+if (primarySignalModuleCount !== 5) {
+  failures.push("Signal framework must contain exactly 5 primary modules.");
+}
+
+if (auxiliarySignalModuleCount !== 1) {
+  failures.push("Signal framework must contain exactly 1 auxiliary module.");
+}
+
+const harmonizerBlock =
+  signalModuleBlocks.find(({ id }) => id === "emerald-harmonizer")?.block ?? "";
+const harmonizerSources = literalArrayValuesForKey(
+  harmonizerBlock,
+  "relatedSignalModuleIds",
+)[0];
+
+for (const requiredSource of ["emerald-scalp-signal", "emerald-range-signal"]) {
+  if (!harmonizerSources?.includes(requiredSource)) {
+    failures.push(`Harmonizer must reference ${requiredSource}.`);
+  }
+}
+
+if (
+  !indicatorsSource.includes('name: "Emerald Legacy System"') ||
+  !indicatorsSource.includes('shortName: "Unified Multi-Signal Indicator"')
+) {
+  failures.push(
+    "Stable indicator record must present Emerald Legacy System as the unified multi-signal indicator.",
+  );
+}
+
+if (!indicatorsSource.includes('"NinjaTrader"')) {
+  failures.push("Indicator platform scope must include NinjaTrader.");
+}
+
+if (!signalsSource.includes('"NinjaTrader"')) {
+  failures.push("Signal framework platform scope must include NinjaTrader.");
+}
+
+if (!signalsSource.includes('signalCategory: "multi-signal"')) {
+  failures.push(
+    'Umbrella Emerald Signal Framework must use signalCategory: "multi-signal".',
+  );
+}
+
+if (!signalsSource.includes("signalModuleIds")) {
+  failures.push("Signal product record must link to signal modules.");
+}
+
+if (
+  !homepageIndicatorsSignalsSource.includes(
+    '"multi-signal": "Multi-Signal Framework"',
+  ) ||
+  homepageIndicatorsSignalsSource.includes("Directional Signal Stream") ||
+  homepageIndicatorsSignalsSource.includes("Directional Signals")
+) {
+  failures.push(
+    "Homepage signal showcase must present the umbrella as Multi-Signal Framework, not a Directional Signal Stream.",
+  );
+}
+
+if (
+  !platformImplementationsSource.includes(
+    '"custom-high-resolution-chart-builder"',
+  ) ||
+  !platformImplementationsSource.includes(
+    '"native-high-resolution-chart-workflow"',
+  ) ||
+  !platformImplementationsSource.includes(
+    '"scanner-finescalp-high-resolution-support"',
+  )
+) {
+  failures.push(
+    "Platform implementation matrix must model FineScalp high-resolution support.",
+  );
+}
+
+const legacyImplementationNotesSource = sourceBetween(
+  platformImplementationsSource,
+  "Emerald Legacy System implementation",
+  "Emerald Signal Scanner implementation",
+);
+const scannerImplementationNotesSource = sourceBetween(
+  platformImplementationsSource,
+  "Emerald Signal Scanner implementation",
+  "Emerald Recovery Expert implementation",
+);
+const recoveryImplementationNotesSource = sourceBetween(
+  platformImplementationsSource,
+  "Emerald Recovery Expert implementation",
+  "Emerald Quant System product-level",
+);
+const quantImplementationNotesSource = sourceBetween(
+  platformImplementationsSource,
+  "Emerald Quant System product-level",
+  "};\n\nconst rawPlatformImplementations",
+);
+
+if (
+  !legacyImplementationNotesSource.includes(
+    "FineScalp custom high-resolution tick and seconds chart workflows",
+  ) ||
+  !legacyImplementationNotesSource.includes(
+    "native FineScalp high-resolution chart capability",
+  )
+) {
+  failures.push(
+    "Emerald Legacy System platform notes must distinguish MetaTrader custom FineScalp workflows from native high-resolution platform capability.",
+  );
+}
+
+if (
+  !scannerImplementationNotesSource.includes(
+    "monitor FineScalp custom high-resolution workflows",
+  ) ||
+  !scannerImplementationNotesSource.includes(
+    "native FineScalp high-resolution workflows",
+  )
+) {
+  failures.push(
+    "Emerald Signal Scanner platform notes must distinguish MetaTrader custom FineScalp workflows from native high-resolution workflows.",
+  );
+}
+
+if (
+  !recoveryImplementationNotesSource.includes("trader-first-entry") ||
+  /FineScalp|high-resolution/i.test(recoveryImplementationNotesSource)
+) {
+  failures.push(
+    "Emerald Recovery Expert platform notes must preserve trader-first-entry workflow without FineScalp or high-resolution charting language.",
+  );
+}
+
+if (
+  !quantImplementationNotesSource.includes(
+    "product-level platform availability",
+  ) ||
+  !quantImplementationNotesSource.includes(
+    "current public Metals / XAUUSD MT4 performance configuration",
+  ) ||
+  /FineScalp|high-resolution/i.test(quantImplementationNotesSource)
+) {
+  failures.push(
+    "Emerald Quant System platform notes must preserve product/platform availability without FineScalp or high-resolution charting language.",
+  );
+}
+
+if (
+  !platformImplementationsSource.includes(
+    '"trader-first-entry-recovery-workflow"',
+  )
+) {
+  failures.push(
+    "Recovery Expert platform model must preserve trader-first-entry workflow.",
+  );
+}
+
+for (const selectorName of [
+  "getPublicTradingProducts",
+  "getTradingProductById",
+  "getTradingProductBySlug",
+  "getPublicSignalModules",
+  "getSignalModuleById",
+  "getSignalModulesForProduct",
+  "getPrimarySignalModules",
+  "getAuxiliarySignalModules",
+  "getPublicPlatformDefinitions",
+  "getProductPlatformImplementation",
+  "getProductsForPlatform",
+]) {
+  if (!productsSelectorSource.includes(selectorName)) {
+    failures.push(`Missing product ecosystem selector "${selectorName}".`);
+  }
+}
 
 for (const configurationId of familyConfigurationIds) {
   if (!systemIds.includes(configurationId)) {

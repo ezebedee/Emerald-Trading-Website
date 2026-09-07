@@ -18,8 +18,9 @@ export type IndicatorDefinition = Readonly<{
   contentStatus: ContentStatus;
   visibility: Visibility;
   platforms: readonly TradingPlatform[];
-  marketCategories: readonly MarketCategory[];
+  marketCategories?: readonly MarketCategory[];
   instruments?: readonly InstrumentSymbol[];
+  instrumentScope?: "single-instrument" | "multi-instrument";
   capabilities?: readonly string[];
   featuredAssetId?: AssetReferenceId;
   assetIds?: readonly AssetReferenceId[];

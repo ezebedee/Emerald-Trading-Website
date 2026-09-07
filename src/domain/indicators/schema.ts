@@ -21,8 +21,11 @@ export const indicatorDefinitionSchema = z
     contentStatus: contentStatusSchema,
     visibility: visibilitySchema,
     platforms: z.array(tradingPlatformSchema).min(1),
-    marketCategories: z.array(marketCategorySchema).min(1),
+    marketCategories: z.array(marketCategorySchema).optional(),
     instruments: z.array(instrumentSymbolSchema).optional(),
+    instrumentScope: z
+      .enum(["single-instrument", "multi-instrument"])
+      .optional(),
     capabilities: z.array(z.string().min(1)).optional(),
     featuredAssetId: assetReferenceIdSchema.optional(),
     assetIds: z.array(assetReferenceIdSchema).optional(),
