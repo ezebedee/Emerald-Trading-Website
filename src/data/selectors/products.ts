@@ -26,6 +26,7 @@ import {
   getPublicLedgerChronologyEntriesFromRecords,
 } from "./ledger";
 import type {
+  IndicatorsPageContext,
   LedgerConfigurationOption,
   LedgerPageContext,
   SystemsPageCapability,
@@ -239,6 +240,49 @@ export const getProductRelationshipsForProduct = (productId: string) =>
       relationship.sourceProductId === productId ||
       relationship.targetProductId === productId,
   );
+
+export const getIndicatorsPageContext = (): IndicatorsPageContext => {
+  const product = getPublicTradingProductBySlug("emerald-legacy-system");
+  const heroAsset = getAssetById("indicator-emerald-signal-mt4-01");
+  const modules = product ? getSignalModulesForProduct(product.id) : [];
+  const productPlatformIds = new Set(product?.supportedPlatformIds ?? []);
+  const productRelationshipRecords = product
+    ? getProductRelationshipsForProduct(product.id)
+    : [];
+  const relatedProductIds = new Set(product?.relatedProductIds ?? []);
+
+  for (const relationship of productRelationshipRecords) {
+    if (relationship.sourceProductId !== product?.id) {
+      relatedProductIds.add(relationship.sourceProductId);
+    }
+
+    if (relationship.targetProductId !== product?.id) {
+      relatedProductIds.add(relationship.targetProductId);
+    }
+  }
+
+  return {
+    product,
+    heroAsset: heroAsset?.kind === "image" ? heroAsset : undefined,
+    primarySignalModules: modules.filter((module) => module.role === "primary"),
+    auxiliarySignalModules: modules.filter(
+      (module) => module.role === "auxiliary",
+    ),
+    platforms: getPublicPlatformDefinitions().filter((platform) =>
+      productPlatformIds.has(platform.id),
+    ),
+    relatedProducts: [...relatedProductIds]
+      .map(getTradingProductById)
+      .filter(
+        (
+          relatedProduct,
+        ): relatedProduct is NonNullable<typeof relatedProduct> =>
+          Boolean(relatedProduct),
+      )
+      .filter(isPublicPublished),
+    relationships: productRelationshipRecords,
+  };
+};
 
 export const getPublicSystemFamilies = () =>
   systemFamilies.filter(isPublicPublished);
