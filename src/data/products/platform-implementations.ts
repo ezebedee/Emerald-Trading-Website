@@ -46,6 +46,31 @@ const productCapabilityIds = (
   return ["standard-platform-implementation"] as const;
 };
 
+const implementationNotesForProduct = (
+  productId: keyof typeof productAccessModels,
+  platformId: (typeof platformIds)[number],
+) => {
+  const isMetaTrader = platformId === "mt4" || platformId === "mt5";
+
+  if (productId === "emerald-legacy-system") {
+    return isMetaTrader
+      ? "Emerald Legacy System implementation can support FineScalp custom high-resolution tick and seconds chart workflows on MetaTrader."
+      : "Emerald Legacy System implementation can use native FineScalp high-resolution chart capability where available; no MetaTrader offline/custom-chart mechanics are implied.";
+  }
+
+  if (productId === "emerald-signal-scanner") {
+    return isMetaTrader
+      ? "Emerald Signal Scanner implementation can participate in and monitor FineScalp custom high-resolution workflows on MetaTrader."
+      : "Emerald Signal Scanner implementation can support native FineScalp high-resolution workflows where available.";
+  }
+
+  if (productId === "emerald-recovery-expert") {
+    return "Emerald Recovery Expert implementation follows a trader-first-entry, semi-automated trade-management workflow for subsequent recovery actions.";
+  }
+
+  return "Emerald Quant System product-level platform availability is modeled separately from the current public Metals / XAUUSD MT4 performance configuration.";
+};
+
 const rawPlatformImplementations = Object.entries(productAccessModels).flatMap(
   ([productId, accessModel]) =>
     platformIds.map((platformId) => ({
@@ -59,10 +84,10 @@ const rawPlatformImplementations = Object.entries(productAccessModels).flatMap(
         platformId,
       ),
       documentationStatus: "planned",
-      implementationNotes:
-        platformId === "mt4" || platformId === "mt5"
-          ? "MetaTrader implementation can support Emerald-generated custom high-resolution chart workflows where the product uses FineScalp."
-          : "Platform implementation can use native high-resolution chart workflow where available; no MetaTrader offline/custom-chart builder is implied.",
+      implementationNotes: implementationNotesForProduct(
+        productId as keyof typeof productAccessModels,
+        platformId,
+      ),
     })),
 );
 

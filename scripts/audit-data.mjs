@@ -104,6 +104,18 @@ const literalArrayValuesForKey = (source, key) =>
 const literalValueForKeyInBlock = (source, key) =>
   source.match(new RegExp(`\\b${key}:\\s*"([^"]+)"`))?.[1];
 
+const sourceBetween = (source, startMarker, endMarker) => {
+  const startIndex = source.indexOf(startMarker);
+  const endIndex =
+    startIndex >= 0 ? source.indexOf(endMarker, startIndex + 1) : -1;
+
+  if (startIndex < 0 || endIndex < 0) {
+    return "";
+  }
+
+  return source.slice(startIndex, endIndex);
+};
+
 const objectBlocksWithIds = (source) =>
   [...source.matchAll(/\{\s*id:\s*"([^"]+)"([\s\S]*?)\n\s*\},/g)].map(
     ([block, id]) => ({ id, block }),
@@ -182,6 +194,9 @@ const homepagePerformanceSource = readProjectFile(
 );
 const homepageLedgerTeaserSource = readProjectFile(
   "src/components/home/home-ledger-teaser.tsx",
+);
+const homepageIndicatorsSignalsSource = readProjectFile(
+  "src/components/home/home-indicators-signals-showcase.tsx",
 );
 const systemCapabilityValues = [
   ...new Set(
@@ -524,8 +539,26 @@ if (!signalsSource.includes('"NinjaTrader"')) {
   failures.push("Signal framework platform scope must include NinjaTrader.");
 }
 
+if (!signalsSource.includes('signalCategory: "multi-signal"')) {
+  failures.push(
+    'Umbrella Emerald Signal Framework must use signalCategory: "multi-signal".',
+  );
+}
+
 if (!signalsSource.includes("signalModuleIds")) {
   failures.push("Signal product record must link to signal modules.");
+}
+
+if (
+  !homepageIndicatorsSignalsSource.includes(
+    '"multi-signal": "Multi-Signal Framework"',
+  ) ||
+  homepageIndicatorsSignalsSource.includes("Directional Signal Stream") ||
+  homepageIndicatorsSignalsSource.includes("Directional Signals")
+) {
+  failures.push(
+    "Homepage signal showcase must present the umbrella as Multi-Signal Framework, not a Directional Signal Stream.",
+  );
 }
 
 if (
@@ -541,6 +574,76 @@ if (
 ) {
   failures.push(
     "Platform implementation matrix must model FineScalp high-resolution support.",
+  );
+}
+
+const legacyImplementationNotesSource = sourceBetween(
+  platformImplementationsSource,
+  "Emerald Legacy System implementation",
+  "Emerald Signal Scanner implementation",
+);
+const scannerImplementationNotesSource = sourceBetween(
+  platformImplementationsSource,
+  "Emerald Signal Scanner implementation",
+  "Emerald Recovery Expert implementation",
+);
+const recoveryImplementationNotesSource = sourceBetween(
+  platformImplementationsSource,
+  "Emerald Recovery Expert implementation",
+  "Emerald Quant System product-level",
+);
+const quantImplementationNotesSource = sourceBetween(
+  platformImplementationsSource,
+  "Emerald Quant System product-level",
+  "};\n\nconst rawPlatformImplementations",
+);
+
+if (
+  !legacyImplementationNotesSource.includes(
+    "FineScalp custom high-resolution tick and seconds chart workflows",
+  ) ||
+  !legacyImplementationNotesSource.includes(
+    "native FineScalp high-resolution chart capability",
+  )
+) {
+  failures.push(
+    "Emerald Legacy System platform notes must distinguish MetaTrader custom FineScalp workflows from native high-resolution platform capability.",
+  );
+}
+
+if (
+  !scannerImplementationNotesSource.includes(
+    "monitor FineScalp custom high-resolution workflows",
+  ) ||
+  !scannerImplementationNotesSource.includes(
+    "native FineScalp high-resolution workflows",
+  )
+) {
+  failures.push(
+    "Emerald Signal Scanner platform notes must distinguish MetaTrader custom FineScalp workflows from native high-resolution workflows.",
+  );
+}
+
+if (
+  !recoveryImplementationNotesSource.includes("trader-first-entry") ||
+  /FineScalp|high-resolution/i.test(recoveryImplementationNotesSource)
+) {
+  failures.push(
+    "Emerald Recovery Expert platform notes must preserve trader-first-entry workflow without FineScalp or high-resolution charting language.",
+  );
+}
+
+if (
+  !quantImplementationNotesSource.includes(
+    "product-level platform availability",
+  ) ||
+  !quantImplementationNotesSource.includes(
+    "current public Metals / XAUUSD MT4 performance configuration",
+  ) ||
+  /FineScalp|high-resolution/i.test(quantImplementationNotesSource)
+) {
+  failures.push(
+    "Emerald Quant System platform notes must preserve product/platform availability without FineScalp or high-resolution charting language.",
   );
 }
 

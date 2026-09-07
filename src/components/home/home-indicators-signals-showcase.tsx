@@ -28,6 +28,7 @@ const marketCategoryLabels: Record<string, string> = {
 };
 
 const signalCategoryLabels = {
+  "multi-signal": "Multi-Signal Framework",
   directional: "Directional",
   entry: "Entry",
   exit: "Exit",
@@ -172,7 +173,7 @@ function IndicatorCard({
 
         <p className="text-muted-foreground mt-6 text-sm leading-6">
           Related to {relatedSystems[0]?.name ?? "the trading system layer"} and{" "}
-          {relatedSignals[0]?.name ?? "the directional signal layer"} as an
+          {relatedSignals[0]?.name ?? "the multi-signal framework"} as an
           analytical input, not a standalone execution system.
         </p>
       </div>
@@ -208,10 +209,11 @@ function SignalCard({ signal }: { signal: SignalProduct }) {
   const relatedSystems = getPublicSystemsForSignal(signal.id);
   const relatedIndicators = getPublicIndicatorsForSignal(signal.id);
   const marketBadges = getMarketBadges(signal);
+  const signalCategoryLabel = signalCategoryLabels[signal.signalCategory];
 
   return (
     <article className="surface-elevated flex min-h-full flex-col rounded-lg p-5 md:p-6">
-      <Badge variant="neutral">Directional Signal Stream</Badge>
+      <Badge variant="neutral">Multi-Signal Framework</Badge>
       <h3 className="type-heading-3 text-foreground mt-4 text-balance">
         {signal.name}
       </h3>
@@ -221,7 +223,9 @@ function SignalCard({ signal }: { signal: SignalProduct }) {
 
       <div className="mt-5 flex flex-wrap gap-2">
         <Badge variant="premium">
-          {signalCategoryLabels[signal.signalCategory]} Signals
+          {signal.signalCategory === "multi-signal"
+            ? signalCategoryLabel
+            : `${signalCategoryLabel} Signals`}
         </Badge>
         {signal.deliveryMethods?.map((deliveryMethod) => (
           <Badge key={deliveryMethod} variant="neutral">
@@ -265,7 +269,7 @@ function SignalCard({ signal }: { signal: SignalProduct }) {
       <p className="text-muted-foreground mt-6 text-sm leading-6">
         Related to {relatedSystems[0]?.name ?? "the trading system layer"}
         {relatedIndicators[0] ? ` and ${relatedIndicators[0].name}` : ""} as
-        structured directional context.
+        structured signal-framework context.
       </p>
 
       <div className="mt-auto pt-6">
@@ -302,8 +306,9 @@ export function HomeIndicatorsSignalsShowcase() {
           </h2>
           <p className="type-body text-muted-foreground mt-5 max-w-2xl">
             Emerald indicator and signal products provide analytical and
-            directional inputs that may inform the broader Emerald Quant System
-            without replacing full system rules, risk logic, or execution.
+            signal-framework inputs that may inform the broader Emerald Quant
+            System without replacing full system rules, risk logic, or
+            execution.
           </p>
         </div>
 

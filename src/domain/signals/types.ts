@@ -10,6 +10,7 @@ import type {
 } from "../common/types";
 
 export const SIGNAL_CATEGORIES = [
+  "multi-signal",
   "directional",
   "entry",
   "exit",

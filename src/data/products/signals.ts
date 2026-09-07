@@ -10,7 +10,7 @@ const rawSignalProducts = [
       "Umbrella signal framework generated within Emerald Legacy System and organized into primary and auxiliary signal modules.",
     contentStatus: "published",
     visibility: "public",
-    signalCategory: "directional",
+    signalCategory: "multi-signal",
     deliveryMethods: ["chart", "dashboard"],
     platforms: ["MT4", "MT5", "TradingView", "NinjaTrader"],
     instrumentScope: "multi-instrument",
@@ -35,7 +35,7 @@ const rawSignalProducts = [
     assetIds: ["indicator-emerald-signal-mt4-01"],
     relatedSystemIds: ["emerald-quant-system"],
     relatedIndicatorIds: ["emerald-signal-indicator"],
-    tags: ["signals", "directional", "multi-instrument"],
+    tags: ["signals", "multi-signal", "multi-instrument"],
     notes:
       "Stable legacy ID preserved and reframed as the umbrella signal framework. This does not define individual trade-signal events, guarantee signal outcomes, or attach Ledger performance to signal modules.",
   },
