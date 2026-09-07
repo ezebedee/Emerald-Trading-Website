@@ -49,12 +49,18 @@ const formatCapability = (capability: string) =>
 const getMarketBadges = (
   product: Pick<
     IndicatorDefinition | SignalProduct,
-    "instruments" | "marketCategories"
+    "instruments" | "instrumentScope" | "marketCategories"
   >,
-) => [
-  ...(product.instruments ?? []),
-  ...product.marketCategories.map(formatMarketCategory),
-];
+) => {
+  if (product.instrumentScope === "multi-instrument") {
+    return ["Multi-Instrument"];
+  }
+
+  return [
+    ...(product.instruments ?? []),
+    ...(product.marketCategories ?? []).map(formatMarketCategory),
+  ];
+};
 
 const getImageAsset = (
   asset: ReturnType<typeof getFeaturedAssetForIndicator>,

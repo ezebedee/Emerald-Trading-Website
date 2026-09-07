@@ -37,6 +37,7 @@ export const TRADING_PLATFORMS = [
   "MT4",
   "MT5",
   "TradingView",
+  "NinjaTrader",
   "Other",
 ] as const;
 export type TradingPlatform = (typeof TRADING_PLATFORMS)[number];

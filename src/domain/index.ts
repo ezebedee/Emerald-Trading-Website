@@ -2,6 +2,8 @@ export * from "./common";
 export * from "./indicators";
 export * from "./ledger";
 export * from "./performance";
+export * from "./platforms";
+export * from "./products";
 export * from "./research";
 export * from "./signals";
 export * from "./systems";

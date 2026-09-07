@@ -4,27 +4,28 @@ const rawIndicators = [
   {
     id: "emerald-signal-indicator",
     slug: "emerald-signal-indicator",
-    name: "Emerald Signal Indicator",
+    name: "Emerald Legacy System",
+    shortName: "Unified Multi-Signal Indicator",
     description:
-      "Signal-generating trading indicator developed by Emerald Legacy Systems for chart-based market analysis and directional trade-signal visualization.",
+      "Unified multi-signal indicator product developed by Emerald Legacy Systems for chart-based signal analysis and directional signal visualization across supported platforms.",
     contentStatus: "published",
     visibility: "public",
-    platforms: ["MT4", "MT5", "TradingView"],
-    marketCategories: ["metals"],
-    instruments: ["XAUUSD"],
+    platforms: ["MT4", "MT5", "TradingView", "NinjaTrader"],
+    instrumentScope: "multi-instrument",
     capabilities: [
+      "multi-signal framework",
       "directional signal markers",
       "chart-based signal visualization",
-      "pip annotations",
-      "trade setup visualization",
+      "FineScalp high-resolution signal support",
+      "primary and auxiliary signal modules",
     ],
     featuredAssetId: "indicator-emerald-signal-mt4-01",
     assetIds: ["indicator-emerald-signal-mt4-01"],
     relatedSystemIds: ["emerald-quant-system"],
     relatedSignalIds: ["emerald-directional-signal-stream"],
-    tags: ["signals", "indicator", "chart-analysis", "xauusd"],
+    tags: ["signals", "indicator", "chart-analysis", "multi-instrument"],
     notes:
-      "Public indicator catalog record. Ledger performance attribution remains attached to the system and account records, not to the indicator alone.",
+      "Stable legacy ID preserved for backward compatibility. Ledger performance attribution remains attached to the Quant System configuration and account records, not to the indicator product.",
   },
 ] as const;
 

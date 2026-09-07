@@ -1,11 +1,19 @@
 import { ledgerEntries } from "@/data/ledger";
 import { ledgerAssets, siteAssets } from "@/data/assets";
 import { indicators } from "./indicators";
+import { platformDefinitions } from "./platforms";
+import { productPlatformImplementations } from "./platform-implementations";
+import { productRelationships, tradingProductCatalog } from "./product-catalog";
+import { signalModules } from "./signal-modules";
 import { signalProducts } from "./signals";
 import { systemFamilies } from "./system-families";
 import { tradingSystems } from "./systems";
 
 export * from "./indicators";
+export * from "./platform-implementations";
+export * from "./platforms";
+export * from "./product-catalog";
+export * from "./signal-modules";
 export * from "./signals";
 export * from "./system-families";
 export * from "./systems";
@@ -31,6 +39,9 @@ const assetIds = new Set([
 const systemIds = new Set(tradingSystems.map((system) => system.id));
 const systemFamilyIds = new Set(systemFamilies.map((family) => family.id));
 const indicatorIds = new Set(indicators.map((indicator) => indicator.id));
+const platformIds = new Set(platformDefinitions.map((platform) => platform.id));
+const productIds = new Set(tradingProductCatalog.map((product) => product.id));
+const signalModuleIds = new Set(signalModules.map((module) => module.id));
 const signalProductIds = new Set(signalProducts.map((signal) => signal.id));
 const performanceRecordIds = new Set(ledgerEntries.map((entry) => entry.id));
 
@@ -138,5 +149,84 @@ for (const signalProduct of signalProducts) {
     "indicator",
     signalProduct.relatedIndicatorIds,
     indicatorIds,
+  );
+  assertKnownIds(
+    signalProduct.id,
+    "signal module",
+    signalProduct.signalModuleIds,
+    signalModuleIds,
+  );
+}
+
+for (const product of tradingProductCatalog) {
+  assertKnownIds(
+    product.id,
+    "platform",
+    product.supportedPlatformIds,
+    platformIds,
+  );
+  assertKnownIds(product.id, "asset", product.assetIds, assetIds);
+  assertKnownIds(
+    product.id,
+    "signal module",
+    product.signalModuleIds,
+    signalModuleIds,
+  );
+  assertKnownIds(
+    product.id,
+    "related product",
+    product.relatedProductIds,
+    productIds,
+  );
+}
+
+for (const relationship of productRelationships) {
+  assertKnownIds(
+    relationship.id,
+    "source product",
+    [relationship.sourceProductId],
+    productIds,
+  );
+  assertKnownIds(
+    relationship.id,
+    "target product",
+    [relationship.targetProductId],
+    productIds,
+  );
+}
+
+for (const signalModule of signalModules) {
+  assertKnownIds(
+    signalModule.id,
+    "generated-by product",
+    [signalModule.generatedByProductId],
+    productIds,
+  );
+  assertKnownIds(
+    signalModule.id,
+    "consuming product",
+    signalModule.consumedByProductIds,
+    productIds,
+  );
+  assertKnownIds(
+    signalModule.id,
+    "related signal module",
+    signalModule.relatedSignalModuleIds,
+    signalModuleIds,
+  );
+}
+
+for (const implementation of productPlatformImplementations) {
+  assertKnownIds(
+    implementation.id,
+    "product",
+    [implementation.productId],
+    productIds,
+  );
+  assertKnownIds(
+    implementation.id,
+    "platform",
+    [implementation.platformId],
+    platformIds,
   );
 }

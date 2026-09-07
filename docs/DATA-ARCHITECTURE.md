@@ -201,6 +201,21 @@ The current Emerald Quant System architecture separates family coverage from con
 
 Family coverage does not imply configuration deployment, platform support, or public performance coverage for every asset class. The current public Forward Performance Ledger relationship remains configuration-specific to the Metals / XAUUSD system record.
 
+Phase 5 adds a generic product ecosystem layer alongside the specialized domains. It models Emerald Legacy System, Emerald Signal Scanner, Emerald Recovery Expert, and Emerald Quant System as public-facing product definitions with product-layer, access-model, supported-platform, and relationship metadata.
+
+Canonical product access remains:
+
+- Emerald Legacy System: public subscription
+- Emerald Signal Scanner: public subscription
+- Emerald Recovery Expert: public subscription
+- Emerald Quant System: private investor
+
+Canonical platform IDs are `mt4`, `mt5`, `tradingview`, and `ninjatrader`, with public labels MT4, MT5, TradingView, and NinjaTrader. Product-level platform availability is separate from the current Metals / XAUUSD MT4 public performance configuration.
+
+The Emerald signal framework currently contains six multi-instrument signal modules in canonical order: Main Signal, FineScalp, Scalp Signal, Range Signal, Harmonizer, and Harmonizer SAFE. These signal modules are not modeled as a signal-by-market performance matrix.
+
+Detailed product ecosystem architecture is documented in `docs/architecture/product-ecosystem-signal-platform-model.md`.
+
 Family and configuration slugs live in distinct collections. Slug overlap is acceptable until a future routing task introduces shared family/configuration route lookup.
 
 Relationships use stable IDs only:
@@ -209,6 +224,8 @@ Relationships use stable IDs only:
 - systems reference `familyId`, `relatedIndicatorIds`, `relatedSignalIds`, and `performanceRecordIds`
 - indicators reference `relatedSystemIds` and `relatedSignalIds`
 - signal products reference `relatedSystemIds` and `relatedIndicatorIds`
+- product catalog records reference supported platform IDs, signal module IDs, related product IDs, and specialized record IDs
+- signal modules reference their generating product, optional consuming products, and optional related signal modules
 
 Do not embed full related objects inside catalog records. This keeps records JSON-serializable and database-compatible.
 
