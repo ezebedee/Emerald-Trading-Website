@@ -29,6 +29,7 @@ import type {
   IndicatorsPageContext,
   LedgerConfigurationOption,
   LedgerPageContext,
+  RecoveryExpertPageContext,
   SignalScannerPageContext,
   SignalsPageContext,
   SystemsCatalogPageContext,
@@ -575,6 +576,47 @@ export const getSignalScannerPageContext = (): SignalScannerPageContext => {
         "scanner-emerald-mt4-chart-context-alert",
       ),
     },
+  };
+};
+
+export const getRecoveryExpertPageContext = (): RecoveryExpertPageContext => {
+  const product = getPublicTradingProductBySlug("emerald-recovery-expert");
+  const productPlatformIds = new Set(product?.supportedPlatformIds ?? []);
+  const productRelationshipRecords = product
+    ? getProductRelationshipsForProduct(product.id)
+    : [];
+  const relatedProductIds = new Set<string>([
+    ...(product?.relatedProductIds ?? []),
+    "emerald-signal-scanner",
+    "emerald-quant-system-product",
+  ]);
+
+  for (const relationship of productRelationshipRecords) {
+    if (relationship.sourceProductId !== product?.id) {
+      relatedProductIds.add(relationship.sourceProductId);
+    }
+
+    if (relationship.targetProductId !== product?.id) {
+      relatedProductIds.add(relationship.targetProductId);
+    }
+  }
+
+  return {
+    product,
+    platforms: getPublicPlatformDefinitions().filter((platform) =>
+      productPlatformIds.has(platform.id),
+    ),
+    relatedProducts: [...relatedProductIds]
+      .map(getTradingProductById)
+      .filter(
+        (
+          relatedProduct,
+        ): relatedProduct is NonNullable<typeof relatedProduct> =>
+          Boolean(relatedProduct),
+      )
+      .filter(isPublicPublished),
+    placeholderAsset: getImageAssetById("recovery-expert-placeholder"),
+    isTemporaryAsset: true,
   };
 };
 

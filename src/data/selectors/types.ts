@@ -343,3 +343,11 @@ export type SignalScannerPageContext = Readonly<{
   relatedProducts: readonly TradingProductDefinition[];
   assets: SignalScannerPageAssetMap;
 }>;
+
+export type RecoveryExpertPageContext = Readonly<{
+  product?: TradingProductDefinition;
+  platforms: readonly PlatformDefinition[];
+  relatedProducts: readonly TradingProductDefinition[];
+  placeholderAsset?: ImageAsset;
+  isTemporaryAsset: boolean;
+}>;

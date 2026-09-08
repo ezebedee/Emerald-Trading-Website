@@ -59,7 +59,7 @@ export const routeSeoMetadata = {
   "/recovery-expert": {
     title: "Emerald Recovery Expert",
     description:
-      "Product page foundation for a semi-automated trade-management tool where the trader initiates the first trade.",
+      "Explore Emerald Recovery Expert, a semi-automated trade-management product where the trader initiates the first trade and the Expert manages subsequent recovery actions across supported trading platforms.",
     path: "/recovery-expert",
   },
   "/platforms": {
