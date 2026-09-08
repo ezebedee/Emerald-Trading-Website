@@ -80,6 +80,12 @@ const rawTradingProductCatalog = [
     ],
     signalModuleIds: signalFrameworkModuleIds,
     relatedProductIds: ["emerald-legacy-system"],
+    assetIds: [
+      "scanner-emerald-mt4-configuration",
+      "scanner-emerald-mt4-symbol-signal-selection",
+      "scanner-emerald-mt4-results-dashboard",
+      "scanner-emerald-mt4-chart-context-alert",
+    ],
     tags: ["scanner", "signals", "monitoring", "public-subscription"],
     notes:
       "Scanner consumes and monitors Emerald signal framework outputs. Platform UI, settings, and workflow differences will be documented later.",

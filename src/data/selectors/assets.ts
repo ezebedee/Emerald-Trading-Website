@@ -33,6 +33,7 @@ const allAssets = [
   ...ledgerAssets.cumulative,
   ...siteAssets.systems,
   ...siteAssets.indicators,
+  ...siteAssets.scanner,
   ...siteAssets.signals,
   ...siteAssets.technology,
   ...siteAssets.research,

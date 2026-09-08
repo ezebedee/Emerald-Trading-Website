@@ -47,7 +47,7 @@ export const routeSeoMetadata = {
   "/signal-scanner": {
     title: "Emerald Signal Scanner",
     description:
-      "Product page foundation for multi-symbol and multi-signal monitoring across supported trading platforms.",
+      "Explore Emerald Signal Scanner, a multi-symbol and multi-signal monitoring dashboard with configurable filters, chart-context View workflow, and optional fresh-signal alerts.",
     path: "/signal-scanner",
   },
   "/recovery-expert": {
