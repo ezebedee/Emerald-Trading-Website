@@ -150,7 +150,22 @@ export const ledgerAssets = {
 } as const;
 
 export const siteAssets = {
-  systems: [] satisfies ImageAsset[],
+  systems: [
+    {
+      id: "recovery-expert-placeholder",
+      kind: "image",
+      src: "/images/recovery-expert/recovery-expert-placeholder.webp",
+      alt: "Conceptual Emerald Recovery Expert workflow preview for the public product catalog.",
+      format: "webp",
+      width: 1448,
+      height: 1086,
+      description:
+        "Temporary website-grade Recovery Expert placeholder for catalog use until approved real product screenshots replace it.",
+      provenance: {
+        source: "Emerald Legacy Systems",
+      },
+    },
+  ] satisfies ImageAsset[],
   indicators: [
     {
       id: "indicator-emerald-legacy-mt4-settings",

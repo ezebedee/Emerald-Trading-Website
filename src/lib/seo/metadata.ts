@@ -27,10 +27,16 @@ export const routeSeoMetadata = {
     path: "/ledger",
   },
   "/systems": {
-    title: "Trading Systems",
+    title: "Systems & Products",
     description:
-      "Algorithmic trading systems developed by Emerald Legacy Systems, including signal-generation, risk-management, and execution technology.",
+      "Explore Emerald Legacy System, Signal Scanner, Recovery Expert, and private Emerald Quant System across MT4, MT5, TradingView, and NinjaTrader.",
     path: "/systems",
+  },
+  "/systems/quant": {
+    title: "Emerald Quant System",
+    description:
+      "Explore the fully automated Emerald Quant System, its architecture, public Forward Performance context, and current configuration relationships.",
+    path: "/systems/quant",
   },
   "/indicators": {
     title: "Emerald Legacy System",

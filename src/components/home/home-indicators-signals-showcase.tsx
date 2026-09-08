@@ -274,7 +274,7 @@ function SignalCard({ signal }: { signal: SignalProduct }) {
 
       <div className="mt-auto pt-6">
         <Link
-          href="/systems"
+          href="/systems/quant"
           className="focus-emerald transition-standard text-emerald-bright hover:text-foreground inline-flex min-h-10 items-center text-sm font-semibold underline decoration-[var(--border-emerald)] underline-offset-4"
         >
           Explore the Trading System

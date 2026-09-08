@@ -32,6 +32,13 @@ export const publicRouteRegistry = [
     priority: 0.8,
   },
   {
+    path: "/systems/quant",
+    indexable: true,
+    includeInSitemap: true,
+    changeFrequency: "weekly",
+    priority: 0.7,
+  },
+  {
     path: "/indicators",
     indexable: true,
     includeInSitemap: true,

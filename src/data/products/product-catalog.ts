@@ -109,6 +109,7 @@ const rawTradingProductCatalog = [
       "configured-profit-objective-context",
     ],
     relatedProductIds: ["emerald-legacy-system"],
+    assetIds: ["recovery-expert-placeholder"],
     tags: ["expert-advisor", "trade-management", "public-subscription"],
     notes:
       "Trader manually initiates the first trade. Subsequent recovery actions are algorithm-managed with no guaranteed recovery or profit claim.",

@@ -31,6 +31,7 @@ import type {
   LedgerPageContext,
   SignalScannerPageContext,
   SignalsPageContext,
+  SystemsCatalogPageContext,
   SystemsPageCapability,
   SystemsPageConfigurationOption,
   SystemsPagePerformanceContext,
@@ -247,6 +248,175 @@ const getImageAssetById = (assetId: string) => {
   const asset = getAssetById(assetId);
 
   return asset?.kind === "image" ? asset : undefined;
+};
+
+const productRouteById = {
+  "emerald-legacy-system": "/indicators",
+  "emerald-signal-scanner": "/signal-scanner",
+  "emerald-recovery-expert": "/recovery-expert",
+  "emerald-quant-system-product": "/systems/quant",
+} as const;
+
+const productCtaById = {
+  "emerald-legacy-system": "Explore Emerald Legacy System",
+  "emerald-signal-scanner": "Explore Signal Scanner",
+  "emerald-recovery-expert": "Explore Recovery Expert",
+  "emerald-quant-system-product": "Explore Quant System",
+} as const;
+
+const productCapabilityIntentsById = {
+  "emerald-legacy-system": [
+    "Unified signal framework",
+    "Main / FineScalp / Scalp / Range / Harmonizer / SAFE",
+    "Configurable signal analysis",
+  ],
+  "emerald-signal-scanner": [
+    "Configure signals",
+    "Select symbols",
+    "Scan and filter results",
+    "Open chart context",
+    "Alerts",
+  ],
+  "emerald-recovery-expert": [
+    "Trader initiates the first trade",
+    "Designed to manage subsequent recovery actions toward the configured recovery and profit objective",
+    "Semi-automated trade-management workflow",
+  ],
+  "emerald-quant-system-product": [
+    "Fully automated quantitative trading system",
+    "Private investor access model",
+    "Product-level availability across supported platforms",
+  ],
+} as const;
+
+const productAssetById = {
+  "emerald-legacy-system": "indicator-emerald-legacy-mt4-overview",
+  "emerald-signal-scanner": "scanner-emerald-mt4-results-dashboard",
+  "emerald-recovery-expert": "recovery-expert-placeholder",
+} as const;
+
+const productAssetCaptionById = {
+  "emerald-legacy-system": "Emerald Legacy System - MT4 overview",
+  "emerald-signal-scanner": "Emerald Signal Scanner - results dashboard",
+  "emerald-recovery-expert": "Recovery Expert workflow preview",
+} as const;
+
+const productLayerLabels = {
+  "analysis-signal": "Analysis & Signal",
+  "monitoring-scanning": "Monitoring & Scanning",
+  "assisted-execution": "Assisted Execution",
+  "automated-execution": "Automated Execution",
+} as const;
+
+const productAccessModelLabels = {
+  "public-subscription": "Public Subscription",
+  "private-investor": "Private Investor",
+  internal: "Internal",
+  research: "Research",
+} as const;
+
+export const getSystemsCatalogPageContext = (): SystemsCatalogPageContext => {
+  const platforms = getPublicPlatformDefinitions();
+  const platformsById = new Map(
+    platforms.map((platform) => [platform.id, platform]),
+  );
+  const products = getPublicTradingProducts().map((product) => {
+    const assetId =
+      productAssetById[product.id as keyof typeof productAssetById];
+
+    return {
+      id: product.id,
+      name: product.name,
+      shortName: product.shortName,
+      description: product.description,
+      role: product.role,
+      layer: productLayerLabels[product.productLayer],
+      accessModel: productAccessModelLabels[product.accessModel],
+      platforms: product.supportedPlatformIds
+        .map((platformId) => platformsById.get(platformId))
+        .filter((platform): platform is NonNullable<typeof platform> =>
+          Boolean(platform),
+        ),
+      capabilityIntents:
+        productCapabilityIntentsById[
+          product.id as keyof typeof productCapabilityIntentsById
+        ] ?? [],
+      href:
+        productRouteById[product.id as keyof typeof productRouteById] ??
+        "/systems",
+      cta:
+        productCtaById[product.id as keyof typeof productCtaById] ??
+        "Explore Product",
+      asset: assetId ? getImageAssetById(assetId) : undefined,
+      assetCaption:
+        productAssetCaptionById[
+          product.id as keyof typeof productAssetCaptionById
+        ],
+      isTemporaryAsset: product.id === "emerald-recovery-expert",
+      evidenceNote:
+        product.id === "emerald-quant-system-product"
+          ? "Documented public Forward Performance is maintained separately in the Emerald Ledger for the current Metals / XAUUSD configuration."
+          : undefined,
+    };
+  });
+
+  return {
+    products,
+    platforms,
+    productImplementations: productPlatformImplementations,
+    layers: [
+      {
+        label: "Analysis & Signal",
+        productName: "Emerald Legacy System",
+        description:
+          "Unified signal analysis and configurable signal modules for chart-based decision context.",
+      },
+      {
+        label: "Monitoring & Scanning",
+        productName: "Emerald Signal Scanner",
+        description:
+          "Multi-symbol and multi-signal monitoring for selected instruments and signal modules.",
+      },
+      {
+        label: "Assisted Execution",
+        productName: "Emerald Recovery Expert",
+        description:
+          "Trader-first-entry management for subsequent recovery actions according to configured logic.",
+      },
+      {
+        label: "Automated Execution",
+        productName: "Emerald Quant System",
+        description:
+          "Private automated execution model kept separate from public subscription tools and Ledger ownership.",
+      },
+    ],
+    workflows: [
+      {
+        label: "Signal & Analysis",
+        productName: "Emerald Legacy System",
+        description:
+          "Use the unified multi-signal indicator framework for analysis and signal context.",
+      },
+      {
+        label: "Monitoring",
+        productName: "Emerald Signal Scanner",
+        description:
+          "Monitor selected symbols and signal modules from a central scanning workflow.",
+      },
+      {
+        label: "Manual-First Assisted Management",
+        productName: "Emerald Recovery Expert",
+        description:
+          "Initiate the first trade manually, then use assisted management for subsequent recovery actions.",
+      },
+      {
+        label: "Private Full Automation",
+        productName: "Emerald Quant System",
+        description:
+          "Evaluate private-investor automated system access separately from public subscriptions.",
+      },
+    ],
+  };
 };
 
 export const getIndicatorsPageContext = (): IndicatorsPageContext => {
@@ -494,9 +664,9 @@ export const getSystemsPageConfigurationOptions = ({
       configurationName: configuration?.configurationName,
       href:
         configuration && configuration.id !== defaultSystemsPageConfigurationId
-          ? `/systems?configuration=${encodeURIComponent(configuration.id)}`
+          ? `/systems/quant?configuration=${encodeURIComponent(configuration.id)}`
           : configuration
-            ? "/systems"
+            ? "/systems/quant"
             : undefined,
     };
   });

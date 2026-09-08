@@ -37,8 +37,8 @@ const productCards = [
     id: "emerald-quant-system-product",
     label: "Private Automated System",
     copy: "The private Quant System may use signal inputs within broader system logic while remaining separate from public signal modules.",
-    href: "/systems",
-    cta: "Explore Trading Systems",
+    href: "/systems/quant",
+    cta: "Explore Quant System",
   },
 ] as const;
 

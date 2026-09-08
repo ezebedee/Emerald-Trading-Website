@@ -1,6 +1,7 @@
 import type { MoneyValue, PercentageValue, ReadableId } from "@/domain";
 import type {
   PlatformDefinition,
+  ProductPlatformImplementation,
   ProductRelationship,
   SignalModule,
   SignalProduct,
@@ -208,6 +209,44 @@ export type SystemsPageConfigurationOption = Readonly<{
   configurationId?: ReadableId;
   configurationName?: string;
   href?: string;
+}>;
+
+export type SystemsCatalogProduct = Readonly<{
+  id: ReadableId;
+  name: string;
+  shortName?: string;
+  description: string;
+  role: string;
+  layer: string;
+  accessModel: string;
+  platforms: readonly PlatformDefinition[];
+  capabilityIntents: readonly string[];
+  href: string;
+  cta: string;
+  asset?: ImageAsset;
+  assetCaption?: string;
+  isTemporaryAsset?: boolean;
+  evidenceNote?: string;
+}>;
+
+export type SystemsCatalogLayer = Readonly<{
+  label: string;
+  productName: string;
+  description: string;
+}>;
+
+export type SystemsCatalogWorkflow = Readonly<{
+  label: string;
+  productName: string;
+  description: string;
+}>;
+
+export type SystemsCatalogPageContext = Readonly<{
+  products: readonly SystemsCatalogProduct[];
+  platforms: readonly PlatformDefinition[];
+  productImplementations: readonly ProductPlatformImplementation[];
+  layers: readonly SystemsCatalogLayer[];
+  workflows: readonly SystemsCatalogWorkflow[];
 }>;
 
 export type HomepageRelatedProduct = Readonly<{

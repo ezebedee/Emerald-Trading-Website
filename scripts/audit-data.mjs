@@ -198,6 +198,15 @@ const homepageLedgerTeaserSource = readProjectFile(
 const homepageIndicatorsSignalsSource = readProjectFile(
   "src/components/home/home-indicators-signals-showcase.tsx",
 );
+const systemsCatalogPageSource = readProjectFile(
+  "src/app/(site)/systems/page.tsx",
+);
+const quantSystemPageSource = readProjectFile(
+  "src/app/(site)/systems/quant/page.tsx",
+);
+const systemsCatalogHeroSource = readProjectFile(
+  "src/components/systems/systems-catalog-hero.tsx",
+);
 const systemCapabilityValues = [
   ...new Set(
     [...systemsSource.matchAll(/capabilities:\s*\[([\s\S]*?)\]/g)].flatMap(
@@ -661,6 +670,7 @@ for (const selectorName of [
   "getPublicTradingProducts",
   "getTradingProductById",
   "getTradingProductBySlug",
+  "getSystemsCatalogPageContext",
   "getPublicSignalModules",
   "getSignalModuleById",
   "getSignalModulesForProduct",
@@ -673,6 +683,51 @@ for (const selectorName of [
   if (!productsSelectorSource.includes(selectorName)) {
     failures.push(`Missing product ecosystem selector "${selectorName}".`);
   }
+}
+
+const expectedProductRoutes = [
+  ['"emerald-legacy-system": "/indicators"', "Emerald Legacy System"],
+  ['"emerald-signal-scanner": "/signal-scanner"', "Emerald Signal Scanner"],
+  ['"emerald-recovery-expert": "/recovery-expert"', "Emerald Recovery Expert"],
+  ['"emerald-quant-system-product": "/systems/quant"', "Emerald Quant System"],
+];
+
+for (const [routeMapping, productName] of expectedProductRoutes) {
+  if (!productsSelectorSource.includes(routeMapping)) {
+    failures.push(`${productName} catalog route mapping is missing or stale.`);
+  }
+}
+
+if (!systemsCatalogHeroSource.includes('href="#product-catalog"')) {
+  failures.push("/systems must render the master product catalog hero CTA.");
+}
+
+if (
+  !systemsCatalogPageSource.includes("redirect(") ||
+  !systemsCatalogPageSource.includes("/systems/quant?configuration=")
+) {
+  failures.push(
+    "/systems must redirect legacy configuration query links to /systems/quant.",
+  );
+}
+
+if (
+  systemsCatalogPageSource.includes("SystemPerformanceContext") ||
+  systemsCatalogPageSource.includes("getSystemsPagePrimarySystem")
+) {
+  failures.push(
+    "/systems must not render Quant detail selectors or performance context.",
+  );
+}
+
+if (
+  !quantSystemPageSource.includes("SystemPerformanceContext") ||
+  !quantSystemPageSource.includes("getSystemsPageSelectedConfiguration") ||
+  !quantSystemPageSource.includes('routeSeoMetadata["/systems/quant"]')
+) {
+  failures.push(
+    "/systems/quant must preserve the Quant configuration-aware detail page.",
+  );
 }
 
 for (const configurationId of familyConfigurationIds) {

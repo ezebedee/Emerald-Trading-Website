@@ -188,11 +188,11 @@ export function HomeSystemsShowcase({
 
               <div className="mt-6 flex flex-col gap-3 sm:flex-row">
                 <LinkButton
-                  href="/systems"
+                  href="/systems/quant"
                   size="lg"
                   trailingIcon={<ArrowRight aria-hidden="true" />}
                 >
-                  Explore Trading Systems
+                  Explore Quant System
                 </LinkButton>
                 <LinkButton href="/ledger" variant="secondary" size="lg">
                   View Public Performance

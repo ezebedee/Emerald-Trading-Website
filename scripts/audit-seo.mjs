@@ -61,6 +61,8 @@ const bannedClaimPhrases = [
 const bannedSeoFigures = ["204966.54", "20.496654", "499", "10.67"];
 const rootMetadataExemptions = ["/"];
 const requiredProductRouteTitles = new Map([
+  ["/systems", "Systems & Products"],
+  ["/systems/quant", "Emerald Quant System"],
   ["/indicators", "Emerald Legacy System"],
   ["/signals", "Signal Library"],
   ["/signal-scanner", "Emerald Signal Scanner"],
@@ -72,6 +74,8 @@ const requiredProductRouteTitles = new Map([
   ["/platforms/ninjatrader", "NinjaTrader Trading Tools"],
 ]);
 const requiredProductRoutePlaceholders = new Map([
+  ["/systems", "Systems & Products"],
+  ["/systems/quant", "Emerald Quant System"],
   ["/indicators", "Emerald Legacy System"],
   ["/signals", "Signal Library"],
   ["/recovery-expert", "Emerald Recovery Expert"],
@@ -282,6 +286,8 @@ if (!unique(productRouteDescriptions)) {
 }
 
 for (const routePath of [
+  "/systems",
+  "/systems/quant",
   "/indicators",
   "/signals",
   "/signal-scanner",

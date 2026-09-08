@@ -31,8 +31,8 @@ const productPresentation: Record<
     role: "Fully automated quantitative trading system",
     detail:
       "Private-investor execution remains separate from public signal modules.",
-    href: "/systems",
-    cta: "Explore Trading Systems",
+    href: "/systems/quant",
+    cta: "Explore Quant System",
   },
 };
 

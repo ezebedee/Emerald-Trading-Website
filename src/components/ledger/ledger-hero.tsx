@@ -73,12 +73,12 @@ export function LedgerHero({ overview }: LedgerHeroProps) {
                 Performance Verification
               </LinkButton>
               <LinkButton
-                href="/systems"
+                href="/systems/quant"
                 variant="secondary"
                 size="lg"
                 trailingIcon={<ArrowRight aria-hidden="true" />}
               >
-                Explore Trading System
+                Explore Quant System
               </LinkButton>
             </div>
           </div>

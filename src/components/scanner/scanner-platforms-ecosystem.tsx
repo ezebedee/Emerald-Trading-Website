@@ -14,7 +14,7 @@ const productHrefById: Record<string, string> = {
   "emerald-legacy-system": "/indicators",
   "emerald-signal-scanner": "/signal-scanner",
   "emerald-recovery-expert": "/recovery-expert",
-  "emerald-quant-system-product": "/systems",
+  "emerald-quant-system-product": "/systems/quant",
 };
 
 export function ScannerPlatformsEcosystem({
