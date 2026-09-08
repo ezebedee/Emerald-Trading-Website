@@ -26,6 +26,7 @@ import {
   getPublicLedgerChronologyEntriesFromRecords,
 } from "./ledger";
 import type {
+  IndicatorsPageContext,
   LedgerConfigurationOption,
   LedgerPageContext,
   SystemsPageCapability,
@@ -239,6 +240,66 @@ export const getProductRelationshipsForProduct = (productId: string) =>
       relationship.sourceProductId === productId ||
       relationship.targetProductId === productId,
   );
+
+const getImageAssetById = (assetId: string) => {
+  const asset = getAssetById(assetId);
+
+  return asset?.kind === "image" ? asset : undefined;
+};
+
+export const getIndicatorsPageContext = (): IndicatorsPageContext => {
+  const product = getPublicTradingProductBySlug("emerald-legacy-system");
+  const assets = {
+    settings: getImageAssetById("indicator-emerald-legacy-mt4-settings"),
+    overview: getImageAssetById("indicator-emerald-legacy-mt4-overview"),
+    mainSignal: getImageAssetById("signal-main-mt4-example"),
+    fineScalp: getImageAssetById("signal-finescalp-mt4-offline-example"),
+    scalp: getImageAssetById("signal-scalp-mt4-example"),
+    range: getImageAssetById("signal-range-mt4-example"),
+    harmonizer: getImageAssetById("signal-harmonizer-mt4-example"),
+    harmonizerSafe: getImageAssetById("signal-harmonizer-safe-mt4-example"),
+  };
+  const modules = product ? getSignalModulesForProduct(product.id) : [];
+  const productPlatformIds = new Set(product?.supportedPlatformIds ?? []);
+  const productRelationshipRecords = product
+    ? getProductRelationshipsForProduct(product.id)
+    : [];
+  const relatedProductIds = new Set(product?.relatedProductIds ?? []);
+
+  for (const relationship of productRelationshipRecords) {
+    if (relationship.sourceProductId !== product?.id) {
+      relatedProductIds.add(relationship.sourceProductId);
+    }
+
+    if (relationship.targetProductId !== product?.id) {
+      relatedProductIds.add(relationship.targetProductId);
+    }
+  }
+
+  return {
+    product,
+    heroAsset:
+      assets.overview ?? getImageAssetById("indicator-emerald-signal-mt4-01"),
+    assets,
+    primarySignalModules: modules.filter((module) => module.role === "primary"),
+    auxiliarySignalModules: modules.filter(
+      (module) => module.role === "auxiliary",
+    ),
+    platforms: getPublicPlatformDefinitions().filter((platform) =>
+      productPlatformIds.has(platform.id),
+    ),
+    relatedProducts: [...relatedProductIds]
+      .map(getTradingProductById)
+      .filter(
+        (
+          relatedProduct,
+        ): relatedProduct is NonNullable<typeof relatedProduct> =>
+          Boolean(relatedProduct),
+      )
+      .filter(isPublicPublished),
+    relationships: productRelationshipRecords,
+  };
+};
 
 export const getPublicSystemFamilies = () =>
   systemFamilies.filter(isPublicPublished);

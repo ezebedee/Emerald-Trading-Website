@@ -39,7 +39,17 @@ const rawTradingProductCatalog = [
       "emerald-signal-indicator",
       "emerald-directional-signal-stream",
     ],
-    assetIds: ["indicator-emerald-signal-mt4-01"],
+    assetIds: [
+      "indicator-emerald-legacy-mt4-settings",
+      "indicator-emerald-legacy-mt4-overview",
+      "indicator-emerald-signal-mt4-01",
+      "signal-main-mt4-example",
+      "signal-finescalp-mt4-offline-example",
+      "signal-scalp-mt4-example",
+      "signal-range-mt4-example",
+      "signal-harmonizer-mt4-example",
+      "signal-harmonizer-safe-mt4-example",
+    ],
     tags: ["indicator", "signals", "public-subscription"],
     notes:
       "The product is distinct from the company name Emerald Legacy Systems. Current Ledger performance is not attributed to this indicator product.",

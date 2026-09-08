@@ -35,7 +35,7 @@ export const routeSeoMetadata = {
   "/indicators": {
     title: "Emerald Legacy System",
     description:
-      "Product overview foundation for the Emerald Legacy System unified multi-signal indicator across supported trading platforms.",
+      "Explore Emerald Legacy System, a unified multi-signal indicator framework with Main, FineScalp, Scalp, Range, Harmonizer, and Harmonizer SAFE across supported platforms.",
     path: "/indicators",
   },
   "/signals": {

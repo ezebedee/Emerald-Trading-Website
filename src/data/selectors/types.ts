@@ -1,4 +1,11 @@
 import type { MoneyValue, PercentageValue, ReadableId } from "@/domain";
+import type {
+  PlatformDefinition,
+  ProductRelationship,
+  SignalModule,
+  TradingProductDefinition,
+} from "@/domain";
+import type { ImageAsset } from "@/types/assets";
 
 export type LedgerPublicRecordOverview = Readonly<{
   accountClassification?: string;
@@ -240,4 +247,24 @@ export type LedgerConsistencyIssue = Readonly<{
   actual: number | null;
   tolerance: number;
   message: string;
+}>;
+
+export type IndicatorsPageContext = Readonly<{
+  product?: TradingProductDefinition;
+  heroAsset?: ImageAsset;
+  assets: Readonly<{
+    settings?: ImageAsset;
+    overview?: ImageAsset;
+    mainSignal?: ImageAsset;
+    fineScalp?: ImageAsset;
+    scalp?: ImageAsset;
+    range?: ImageAsset;
+    harmonizer?: ImageAsset;
+    harmonizerSafe?: ImageAsset;
+  }>;
+  primarySignalModules: readonly SignalModule[];
+  auxiliarySignalModules: readonly SignalModule[];
+  platforms: readonly PlatformDefinition[];
+  relatedProducts: readonly TradingProductDefinition[];
+  relationships: readonly ProductRelationship[];
 }>;

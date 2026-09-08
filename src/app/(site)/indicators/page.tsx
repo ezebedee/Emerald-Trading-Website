@@ -1,8 +1,15 @@
 import type { Metadata } from "next";
 
-import { PagePlaceholder } from "@/components/dev/page-placeholder";
+import { FineScalpSection } from "@/components/indicators/finescalp-section";
+import { HarmonizerSection } from "@/components/indicators/harmonizer-section";
+import { IndicatorsHero } from "@/components/indicators/indicators-hero";
+import { PlatformAvailability } from "@/components/indicators/platform-availability";
+import { ProductEcosystemSection } from "@/components/indicators/product-ecosystem-section";
+import { ResearchExtensibility } from "@/components/indicators/research-extensibility";
+import { SignalModuleOverview } from "@/components/indicators/signal-module-overview";
+import { UnifiedFrameworkSection } from "@/components/indicators/unified-framework-section";
 import { JsonLd } from "@/components/seo/json-ld";
-import { getPublicTradingProductBySlug } from "@/data/selectors";
+import { getIndicatorsPageContext } from "@/data/selectors";
 import {
   createPageMetadata,
   createRouteWebPageJsonLd,
@@ -19,12 +26,28 @@ const pageJsonLd = createRouteWebPageJsonLd("/indicators", [
 ]);
 
 export default function IndicatorsPage() {
-  const product = getPublicTradingProductBySlug("emerald-legacy-system");
+  const context = getIndicatorsPageContext();
 
   return (
     <>
       <JsonLd data={pageJsonLd} />
-      <PagePlaceholder title={product?.name ?? "Emerald Legacy System"} />
+      <IndicatorsHero product={context.product} heroAsset={context.heroAsset} />
+      <UnifiedFrameworkSection settingsAsset={context.assets.settings} />
+      <SignalModuleOverview
+        primarySignalModules={context.primarySignalModules}
+        auxiliarySignalModules={context.auxiliarySignalModules}
+        mainSignalAsset={context.assets.mainSignal}
+      />
+      <FineScalpSection fineScalpAsset={context.assets.fineScalp} />
+      <HarmonizerSection
+        scalpAsset={context.assets.scalp}
+        rangeAsset={context.assets.range}
+        harmonizerAsset={context.assets.harmonizer}
+        harmonizerSafeAsset={context.assets.harmonizerSafe}
+      />
+      <PlatformAvailability platforms={context.platforms} />
+      <ProductEcosystemSection relatedProducts={context.relatedProducts} />
+      <ResearchExtensibility />
     </>
   );
 }
