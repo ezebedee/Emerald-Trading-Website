@@ -41,7 +41,7 @@ export const routeSeoMetadata = {
   "/signals": {
     title: "Signal Library",
     description:
-      "Signal library foundation for Emerald signal modules, including primary and auxiliary signal categories.",
+      "Explore Main, FineScalp, Scalp, Range, Harmonizer, and Harmonizer SAFE signal modules within the Emerald Legacy System across supported trading platforms.",
     path: "/signals",
   },
   "/signal-scanner": {
