@@ -60,6 +60,34 @@ const bannedClaimPhrases = [
 ];
 const bannedSeoFigures = ["204966.54", "20.496654", "499", "10.67"];
 const rootMetadataExemptions = ["/"];
+const requiredProductRouteTitles = new Map([
+  ["/indicators", "Emerald Legacy System"],
+  ["/signals", "Signal Library"],
+  ["/signal-scanner", "Emerald Signal Scanner"],
+  ["/recovery-expert", "Emerald Recovery Expert"],
+  ["/platforms", "Trading Platforms"],
+  ["/platforms/mt4", "MT4 Trading Tools"],
+  ["/platforms/mt5", "MT5 Trading Tools"],
+  ["/platforms/tradingview", "TradingView Trading Tools"],
+  ["/platforms/ninjatrader", "NinjaTrader Trading Tools"],
+]);
+const requiredProductRoutePlaceholders = new Map([
+  ["/indicators", "Emerald Legacy System"],
+  ["/signals", "Signal Library"],
+  ["/signal-scanner", "Emerald Signal Scanner"],
+  ["/recovery-expert", "Emerald Recovery Expert"],
+  ["/platforms", "Trading Platforms"],
+  ["/platforms/mt4", "MT4"],
+  ["/platforms/mt5", "MT5"],
+  ["/platforms/tradingview", "TradingView"],
+  ["/platforms/ninjatrader", "NinjaTrader"],
+]);
+const platformPageRoutes = [
+  "/platforms/mt4",
+  "/platforms/mt5",
+  "/platforms/tradingview",
+  "/platforms/ninjatrader",
+];
 
 const sourceSlice = (exportName) => {
   const start = registrySource.indexOf(`export const ${exportName} = [`);
@@ -72,6 +100,18 @@ const routePathsFromSource = (exportName) =>
   [...sourceSlice(exportName).matchAll(routePathPattern)].map(
     (match) => match[1],
   );
+
+const metadataBlockForRoute = (routePath) => {
+  const start = metadataSource.indexOf(`"${routePath}": {`);
+  if (start === -1) return "";
+  const end = metadataSource.indexOf("\n  },", start);
+  return end === -1 ? "" : metadataSource.slice(start, end);
+};
+
+const metadataValueForRoute = (routePath, key) =>
+  metadataBlockForRoute(routePath).match(
+    new RegExp(`${key}:\\s*"([^"]+)"`),
+  )?.[1];
 
 const findPageRoutes = (directory) => {
   const routes = [];
@@ -115,6 +155,7 @@ const isCanonicalPath = (routePath) =>
 const publicRegistryPaths = routePathsFromSource("publicRouteRegistry");
 const internalRoutePaths = routePathsFromSource("internalRoutes");
 const publicAppRoutes = findPageRoutes(siteAppRoot);
+const sitemapRoutePaths = routePathsFromSource("publicRouteRegistry");
 const failures = [];
 const pageSourceByRoute = new Map(
   publicAppRoutes.map((routePath) => {
@@ -189,6 +230,85 @@ for (const routePath of publicRegistryPaths) {
 
   if (!pageSource.includes(`routeSeoMetadata["${routePath}"]`)) {
     failures.push(`${routePath} page does not use its routeSeoMetadata entry.`);
+  }
+}
+
+for (const [routePath, expectedTitle] of requiredProductRouteTitles) {
+  if (!publicRegistryPaths.includes(routePath)) {
+    failures.push(
+      `Product route is missing from public registry: ${routePath}`,
+    );
+  }
+
+  if (metadataValueForRoute(routePath, "title") !== expectedTitle) {
+    failures.push(`${routePath} metadata title must be "${expectedTitle}".`);
+  }
+
+  if (metadataValueForRoute(routePath, "path") !== routePath) {
+    failures.push(`${routePath} metadata path must match its canonical path.`);
+  }
+}
+
+for (const [routePath, expectedTitle] of requiredProductRoutePlaceholders) {
+  const pageSource = pageSourceByRoute.get(routePath) ?? "";
+
+  if (!pageSource.includes(expectedTitle)) {
+    failures.push(
+      `${routePath} placeholder must render title "${expectedTitle}".`,
+    );
+  }
+}
+
+for (const routePath of requiredProductRouteTitles.keys()) {
+  const description = metadataValueForRoute(routePath, "description");
+
+  if (!description) {
+    failures.push(`${routePath} metadata description is missing.`);
+  }
+}
+
+const productRouteTitles = [...requiredProductRouteTitles.keys()]
+  .map((routePath) => metadataValueForRoute(routePath, "title"))
+  .filter(Boolean);
+const productRouteDescriptions = [...requiredProductRouteTitles.keys()]
+  .map((routePath) => metadataValueForRoute(routePath, "description"))
+  .filter(Boolean);
+
+if (!unique(productRouteTitles)) {
+  failures.push("Product route metadata titles must be unique.");
+}
+
+if (!unique(productRouteDescriptions)) {
+  failures.push("Product route metadata descriptions must be unique.");
+}
+
+for (const routePath of [
+  "/indicators",
+  "/signals",
+  "/signal-scanner",
+  "/recovery-expert",
+  "/platforms",
+  ...platformPageRoutes,
+]) {
+  const pageSource = pageSourceByRoute.get(routePath) ?? "";
+
+  if (!pageSource.includes(`<JsonLd data={pageJsonLd} />`)) {
+    failures.push(`${routePath} must emit route WebPage JSON-LD.`);
+  }
+
+  if (!sitemapRoutePaths.includes(routePath)) {
+    failures.push(`${routePath} must be included in sitemap route inventory.`);
+  }
+}
+
+for (const routePath of platformPageRoutes) {
+  const pageSource = pageSourceByRoute.get(routePath) ?? "";
+
+  if (
+    !pageSource.includes('{ name: "Home", path: "/" }') ||
+    !pageSource.includes('{ name: "Platforms", path: "/platforms" }')
+  ) {
+    failures.push(`${routePath} breadcrumb must use Home > Platforms > Page.`);
   }
 }
 

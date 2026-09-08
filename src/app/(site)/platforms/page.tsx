@@ -9,19 +9,22 @@ import {
 } from "@/lib/seo";
 
 export const metadata: Metadata = createPageMetadata(
-  routeSeoMetadata["/signals"],
+  routeSeoMetadata["/platforms"],
 );
 
-const pageJsonLd = createRouteWebPageJsonLd("/signals", [
+const pageJsonLd = createRouteWebPageJsonLd("/platforms", [
   { name: "Home", path: "/" },
-  { name: "Signal Library", path: "/signals" },
+  { name: "Platforms", path: "/platforms" },
 ]);
 
-export default function SignalsPage() {
+export default function PlatformsPage() {
   return (
     <>
       <JsonLd data={pageJsonLd} />
-      <PagePlaceholder title="Signal Library" variant="dashboard" />
+      <PagePlaceholder
+        title="Trading Platforms"
+        description="Platform overview foundation for Emerald product availability across MT4, MT5, TradingView, and NinjaTrader."
+      />
     </>
   );
 }
