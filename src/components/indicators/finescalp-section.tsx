@@ -1,8 +1,10 @@
 import { ArrowRight } from "lucide-react";
 
+import { IndicatorImageFrame } from "@/components/indicators/indicator-image-frame";
 import { Badge } from "@/components/ui/badge";
 import { Container } from "@/components/ui/container";
 import { SectionLabel } from "@/components/ui/section-label";
+import type { ImageAsset } from "@/types/assets";
 
 const workflowSteps = [
   "Live Market Feed",
@@ -12,7 +14,11 @@ const workflowSteps = [
   "FineScalp Signal",
 ] as const;
 
-export function FineScalpSection() {
+type FineScalpSectionProps = Readonly<{
+  fineScalpAsset?: ImageAsset;
+}>;
+
+export function FineScalpSection({ fineScalpAsset }: FineScalpSectionProps) {
   return (
     <section className="bg-surface-soft/25 py-14 md:py-16 xl:py-20">
       <Container size="wide">
@@ -52,6 +58,12 @@ export function FineScalpSection() {
               offline/custom-chart mechanics are not implied for those
               platforms.
             </p>
+            <p className="text-muted-foreground mt-4 text-sm leading-6">
+              The MetaTrader custom/offline chart path is derived from the
+              underlying market instrument. An Emerald-generated custom chart
+              label is workflow context and should not be interpreted as a
+              separate financial instrument.
+            </p>
           </div>
           <div className="surface-data rounded-lg p-5 md:p-6">
             <div className="flex flex-wrap items-center gap-2">
@@ -79,16 +91,16 @@ export function FineScalpSection() {
                 </li>
               ))}
             </ol>
-            <div className="mt-6 rounded-md border border-dashed border-[var(--border-gold)] p-4">
-              <p className="type-label text-gold-warm">
-                FineScalp screenshot slot
-              </p>
-              <p className="text-muted-foreground mt-3 text-sm leading-6">
-                The real FineScalp custom offline-chart screenshot can be added
-                here after a processed asset ID is supplied. The current page
-                does not display fabricated platform UI.
-              </p>
-            </div>
+            {fineScalpAsset ? (
+              <div className="mt-6">
+                <IndicatorImageFrame
+                  asset={fineScalpAsset}
+                  caption="FineScalp - MT4 custom/offline chart example"
+                  loading="eager"
+                  sizes="(min-width: 1024px) 48vw, 100vw"
+                />
+              </div>
+            ) : null}
           </div>
         </div>
       </Container>

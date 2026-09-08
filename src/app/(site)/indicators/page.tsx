@@ -32,13 +32,19 @@ export default function IndicatorsPage() {
     <>
       <JsonLd data={pageJsonLd} />
       <IndicatorsHero product={context.product} heroAsset={context.heroAsset} />
-      <UnifiedFrameworkSection />
+      <UnifiedFrameworkSection settingsAsset={context.assets.settings} />
       <SignalModuleOverview
         primarySignalModules={context.primarySignalModules}
         auxiliarySignalModules={context.auxiliarySignalModules}
+        mainSignalAsset={context.assets.mainSignal}
       />
-      <FineScalpSection />
-      <HarmonizerSection />
+      <FineScalpSection fineScalpAsset={context.assets.fineScalp} />
+      <HarmonizerSection
+        scalpAsset={context.assets.scalp}
+        rangeAsset={context.assets.range}
+        harmonizerAsset={context.assets.harmonizer}
+        harmonizerSafeAsset={context.assets.harmonizerSafe}
+      />
       <PlatformAvailability platforms={context.platforms} />
       <ProductEcosystemSection relatedProducts={context.relatedProducts} />
       <ResearchExtensibility />

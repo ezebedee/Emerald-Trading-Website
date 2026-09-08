@@ -1,8 +1,10 @@
 import { Layers3, Settings2, SlidersHorizontal } from "lucide-react";
 
+import { IndicatorImageFrame } from "@/components/indicators/indicator-image-frame";
 import { Badge } from "@/components/ui/badge";
 import { Container } from "@/components/ui/container";
 import { SectionLabel } from "@/components/ui/section-label";
+import type { ImageAsset } from "@/types/assets";
 
 const frameworkPoints = [
   {
@@ -25,7 +27,13 @@ const frameworkPoints = [
   },
 ] as const;
 
-export function UnifiedFrameworkSection() {
+type UnifiedFrameworkSectionProps = Readonly<{
+  settingsAsset?: ImageAsset;
+}>;
+
+export function UnifiedFrameworkSection({
+  settingsAsset,
+}: UnifiedFrameworkSectionProps) {
   return (
     <section className="bg-surface-soft/25 py-14 md:py-16 xl:py-20">
       <Container size="wide">
@@ -62,14 +70,23 @@ export function UnifiedFrameworkSection() {
             );
           })}
         </div>
-        <aside className="surface-premium mt-8 rounded-lg p-5 md:p-6">
-          <Badge variant="premium">Settings Evidence Pending</Badge>
-          <p className="text-muted-foreground mt-4 text-sm leading-6">
-            The page is structured to accept the approved MT4 Inputs screenshot
-            once it is added to the asset registry. That image should show the
-            unified signal-module settings without exposing license values.
-          </p>
-        </aside>
+        {settingsAsset ? (
+          <div className="mt-8">
+            <IndicatorImageFrame
+              asset={settingsAsset}
+              caption="MT4 settings/input panel"
+              loading="eager"
+              sizes="(min-width: 1024px) 88vw, 100vw"
+            />
+          </div>
+        ) : (
+          <aside className="surface-premium mt-8 rounded-lg p-5 md:p-6">
+            <Badge variant="premium">Settings Visual</Badge>
+            <p className="text-muted-foreground mt-4 text-sm leading-6">
+              MT4 Inputs media is managed through the asset registry.
+            </p>
+          </aside>
+        )}
       </Container>
     </section>
   );

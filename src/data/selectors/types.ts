@@ -252,6 +252,16 @@ export type LedgerConsistencyIssue = Readonly<{
 export type IndicatorsPageContext = Readonly<{
   product?: TradingProductDefinition;
   heroAsset?: ImageAsset;
+  assets: Readonly<{
+    settings?: ImageAsset;
+    overview?: ImageAsset;
+    mainSignal?: ImageAsset;
+    fineScalp?: ImageAsset;
+    scalp?: ImageAsset;
+    range?: ImageAsset;
+    harmonizer?: ImageAsset;
+    harmonizerSafe?: ImageAsset;
+  }>;
   primarySignalModules: readonly SignalModule[];
   auxiliarySignalModules: readonly SignalModule[];
   platforms: readonly PlatformDefinition[];

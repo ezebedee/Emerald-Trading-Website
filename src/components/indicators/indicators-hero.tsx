@@ -64,7 +64,7 @@ export function IndicatorsHero({ product, heroAsset }: IndicatorsHeroProps) {
           {heroAsset ? (
             <IndicatorImageFrame
               asset={heroAsset}
-              caption="Emerald Legacy System - MT4 implementation"
+              caption="Emerald Legacy System — MT4 implementation"
               priority
             />
           ) : (

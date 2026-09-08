@@ -7,12 +7,16 @@ type IndicatorImageFrameProps = Readonly<{
   asset: ImageAsset;
   caption: string;
   priority?: boolean;
+  loading?: "eager" | "lazy";
+  sizes?: string;
 }>;
 
 export function IndicatorImageFrame({
   asset,
   caption,
   priority = false,
+  loading = "lazy",
+  sizes = "(min-width: 1024px) 50vw, 100vw",
 }: IndicatorImageFrameProps) {
   return (
     <figure className="surface-data overflow-hidden rounded-lg">
@@ -24,8 +28,9 @@ export function IndicatorImageFrame({
         alt={asset.alt}
         width={asset.width}
         height={asset.height}
-        sizes="(min-width: 1024px) 50vw, 100vw"
+        sizes={sizes}
         priority={priority}
+        loading={priority ? undefined : loading}
         className="h-auto w-full"
       />
     </figure>

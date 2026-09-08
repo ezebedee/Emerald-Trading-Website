@@ -1,14 +1,17 @@
 import Link from "next/link";
 import { ArrowRight, ShieldCheck } from "lucide-react";
 
+import { IndicatorImageFrame } from "@/components/indicators/indicator-image-frame";
 import { Badge } from "@/components/ui/badge";
 import { Container } from "@/components/ui/container";
 import { SectionLabel } from "@/components/ui/section-label";
 import type { SignalModule } from "@/domain";
+import type { ImageAsset } from "@/types/assets";
 
 type SignalModuleOverviewProps = Readonly<{
   primarySignalModules: readonly SignalModule[];
   auxiliarySignalModules: readonly SignalModule[];
+  mainSignalAsset?: ImageAsset;
 }>;
 
 const moduleRoleLabels: Record<string, string> = {
@@ -81,6 +84,7 @@ function SignalModuleCard({
 export function SignalModuleOverview({
   primarySignalModules,
   auxiliarySignalModules,
+  mainSignalAsset,
 }: SignalModuleOverviewProps) {
   return (
     <section className="py-14 md:py-16 xl:py-20">
@@ -103,6 +107,28 @@ export function SignalModuleOverview({
             <SignalModuleCard key={module.id} module={module} />
           ))}
         </div>
+        {mainSignalAsset ? (
+          <article className="surface-data mt-8 grid gap-6 rounded-lg p-5 md:p-6 lg:grid-cols-[0.7fr_1.3fr] lg:items-center">
+            <div>
+              <Badge variant="premium">Main Signal Visual</Badge>
+              <h3 className="text-foreground mt-4 text-2xl font-semibold">
+                Trend-oriented signal designed for swing and trend-following
+                trading contexts.
+              </h3>
+              <p className="text-muted-foreground mt-4 text-sm leading-6">
+                The screenshot shows the Main Signal module on an MT4 chart as
+                product evidence only. It does not define entry or exit
+                formulas.
+              </p>
+            </div>
+            <IndicatorImageFrame
+              asset={mainSignalAsset}
+              caption="Main Signal - MT4 chart example"
+              loading="eager"
+              sizes="(min-width: 1024px) 58vw, 100vw"
+            />
+          </article>
+        ) : null}
         <div className="mt-8 grid gap-5 lg:grid-cols-[0.7fr_1.3fr]">
           <div className="surface-elevated rounded-lg p-5 md:p-6">
             <ShieldCheck aria-hidden="true" className="text-gold-warm size-5" />

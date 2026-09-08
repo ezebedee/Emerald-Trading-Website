@@ -153,6 +153,34 @@ export const siteAssets = {
   systems: [] satisfies ImageAsset[],
   indicators: [
     {
+      id: "indicator-emerald-legacy-mt4-settings",
+      kind: "image",
+      src: "/images/indicators/indicator-emerald-legacy-mt4-settings.webp",
+      alt: "Emerald Legacy System MT4 settings panel showing configurable signal modules and offline chart controls.",
+      format: "webp",
+      width: 1272,
+      height: 805,
+      description:
+        "Approved Emerald Legacy System MT4 settings screenshot showing unified signal-module settings, offline chart controls, alerts, and blank license key field.",
+      provenance: {
+        source: "Emerald Legacy Systems",
+      },
+    },
+    {
+      id: "indicator-emerald-legacy-mt4-overview",
+      kind: "image",
+      src: "/images/indicators/indicator-emerald-legacy-mt4-overview.webp",
+      alt: "Emerald Legacy System running on an MT4 chart with signal markers and pip annotations.",
+      format: "webp",
+      width: 1491,
+      height: 1055,
+      description:
+        "Approved Emerald Legacy System MT4 implementation screenshot showing the unified multi-signal indicator on a chart.",
+      provenance: {
+        source: "Emerald Legacy Systems",
+      },
+    },
+    {
       id: "indicator-emerald-signal-mt4-01",
       kind: "image",
       src: "/images/indicators/emerald-signal-indicator-mt4-01.webp",
@@ -162,6 +190,90 @@ export const siteAssets = {
       height: 941,
       description:
         "Approved Emerald product/interface screenshot showing the Emerald Signal Indicator on an MT4 XAUUSD chart.",
+      provenance: {
+        source: "Emerald Legacy Systems",
+      },
+    },
+    {
+      id: "signal-main-mt4-example",
+      kind: "image",
+      src: "/images/indicators/signal-main-mt4-example.webp",
+      alt: "Main Signal displayed on an MT4 chart.",
+      format: "webp",
+      width: 1491,
+      height: 1055,
+      description:
+        "Approved Main Signal MT4 screenshot for the Emerald Legacy System signal-module overview.",
+      provenance: {
+        source: "Emerald Legacy Systems",
+      },
+    },
+    {
+      id: "signal-finescalp-mt4-offline-example",
+      kind: "image",
+      src: "/images/indicators/signal-finescalp-mt4-offline-example.webp",
+      alt: "FineScalp signal displayed on an Emerald-generated high-resolution offline MetaTrader chart.",
+      format: "webp",
+      width: 1491,
+      height: 1055,
+      description:
+        "Approved FineScalp MT4 screenshot showing signal output on an Emerald-generated custom offline chart.",
+      provenance: {
+        source: "Emerald Legacy Systems",
+      },
+    },
+    {
+      id: "signal-scalp-mt4-example",
+      kind: "image",
+      src: "/images/indicators/signal-scalp-mt4-example.webp",
+      alt: "Scalp Signal shown on the same MT4 market chart used for module comparison.",
+      format: "webp",
+      width: 1491,
+      height: 1055,
+      description:
+        "Approved Scalp Signal MT4 screenshot for the same-market signal comparison.",
+      provenance: {
+        source: "Emerald Legacy Systems",
+      },
+    },
+    {
+      id: "signal-range-mt4-example",
+      kind: "image",
+      src: "/images/indicators/signal-range-mt4-example.webp",
+      alt: "Range Signal shown on the same MT4 market chart used for module comparison.",
+      format: "webp",
+      width: 1491,
+      height: 1055,
+      description:
+        "Approved Range Signal MT4 screenshot for the same-market signal comparison.",
+      provenance: {
+        source: "Emerald Legacy Systems",
+      },
+    },
+    {
+      id: "signal-harmonizer-mt4-example",
+      kind: "image",
+      src: "/images/indicators/signal-harmonizer-mt4-example.webp",
+      alt: "Harmonizer Signal shown on the same MT4 market chart.",
+      format: "webp",
+      width: 1491,
+      height: 1055,
+      description:
+        "Approved Harmonizer MT4 screenshot showing Scalp and Range synthesis context on a chart.",
+      provenance: {
+        source: "Emerald Legacy Systems",
+      },
+    },
+    {
+      id: "signal-harmonizer-safe-mt4-example",
+      kind: "image",
+      src: "/images/indicators/signal-harmonizer-safe-mt4-example.webp",
+      alt: "Harmonizer and Harmonizer SAFE signals displayed together on the same MT4 market chart.",
+      format: "webp",
+      width: 1491,
+      height: 1055,
+      description:
+        "Approved Harmonizer plus Harmonizer SAFE MT4 screenshot showing auxiliary defensive signal context on the same market chart.",
       provenance: {
         source: "Emerald Legacy Systems",
       },
