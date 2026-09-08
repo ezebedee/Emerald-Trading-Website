@@ -279,6 +279,64 @@ export const siteAssets = {
       },
     },
   ] satisfies ImageAsset[],
+  scanner: [
+    {
+      id: "scanner-emerald-mt4-configuration",
+      kind: "image",
+      src: "/images/scanner/scanner-emerald-mt4-configuration.webp",
+      alt: "Emerald Signal Scanner MT4 configuration screen showing signal modules, timeframe options, alert settings, dashboard settings, and chart-template context.",
+      format: "webp",
+      width: 1448,
+      height: 1086,
+      description:
+        "Approved Emerald Signal Scanner MT4 configuration screenshot showing scanner settings, alert controls, and View-related chart-template context.",
+      provenance: {
+        source: "Emerald Legacy Systems",
+      },
+    },
+    {
+      id: "scanner-emerald-mt4-symbol-signal-selection",
+      kind: "image",
+      src: "/images/scanner/scanner-emerald-mt4-symbol-signal-selection.webp",
+      alt: "Emerald Signal Scanner MT4 symbol and signal selection screen showing instrument and signal-module selection.",
+      format: "webp",
+      width: 1448,
+      height: 1086,
+      description:
+        "Approved Emerald Signal Scanner MT4 screenshot showing symbol, favorite instrument, and signal-module selection workflow.",
+      provenance: {
+        source: "Emerald Legacy Systems",
+      },
+    },
+    {
+      id: "scanner-emerald-mt4-results-dashboard",
+      kind: "image",
+      src: "/images/scanner/scanner-emerald-mt4-results-dashboard.webp",
+      alt: "Emerald Signal Scanner MT4 results dashboard showing symbol, signal, type or direction, timeframe, age, and View fields.",
+      format: "webp",
+      width: 1448,
+      height: 1086,
+      description:
+        "Approved Emerald Signal Scanner MT4 results dashboard screenshot showing the central monitoring interface and View workflow entry point.",
+      provenance: {
+        source: "Emerald Legacy Systems",
+      },
+    },
+    {
+      id: "scanner-emerald-mt4-chart-context-alert",
+      kind: "image",
+      src: "/images/scanner/scanner-emerald-mt4-chart-context-alert.webp",
+      alt: "MT4 chart opened from Emerald Signal Scanner showing the originating signal marker, chart context, take-profit reference, and fresh-signal popup alert.",
+      format: "webp",
+      width: 1672,
+      height: 941,
+      description:
+        "Approved Emerald Signal Scanner MT4 chart-context screenshot showing the View workflow, signal-origin marker, vertical time marker, take-profit reference, configured chart-template context, and fresh-signal popup alert evidence.",
+      provenance: {
+        source: "Emerald Legacy Systems",
+      },
+    },
+  ] satisfies ImageAsset[],
   signals: [] satisfies ImageAsset[],
   technology: [] satisfies ImageAsset[],
   research: [] satisfies ImageAsset[],

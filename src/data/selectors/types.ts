@@ -288,3 +288,19 @@ export type SignalsPageContext = Readonly<{
   relatedProducts: readonly TradingProductDefinition[];
   assets: SignalsPageAssetMap;
 }>;
+
+export type SignalScannerPageAssetMap = Readonly<{
+  configuration?: ImageAsset;
+  selection?: ImageAsset;
+  dashboard?: ImageAsset;
+  chartContextAlert?: ImageAsset;
+}>;
+
+export type SignalScannerPageContext = Readonly<{
+  product?: TradingProductDefinition;
+  legacySystem?: TradingProductDefinition;
+  platforms: readonly PlatformDefinition[];
+  signalModules: readonly SignalModule[];
+  relatedProducts: readonly TradingProductDefinition[];
+  assets: SignalScannerPageAssetMap;
+}>;

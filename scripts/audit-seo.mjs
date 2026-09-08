@@ -74,7 +74,6 @@ const requiredProductRouteTitles = new Map([
 const requiredProductRoutePlaceholders = new Map([
   ["/indicators", "Emerald Legacy System"],
   ["/signals", "Signal Library"],
-  ["/signal-scanner", "Emerald Signal Scanner"],
   ["/recovery-expert", "Emerald Recovery Expert"],
   ["/platforms", "Trading Platforms"],
   ["/platforms/mt4", "MT4"],

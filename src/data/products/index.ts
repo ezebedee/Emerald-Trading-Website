@@ -27,6 +27,7 @@ const assetIds = new Set([
   ...idsFrom(ledgerAssets.cumulative),
   ...idsFrom(siteAssets.systems),
   ...idsFrom(siteAssets.indicators),
+  ...idsFrom(siteAssets.scanner),
   ...idsFrom(siteAssets.signals),
   ...idsFrom(siteAssets.technology),
   ...idsFrom(siteAssets.research),

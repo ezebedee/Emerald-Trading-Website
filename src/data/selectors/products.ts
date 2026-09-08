@@ -29,6 +29,7 @@ import type {
   IndicatorsPageContext,
   LedgerConfigurationOption,
   LedgerPageContext,
+  SignalScannerPageContext,
   SignalsPageContext,
   SystemsPageCapability,
   SystemsPageConfigurationOption,
@@ -353,6 +354,56 @@ export const getSignalsPageContext = (): SignalsPageContext => {
       range: getImageAssetById("signal-range-mt4-example"),
       harmonizer: getImageAssetById("signal-harmonizer-mt4-example"),
       harmonizerSafe: getImageAssetById("signal-harmonizer-safe-mt4-example"),
+    },
+  };
+};
+
+export const getSignalScannerPageContext = (): SignalScannerPageContext => {
+  const product = getPublicTradingProductBySlug("emerald-signal-scanner");
+  const legacySystem = getPublicTradingProductBySlug("emerald-legacy-system");
+  const productPlatformIds = new Set(product?.supportedPlatformIds ?? []);
+  const productRelationshipRecords = product
+    ? getProductRelationshipsForProduct(product.id)
+    : [];
+  const relatedProductIds = new Set<string>([
+    ...(product?.relatedProductIds ?? []),
+  ]);
+
+  for (const relationship of productRelationshipRecords) {
+    if (relationship.sourceProductId !== product?.id) {
+      relatedProductIds.add(relationship.sourceProductId);
+    }
+
+    if (relationship.targetProductId !== product?.id) {
+      relatedProductIds.add(relationship.targetProductId);
+    }
+  }
+
+  return {
+    product,
+    legacySystem,
+    platforms: getPublicPlatformDefinitions().filter((platform) =>
+      productPlatformIds.has(platform.id),
+    ),
+    signalModules: product ? getSignalModulesForProduct(product.id) : [],
+    relatedProducts: [...relatedProductIds]
+      .map(getTradingProductById)
+      .filter(
+        (
+          relatedProduct,
+        ): relatedProduct is NonNullable<typeof relatedProduct> =>
+          Boolean(relatedProduct),
+      )
+      .filter(isPublicPublished),
+    assets: {
+      configuration: getImageAssetById("scanner-emerald-mt4-configuration"),
+      selection: getImageAssetById(
+        "scanner-emerald-mt4-symbol-signal-selection",
+      ),
+      dashboard: getImageAssetById("scanner-emerald-mt4-results-dashboard"),
+      chartContextAlert: getImageAssetById(
+        "scanner-emerald-mt4-chart-context-alert",
+      ),
     },
   };
 };
