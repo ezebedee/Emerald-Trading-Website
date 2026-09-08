@@ -3,6 +3,7 @@ import type {
   PlatformDefinition,
   ProductRelationship,
   SignalModule,
+  SignalProduct,
   TradingProductDefinition,
 } from "@/domain";
 import type { ImageAsset } from "@/types/assets";
@@ -267,4 +268,23 @@ export type IndicatorsPageContext = Readonly<{
   platforms: readonly PlatformDefinition[];
   relatedProducts: readonly TradingProductDefinition[];
   relationships: readonly ProductRelationship[];
+}>;
+
+export type SignalsPageAssetMap = Readonly<{
+  main?: ImageAsset;
+  fineScalp?: ImageAsset;
+  scalp?: ImageAsset;
+  range?: ImageAsset;
+  harmonizer?: ImageAsset;
+  harmonizerSafe?: ImageAsset;
+}>;
+
+export type SignalsPageContext = Readonly<{
+  signalFramework?: SignalProduct;
+  legacySystem?: TradingProductDefinition;
+  primarySignalModules: readonly SignalModule[];
+  auxiliarySignalModules: readonly SignalModule[];
+  platforms: readonly PlatformDefinition[];
+  relatedProducts: readonly TradingProductDefinition[];
+  assets: SignalsPageAssetMap;
 }>;

@@ -29,6 +29,7 @@ import type {
   IndicatorsPageContext,
   LedgerConfigurationOption,
   LedgerPageContext,
+  SignalsPageContext,
   SystemsPageCapability,
   SystemsPageConfigurationOption,
   SystemsPagePerformanceContext,
@@ -298,6 +299,61 @@ export const getIndicatorsPageContext = (): IndicatorsPageContext => {
       )
       .filter(isPublicPublished),
     relationships: productRelationshipRecords,
+  };
+};
+
+export const getSignalsPageContext = (): SignalsPageContext => {
+  const signalFramework = getPublicSignalProducts().find(
+    (signalProduct) => signalProduct.id === "emerald-directional-signal-stream",
+  );
+  const legacySystem = getPublicTradingProductBySlug("emerald-legacy-system");
+  const modules = signalFramework
+    ? (signalFramework.signalModuleIds ?? [])
+        .map(getSignalModuleById)
+        .filter((module): module is NonNullable<typeof module> =>
+          Boolean(module),
+        )
+        .filter(isPublicPublished)
+    : getPublicSignalModules();
+  const relatedProductIds = new Set<string>([
+    ...(legacySystem?.relatedProductIds ?? []),
+    ...(signalFramework?.relatedIndicatorIds ?? []),
+    ...(signalFramework?.relatedSystemIds ?? []),
+  ]);
+
+  if (legacySystem) {
+    relatedProductIds.add(legacySystem.id);
+  }
+
+  return {
+    signalFramework,
+    legacySystem,
+    primarySignalModules: modules.filter((module) => module.role === "primary"),
+    auxiliarySignalModules: modules.filter(
+      (module) => module.role === "auxiliary",
+    ),
+    platforms: getPublicPlatformDefinitions(),
+    relatedProducts: [...relatedProductIds]
+      .map((id) =>
+        id === "emerald-quant-system"
+          ? getTradingProductById("emerald-quant-system-product")
+          : getTradingProductById(id),
+      )
+      .filter(
+        (
+          relatedProduct,
+        ): relatedProduct is NonNullable<typeof relatedProduct> =>
+          Boolean(relatedProduct),
+      )
+      .filter(isPublicPublished),
+    assets: {
+      main: getImageAssetById("signal-main-mt4-example"),
+      fineScalp: getImageAssetById("signal-finescalp-mt4-offline-example"),
+      scalp: getImageAssetById("signal-scalp-mt4-example"),
+      range: getImageAssetById("signal-range-mt4-example"),
+      harmonizer: getImageAssetById("signal-harmonizer-mt4-example"),
+      harmonizerSafe: getImageAssetById("signal-harmonizer-safe-mt4-example"),
+    },
   };
 };
 
