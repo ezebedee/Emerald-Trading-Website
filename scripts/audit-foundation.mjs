@@ -10,6 +10,7 @@ const auditCommands = [
   "scripts/audit-performance.mjs",
   "scripts/audit-portal-navigation.mjs",
   "scripts/audit-performance-evidence.mjs",
+  "scripts/audit-engineering-content.mjs",
 ];
 
 for (const scriptPath of auditCommands) {

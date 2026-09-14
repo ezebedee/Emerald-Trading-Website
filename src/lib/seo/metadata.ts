@@ -111,15 +111,15 @@ export const routeSeoMetadata = {
     path: "/performance/live-vs-backtest",
   },
   "/technology": {
-    title: "Technology",
+    title: "Quantitative Trading Technology",
     description:
-      "Explore the quantitative trading technology, system architecture, automation, and analytical framework behind Emerald Legacy Systems.",
+      "Explore Emerald's algorithmic trading architecture: signal information, Scanner monitoring, automated and assisted execution, and platform adaptation.",
     path: "/technology",
   },
   "/research": {
-    title: "Research",
+    title: "Quantitative Trading Research",
     description:
-      "Research, methodologies, technical notes, and quantitative trading studies from Emerald Legacy Systems.",
+      "Emerald's research approach to historical testing, implementation validation, forward demo observation and documented iteration, with explicit evidence limits.",
     path: "/research",
   },
   "/verification": {
