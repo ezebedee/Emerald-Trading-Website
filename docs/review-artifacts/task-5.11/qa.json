@@ -1,0 +1,2021 @@
+{
+  "results": [
+    {
+      "route": "/technology",
+      "width": 375,
+      "reflowCheck": false,
+      "client": 360,
+      "scroll": 360,
+      "h1": ["Engineering architecture for quantitative trading systems"],
+      "headings": [
+        {
+          "level": 1,
+          "text": "Engineering architecture for quantitative trading systems"
+        },
+        {
+          "level": 2,
+          "text": "Separate responsibilities, connected products"
+        },
+        {
+          "level": 3,
+          "text": "Signal-generation logic"
+        },
+        {
+          "level": 3,
+          "text": "Indicator presentation"
+        },
+        {
+          "level": 3,
+          "text": "Scanner aggregation"
+        },
+        {
+          "level": 3,
+          "text": "Automated trading logic"
+        },
+        {
+          "level": 3,
+          "text": "Recovery and trade management"
+        },
+        {
+          "level": 3,
+          "text": "Platform adapters"
+        },
+        {
+          "level": 3,
+          "text": "Licensing and entitlement runtime"
+        },
+        {
+          "level": 3,
+          "text": "Performance documentation"
+        },
+        {
+          "level": 2,
+          "text": "A multi-signal framework, not one entry rule"
+        },
+        {
+          "level": 2,
+          "text": "Signal information is not an immediate order"
+        },
+        {
+          "level": 3,
+          "text": "Interpretation, execution and position state"
+        },
+        {
+          "level": 3,
+          "text": "Safeguards have limits"
+        },
+        {
+          "level": 2,
+          "text": "Platform availability is not identical implementation"
+        },
+        {
+          "level": 3,
+          "text": "MetaTrader chart context"
+        },
+        {
+          "level": 3,
+          "text": "TradingView and NinjaTrader context"
+        },
+        {
+          "level": 2,
+          "text": "Access, observation and documented iteration"
+        }
+      ],
+      "text": "TECHNOLOGY / SYSTEM ENGINEERING\n\nEngineering architecture for quantitative trading systems\n\nEmerald Legacy Systems separates signal information, monitoring, assisted management and automated execution. Distinct product responsibilities keep the signal framework from being mistaken for a single monolithic trading strategy.\n\nSeparate responsibilities, connected products\n\nThis is a conceptual responsibility map, not a sequence that sends every signal through every product. Platform adaptation and access concerns support the relevant implementation; documented results remain a separate evidence layer.\n\nINFORMATION\n\nSignal-generation logic\n\nThe multi-signal framework separates trend, high-resolution, scalp, range and synthesis roles. Signal context is information for interpretation, not an instruction to place an immediate trade.\n\nExplore the signal library\n\nINFORMATION\n\nIndicator presentation\n\nEmerald Legacy System\n\nEmerald Legacy System presents the unified multi-signal framework on supported trading platforms. Chart presentation and signal meaning are separate from order execution.\n\nExplore the indicator product\n\nMONITORING\n\nScanner aggregation\n\nEmerald Signal Scanner\n\nEmerald Signal Scanner monitors configured symbols and signal modules. Its filters, signal-age context and chart-view workflow support review; monitoring is not automated strategy execution.\n\nExplore Scanner workflows\n\nEXECUTION\n\nAutomated trading logic\n\nEmerald Quant System\n\nEmerald Quant System is the automated strategy implementation. Signal interpretation sits alongside trade execution, risk-management logic, position management and trade lifecycle management.\n\nExplore Quant architecture\n\nASSISTED EXECUTION\n\nRecovery and trade management\n\nEmerald Recovery Expert\n\nEmerald Recovery Expert is a separate, semi-automated product. The trader opens the first trade; subsequent management follows the configured recovery workflow. Recovery actions can add exposure and do not ensure recovery or profit.\n\nExplore Recovery Expert\n\nIMPLEMENTATION BOUNDARY\n\nPlatform adapters\n\nThe platform layer concerns how a product fits its host environment. Chart workflows, settings and execution constraints can differ; one platform's implementation is not a specification for another.\n\nACCESS BOUNDARY\n\nLicensing and entitlement runtime\n\nProduct and platform access is a separate concern from signal generation or trade decisions. The catalog distinguishes public-subscription products from private-investor Quant access; an access model does not describe an execution mechanism.\n\nEVIDENCE BOUNDARY\n\nPerformance documentation\n\nEmerald Ledger connects documented results to a specific configuration and coverage period. This public documentation layer is separate from trading execution and does not certify other products' results.\n\nUnderstand performance evidence\nView the product catalog and execution roles\nA multi-signal framework, not one entry rule\n\nThe published module roles describe distinct forms of signal context. Harmonizer combines Scalp Signal and Range Signal outputs; the public model does not specify weighting, voting or probability mechanics. Harmonizer SAFE is an auxiliary defensive helper, not a guarantee against loss.\n\nMain Signal / Primary\nTrend-oriented signal module within the Emerald Legacy System signal framework.\nFineScalp / Primary\nHigh-resolution tick / seconds-chart signal module within the Emerald Legacy System signal framework.\nScalp Signal / Primary\nShort-horizon scalping-oriented signal module within the Emerald Legacy System signal framework.\nRange Signal / Primary\nRange-oriented signal module within the Emerald Legacy System signal framework.\nHarmonizer / Primary\nSignal-synthesis module that combines Scalp Signal and Range Signal outputs inside the Emerald signal framework.\nHarmonizer SAFE / Auxiliary\nAuxiliary defensive helper signal module that may be enabled alongside a preferred primary signal.\nSignal information is not an immediate order\nInterpretation, execution and position state\n\nQuant's published capabilities include signal interpretation, automated trade execution, risk-management logic, position management and trade lifecycle management. An implementation must account for execution conditions and platform constraints; an indicator example alone does not describe these responsibilities.\n\nSafeguards have limits\n\nExact entry conditions, risk limits, recovery rules and implementation safeguards are not specified here. Risk-management logic is a responsibility, not a promise of loss prevention. Recovery Expert's trader-first-entry workflow remains separate from Quant automation.\n\nNo proprietary formula, threshold or source code is needed to explain these boundaries. This website documents the products; it does not generate signals or execute trades.\n\nPlatform availability is not identical implementation\nMT4\nMT5\nTradingView\nNinjaTrader\nMetaTrader chart context\n\nFor Legacy System and Scanner, the published MT4 / MT5 notes describe support for FineScalp custom high-resolution tick and seconds-chart workflows. Indicator presentation and expert-advisor trade management have different responsibilities.\n\nTradingView and NinjaTrader context\n\nLegacy System and Scanner can use native FineScalp high-resolution chart capability where available. MetaTrader offline/custom-chart mechanics are not implied. Product availability does not establish identical settings, interfaces or execution mechanisms.\n\nFineScalp capability is not attributed to Recovery Expert or Quant. Detailed platform implementation documentation remains planned. Quant's public performance configuration remains Metals / XAUUSD on MT4; availability on another platform does not establish results there.\n\nAccess, observation and documented iteration\n\nLicensing and entitlements concern access to a product on a platform, not its signal meaning or a guarantee of trading behavior. Validation protocols and enforcement details belong in platform and portal engineering documentation, not this public overview.\n\nScanner monitoring concerns configured signals. It is not evidence of a continuously monitored production service. The current Public Demo Reference Account supplies a Forward Performance Record for the stated Quant configuration; the website publishes static documentation, not a continuous trading feed.\n\nMoving from a research concept toward production calls for implementation validation, evidence review and documented iteration. Production monitoring, where applicable, needs its own defined scope; no operational coverage or completed stage is inferred from a product listing.\n\nRead the research approach\nRead verification methodology",
+      "links": [
+        {
+          "href": "/signals",
+          "label": "Explore the signal library"
+        },
+        {
+          "href": "/indicators",
+          "label": "Explore the indicator product"
+        },
+        {
+          "href": "/signal-scanner",
+          "label": "Explore Scanner workflows"
+        },
+        {
+          "href": "/systems/quant",
+          "label": "Explore Quant architecture"
+        },
+        {
+          "href": "/recovery-expert",
+          "label": "Explore Recovery Expert"
+        },
+        {
+          "href": "/performance",
+          "label": "Understand performance evidence"
+        },
+        {
+          "href": "/systems",
+          "label": "View the product catalog and execution roles"
+        },
+        {
+          "href": "/research",
+          "label": "Read the research approach"
+        },
+        {
+          "href": "/verification",
+          "label": "Read verification methodology"
+        }
+      ],
+      "title": "Quantitative Trading Technology | Emerald Legacy Systems",
+      "description": "Explore Emerald's algorithmic trading architecture: signal information, Scanner monitoring, automated and assisted execution, and platform adaptation.",
+      "main": 1,
+      "brokenImages": [],
+      "clippedText": [],
+      "keyboardFocus": {
+        "visible": true,
+        "outline": "solid",
+        "width": "2px",
+        "href": "/indicators"
+      },
+      "keyboardActivation": true
+    },
+    {
+      "route": "/research",
+      "width": 375,
+      "reflowCheck": false,
+      "client": 360,
+      "scroll": 360,
+      "h1": ["Research, testing and documented iteration"],
+      "headings": [
+        {
+          "level": 1,
+          "text": "Research, testing and documented iteration"
+        },
+        {
+          "level": 2,
+          "text": "An evaluation framework, not a completion certificate"
+        },
+        {
+          "level": 3,
+          "text": "Hypothesis / trading concept"
+        },
+        {
+          "level": 3,
+          "text": "Signal or execution design"
+        },
+        {
+          "level": 3,
+          "text": "Historical testing"
+        },
+        {
+          "level": 3,
+          "text": "Sensitivity and robustness analysis"
+        },
+        {
+          "level": 3,
+          "text": "Implementation validation"
+        },
+        {
+          "level": 3,
+          "text": "Forward / demo reference observation"
+        },
+        {
+          "level": 3,
+          "text": "Documented results"
+        },
+        {
+          "level": 3,
+          "text": "Revision / iteration"
+        },
+        {
+          "level": 2,
+          "text": "Different tests address different uncertainties"
+        },
+        {
+          "level": 3,
+          "text": "Historical testing and implementation fidelity"
+        },
+        {
+          "level": 3,
+          "text": "Forward observation with account context"
+        },
+        {
+          "level": 2,
+          "text": "Current public research record"
+        },
+        {
+          "level": 3,
+          "text": "Emerald Quantitative Trading Technology Program"
+        },
+        {
+          "level": 2,
+          "text": "Public outputs and their limits"
+        },
+        {
+          "level": 2,
+          "text": "Research findings are not commercial promises"
+        }
+      ],
+      "text": "RESEARCH / TESTING AND ITERATION\n\nResearch, testing and documented iteration\n\nQuantitative systems need explicit questions, implementation checks and evidence that can be interpreted in context. Emerald's research approach separates an evaluation method from a claim about a product's outcomes.\n\nAn evaluation framework, not a completion certificate\n\nThese stages describe what to investigate and document. They do not assert that every product has completed every stage, passed every test or reached production. Findings can send work back to an earlier stage.\n\n01\nHypothesis / trading concept\n\nDefine the behavior to investigate, the market context and what would contradict the concept before interpreting results.\n\n02\nSignal or execution design\n\nSeparate informational outputs from entry, position-management and exit responsibilities. Keep the intended product role and configuration explicit.\n\n03\nHistorical testing\n\nDocument the dataset, period, spread/slippage assumptions and execution model. Treat a simulation as a model, not an observed account record.\n\n04\nSensitivity and robustness analysis\n\nExamine dependence on parameters and market regimes, and consider overfitting. A favorable historical window is not evidence that nearby settings or future conditions will behave similarly.\n\n05\nImplementation validation\n\nCompare intended logic with platform behavior: signal timing, chart context, order handling and position state where applicable. Account for the host platform's constraints.\n\n06\nForward / demo reference observation\n\nObserve implementation behavior after configuration. Identify the account classification, instrument, platform and observation period rather than treating every forward record as equivalent.\n\n07\nDocumented results\n\nRetain record identity, coverage dates, configuration context and evidence labels. Keep missing evidence explicit and simulations distinct from observed records.\n\n08\nRevision / iteration\n\nUse findings to revisit the hypothesis, implementation or evaluation. Disclose material corrections and distinguish a revision date from the period covered by a result.\n\nDifferent tests address different uncertainties\nHistorical testing and implementation fidelity\n\nData quality, spread/slippage assumptions, parameter sensitivity, regime dependence and overfitting all affect interpretation. Implementation fidelity asks whether the platform behavior matches the rules being evaluated, rather than assuming simulated execution transfers unchanged.\n\nForward performance vs backtest methodology\nForward observation with account context\n\nThe Public Demo Reference Account is used to observe the configured Quant implementation. Its Forward Performance Record remains specific to Metals / XAUUSD / MT4. Demo execution differs from real-money execution; the current public records are static, not a continuous feed.\n\nRead the Emerald Ledger record context\n\nValidation reduces uncertainty; it does not prove future profitability. Logic verification, historical testing, implementation testing, forward/demo observation and documented evidence address different questions. Production monitoring, where applicable, adds an operational layer; it is not a substitute for those checks. Losses remain possible.\n\nCurrent public research record\n\nWebsite visibility and publication status are different. The current research-program record is an internal research note, not evidence of peer-reviewed publication.\n\nPublication status: Draft\n\nEmerald Quantitative Trading Technology Program\n\nInternal research-program record for the Emerald Legacy Systems quantitative trading technology, covering system design, indicator logic, signal architecture, and public forward-performance analysis.\n\nNo journal, DOI, authorship or publication date is recorded in the current source. Public availability of this note does not establish external review.\n\nPublic outputs and their limits\nArchitecture and configuration notes\nProduct roles and platform context explain what is being discussed without disclosing proprietary rules. They do not establish identical implementations or completed validation.\nExplore the engineering architecture\nDocumented observations and records\nEmerald Ledger is a public context and documentation layer, not a scientific certification mechanism. Documented Performance belongs to the stated configuration, not every related product.\nUnderstand the performance evidence\nMethodology and evidence comparisons\nComparisons distinguish available evidence from missing data. An evaluation method is not a result, and missing metrics should not be reconstructed.\nInspect documented evidence availability\nScreenshots and supporting media\nMedia needs record identity, coverage and context. A chart example or publisher thumbnail alone does not establish independent review or a complete trading record.\nReview documentation boundaries\nResearch findings are not commercial promises\n\nA finding about a signal, parameter setting or historical period does not establish a product-wide outcome. Indicator examples, Scanner observations, Recovery Expert management and Quant strategy results have different scopes. This methodology adds no performance estimates and does not claim independent certification.\n\nMaterial revisions should identify the affected configuration, evidence and reason for change. Research owners must supply supporting records before a result, completed validation stage or publication claim is made public.\n\nReturn to technology",
+      "links": [
+        {
+          "href": "/performance/live-vs-backtest",
+          "label": "Forward performance vs backtest methodology"
+        },
+        {
+          "href": "/ledger",
+          "label": "Read the Emerald Ledger record context"
+        },
+        {
+          "href": "/technology",
+          "label": "Explore the engineering architecture"
+        },
+        {
+          "href": "/performance",
+          "label": "Understand the performance evidence"
+        },
+        {
+          "href": "/performance/compare",
+          "label": "Inspect documented evidence availability"
+        },
+        {
+          "href": "/verification",
+          "label": "Review documentation boundaries"
+        },
+        {
+          "href": "/technology",
+          "label": "Return to technology"
+        }
+      ],
+      "title": "Quantitative Trading Research | Emerald Legacy Systems",
+      "description": "Emerald's research approach to historical testing, implementation validation, forward demo observation and documented iteration, with explicit evidence limits.",
+      "main": 1,
+      "brokenImages": [],
+      "clippedText": [],
+      "keyboardFocus": {
+        "visible": true,
+        "outline": "solid",
+        "width": "2px",
+        "href": "/ledger"
+      },
+      "keyboardActivation": true
+    },
+    {
+      "route": "/",
+      "width": 375,
+      "reflowCheck": false,
+      "client": 360,
+      "scroll": 360,
+      "h1": ["Quantitative Trading Technology Built for Systematic Execution"],
+      "headings": [
+        {
+          "level": 1,
+          "text": "Quantitative Trading Technology Built for Systematic Execution"
+        },
+        {
+          "level": 2,
+          "text": "Forward performance, documented with clear account classification."
+        },
+        {
+          "level": 3,
+          "text": "Public Demo Reference Account"
+        },
+        {
+          "level": 3,
+          "text": "Forward Performance Record"
+        },
+        {
+          "level": 3,
+          "text": "Documented Performance"
+        },
+        {
+          "level": 3,
+          "text": "Read-Only Review Access"
+        },
+        {
+          "level": 2,
+          "text": "Documented performance for the current public configuration."
+        },
+        {
+          "level": 2,
+          "text": "A documented record, updated over time."
+        },
+        {
+          "level": 3,
+          "text": "First Two Weeks"
+        },
+        {
+          "level": 3,
+          "text": "Week 1"
+        },
+        {
+          "level": 3,
+          "text": "Day 3"
+        },
+        {
+          "level": 2,
+          "text": "Systematic trading infrastructure built around signals, risk logic, and execution."
+        },
+        {
+          "level": 3,
+          "text": "Emerald Quant System"
+        },
+        {
+          "level": 2,
+          "text": "Signal-generation and market-analysis tools built to support systematic decision-making."
+        },
+        {
+          "level": 3,
+          "text": "Emerald Legacy System"
+        },
+        {
+          "level": 3,
+          "text": "Emerald Signal Framework"
+        },
+        {
+          "level": 2,
+          "text": "Quantitative systems developed through research, testing, and iterative engineering."
+        },
+        {
+          "level": 3,
+          "text": "Quantitative Methodology"
+        },
+        {
+          "level": 3,
+          "text": "System Architecture"
+        },
+        {
+          "level": 3,
+          "text": "Forward Testing"
+        },
+        {
+          "level": 3,
+          "text": "Research Iteration"
+        },
+        {
+          "level": 3,
+          "text": "Emerald Quantitative Trading Technology Program"
+        },
+        {
+          "level": 2,
+          "text": "Performance documentation designed to be reviewable, traceable, and clearly classified."
+        },
+        {
+          "level": 3,
+          "text": "Clear Account Classification"
+        },
+        {
+          "level": 3,
+          "text": "Documented Ledger History"
+        },
+        {
+          "level": 3,
+          "text": "Supporting Account Evidence"
+        },
+        {
+          "level": 3,
+          "text": "Read-Only Review Access"
+        },
+        {
+          "level": 3,
+          "text": "Public Demo Reference Account and Forward Performance records."
+        },
+        {
+          "level": 3,
+          "text": "Public Demo Reference Account"
+        },
+        {
+          "level": 3,
+          "text": "Public Demo Read-Only Access"
+        },
+        {
+          "level": 2,
+          "text": "Performance updates and technical walkthroughs, organized alongside the documented record."
+        },
+        {
+          "level": 3,
+          "text": "Day 003 Performance Update"
+        },
+        {
+          "level": 3,
+          "text": "Week 01 Performance Update"
+        },
+        {
+          "level": 3,
+          "text": "First Two Weeks Performance Update"
+        },
+        {
+          "level": 2,
+          "text": "Public transparency for everyone. Controlled private review for approved professional access."
+        },
+        {
+          "level": 3,
+          "text": "Public Performance"
+        },
+        {
+          "level": 3,
+          "text": "Private Review"
+        },
+        {
+          "level": 3,
+          "text": "Private materials are not publicly exposed."
+        },
+        {
+          "level": 2,
+          "text": "Follow the record. Explore the systems behind it."
+        }
+      ],
+      "text": "QUANTITATIVE TRADING TECHNOLOGY\n\nQuantitative Trading Technology Built for Systematic Execution\n\nEmerald Legacy Systems develops algorithmic trading systems, signal-generation technology, and automation workflows supported by documented forward-performance records and research-driven iteration.\n\nQuantitative trading systems, signals, automation, and documented performance.\n\nFollow Performance\nExplore Systems\nSYSTEM SCHEMATIC\nFORWARD TEST\nSIGNAL ENGINE\nRISK LOGIC\nEXECUTION\nMODEL RULES\nSIGNAL QUALITY\nEXECUTION PATH\n\nDOCUMENTED PERFORMANCE FRAMEWORK\n\nForward performance, documented with clear account classification.\n\nThe public performance record uses a designated Public Demo Reference Account and remains distinct from historical backtesting or private account information.\n\nHow Performance Is Documented\nPublic Demo Reference Account\n\nPublic account classification is stated clearly before performance details are presented.\n\nForward Performance Record\n\nPublic forward-performance records are maintained separately from historical backtests.\n\nDocumented Performance\n\nResults are organized over time with supporting methodology and account evidence.\n\nRead-Only Review Access\n\nRead-only review access may be provided separately.\n\nPUBLIC FORWARD PERFORMANCE\n\nDocumented performance for the current public configuration.\n\nCurrent cumulative results are derived from the documented public Forward Performance record and are presented separately from historical backtests.\n\nCURRENT PUBLIC CONFIGURATION\nMETALS / XAUUSD\nPUBLIC DEMO REFERENCE ACCOUNT\nFORWARD PERFORMANCE\nPeriod: Aug 17-28, 2026\nCUMULATIVE NET PROFIT\n$204,966.54\nCUMULATIVE RETURN\n20.50%\nTOTAL TRADES\n499\nWIN RATE\n69.34%\nMAXIMUM DRAWDOWN\n10.67%\nView Full Emerald Ledger\n\nEMERALD LEDGER\n\nA documented record, updated over time.\n\nThe Emerald Ledger presents structured public Forward Performance updates over time for the current public configuration.\n\nPublic Ledger entries for the current Metals / XAUUSD configuration.\n\nView Full Emerald Ledger\nCUMULATIVE\nFirst Two Weeks\n\nAug 17-28, 2026\n\nNET PROFIT\n$204,966.54\nRETURN\n20.50%\nTRADES\n499\nWIN RATE\n69.34%\nView ledger record\nWEEKLY\nWeek 1\n\nAug 17-21, 2026\n\nNET PROFIT\n$157,604.63\nRETURN\n15.76%\nTRADES\n281\nWIN RATE\n70.46%\nView ledger record\nDAILY\nDay 3\n\nAug 19, 2026\n\nNET PROFIT\n$24,093.06\nRETURN\n2.34%\nTRADES\n39\nWIN RATE\n61.54%\nView ledger record\n\nTRADING SYSTEMS\n\nSystematic trading infrastructure built around signals, risk logic, and execution.\n\nEmerald Quant System combines signal-generation inputs, system rules, risk-management logic, and automated execution into a structured trading workflow across supported asset-class coverage.\n\nSYSTEM FAMILY\nEmerald Quant System\n\nSignals inform the system; execution is governed by a broader rule set covering trade implementation, risk management, and position handling.\n\nFAMILY COVERAGE\n\nMETALS\nFOREX\nFUTURES\nEQUITIES\n\nCURRENT PUBLIC CONFIGURATION\n\nMETALS / XAUUSD\nMT4 PLATFORM\nPUBLIC FORWARD TEST\nSignal Integration\nUses signal interpretation as one input inside the broader system logic.\nRisk Logic\nApplies risk-management logic before trades move through execution.\nAutomated Execution\nSupports automated trade execution and trade lifecycle handling.\nForward-Test Record\nConnects to documented public forward-performance records in the Ledger.\n\nDocumented public forward-performance records are maintained in the Emerald Ledger for the current public configuration.\n\nExplore Quant System\nView Public Performance\nSYSTEM LOGIC\nEmerald Quant\nSignal Input\n01\nRule Engine\n02\nRisk Logic\n03\nExecution\n04\n\nRelated product layer\n\nEmerald Legacy System and Emerald Signal Framework provide context for the current configuration architecture.\n\nINDICATORS & SIGNALS\n\nSignal-generation and market-analysis tools built to support systematic decision-making.\n\nEmerald indicator and signal products provide analytical and signal-framework inputs that may inform the broader Emerald Quant System without replacing full system rules, risk logic, or execution.\n\nSIGNAL-GENERATING INDICATOR\nEmerald Legacy System\n\nUnified multi-signal indicator product developed by Emerald Legacy Systems for chart-based signal analysis and directional signal visualization across supported platforms.\n\nMT4\nMT5\nTRADINGVIEW\nNINJATRADER\nMULTI-INSTRUMENT\nMulti-signal framework\nDirectional signal markers\nChart-based signal visualization\nFineScalp high-resolution signal support\n\nRelated to Emerald Quant System and Emerald Signal Framework as an analytical input, not a standalone execution system.\n\nMULTI-SIGNAL FRAMEWORK\nEmerald Signal Framework\n\nUmbrella signal framework generated within Emerald Legacy System and organized into primary and auxiliary signal modules.\n\nMULTI-SIGNAL FRAMEWORK\nCHART\nDASHBOARD\nMT4\nMT5\nTRADINGVIEW\nNINJATRADER\nMULTI-INSTRUMENT\nTrend-oriented signal output\nHigh-resolution tick / seconds chart signal output\nScalping-oriented signal output\nRange-oriented signal output\nDirectional Input\n01\nChart Context\n02\nSystem Relationship\n03\n\nRelated to Emerald Quant System and Emerald Legacy System as structured signal-framework context.\n\nExplore the Trading System\nExplore Indicators\nView Signals\n\nTECHNOLOGY & RESEARCH\n\nQuantitative systems developed through research, testing, and iterative engineering.\n\nEmerald Legacy Systems develops trading technology through structured research, quantitative analysis, system design, and forward testing, with documented development kept distinct from performance evidence.\n\nQuantitative Methodology\n\nStructured analytical rules and measurable behavior guide system development.\n\nSystem Architecture\n\nSignals, rule logic, risk management, and execution are treated as separate layers.\n\nForward Testing\n\nForward testing is maintained separately from historical backtest analysis.\n\nResearch Iteration\n\nHypotheses move through implementation, testing, review, and refinement.\n\nExplore Technology\nView Research\nRESEARCH NOTE\nDRAFT\nEmerald Quantitative Trading Technology Program\n\nInternal research-program record for the Emerald Legacy Systems quantitative trading technology, covering system design, indicator logic, signal architecture, and public forward-performance analysis.\n\nQUANTITATIVE TRADING\nRESEARCH PROGRAM\nSYSTEMS\nHypothesis\n01\nSystem Design\n02\nForward Test\n03\nRefinement\n04\n\nVERIFICATION & TRANSPARENCY\n\nPerformance documentation designed to be reviewable, traceable, and clearly classified.\n\nPublic forward-performance records are supported by documented account information and review-access mechanisms while avoiding claims beyond the available evidence.\n\nClear Account Classification\n\nThe public record is explicitly classified as a Public Demo Reference Account.\n\nDocumented Ledger History\n\nDaily, weekly, and cumulative Forward Performance records are documented in the Emerald Ledger.\n\nSupporting Account Evidence\n\nSupporting account information is maintained alongside the public performance record.\n\nRead-Only Review Access\n\nRead-only review access may be provided separately without trading control.\n\nView Verification Methodology\nView Emerald Ledger\nEVIDENCE MODEL\nPublic Demo Reference Account and Forward Performance records.\n\nThe homepage summarizes the public review model without showing sensitive account identifiers or access details.\n\nACCOUNT REFERENCE\nPublic Demo Reference Account\nAVAILABLE\n\nClassification: Public Demo Reference Account\n\nSupporting account-reference information identifies the public demo record associated with the Ledger.\n\nREAD-ONLY REVIEW ACCESS\nPublic Demo Read-Only Access\nAVAILABLE\n\nClassification: Public Demo Reference Account\n\nRead-only review access may be provided separately for review without trading control.\n\nAccount Classification\n01\nLedger Record\n02\nSupporting Evidence\n03\nRead-Only Review\n04\n\nVIDEO ARCHIVE\n\nPerformance updates and technical walkthroughs, organized alongside the documented record.\n\nThe video archive is structured to accompany performance updates, product demonstrations, and technical research material as a supporting content record.\n\nExplore Video Archive\nView Emerald Ledger\nYOUTUBE\nPERFORMANCE UPDATE\nEXTERNAL VIDEO LINK PENDING\nDay 003 Performance Update\n\nSupporting video record associated with the Day 003 public Ledger update.\n\nDay 003\n\nAug 19, 2026\n\nView archive entry\nYOUTUBE\nPERFORMANCE UPDATE\nEXTERNAL VIDEO LINK PENDING\nWeek 01 Performance Update\n\nSupporting video record associated with the Week 01 public Ledger update.\n\nWeek 01\n\nAug 17-21, 2026\n\nView archive entry\nYOUTUBE\nPERFORMANCE UPDATE\nEXTERNAL VIDEO LINK PENDING\nFirst Two Weeks Performance Update\n\nSupporting video record associated with the First Two Weeks public Ledger update.\n\nFirst Two Weeks\n\nAug 17-28, 2026\n\nView archive entry\n\nPROFESSIONAL & PRIVATE ACCESS\n\nPublic transparency for everyone. Controlled private review for approved professional access.\n\nThe Emerald Ledger remains the public reference record for documented Forward Performance on the Public Demo Reference Account, while selected private-account performance may be made available separately under controlled access.\n\nPUBLIC REFERENCE\nPublic Performance\n\nOpen public access to the Emerald Ledger, the documented Forward Performance record for the Public Demo Reference Account.\n\nView Public Performance\nCONTROLLED ACCESS\nPrivate Review\n\nSelected non-public performance materials may be made available separately to approved viewers, subject to review and distinct from the public demo record.\n\nExplore Emerald Quant System\nClient Portal\nProfessional Overview\nCONTROLLED PATHWAY\nPrivate materials are not publicly exposed.\n\nPrivate Access provides a controlled pathway for approved viewers to review selected non-public performance materials separately from the public demo record.\n\nPublic Record\n01\n\nThe Emerald Ledger remains the public reference point.\n\nProfessional Inquiry\n02\n\nProfessional visitors can review the dedicated overview.\n\nAccess Review\n03\n\nPrivate access is controlled and may be provided separately.\n\nSelected Private Materials\n04\n\nApproved viewers may receive access to selected materials.\n\nQUANTITATIVE TRADING TECHNOLOGY\n\nFollow the record. Explore the systems behind it.\n\nReview the documented Forward Performance record in the Emerald Ledger, or explore the systems, indicators, and technology that support the broader Emerald Legacy Systems platform.\n\nFollow Performance\nExplore Systems\n\nFor the engineering layer, explore the technology.",
+      "links": [
+        {
+          "href": "/ledger",
+          "label": "Follow Performance"
+        },
+        {
+          "href": "/systems",
+          "label": "Explore Systems"
+        },
+        {
+          "href": "/verification",
+          "label": "How Performance Is Documented"
+        },
+        {
+          "href": "/ledger",
+          "label": "View Full Emerald Ledger"
+        },
+        {
+          "href": "/ledger",
+          "label": "View Full Emerald Ledger"
+        },
+        {
+          "href": "/ledger",
+          "label": "View ledger record"
+        },
+        {
+          "href": "/ledger",
+          "label": "View ledger record"
+        },
+        {
+          "href": "/ledger",
+          "label": "View ledger record"
+        },
+        {
+          "href": "/systems/quant",
+          "label": "Explore Quant System"
+        },
+        {
+          "href": "/ledger",
+          "label": "View Public Performance"
+        },
+        {
+          "href": "/systems/quant",
+          "label": "Explore the Trading System"
+        },
+        {
+          "href": "/indicators",
+          "label": "Explore Indicators"
+        },
+        {
+          "href": "/signals",
+          "label": "View Signals"
+        },
+        {
+          "href": "/technology",
+          "label": "Explore Technology"
+        },
+        {
+          "href": "/research",
+          "label": "View Research"
+        },
+        {
+          "href": "/verification",
+          "label": "View Verification Methodology"
+        },
+        {
+          "href": "/ledger",
+          "label": "View Emerald Ledger"
+        },
+        {
+          "href": "/videos",
+          "label": "Explore Video Archive"
+        },
+        {
+          "href": "/ledger",
+          "label": "View Emerald Ledger"
+        },
+        {
+          "href": "/videos",
+          "label": "View archive entry"
+        },
+        {
+          "href": "/videos",
+          "label": "View archive entry"
+        },
+        {
+          "href": "/videos",
+          "label": "View archive entry"
+        },
+        {
+          "href": "/ledger",
+          "label": "View Public Performance"
+        },
+        {
+          "href": "/systems/quant",
+          "label": "Explore Emerald Quant System"
+        },
+        {
+          "href": "https://portal.emeraldforexsystem.com/login",
+          "label": "Client Portal"
+        },
+        {
+          "href": "/professional",
+          "label": "Professional Overview"
+        },
+        {
+          "href": "/ledger",
+          "label": "Follow Performance"
+        },
+        {
+          "href": "/systems",
+          "label": "Explore Systems"
+        },
+        {
+          "href": "/technology",
+          "label": "explore the technology"
+        }
+      ],
+      "title": "Emerald Legacy Systems | Quantitative Trading Technology",
+      "description": "Quantitative trading systems, algorithmic strategies, market signals, automation, and documented performance.",
+      "main": 1,
+      "brokenImages": [],
+      "clippedText": []
+    },
+    {
+      "route": "/systems",
+      "width": 375,
+      "reflowCheck": false,
+      "client": 360,
+      "scroll": 360,
+      "h1": [
+        "Trading technology across analysis, monitoring, assisted execution, and full automation."
+      ],
+      "headings": [
+        {
+          "level": 1,
+          "text": "Trading technology across analysis, monitoring, assisted execution, and full automation."
+        },
+        {
+          "level": 2,
+          "text": "Systems & Products"
+        },
+        {
+          "level": 3,
+          "text": "Emerald Legacy System"
+        },
+        {
+          "level": 3,
+          "text": "Emerald Signal Scanner"
+        },
+        {
+          "level": 3,
+          "text": "Emerald Recovery Expert"
+        },
+        {
+          "level": 3,
+          "text": "Emerald Quant System"
+        },
+        {
+          "level": 2,
+          "text": "Ecosystem relationships without mandatory dependency."
+        },
+        {
+          "level": 3,
+          "text": "Emerald Legacy System"
+        },
+        {
+          "level": 3,
+          "text": "Emerald Signal Scanner"
+        },
+        {
+          "level": 3,
+          "text": "Emerald Recovery Expert"
+        },
+        {
+          "level": 3,
+          "text": "Emerald Quant System"
+        },
+        {
+          "level": 3,
+          "text": "Emerald Legacy System"
+        },
+        {
+          "level": 3,
+          "text": "Emerald Signal Scanner"
+        },
+        {
+          "level": 3,
+          "text": "Emerald Recovery Expert"
+        },
+        {
+          "level": 3,
+          "text": "Emerald Quant System"
+        },
+        {
+          "level": 2,
+          "text": "Product availability is modeled across the four supported platform families."
+        },
+        {
+          "level": 3,
+          "text": "Emerald Legacy System"
+        },
+        {
+          "level": 3,
+          "text": "Emerald Signal Scanner"
+        },
+        {
+          "level": 3,
+          "text": "Emerald Recovery Expert"
+        },
+        {
+          "level": 3,
+          "text": "Emerald Quant System"
+        },
+        {
+          "level": 2,
+          "text": "Compare the product family before choosing a workflow path."
+        }
+      ],
+      "text": "EMERALD SYSTEMS & PRODUCTS\n\nTrading technology across analysis, monitoring, assisted execution, and full automation.\n\nEmerald Legacy Systems develops a family of trading tools spanning signal generation, market monitoring, semi-automated management, and private automated execution.\n\nExplore Products\nView Platforms\nPRODUCT ECOSYSTEM\nAnalysis & Signal\n01\nMonitoring & Scanning\n02\nAssisted Execution\n03\nAutomated Execution\n04\n\nProducts can support different workflows independently; the catalog does not imply a mandatory purchase sequence.\n\nPRODUCT ECOSYSTEM\n\nSystems & Products\n\nThe catalog separates public subscription tools from private automated system access while keeping platform availability and performance ownership distinct.\n\nEmerald Legacy System - MT4 overview\nPUBLIC SUBSCRIPTION\nANALYSIS & SIGNAL\nEmerald Legacy System\n\nUnified Multi-Signal Indicator\n\nUnified multi-signal indicator product for public subscription access across supported trading platforms.\n\nMT4\nMT5\nTRADINGVIEW\nNINJATRADER\nUnified signal framework\nMain / FineScalp / Scalp / Range / Harmonizer / SAFE\nConfigurable signal analysis\nExplore Emerald Legacy System\nEmerald Signal Scanner - results dashboard\nPUBLIC SUBSCRIPTION\nMONITORING & SCANNING\nEmerald Signal Scanner\n\nMulti-symbol / multi-signal scanning and monitoring dashboard\n\nMulti-symbol and multi-signal scanning and monitoring dashboard for public subscription access across supported trading platforms.\n\nMT4\nMT5\nTRADINGVIEW\nNINJATRADER\nConfigure signals\nSelect symbols\nScan and filter results\nOpen chart context\nAlerts\nExplore Signal Scanner\nRecovery Expert workflow preview\nPUBLIC SUBSCRIPTION\nASSISTED EXECUTION\nCONCEPTUAL PREVIEW\nEmerald Recovery Expert\n\nSemi-automated trade-management / recovery expert\n\nSemi-automated trade-management and recovery expert for public subscription access across supported trading platforms.\n\nMT4\nMT5\nTRADINGVIEW\nNINJATRADER\nTrader initiates the first trade\nDesigned to manage subsequent recovery actions toward the configured recovery and profit objective\nSemi-automated trade-management workflow\nExplore Recovery Expert\nPRIVATE INVESTOR\nAUTOMATED EXECUTION\nEmerald Quant System\n\nFully automated quantitative trading system\n\nFully automated quantitative trading system for private investor access across supported trading platforms.\n\nMT4\nMT5\nTRADINGVIEW\nNINJATRADER\nFully automated quantitative trading system\nPrivate investor access model\nProduct-level availability across supported platforms\n\nDocumented public Forward Performance is maintained separately in the Emerald Ledger for the current Metals / XAUUSD configuration.\n\nExplore Quant System\nClient Portal\n\nPRODUCT LAYERS\n\nEcosystem relationships without mandatory dependency.\n\nProducts can sit near each other in the trading workflow, but the page does not imply Scanner requires Recovery Expert, Recovery Expert requires Scanner, or Quant access requires a public indicator subscription.\n\nANALYSIS & SIGNAL\n\nEmerald Legacy System\n\nUnified signal analysis and configurable signal modules for chart-based decision context.\n\nMONITORING & SCANNING\n\nEmerald Signal Scanner\n\nMulti-symbol and multi-signal monitoring for selected instruments and signal modules.\n\nASSISTED EXECUTION\n\nEmerald Recovery Expert\n\nTrader-first-entry management for subsequent recovery actions according to configured logic.\n\nAUTOMATED EXECUTION\n\nEmerald Quant System\n\nPrivate automated execution model kept separate from public subscription tools and Ledger ownership.\n\nCHOOSE YOUR WORKFLOW\n\nSIGNAL & ANALYSIS\n\nEmerald Legacy System\n\nUse the unified multi-signal indicator framework for analysis and signal context.\n\nMONITORING\n\nEmerald Signal Scanner\n\nMonitor selected symbols and signal modules from a central scanning workflow.\n\nMANUAL-FIRST ASSISTED MANAGEMENT\n\nEmerald Recovery Expert\n\nInitiate the first trade manually, then use assisted management for subsequent recovery actions.\n\nPRIVATE FULL AUTOMATION\n\nEmerald Quant System\n\nEvaluate private-investor automated system access separately from public subscriptions.\n\nPLATFORM AVAILABILITY\n\nProduct availability is modeled across the four supported platform families.\n\nAvailability does not mean identical UI, identical workflow, broker support, market availability, or documented performance on every platform.\n\nEmerald Legacy System\n\nPublic Subscription\n\nANALYSIS & SIGNAL\nMT4: YES\nMT5: YES\nTRADINGVIEW: YES\nNINJATRADER: YES\nEmerald Signal Scanner\n\nPublic Subscription\n\nMONITORING & SCANNING\nMT4: YES\nMT5: YES\nTRADINGVIEW: YES\nNINJATRADER: YES\nEmerald Recovery Expert\n\nPublic Subscription\n\nASSISTED EXECUTION\nMT4: YES\nMT5: YES\nTRADINGVIEW: YES\nNINJATRADER: YES\nEmerald Quant System\n\nPrivate Investor\n\nAUTOMATED EXECUTION\nMT4: YES\nMT5: YES\nTRADINGVIEW: YES\nNINJATRADER: YES\nCompare the product family before choosing a workflow path.\n\nThe public catalog is the starting point for product discovery. Platform-specific implementation details remain separate, and public performance records remain in the Emerald Ledger.\n\nView Platforms\nExplore Quant System",
+      "links": [
+        {
+          "href": "#product-catalog",
+          "label": "Explore Products"
+        },
+        {
+          "href": "/platforms",
+          "label": "View Platforms"
+        },
+        {
+          "href": "/indicators",
+          "label": "Explore Emerald Legacy System"
+        },
+        {
+          "href": "/signal-scanner",
+          "label": "Explore Signal Scanner"
+        },
+        {
+          "href": "/recovery-expert",
+          "label": "Explore Recovery Expert"
+        },
+        {
+          "href": "/systems/quant",
+          "label": "Explore Quant System"
+        },
+        {
+          "href": "https://portal.emeraldforexsystem.com/login",
+          "label": "Client Portal"
+        },
+        {
+          "href": "/platforms",
+          "label": "View Platforms"
+        },
+        {
+          "href": "/systems/quant",
+          "label": "Explore Quant System"
+        }
+      ],
+      "title": "Systems & Products | Emerald Legacy Systems",
+      "description": "Explore Emerald Legacy System, Signal Scanner, Recovery Expert, and private Emerald Quant System across MT4, MT5, TradingView, and NinjaTrader.",
+      "main": 1,
+      "brokenImages": [],
+      "clippedText": []
+    },
+    {
+      "route": "/performance",
+      "width": 375,
+      "reflowCheck": false,
+      "client": 360,
+      "scroll": 360,
+      "h1": ["Performance, with context."],
+      "headings": [
+        {
+          "level": 1,
+          "text": "Performance, with context."
+        },
+        {
+          "level": 2,
+          "text": "Current public record"
+        },
+        {
+          "level": 3,
+          "text": "Emerald Quant System"
+        },
+        {
+          "level": 2,
+          "text": "Read the evidence class before the result"
+        },
+        {
+          "level": 3,
+          "text": "Backtest"
+        },
+        {
+          "level": 3,
+          "text": "Forward / Demo Reference"
+        },
+        {
+          "level": 3,
+          "text": "Documented Historical Record"
+        },
+        {
+          "level": 3,
+          "text": "Internal Documentation"
+        },
+        {
+          "level": 3,
+          "text": "Independent Third-Party Verification"
+        },
+        {
+          "level": 2,
+          "text": "Comparison depends on comparable evidence"
+        }
+      ],
+      "text": "DOCUMENTED PERFORMANCE\n\nPerformance, with context.\n\nA result is meaningful only alongside its system, evaluation method and account context. This is the starting point for understanding Emerald's Public Performance Record and the limits of its evidence.\n\nPerformance overview\nEvidence comparison\nForward vs backtest\nVerification methodology\nEmerald Ledger\nEmerald Quant System\nCurrent public record\n\nFORWARD PERFORMANCE RECORD\n\nEmerald Quant System\n\nMetals / XAUUSD / MT4. The Public Demo Reference Account is forward-observed, not a real-money account. These Documented Results belong to this configuration, not the entire product family.\n\nRead the Emerald Ledger\nRecord coverage\nAug 17-28, 2026\nLatest cumulative record ends\n2026-08-28\nPublication model\nStatic documented records; not a continuously updated feed\nIndependent audit\nNot available in the published evidence set\nRead the evidence class before the result\n\nThese labels describe different dimensions, not interchangeable proof levels. A dated forward/demo record can also be historical and internally documented. None of those labels establishes independent review.\n\nHISTORICAL SIMULATION\n\nBacktest\n\nA strategy applied to historical data under specified modeling assumptions. It is not an observed account record.\n\nComparable numerical results are not documented in the current public dataset.\n\nOBSERVATION AND ACCOUNT CONTEXT\n\nForward / Demo Reference\n\nA Forward Performance Record observes a configured system over time. The current record uses a Public Demo Reference Account, not a real-money account.\n\nDocumented for the current Emerald Quant System configuration only.\n\nRECORD DATE AND PRESERVATION\n\nDocumented Historical Record\n\nA dated record retained for inspection. Historical means the period has ended; it does not by itself mean the result is a backtest.\n\nThe Ledger retains dated daily, weekly and cumulative forward records.\n\nEVIDENCE PROVENANCE\n\nInternal Documentation\n\nPublisher-maintained source entries, contextual notes and labeled media. Reviewable documentation is not an independent audit.\n\nThe current public record is maintained by Emerald Legacy Systems.\n\nEXTERNAL REVIEW, WHERE AVAILABLE\n\nIndependent Third-Party Verification\n\nA separate evidence class requiring an identifiable independent reviewer, scope and report. Account access or a screenshot alone does not establish it.\n\nNot available in the current published evidence set.\n\nComparison depends on comparable evidence\n\nProduct availability is not performance evidence. There is no published like-for-like numerical series here for comparing Quant against Scanner, Recovery Expert or indicator examples. The comparison page separates documented values from missing evidence rather than ranking products.\n\nCompare evidence\nHistorical and backtest results do not guarantee future performance. Forward/demo records are not real-money performance. Execution conditions differ between simulation, demo and real-money trading. Losses are possible.",
+      "links": [
+        {
+          "href": "/performance",
+          "label": "Performance overview"
+        },
+        {
+          "href": "/performance/compare",
+          "label": "Evidence comparison"
+        },
+        {
+          "href": "/performance/live-vs-backtest",
+          "label": "Forward vs backtest"
+        },
+        {
+          "href": "/verification",
+          "label": "Verification methodology"
+        },
+        {
+          "href": "/ledger",
+          "label": "Emerald Ledger"
+        },
+        {
+          "href": "/systems/quant",
+          "label": "Emerald Quant System"
+        },
+        {
+          "href": "/ledger",
+          "label": "Read the Emerald Ledger"
+        },
+        {
+          "href": "/performance/compare",
+          "label": "Compare evidence"
+        }
+      ],
+      "title": "Documented Performance | Emerald Legacy Systems",
+      "description": "Understand Emerald's documented trading results, public demo forward records, evidence classes and configuration-specific performance limits.",
+      "main": 1,
+      "brokenImages": [],
+      "clippedText": []
+    },
+    {
+      "route": "/verification",
+      "width": 375,
+      "reflowCheck": false,
+      "client": 360,
+      "scroll": 360,
+      "h1": ["Performance verification methodology"],
+      "headings": [
+        {
+          "level": 1,
+          "text": "Performance verification methodology"
+        },
+        {
+          "level": 2,
+          "text": "What the current documentation contains"
+        },
+        {
+          "level": 2,
+          "text": "Review context currently listed"
+        },
+        {
+          "level": 3,
+          "text": "Public Demo Reference Account"
+        },
+        {
+          "level": 3,
+          "text": "Public Demo Read-Only Access"
+        },
+        {
+          "level": 2,
+          "text": "Media, updates and corrections"
+        }
+      ],
+      "text": "DOCUMENTATION AND REVIEW BOUNDARIES\n\nPerformance verification methodology\n\nEmerald Ledger is the public record and context layer for Documented Performance. Its source entries and supporting context make results reviewable; they do not establish independent certification.\n\nPerformance overview\nEvidence comparison\nForward vs backtest\nVerification methodology\nEmerald Ledger\nEmerald Quant System\nWhat the current documentation contains\nSystem and configuration identity\nEmerald Quant System; Metals / XAUUSD; MT4. Record ownership remains with this configuration, separate from broader system-family coverage and product availability.\nDated record identity\nDaily, weekly and cumulative entries have stable record IDs and explicit coverage dates. The latest cumulative source is cumulative-2-weeks, ending 2026-08-28. The end date is record coverage, not a last-updated timestamp.\nEvidence and account classification\nThe current entries are a Forward Performance Record from a Public Demo Reference Account. A backtest should be labeled separately as historical simulation, with its assumptions and period disclosed.\nSource versions\nRecords are maintained in version-controlled site source. This is not an immutable verification system or a public per-record correction log. A source revision is distinct from the period covered by a result.\nReview context currently listed\n\nAccount Reference / Available\n\nPublic Demo Reference Account\n\nSupporting account-reference information identifies the public demo record associated with the Ledger.\n\nRead-Only Review Access / Available\n\nPublic Demo Read-Only Access\n\nRead-only review access may be provided separately for review without trading control.\n\nAvailable describes the listed review method, not an independent audit or public access credentials. Reviewable documentation does not imply independent audit or third-party certification. Independent third-party verification, where available, would need a named reviewer, explicit scope and report; none is supplied in the current published evidence set.\n\nMedia, updates and corrections\nLabel the media, not just the result\nThe asset registry associates media with a record, media type, coverage dates and descriptive context. A screenshot or publisher-produced thumbnail is supporting documentation, not a complete transaction history or proof of independent verification.\nRead embedded claims cautiously\nSome legacy Ledger artwork includes verification wording and account identifiers. It is not reproduced on these pages. Embedded wording is not evidence of independent audit, real-money performance or results on other platforms.\nStatic publication, not a continuous feed\nThe displayed source records are static. Forward describes how results were observed, not how frequently this website refreshes. No current timestamp, streaming account connection or automatic update cadence is claimed.\nDisclose corrections explicitly\nA correction should identify the affected record and field, previous and revised values, reason and revision date. Its original coverage dates should remain distinct from the correction date. This is the disclosure practice to follow, not a claim that a public correction log already exists.\nKeep review access separate\nSensitive account identifiers and access details are not displayed on these methodology pages. Review access, where arranged separately, does not grant trading authority and is not third-party certification.\nCheck the limits of the evidence\nA short observed period, incomplete media or missing backtest assumptions limits interpretation. Use the Ledger's classification and configuration context, and do not infer unavailable results or future profitability.\nHistorical and backtest results do not guarantee future performance. Forward/demo records are not real-money performance. Execution conditions differ between simulation, demo and real-money trading. Losses are possible.",
+      "links": [
+        {
+          "href": "/performance",
+          "label": "Performance overview"
+        },
+        {
+          "href": "/performance/compare",
+          "label": "Evidence comparison"
+        },
+        {
+          "href": "/performance/live-vs-backtest",
+          "label": "Forward vs backtest"
+        },
+        {
+          "href": "/verification",
+          "label": "Verification methodology"
+        },
+        {
+          "href": "/ledger",
+          "label": "Emerald Ledger"
+        },
+        {
+          "href": "/systems/quant",
+          "label": "Emerald Quant System"
+        }
+      ],
+      "title": "Performance Verification Methodology | Emerald Legacy Systems",
+      "description": "How Emerald documents public performance records: configuration identity, dated sources, media context, correction practices and independent-review boundaries.",
+      "main": 1,
+      "brokenImages": [],
+      "clippedText": []
+    },
+    {
+      "route": "/technology",
+      "width": 1440,
+      "reflowCheck": false,
+      "client": 1425,
+      "scroll": 1425,
+      "h1": ["Engineering architecture for quantitative trading systems"],
+      "headings": [
+        {
+          "level": 1,
+          "text": "Engineering architecture for quantitative trading systems"
+        },
+        {
+          "level": 2,
+          "text": "Separate responsibilities, connected products"
+        },
+        {
+          "level": 3,
+          "text": "Signal-generation logic"
+        },
+        {
+          "level": 3,
+          "text": "Indicator presentation"
+        },
+        {
+          "level": 3,
+          "text": "Scanner aggregation"
+        },
+        {
+          "level": 3,
+          "text": "Automated trading logic"
+        },
+        {
+          "level": 3,
+          "text": "Recovery and trade management"
+        },
+        {
+          "level": 3,
+          "text": "Platform adapters"
+        },
+        {
+          "level": 3,
+          "text": "Licensing and entitlement runtime"
+        },
+        {
+          "level": 3,
+          "text": "Performance documentation"
+        },
+        {
+          "level": 2,
+          "text": "A multi-signal framework, not one entry rule"
+        },
+        {
+          "level": 2,
+          "text": "Signal information is not an immediate order"
+        },
+        {
+          "level": 3,
+          "text": "Interpretation, execution and position state"
+        },
+        {
+          "level": 3,
+          "text": "Safeguards have limits"
+        },
+        {
+          "level": 2,
+          "text": "Platform availability is not identical implementation"
+        },
+        {
+          "level": 3,
+          "text": "MetaTrader chart context"
+        },
+        {
+          "level": 3,
+          "text": "TradingView and NinjaTrader context"
+        },
+        {
+          "level": 2,
+          "text": "Access, observation and documented iteration"
+        }
+      ],
+      "text": "TECHNOLOGY / SYSTEM ENGINEERING\n\nEngineering architecture for quantitative trading systems\n\nEmerald Legacy Systems separates signal information, monitoring, assisted management and automated execution. Distinct product responsibilities keep the signal framework from being mistaken for a single monolithic trading strategy.\n\nSeparate responsibilities, connected products\n\nThis is a conceptual responsibility map, not a sequence that sends every signal through every product. Platform adaptation and access concerns support the relevant implementation; documented results remain a separate evidence layer.\n\nINFORMATION\n\nSignal-generation logic\n\nThe multi-signal framework separates trend, high-resolution, scalp, range and synthesis roles. Signal context is information for interpretation, not an instruction to place an immediate trade.\n\nExplore the signal library\n\nINFORMATION\n\nIndicator presentation\n\nEmerald Legacy System\n\nEmerald Legacy System presents the unified multi-signal framework on supported trading platforms. Chart presentation and signal meaning are separate from order execution.\n\nExplore the indicator product\n\nMONITORING\n\nScanner aggregation\n\nEmerald Signal Scanner\n\nEmerald Signal Scanner monitors configured symbols and signal modules. Its filters, signal-age context and chart-view workflow support review; monitoring is not automated strategy execution.\n\nExplore Scanner workflows\n\nEXECUTION\n\nAutomated trading logic\n\nEmerald Quant System\n\nEmerald Quant System is the automated strategy implementation. Signal interpretation sits alongside trade execution, risk-management logic, position management and trade lifecycle management.\n\nExplore Quant architecture\n\nASSISTED EXECUTION\n\nRecovery and trade management\n\nEmerald Recovery Expert\n\nEmerald Recovery Expert is a separate, semi-automated product. The trader opens the first trade; subsequent management follows the configured recovery workflow. Recovery actions can add exposure and do not ensure recovery or profit.\n\nExplore Recovery Expert\n\nIMPLEMENTATION BOUNDARY\n\nPlatform adapters\n\nThe platform layer concerns how a product fits its host environment. Chart workflows, settings and execution constraints can differ; one platform's implementation is not a specification for another.\n\nACCESS BOUNDARY\n\nLicensing and entitlement runtime\n\nProduct and platform access is a separate concern from signal generation or trade decisions. The catalog distinguishes public-subscription products from private-investor Quant access; an access model does not describe an execution mechanism.\n\nEVIDENCE BOUNDARY\n\nPerformance documentation\n\nEmerald Ledger connects documented results to a specific configuration and coverage period. This public documentation layer is separate from trading execution and does not certify other products' results.\n\nUnderstand performance evidence\nView the product catalog and execution roles\nA multi-signal framework, not one entry rule\n\nThe published module roles describe distinct forms of signal context. Harmonizer combines Scalp Signal and Range Signal outputs; the public model does not specify weighting, voting or probability mechanics. Harmonizer SAFE is an auxiliary defensive helper, not a guarantee against loss.\n\nMain Signal / Primary\nTrend-oriented signal module within the Emerald Legacy System signal framework.\nFineScalp / Primary\nHigh-resolution tick / seconds-chart signal module within the Emerald Legacy System signal framework.\nScalp Signal / Primary\nShort-horizon scalping-oriented signal module within the Emerald Legacy System signal framework.\nRange Signal / Primary\nRange-oriented signal module within the Emerald Legacy System signal framework.\nHarmonizer / Primary\nSignal-synthesis module that combines Scalp Signal and Range Signal outputs inside the Emerald signal framework.\nHarmonizer SAFE / Auxiliary\nAuxiliary defensive helper signal module that may be enabled alongside a preferred primary signal.\nSignal information is not an immediate order\nInterpretation, execution and position state\n\nQuant's published capabilities include signal interpretation, automated trade execution, risk-management logic, position management and trade lifecycle management. An implementation must account for execution conditions and platform constraints; an indicator example alone does not describe these responsibilities.\n\nSafeguards have limits\n\nExact entry conditions, risk limits, recovery rules and implementation safeguards are not specified here. Risk-management logic is a responsibility, not a promise of loss prevention. Recovery Expert's trader-first-entry workflow remains separate from Quant automation.\n\nNo proprietary formula, threshold or source code is needed to explain these boundaries. This website documents the products; it does not generate signals or execute trades.\n\nPlatform availability is not identical implementation\nMT4\nMT5\nTradingView\nNinjaTrader\nMetaTrader chart context\n\nFor Legacy System and Scanner, the published MT4 / MT5 notes describe support for FineScalp custom high-resolution tick and seconds-chart workflows. Indicator presentation and expert-advisor trade management have different responsibilities.\n\nTradingView and NinjaTrader context\n\nLegacy System and Scanner can use native FineScalp high-resolution chart capability where available. MetaTrader offline/custom-chart mechanics are not implied. Product availability does not establish identical settings, interfaces or execution mechanisms.\n\nFineScalp capability is not attributed to Recovery Expert or Quant. Detailed platform implementation documentation remains planned. Quant's public performance configuration remains Metals / XAUUSD on MT4; availability on another platform does not establish results there.\n\nAccess, observation and documented iteration\n\nLicensing and entitlements concern access to a product on a platform, not its signal meaning or a guarantee of trading behavior. Validation protocols and enforcement details belong in platform and portal engineering documentation, not this public overview.\n\nScanner monitoring concerns configured signals. It is not evidence of a continuously monitored production service. The current Public Demo Reference Account supplies a Forward Performance Record for the stated Quant configuration; the website publishes static documentation, not a continuous trading feed.\n\nMoving from a research concept toward production calls for implementation validation, evidence review and documented iteration. Production monitoring, where applicable, needs its own defined scope; no operational coverage or completed stage is inferred from a product listing.\n\nRead the research approach\nRead verification methodology",
+      "links": [
+        {
+          "href": "/signals",
+          "label": "Explore the signal library"
+        },
+        {
+          "href": "/indicators",
+          "label": "Explore the indicator product"
+        },
+        {
+          "href": "/signal-scanner",
+          "label": "Explore Scanner workflows"
+        },
+        {
+          "href": "/systems/quant",
+          "label": "Explore Quant architecture"
+        },
+        {
+          "href": "/recovery-expert",
+          "label": "Explore Recovery Expert"
+        },
+        {
+          "href": "/performance",
+          "label": "Understand performance evidence"
+        },
+        {
+          "href": "/systems",
+          "label": "View the product catalog and execution roles"
+        },
+        {
+          "href": "/research",
+          "label": "Read the research approach"
+        },
+        {
+          "href": "/verification",
+          "label": "Read verification methodology"
+        }
+      ],
+      "title": "Quantitative Trading Technology | Emerald Legacy Systems",
+      "description": "Explore Emerald's algorithmic trading architecture: signal information, Scanner monitoring, automated and assisted execution, and platform adaptation.",
+      "main": 1,
+      "brokenImages": [],
+      "clippedText": [],
+      "keyboardFocus": {
+        "visible": true,
+        "outline": "solid",
+        "width": "2px",
+        "href": "/indicators"
+      },
+      "keyboardActivation": true
+    },
+    {
+      "route": "/research",
+      "width": 1440,
+      "reflowCheck": false,
+      "client": 1425,
+      "scroll": 1425,
+      "h1": ["Research, testing and documented iteration"],
+      "headings": [
+        {
+          "level": 1,
+          "text": "Research, testing and documented iteration"
+        },
+        {
+          "level": 2,
+          "text": "An evaluation framework, not a completion certificate"
+        },
+        {
+          "level": 3,
+          "text": "Hypothesis / trading concept"
+        },
+        {
+          "level": 3,
+          "text": "Signal or execution design"
+        },
+        {
+          "level": 3,
+          "text": "Historical testing"
+        },
+        {
+          "level": 3,
+          "text": "Sensitivity and robustness analysis"
+        },
+        {
+          "level": 3,
+          "text": "Implementation validation"
+        },
+        {
+          "level": 3,
+          "text": "Forward / demo reference observation"
+        },
+        {
+          "level": 3,
+          "text": "Documented results"
+        },
+        {
+          "level": 3,
+          "text": "Revision / iteration"
+        },
+        {
+          "level": 2,
+          "text": "Different tests address different uncertainties"
+        },
+        {
+          "level": 3,
+          "text": "Historical testing and implementation fidelity"
+        },
+        {
+          "level": 3,
+          "text": "Forward observation with account context"
+        },
+        {
+          "level": 2,
+          "text": "Current public research record"
+        },
+        {
+          "level": 3,
+          "text": "Emerald Quantitative Trading Technology Program"
+        },
+        {
+          "level": 2,
+          "text": "Public outputs and their limits"
+        },
+        {
+          "level": 2,
+          "text": "Research findings are not commercial promises"
+        }
+      ],
+      "text": "RESEARCH / TESTING AND ITERATION\n\nResearch, testing and documented iteration\n\nQuantitative systems need explicit questions, implementation checks and evidence that can be interpreted in context. Emerald's research approach separates an evaluation method from a claim about a product's outcomes.\n\nAn evaluation framework, not a completion certificate\n\nThese stages describe what to investigate and document. They do not assert that every product has completed every stage, passed every test or reached production. Findings can send work back to an earlier stage.\n\n01\nHypothesis / trading concept\n\nDefine the behavior to investigate, the market context and what would contradict the concept before interpreting results.\n\n02\nSignal or execution design\n\nSeparate informational outputs from entry, position-management and exit responsibilities. Keep the intended product role and configuration explicit.\n\n03\nHistorical testing\n\nDocument the dataset, period, spread/slippage assumptions and execution model. Treat a simulation as a model, not an observed account record.\n\n04\nSensitivity and robustness analysis\n\nExamine dependence on parameters and market regimes, and consider overfitting. A favorable historical window is not evidence that nearby settings or future conditions will behave similarly.\n\n05\nImplementation validation\n\nCompare intended logic with platform behavior: signal timing, chart context, order handling and position state where applicable. Account for the host platform's constraints.\n\n06\nForward / demo reference observation\n\nObserve implementation behavior after configuration. Identify the account classification, instrument, platform and observation period rather than treating every forward record as equivalent.\n\n07\nDocumented results\n\nRetain record identity, coverage dates, configuration context and evidence labels. Keep missing evidence explicit and simulations distinct from observed records.\n\n08\nRevision / iteration\n\nUse findings to revisit the hypothesis, implementation or evaluation. Disclose material corrections and distinguish a revision date from the period covered by a result.\n\nDifferent tests address different uncertainties\nHistorical testing and implementation fidelity\n\nData quality, spread/slippage assumptions, parameter sensitivity, regime dependence and overfitting all affect interpretation. Implementation fidelity asks whether the platform behavior matches the rules being evaluated, rather than assuming simulated execution transfers unchanged.\n\nForward performance vs backtest methodology\nForward observation with account context\n\nThe Public Demo Reference Account is used to observe the configured Quant implementation. Its Forward Performance Record remains specific to Metals / XAUUSD / MT4. Demo execution differs from real-money execution; the current public records are static, not a continuous feed.\n\nRead the Emerald Ledger record context\n\nValidation reduces uncertainty; it does not prove future profitability. Logic verification, historical testing, implementation testing, forward/demo observation and documented evidence address different questions. Production monitoring, where applicable, adds an operational layer; it is not a substitute for those checks. Losses remain possible.\n\nCurrent public research record\n\nWebsite visibility and publication status are different. The current research-program record is an internal research note, not evidence of peer-reviewed publication.\n\nPublication status: Draft\n\nEmerald Quantitative Trading Technology Program\n\nInternal research-program record for the Emerald Legacy Systems quantitative trading technology, covering system design, indicator logic, signal architecture, and public forward-performance analysis.\n\nNo journal, DOI, authorship or publication date is recorded in the current source. Public availability of this note does not establish external review.\n\nPublic outputs and their limits\nArchitecture and configuration notes\nProduct roles and platform context explain what is being discussed without disclosing proprietary rules. They do not establish identical implementations or completed validation.\nExplore the engineering architecture\nDocumented observations and records\nEmerald Ledger is a public context and documentation layer, not a scientific certification mechanism. Documented Performance belongs to the stated configuration, not every related product.\nUnderstand the performance evidence\nMethodology and evidence comparisons\nComparisons distinguish available evidence from missing data. An evaluation method is not a result, and missing metrics should not be reconstructed.\nInspect documented evidence availability\nScreenshots and supporting media\nMedia needs record identity, coverage and context. A chart example or publisher thumbnail alone does not establish independent review or a complete trading record.\nReview documentation boundaries\nResearch findings are not commercial promises\n\nA finding about a signal, parameter setting or historical period does not establish a product-wide outcome. Indicator examples, Scanner observations, Recovery Expert management and Quant strategy results have different scopes. This methodology adds no performance estimates and does not claim independent certification.\n\nMaterial revisions should identify the affected configuration, evidence and reason for change. Research owners must supply supporting records before a result, completed validation stage or publication claim is made public.\n\nReturn to technology",
+      "links": [
+        {
+          "href": "/performance/live-vs-backtest",
+          "label": "Forward performance vs backtest methodology"
+        },
+        {
+          "href": "/ledger",
+          "label": "Read the Emerald Ledger record context"
+        },
+        {
+          "href": "/technology",
+          "label": "Explore the engineering architecture"
+        },
+        {
+          "href": "/performance",
+          "label": "Understand the performance evidence"
+        },
+        {
+          "href": "/performance/compare",
+          "label": "Inspect documented evidence availability"
+        },
+        {
+          "href": "/verification",
+          "label": "Review documentation boundaries"
+        },
+        {
+          "href": "/technology",
+          "label": "Return to technology"
+        }
+      ],
+      "title": "Quantitative Trading Research | Emerald Legacy Systems",
+      "description": "Emerald's research approach to historical testing, implementation validation, forward demo observation and documented iteration, with explicit evidence limits.",
+      "main": 1,
+      "brokenImages": [],
+      "clippedText": [],
+      "keyboardFocus": {
+        "visible": true,
+        "outline": "solid",
+        "width": "2px",
+        "href": "/ledger"
+      },
+      "keyboardActivation": true
+    },
+    {
+      "route": "/",
+      "width": 1440,
+      "reflowCheck": false,
+      "client": 1425,
+      "scroll": 1425,
+      "h1": ["Quantitative Trading Technology Built for Systematic Execution"],
+      "headings": [
+        {
+          "level": 1,
+          "text": "Quantitative Trading Technology Built for Systematic Execution"
+        },
+        {
+          "level": 2,
+          "text": "Forward performance, documented with clear account classification."
+        },
+        {
+          "level": 3,
+          "text": "Public Demo Reference Account"
+        },
+        {
+          "level": 3,
+          "text": "Forward Performance Record"
+        },
+        {
+          "level": 3,
+          "text": "Documented Performance"
+        },
+        {
+          "level": 3,
+          "text": "Read-Only Review Access"
+        },
+        {
+          "level": 2,
+          "text": "Documented performance for the current public configuration."
+        },
+        {
+          "level": 2,
+          "text": "A documented record, updated over time."
+        },
+        {
+          "level": 3,
+          "text": "First Two Weeks"
+        },
+        {
+          "level": 3,
+          "text": "Week 1"
+        },
+        {
+          "level": 3,
+          "text": "Day 3"
+        },
+        {
+          "level": 2,
+          "text": "Systematic trading infrastructure built around signals, risk logic, and execution."
+        },
+        {
+          "level": 3,
+          "text": "Emerald Quant System"
+        },
+        {
+          "level": 2,
+          "text": "Signal-generation and market-analysis tools built to support systematic decision-making."
+        },
+        {
+          "level": 3,
+          "text": "Emerald Legacy System"
+        },
+        {
+          "level": 3,
+          "text": "Emerald Signal Framework"
+        },
+        {
+          "level": 2,
+          "text": "Quantitative systems developed through research, testing, and iterative engineering."
+        },
+        {
+          "level": 3,
+          "text": "Quantitative Methodology"
+        },
+        {
+          "level": 3,
+          "text": "System Architecture"
+        },
+        {
+          "level": 3,
+          "text": "Forward Testing"
+        },
+        {
+          "level": 3,
+          "text": "Research Iteration"
+        },
+        {
+          "level": 3,
+          "text": "Emerald Quantitative Trading Technology Program"
+        },
+        {
+          "level": 2,
+          "text": "Performance documentation designed to be reviewable, traceable, and clearly classified."
+        },
+        {
+          "level": 3,
+          "text": "Clear Account Classification"
+        },
+        {
+          "level": 3,
+          "text": "Documented Ledger History"
+        },
+        {
+          "level": 3,
+          "text": "Supporting Account Evidence"
+        },
+        {
+          "level": 3,
+          "text": "Read-Only Review Access"
+        },
+        {
+          "level": 3,
+          "text": "Public Demo Reference Account and Forward Performance records."
+        },
+        {
+          "level": 3,
+          "text": "Public Demo Reference Account"
+        },
+        {
+          "level": 3,
+          "text": "Public Demo Read-Only Access"
+        },
+        {
+          "level": 2,
+          "text": "Performance updates and technical walkthroughs, organized alongside the documented record."
+        },
+        {
+          "level": 3,
+          "text": "Day 003 Performance Update"
+        },
+        {
+          "level": 3,
+          "text": "Week 01 Performance Update"
+        },
+        {
+          "level": 3,
+          "text": "First Two Weeks Performance Update"
+        },
+        {
+          "level": 2,
+          "text": "Public transparency for everyone. Controlled private review for approved professional access."
+        },
+        {
+          "level": 3,
+          "text": "Public Performance"
+        },
+        {
+          "level": 3,
+          "text": "Private Review"
+        },
+        {
+          "level": 3,
+          "text": "Private materials are not publicly exposed."
+        },
+        {
+          "level": 2,
+          "text": "Follow the record. Explore the systems behind it."
+        }
+      ],
+      "text": "QUANTITATIVE TRADING TECHNOLOGY\n\nQuantitative Trading Technology Built for Systematic Execution\n\nEmerald Legacy Systems develops algorithmic trading systems, signal-generation technology, and automation workflows supported by documented forward-performance records and research-driven iteration.\n\nQuantitative trading systems, signals, automation, and documented performance.\n\nFollow Performance\nExplore Systems\nSYSTEM SCHEMATIC\nFORWARD TEST\nSIGNAL ENGINE\nRISK LOGIC\nEXECUTION\nMODEL RULES\nSIGNAL QUALITY\nEXECUTION PATH\n\nDOCUMENTED PERFORMANCE FRAMEWORK\n\nForward performance, documented with clear account classification.\n\nThe public performance record uses a designated Public Demo Reference Account and remains distinct from historical backtesting or private account information.\n\nHow Performance Is Documented\nPublic Demo Reference Account\n\nPublic account classification is stated clearly before performance details are presented.\n\nForward Performance Record\n\nPublic forward-performance records are maintained separately from historical backtests.\n\nDocumented Performance\n\nResults are organized over time with supporting methodology and account evidence.\n\nRead-Only Review Access\n\nRead-only review access may be provided separately.\n\nPUBLIC FORWARD PERFORMANCE\n\nDocumented performance for the current public configuration.\n\nCurrent cumulative results are derived from the documented public Forward Performance record and are presented separately from historical backtests.\n\nCURRENT PUBLIC CONFIGURATION\nMETALS / XAUUSD\nPUBLIC DEMO REFERENCE ACCOUNT\nFORWARD PERFORMANCE\nPeriod: Aug 17-28, 2026\nCUMULATIVE NET PROFIT\n$204,966.54\nCUMULATIVE RETURN\n20.50%\nTOTAL TRADES\n499\nWIN RATE\n69.34%\nMAXIMUM DRAWDOWN\n10.67%\nView Full Emerald Ledger\n\nEMERALD LEDGER\n\nA documented record, updated over time.\n\nThe Emerald Ledger presents structured public Forward Performance updates over time for the current public configuration.\n\nPublic Ledger entries for the current Metals / XAUUSD configuration.\n\nView Full Emerald Ledger\nCUMULATIVE\nFirst Two Weeks\n\nAug 17-28, 2026\n\nNET PROFIT\n$204,966.54\nRETURN\n20.50%\nTRADES\n499\nWIN RATE\n69.34%\nView ledger record\nWEEKLY\nWeek 1\n\nAug 17-21, 2026\n\nNET PROFIT\n$157,604.63\nRETURN\n15.76%\nTRADES\n281\nWIN RATE\n70.46%\nView ledger record\nDAILY\nDay 3\n\nAug 19, 2026\n\nNET PROFIT\n$24,093.06\nRETURN\n2.34%\nTRADES\n39\nWIN RATE\n61.54%\nView ledger record\n\nTRADING SYSTEMS\n\nSystematic trading infrastructure built around signals, risk logic, and execution.\n\nEmerald Quant System combines signal-generation inputs, system rules, risk-management logic, and automated execution into a structured trading workflow across supported asset-class coverage.\n\nSYSTEM FAMILY\nEmerald Quant System\n\nSignals inform the system; execution is governed by a broader rule set covering trade implementation, risk management, and position handling.\n\nFAMILY COVERAGE\n\nMETALS\nFOREX\nFUTURES\nEQUITIES\n\nCURRENT PUBLIC CONFIGURATION\n\nMETALS / XAUUSD\nMT4 PLATFORM\nPUBLIC FORWARD TEST\nSignal Integration\nUses signal interpretation as one input inside the broader system logic.\nRisk Logic\nApplies risk-management logic before trades move through execution.\nAutomated Execution\nSupports automated trade execution and trade lifecycle handling.\nForward-Test Record\nConnects to documented public forward-performance records in the Ledger.\n\nDocumented public forward-performance records are maintained in the Emerald Ledger for the current public configuration.\n\nExplore Quant System\nView Public Performance\nSYSTEM LOGIC\nEmerald Quant\nSignal Input\n01\nRule Engine\n02\nRisk Logic\n03\nExecution\n04\n\nRelated product layer\n\nEmerald Legacy System and Emerald Signal Framework provide context for the current configuration architecture.\n\nINDICATORS & SIGNALS\n\nSignal-generation and market-analysis tools built to support systematic decision-making.\n\nEmerald indicator and signal products provide analytical and signal-framework inputs that may inform the broader Emerald Quant System without replacing full system rules, risk logic, or execution.\n\nSIGNAL-GENERATING INDICATOR\nEmerald Legacy System\n\nUnified multi-signal indicator product developed by Emerald Legacy Systems for chart-based signal analysis and directional signal visualization across supported platforms.\n\nMT4\nMT5\nTRADINGVIEW\nNINJATRADER\nMULTI-INSTRUMENT\nMulti-signal framework\nDirectional signal markers\nChart-based signal visualization\nFineScalp high-resolution signal support\n\nRelated to Emerald Quant System and Emerald Signal Framework as an analytical input, not a standalone execution system.\n\nMULTI-SIGNAL FRAMEWORK\nEmerald Signal Framework\n\nUmbrella signal framework generated within Emerald Legacy System and organized into primary and auxiliary signal modules.\n\nMULTI-SIGNAL FRAMEWORK\nCHART\nDASHBOARD\nMT4\nMT5\nTRADINGVIEW\nNINJATRADER\nMULTI-INSTRUMENT\nTrend-oriented signal output\nHigh-resolution tick / seconds chart signal output\nScalping-oriented signal output\nRange-oriented signal output\nDirectional Input\n01\nChart Context\n02\nSystem Relationship\n03\n\nRelated to Emerald Quant System and Emerald Legacy System as structured signal-framework context.\n\nExplore the Trading System\nExplore Indicators\nView Signals\n\nTECHNOLOGY & RESEARCH\n\nQuantitative systems developed through research, testing, and iterative engineering.\n\nEmerald Legacy Systems develops trading technology through structured research, quantitative analysis, system design, and forward testing, with documented development kept distinct from performance evidence.\n\nQuantitative Methodology\n\nStructured analytical rules and measurable behavior guide system development.\n\nSystem Architecture\n\nSignals, rule logic, risk management, and execution are treated as separate layers.\n\nForward Testing\n\nForward testing is maintained separately from historical backtest analysis.\n\nResearch Iteration\n\nHypotheses move through implementation, testing, review, and refinement.\n\nExplore Technology\nView Research\nRESEARCH NOTE\nDRAFT\nEmerald Quantitative Trading Technology Program\n\nInternal research-program record for the Emerald Legacy Systems quantitative trading technology, covering system design, indicator logic, signal architecture, and public forward-performance analysis.\n\nQUANTITATIVE TRADING\nRESEARCH PROGRAM\nSYSTEMS\nHypothesis\n01\nSystem Design\n02\nForward Test\n03\nRefinement\n04\n\nVERIFICATION & TRANSPARENCY\n\nPerformance documentation designed to be reviewable, traceable, and clearly classified.\n\nPublic forward-performance records are supported by documented account information and review-access mechanisms while avoiding claims beyond the available evidence.\n\nClear Account Classification\n\nThe public record is explicitly classified as a Public Demo Reference Account.\n\nDocumented Ledger History\n\nDaily, weekly, and cumulative Forward Performance records are documented in the Emerald Ledger.\n\nSupporting Account Evidence\n\nSupporting account information is maintained alongside the public performance record.\n\nRead-Only Review Access\n\nRead-only review access may be provided separately without trading control.\n\nView Verification Methodology\nView Emerald Ledger\nEVIDENCE MODEL\nPublic Demo Reference Account and Forward Performance records.\n\nThe homepage summarizes the public review model without showing sensitive account identifiers or access details.\n\nACCOUNT REFERENCE\nPublic Demo Reference Account\nAVAILABLE\n\nClassification: Public Demo Reference Account\n\nSupporting account-reference information identifies the public demo record associated with the Ledger.\n\nREAD-ONLY REVIEW ACCESS\nPublic Demo Read-Only Access\nAVAILABLE\n\nClassification: Public Demo Reference Account\n\nRead-only review access may be provided separately for review without trading control.\n\nAccount Classification\n01\nLedger Record\n02\nSupporting Evidence\n03\nRead-Only Review\n04\n\nVIDEO ARCHIVE\n\nPerformance updates and technical walkthroughs, organized alongside the documented record.\n\nThe video archive is structured to accompany performance updates, product demonstrations, and technical research material as a supporting content record.\n\nExplore Video Archive\nView Emerald Ledger\nYOUTUBE\nPERFORMANCE UPDATE\nEXTERNAL VIDEO LINK PENDING\nDay 003 Performance Update\n\nSupporting video record associated with the Day 003 public Ledger update.\n\nDay 003\n\nAug 19, 2026\n\nView archive entry\nYOUTUBE\nPERFORMANCE UPDATE\nEXTERNAL VIDEO LINK PENDING\nWeek 01 Performance Update\n\nSupporting video record associated with the Week 01 public Ledger update.\n\nWeek 01\n\nAug 17-21, 2026\n\nView archive entry\nYOUTUBE\nPERFORMANCE UPDATE\nEXTERNAL VIDEO LINK PENDING\nFirst Two Weeks Performance Update\n\nSupporting video record associated with the First Two Weeks public Ledger update.\n\nFirst Two Weeks\n\nAug 17-28, 2026\n\nView archive entry\n\nPROFESSIONAL & PRIVATE ACCESS\n\nPublic transparency for everyone. Controlled private review for approved professional access.\n\nThe Emerald Ledger remains the public reference record for documented Forward Performance on the Public Demo Reference Account, while selected private-account performance may be made available separately under controlled access.\n\nPUBLIC REFERENCE\nPublic Performance\n\nOpen public access to the Emerald Ledger, the documented Forward Performance record for the Public Demo Reference Account.\n\nView Public Performance\nCONTROLLED ACCESS\nPrivate Review\n\nSelected non-public performance materials may be made available separately to approved viewers, subject to review and distinct from the public demo record.\n\nExplore Emerald Quant System\nClient Portal\nProfessional Overview\nCONTROLLED PATHWAY\nPrivate materials are not publicly exposed.\n\nPrivate Access provides a controlled pathway for approved viewers to review selected non-public performance materials separately from the public demo record.\n\nPublic Record\n01\n\nThe Emerald Ledger remains the public reference point.\n\nProfessional Inquiry\n02\n\nProfessional visitors can review the dedicated overview.\n\nAccess Review\n03\n\nPrivate access is controlled and may be provided separately.\n\nSelected Private Materials\n04\n\nApproved viewers may receive access to selected materials.\n\nQUANTITATIVE TRADING TECHNOLOGY\n\nFollow the record. Explore the systems behind it.\n\nReview the documented Forward Performance record in the Emerald Ledger, or explore the systems, indicators, and technology that support the broader Emerald Legacy Systems platform.\n\nFollow Performance\nExplore Systems\n\nFor the engineering layer, explore the technology.",
+      "links": [
+        {
+          "href": "/ledger",
+          "label": "Follow Performance"
+        },
+        {
+          "href": "/systems",
+          "label": "Explore Systems"
+        },
+        {
+          "href": "/verification",
+          "label": "How Performance Is Documented"
+        },
+        {
+          "href": "/ledger",
+          "label": "View Full Emerald Ledger"
+        },
+        {
+          "href": "/ledger",
+          "label": "View Full Emerald Ledger"
+        },
+        {
+          "href": "/ledger",
+          "label": "View ledger record"
+        },
+        {
+          "href": "/ledger",
+          "label": "View ledger record"
+        },
+        {
+          "href": "/ledger",
+          "label": "View ledger record"
+        },
+        {
+          "href": "/systems/quant",
+          "label": "Explore Quant System"
+        },
+        {
+          "href": "/ledger",
+          "label": "View Public Performance"
+        },
+        {
+          "href": "/systems/quant",
+          "label": "Explore the Trading System"
+        },
+        {
+          "href": "/indicators",
+          "label": "Explore Indicators"
+        },
+        {
+          "href": "/signals",
+          "label": "View Signals"
+        },
+        {
+          "href": "/technology",
+          "label": "Explore Technology"
+        },
+        {
+          "href": "/research",
+          "label": "View Research"
+        },
+        {
+          "href": "/verification",
+          "label": "View Verification Methodology"
+        },
+        {
+          "href": "/ledger",
+          "label": "View Emerald Ledger"
+        },
+        {
+          "href": "/videos",
+          "label": "Explore Video Archive"
+        },
+        {
+          "href": "/ledger",
+          "label": "View Emerald Ledger"
+        },
+        {
+          "href": "/videos",
+          "label": "View archive entry"
+        },
+        {
+          "href": "/videos",
+          "label": "View archive entry"
+        },
+        {
+          "href": "/videos",
+          "label": "View archive entry"
+        },
+        {
+          "href": "/ledger",
+          "label": "View Public Performance"
+        },
+        {
+          "href": "/systems/quant",
+          "label": "Explore Emerald Quant System"
+        },
+        {
+          "href": "https://portal.emeraldforexsystem.com/login",
+          "label": "Client Portal"
+        },
+        {
+          "href": "/professional",
+          "label": "Professional Overview"
+        },
+        {
+          "href": "/ledger",
+          "label": "Follow Performance"
+        },
+        {
+          "href": "/systems",
+          "label": "Explore Systems"
+        },
+        {
+          "href": "/technology",
+          "label": "explore the technology"
+        }
+      ],
+      "title": "Emerald Legacy Systems | Quantitative Trading Technology",
+      "description": "Quantitative trading systems, algorithmic strategies, market signals, automation, and documented performance.",
+      "main": 1,
+      "brokenImages": [],
+      "clippedText": []
+    },
+    {
+      "route": "/systems",
+      "width": 1440,
+      "reflowCheck": false,
+      "client": 1425,
+      "scroll": 1425,
+      "h1": [
+        "Trading technology across analysis, monitoring, assisted execution, and full automation."
+      ],
+      "headings": [
+        {
+          "level": 1,
+          "text": "Trading technology across analysis, monitoring, assisted execution, and full automation."
+        },
+        {
+          "level": 2,
+          "text": "Systems & Products"
+        },
+        {
+          "level": 3,
+          "text": "Emerald Legacy System"
+        },
+        {
+          "level": 3,
+          "text": "Emerald Signal Scanner"
+        },
+        {
+          "level": 3,
+          "text": "Emerald Recovery Expert"
+        },
+        {
+          "level": 3,
+          "text": "Emerald Quant System"
+        },
+        {
+          "level": 2,
+          "text": "Ecosystem relationships without mandatory dependency."
+        },
+        {
+          "level": 3,
+          "text": "Emerald Legacy System"
+        },
+        {
+          "level": 3,
+          "text": "Emerald Signal Scanner"
+        },
+        {
+          "level": 3,
+          "text": "Emerald Recovery Expert"
+        },
+        {
+          "level": 3,
+          "text": "Emerald Quant System"
+        },
+        {
+          "level": 3,
+          "text": "Emerald Legacy System"
+        },
+        {
+          "level": 3,
+          "text": "Emerald Signal Scanner"
+        },
+        {
+          "level": 3,
+          "text": "Emerald Recovery Expert"
+        },
+        {
+          "level": 3,
+          "text": "Emerald Quant System"
+        },
+        {
+          "level": 2,
+          "text": "Product availability is modeled across the four supported platform families."
+        },
+        {
+          "level": 3,
+          "text": "Emerald Legacy System"
+        },
+        {
+          "level": 3,
+          "text": "Emerald Signal Scanner"
+        },
+        {
+          "level": 3,
+          "text": "Emerald Recovery Expert"
+        },
+        {
+          "level": 3,
+          "text": "Emerald Quant System"
+        },
+        {
+          "level": 2,
+          "text": "Compare the product family before choosing a workflow path."
+        }
+      ],
+      "text": "EMERALD SYSTEMS & PRODUCTS\n\nTrading technology across analysis, monitoring, assisted execution, and full automation.\n\nEmerald Legacy Systems develops a family of trading tools spanning signal generation, market monitoring, semi-automated management, and private automated execution.\n\nExplore Products\nView Platforms\nPRODUCT ECOSYSTEM\nAnalysis & Signal\n01\nMonitoring & Scanning\n02\nAssisted Execution\n03\nAutomated Execution\n04\n\nProducts can support different workflows independently; the catalog does not imply a mandatory purchase sequence.\n\nPRODUCT ECOSYSTEM\n\nSystems & Products\n\nThe catalog separates public subscription tools from private automated system access while keeping platform availability and performance ownership distinct.\n\nEmerald Legacy System - MT4 overview\nPUBLIC SUBSCRIPTION\nANALYSIS & SIGNAL\nEmerald Legacy System\n\nUnified Multi-Signal Indicator\n\nUnified multi-signal indicator product for public subscription access across supported trading platforms.\n\nMT4\nMT5\nTRADINGVIEW\nNINJATRADER\nUnified signal framework\nMain / FineScalp / Scalp / Range / Harmonizer / SAFE\nConfigurable signal analysis\nExplore Emerald Legacy System\nEmerald Signal Scanner - results dashboard\nPUBLIC SUBSCRIPTION\nMONITORING & SCANNING\nEmerald Signal Scanner\n\nMulti-symbol / multi-signal scanning and monitoring dashboard\n\nMulti-symbol and multi-signal scanning and monitoring dashboard for public subscription access across supported trading platforms.\n\nMT4\nMT5\nTRADINGVIEW\nNINJATRADER\nConfigure signals\nSelect symbols\nScan and filter results\nOpen chart context\nAlerts\nExplore Signal Scanner\nRecovery Expert workflow preview\nPUBLIC SUBSCRIPTION\nASSISTED EXECUTION\nCONCEPTUAL PREVIEW\nEmerald Recovery Expert\n\nSemi-automated trade-management / recovery expert\n\nSemi-automated trade-management and recovery expert for public subscription access across supported trading platforms.\n\nMT4\nMT5\nTRADINGVIEW\nNINJATRADER\nTrader initiates the first trade\nDesigned to manage subsequent recovery actions toward the configured recovery and profit objective\nSemi-automated trade-management workflow\nExplore Recovery Expert\nPRIVATE INVESTOR\nAUTOMATED EXECUTION\nEmerald Quant System\n\nFully automated quantitative trading system\n\nFully automated quantitative trading system for private investor access across supported trading platforms.\n\nMT4\nMT5\nTRADINGVIEW\nNINJATRADER\nFully automated quantitative trading system\nPrivate investor access model\nProduct-level availability across supported platforms\n\nDocumented public Forward Performance is maintained separately in the Emerald Ledger for the current Metals / XAUUSD configuration.\n\nExplore Quant System\nClient Portal\n\nPRODUCT LAYERS\n\nEcosystem relationships without mandatory dependency.\n\nProducts can sit near each other in the trading workflow, but the page does not imply Scanner requires Recovery Expert, Recovery Expert requires Scanner, or Quant access requires a public indicator subscription.\n\nANALYSIS & SIGNAL\n\nEmerald Legacy System\n\nUnified signal analysis and configurable signal modules for chart-based decision context.\n\nMONITORING & SCANNING\n\nEmerald Signal Scanner\n\nMulti-symbol and multi-signal monitoring for selected instruments and signal modules.\n\nASSISTED EXECUTION\n\nEmerald Recovery Expert\n\nTrader-first-entry management for subsequent recovery actions according to configured logic.\n\nAUTOMATED EXECUTION\n\nEmerald Quant System\n\nPrivate automated execution model kept separate from public subscription tools and Ledger ownership.\n\nCHOOSE YOUR WORKFLOW\n\nSIGNAL & ANALYSIS\n\nEmerald Legacy System\n\nUse the unified multi-signal indicator framework for analysis and signal context.\n\nMONITORING\n\nEmerald Signal Scanner\n\nMonitor selected symbols and signal modules from a central scanning workflow.\n\nMANUAL-FIRST ASSISTED MANAGEMENT\n\nEmerald Recovery Expert\n\nInitiate the first trade manually, then use assisted management for subsequent recovery actions.\n\nPRIVATE FULL AUTOMATION\n\nEmerald Quant System\n\nEvaluate private-investor automated system access separately from public subscriptions.\n\nPLATFORM AVAILABILITY\n\nProduct availability is modeled across the four supported platform families.\n\nAvailability does not mean identical UI, identical workflow, broker support, market availability, or documented performance on every platform.\n\nEmerald product availability across MT4, MT5, TradingView, and NinjaTrader\nPRODUCT\tMT4\tMT5\tTRADINGVIEW\tNINJATRADER\tACCESS\nEmerald Legacy System\t\nYes\t\nYes\t\nYes\t\nYes\tPUBLIC SUBSCRIPTION\nEmerald Signal Scanner\t\nYes\t\nYes\t\nYes\t\nYes\tPUBLIC SUBSCRIPTION\nEmerald Recovery Expert\t\nYes\t\nYes\t\nYes\t\nYes\tPUBLIC SUBSCRIPTION\nEmerald Quant System\t\nYes\t\nYes\t\nYes\t\nYes\tPRIVATE INVESTOR\nCompare the product family before choosing a workflow path.\n\nThe public catalog is the starting point for product discovery. Platform-specific implementation details remain separate, and public performance records remain in the Emerald Ledger.\n\nView Platforms\nExplore Quant System",
+      "links": [
+        {
+          "href": "#product-catalog",
+          "label": "Explore Products"
+        },
+        {
+          "href": "/platforms",
+          "label": "View Platforms"
+        },
+        {
+          "href": "/indicators",
+          "label": "Explore Emerald Legacy System"
+        },
+        {
+          "href": "/signal-scanner",
+          "label": "Explore Signal Scanner"
+        },
+        {
+          "href": "/recovery-expert",
+          "label": "Explore Recovery Expert"
+        },
+        {
+          "href": "/systems/quant",
+          "label": "Explore Quant System"
+        },
+        {
+          "href": "https://portal.emeraldforexsystem.com/login",
+          "label": "Client Portal"
+        },
+        {
+          "href": "/platforms",
+          "label": "View Platforms"
+        },
+        {
+          "href": "/systems/quant",
+          "label": "Explore Quant System"
+        }
+      ],
+      "title": "Systems & Products | Emerald Legacy Systems",
+      "description": "Explore Emerald Legacy System, Signal Scanner, Recovery Expert, and private Emerald Quant System across MT4, MT5, TradingView, and NinjaTrader.",
+      "main": 1,
+      "brokenImages": [],
+      "clippedText": []
+    },
+    {
+      "route": "/performance",
+      "width": 1440,
+      "reflowCheck": false,
+      "client": 1425,
+      "scroll": 1425,
+      "h1": ["Performance, with context."],
+      "headings": [
+        {
+          "level": 1,
+          "text": "Performance, with context."
+        },
+        {
+          "level": 2,
+          "text": "Current public record"
+        },
+        {
+          "level": 3,
+          "text": "Emerald Quant System"
+        },
+        {
+          "level": 2,
+          "text": "Read the evidence class before the result"
+        },
+        {
+          "level": 3,
+          "text": "Backtest"
+        },
+        {
+          "level": 3,
+          "text": "Forward / Demo Reference"
+        },
+        {
+          "level": 3,
+          "text": "Documented Historical Record"
+        },
+        {
+          "level": 3,
+          "text": "Internal Documentation"
+        },
+        {
+          "level": 3,
+          "text": "Independent Third-Party Verification"
+        },
+        {
+          "level": 2,
+          "text": "Comparison depends on comparable evidence"
+        }
+      ],
+      "text": "DOCUMENTED PERFORMANCE\n\nPerformance, with context.\n\nA result is meaningful only alongside its system, evaluation method and account context. This is the starting point for understanding Emerald's Public Performance Record and the limits of its evidence.\n\nPerformance overview\nEvidence comparison\nForward vs backtest\nVerification methodology\nEmerald Ledger\nEmerald Quant System\nCurrent public record\n\nFORWARD PERFORMANCE RECORD\n\nEmerald Quant System\n\nMetals / XAUUSD / MT4. The Public Demo Reference Account is forward-observed, not a real-money account. These Documented Results belong to this configuration, not the entire product family.\n\nRead the Emerald Ledger\nRecord coverage\nAug 17-28, 2026\nLatest cumulative record ends\n2026-08-28\nPublication model\nStatic documented records; not a continuously updated feed\nIndependent audit\nNot available in the published evidence set\nRead the evidence class before the result\n\nThese labels describe different dimensions, not interchangeable proof levels. A dated forward/demo record can also be historical and internally documented. None of those labels establishes independent review.\n\nHISTORICAL SIMULATION\n\nBacktest\n\nA strategy applied to historical data under specified modeling assumptions. It is not an observed account record.\n\nComparable numerical results are not documented in the current public dataset.\n\nOBSERVATION AND ACCOUNT CONTEXT\n\nForward / Demo Reference\n\nA Forward Performance Record observes a configured system over time. The current record uses a Public Demo Reference Account, not a real-money account.\n\nDocumented for the current Emerald Quant System configuration only.\n\nRECORD DATE AND PRESERVATION\n\nDocumented Historical Record\n\nA dated record retained for inspection. Historical means the period has ended; it does not by itself mean the result is a backtest.\n\nThe Ledger retains dated daily, weekly and cumulative forward records.\n\nEVIDENCE PROVENANCE\n\nInternal Documentation\n\nPublisher-maintained source entries, contextual notes and labeled media. Reviewable documentation is not an independent audit.\n\nThe current public record is maintained by Emerald Legacy Systems.\n\nEXTERNAL REVIEW, WHERE AVAILABLE\n\nIndependent Third-Party Verification\n\nA separate evidence class requiring an identifiable independent reviewer, scope and report. Account access or a screenshot alone does not establish it.\n\nNot available in the current published evidence set.\n\nComparison depends on comparable evidence\n\nProduct availability is not performance evidence. There is no published like-for-like numerical series here for comparing Quant against Scanner, Recovery Expert or indicator examples. The comparison page separates documented values from missing evidence rather than ranking products.\n\nCompare evidence\nHistorical and backtest results do not guarantee future performance. Forward/demo records are not real-money performance. Execution conditions differ between simulation, demo and real-money trading. Losses are possible.",
+      "links": [
+        {
+          "href": "/performance",
+          "label": "Performance overview"
+        },
+        {
+          "href": "/performance/compare",
+          "label": "Evidence comparison"
+        },
+        {
+          "href": "/performance/live-vs-backtest",
+          "label": "Forward vs backtest"
+        },
+        {
+          "href": "/verification",
+          "label": "Verification methodology"
+        },
+        {
+          "href": "/ledger",
+          "label": "Emerald Ledger"
+        },
+        {
+          "href": "/systems/quant",
+          "label": "Emerald Quant System"
+        },
+        {
+          "href": "/ledger",
+          "label": "Read the Emerald Ledger"
+        },
+        {
+          "href": "/performance/compare",
+          "label": "Compare evidence"
+        }
+      ],
+      "title": "Documented Performance | Emerald Legacy Systems",
+      "description": "Understand Emerald's documented trading results, public demo forward records, evidence classes and configuration-specific performance limits.",
+      "main": 1,
+      "brokenImages": [],
+      "clippedText": []
+    },
+    {
+      "route": "/verification",
+      "width": 1440,
+      "reflowCheck": false,
+      "client": 1425,
+      "scroll": 1425,
+      "h1": ["Performance verification methodology"],
+      "headings": [
+        {
+          "level": 1,
+          "text": "Performance verification methodology"
+        },
+        {
+          "level": 2,
+          "text": "What the current documentation contains"
+        },
+        {
+          "level": 2,
+          "text": "Review context currently listed"
+        },
+        {
+          "level": 3,
+          "text": "Public Demo Reference Account"
+        },
+        {
+          "level": 3,
+          "text": "Public Demo Read-Only Access"
+        },
+        {
+          "level": 2,
+          "text": "Media, updates and corrections"
+        }
+      ],
+      "text": "DOCUMENTATION AND REVIEW BOUNDARIES\n\nPerformance verification methodology\n\nEmerald Ledger is the public record and context layer for Documented Performance. Its source entries and supporting context make results reviewable; they do not establish independent certification.\n\nPerformance overview\nEvidence comparison\nForward vs backtest\nVerification methodology\nEmerald Ledger\nEmerald Quant System\nWhat the current documentation contains\nSystem and configuration identity\nEmerald Quant System; Metals / XAUUSD; MT4. Record ownership remains with this configuration, separate from broader system-family coverage and product availability.\nDated record identity\nDaily, weekly and cumulative entries have stable record IDs and explicit coverage dates. The latest cumulative source is cumulative-2-weeks, ending 2026-08-28. The end date is record coverage, not a last-updated timestamp.\nEvidence and account classification\nThe current entries are a Forward Performance Record from a Public Demo Reference Account. A backtest should be labeled separately as historical simulation, with its assumptions and period disclosed.\nSource versions\nRecords are maintained in version-controlled site source. This is not an immutable verification system or a public per-record correction log. A source revision is distinct from the period covered by a result.\nReview context currently listed\n\nAccount Reference / Available\n\nPublic Demo Reference Account\n\nSupporting account-reference information identifies the public demo record associated with the Ledger.\n\nRead-Only Review Access / Available\n\nPublic Demo Read-Only Access\n\nRead-only review access may be provided separately for review without trading control.\n\nAvailable describes the listed review method, not an independent audit or public access credentials. Reviewable documentation does not imply independent audit or third-party certification. Independent third-party verification, where available, would need a named reviewer, explicit scope and report; none is supplied in the current published evidence set.\n\nMedia, updates and corrections\nLabel the media, not just the result\nThe asset registry associates media with a record, media type, coverage dates and descriptive context. A screenshot or publisher-produced thumbnail is supporting documentation, not a complete transaction history or proof of independent verification.\nRead embedded claims cautiously\nSome legacy Ledger artwork includes verification wording and account identifiers. It is not reproduced on these pages. Embedded wording is not evidence of independent audit, real-money performance or results on other platforms.\nStatic publication, not a continuous feed\nThe displayed source records are static. Forward describes how results were observed, not how frequently this website refreshes. No current timestamp, streaming account connection or automatic update cadence is claimed.\nDisclose corrections explicitly\nA correction should identify the affected record and field, previous and revised values, reason and revision date. Its original coverage dates should remain distinct from the correction date. This is the disclosure practice to follow, not a claim that a public correction log already exists.\nKeep review access separate\nSensitive account identifiers and access details are not displayed on these methodology pages. Review access, where arranged separately, does not grant trading authority and is not third-party certification.\nCheck the limits of the evidence\nA short observed period, incomplete media or missing backtest assumptions limits interpretation. Use the Ledger's classification and configuration context, and do not infer unavailable results or future profitability.\nHistorical and backtest results do not guarantee future performance. Forward/demo records are not real-money performance. Execution conditions differ between simulation, demo and real-money trading. Losses are possible.",
+      "links": [
+        {
+          "href": "/performance",
+          "label": "Performance overview"
+        },
+        {
+          "href": "/performance/compare",
+          "label": "Evidence comparison"
+        },
+        {
+          "href": "/performance/live-vs-backtest",
+          "label": "Forward vs backtest"
+        },
+        {
+          "href": "/verification",
+          "label": "Verification methodology"
+        },
+        {
+          "href": "/ledger",
+          "label": "Emerald Ledger"
+        },
+        {
+          "href": "/systems/quant",
+          "label": "Emerald Quant System"
+        }
+      ],
+      "title": "Performance Verification Methodology | Emerald Legacy Systems",
+      "description": "How Emerald documents public performance records: configuration identity, dated sources, media context, correction practices and independent-review boundaries.",
+      "main": 1,
+      "brokenImages": [],
+      "clippedText": []
+    },
+    {
+      "route": "/technology",
+      "width": 720,
+      "reflowCheck": true,
+      "client": 705,
+      "scroll": 705,
+      "h1": ["Engineering architecture for quantitative trading systems"],
+      "headings": [
+        {
+          "level": 1,
+          "text": "Engineering architecture for quantitative trading systems"
+        },
+        {
+          "level": 2,
+          "text": "Separate responsibilities, connected products"
+        },
+        {
+          "level": 3,
+          "text": "Signal-generation logic"
+        },
+        {
+          "level": 3,
+          "text": "Indicator presentation"
+        },
+        {
+          "level": 3,
+          "text": "Scanner aggregation"
+        },
+        {
+          "level": 3,
+          "text": "Automated trading logic"
+        },
+        {
+          "level": 3,
+          "text": "Recovery and trade management"
+        },
+        {
+          "level": 3,
+          "text": "Platform adapters"
+        },
+        {
+          "level": 3,
+          "text": "Licensing and entitlement runtime"
+        },
+        {
+          "level": 3,
+          "text": "Performance documentation"
+        },
+        {
+          "level": 2,
+          "text": "A multi-signal framework, not one entry rule"
+        },
+        {
+          "level": 2,
+          "text": "Signal information is not an immediate order"
+        },
+        {
+          "level": 3,
+          "text": "Interpretation, execution and position state"
+        },
+        {
+          "level": 3,
+          "text": "Safeguards have limits"
+        },
+        {
+          "level": 2,
+          "text": "Platform availability is not identical implementation"
+        },
+        {
+          "level": 3,
+          "text": "MetaTrader chart context"
+        },
+        {
+          "level": 3,
+          "text": "TradingView and NinjaTrader context"
+        },
+        {
+          "level": 2,
+          "text": "Access, observation and documented iteration"
+        }
+      ],
+      "text": "TECHNOLOGY / SYSTEM ENGINEERING\n\nEngineering architecture for quantitative trading systems\n\nEmerald Legacy Systems separates signal information, monitoring, assisted management and automated execution. Distinct product responsibilities keep the signal framework from being mistaken for a single monolithic trading strategy.\n\nSeparate responsibilities, connected products\n\nThis is a conceptual responsibility map, not a sequence that sends every signal through every product. Platform adaptation and access concerns support the relevant implementation; documented results remain a separate evidence layer.\n\nINFORMATION\n\nSignal-generation logic\n\nThe multi-signal framework separates trend, high-resolution, scalp, range and synthesis roles. Signal context is information for interpretation, not an instruction to place an immediate trade.\n\nExplore the signal library\n\nINFORMATION\n\nIndicator presentation\n\nEmerald Legacy System\n\nEmerald Legacy System presents the unified multi-signal framework on supported trading platforms. Chart presentation and signal meaning are separate from order execution.\n\nExplore the indicator product\n\nMONITORING\n\nScanner aggregation\n\nEmerald Signal Scanner\n\nEmerald Signal Scanner monitors configured symbols and signal modules. Its filters, signal-age context and chart-view workflow support review; monitoring is not automated strategy execution.\n\nExplore Scanner workflows\n\nEXECUTION\n\nAutomated trading logic\n\nEmerald Quant System\n\nEmerald Quant System is the automated strategy implementation. Signal interpretation sits alongside trade execution, risk-management logic, position management and trade lifecycle management.\n\nExplore Quant architecture\n\nASSISTED EXECUTION\n\nRecovery and trade management\n\nEmerald Recovery Expert\n\nEmerald Recovery Expert is a separate, semi-automated product. The trader opens the first trade; subsequent management follows the configured recovery workflow. Recovery actions can add exposure and do not ensure recovery or profit.\n\nExplore Recovery Expert\n\nIMPLEMENTATION BOUNDARY\n\nPlatform adapters\n\nThe platform layer concerns how a product fits its host environment. Chart workflows, settings and execution constraints can differ; one platform's implementation is not a specification for another.\n\nACCESS BOUNDARY\n\nLicensing and entitlement runtime\n\nProduct and platform access is a separate concern from signal generation or trade decisions. The catalog distinguishes public-subscription products from private-investor Quant access; an access model does not describe an execution mechanism.\n\nEVIDENCE BOUNDARY\n\nPerformance documentation\n\nEmerald Ledger connects documented results to a specific configuration and coverage period. This public documentation layer is separate from trading execution and does not certify other products' results.\n\nUnderstand performance evidence\nView the product catalog and execution roles\nA multi-signal framework, not one entry rule\n\nThe published module roles describe distinct forms of signal context. Harmonizer combines Scalp Signal and Range Signal outputs; the public model does not specify weighting, voting or probability mechanics. Harmonizer SAFE is an auxiliary defensive helper, not a guarantee against loss.\n\nMain Signal / Primary\nTrend-oriented signal module within the Emerald Legacy System signal framework.\nFineScalp / Primary\nHigh-resolution tick / seconds-chart signal module within the Emerald Legacy System signal framework.\nScalp Signal / Primary\nShort-horizon scalping-oriented signal module within the Emerald Legacy System signal framework.\nRange Signal / Primary\nRange-oriented signal module within the Emerald Legacy System signal framework.\nHarmonizer / Primary\nSignal-synthesis module that combines Scalp Signal and Range Signal outputs inside the Emerald signal framework.\nHarmonizer SAFE / Auxiliary\nAuxiliary defensive helper signal module that may be enabled alongside a preferred primary signal.\nSignal information is not an immediate order\nInterpretation, execution and position state\n\nQuant's published capabilities include signal interpretation, automated trade execution, risk-management logic, position management and trade lifecycle management. An implementation must account for execution conditions and platform constraints; an indicator example alone does not describe these responsibilities.\n\nSafeguards have limits\n\nExact entry conditions, risk limits, recovery rules and implementation safeguards are not specified here. Risk-management logic is a responsibility, not a promise of loss prevention. Recovery Expert's trader-first-entry workflow remains separate from Quant automation.\n\nNo proprietary formula, threshold or source code is needed to explain these boundaries. This website documents the products; it does not generate signals or execute trades.\n\nPlatform availability is not identical implementation\nMT4\nMT5\nTradingView\nNinjaTrader\nMetaTrader chart context\n\nFor Legacy System and Scanner, the published MT4 / MT5 notes describe support for FineScalp custom high-resolution tick and seconds-chart workflows. Indicator presentation and expert-advisor trade management have different responsibilities.\n\nTradingView and NinjaTrader context\n\nLegacy System and Scanner can use native FineScalp high-resolution chart capability where available. MetaTrader offline/custom-chart mechanics are not implied. Product availability does not establish identical settings, interfaces or execution mechanisms.\n\nFineScalp capability is not attributed to Recovery Expert or Quant. Detailed platform implementation documentation remains planned. Quant's public performance configuration remains Metals / XAUUSD on MT4; availability on another platform does not establish results there.\n\nAccess, observation and documented iteration\n\nLicensing and entitlements concern access to a product on a platform, not its signal meaning or a guarantee of trading behavior. Validation protocols and enforcement details belong in platform and portal engineering documentation, not this public overview.\n\nScanner monitoring concerns configured signals. It is not evidence of a continuously monitored production service. The current Public Demo Reference Account supplies a Forward Performance Record for the stated Quant configuration; the website publishes static documentation, not a continuous trading feed.\n\nMoving from a research concept toward production calls for implementation validation, evidence review and documented iteration. Production monitoring, where applicable, needs its own defined scope; no operational coverage or completed stage is inferred from a product listing.\n\nRead the research approach\nRead verification methodology",
+      "links": [
+        {
+          "href": "/signals",
+          "label": "Explore the signal library"
+        },
+        {
+          "href": "/indicators",
+          "label": "Explore the indicator product"
+        },
+        {
+          "href": "/signal-scanner",
+          "label": "Explore Scanner workflows"
+        },
+        {
+          "href": "/systems/quant",
+          "label": "Explore Quant architecture"
+        },
+        {
+          "href": "/recovery-expert",
+          "label": "Explore Recovery Expert"
+        },
+        {
+          "href": "/performance",
+          "label": "Understand performance evidence"
+        },
+        {
+          "href": "/systems",
+          "label": "View the product catalog and execution roles"
+        },
+        {
+          "href": "/research",
+          "label": "Read the research approach"
+        },
+        {
+          "href": "/verification",
+          "label": "Read verification methodology"
+        }
+      ],
+      "title": "Quantitative Trading Technology | Emerald Legacy Systems",
+      "description": "Explore Emerald's algorithmic trading architecture: signal information, Scanner monitoring, automated and assisted execution, and platform adaptation.",
+      "main": 1,
+      "brokenImages": [],
+      "clippedText": [],
+      "keyboardFocus": {
+        "visible": true,
+        "outline": "solid",
+        "width": "2px",
+        "href": "/indicators"
+      },
+      "keyboardActivation": true
+    },
+    {
+      "route": "/research",
+      "width": 720,
+      "reflowCheck": true,
+      "client": 705,
+      "scroll": 705,
+      "h1": ["Research, testing and documented iteration"],
+      "headings": [
+        {
+          "level": 1,
+          "text": "Research, testing and documented iteration"
+        },
+        {
+          "level": 2,
+          "text": "An evaluation framework, not a completion certificate"
+        },
+        {
+          "level": 3,
+          "text": "Hypothesis / trading concept"
+        },
+        {
+          "level": 3,
+          "text": "Signal or execution design"
+        },
+        {
+          "level": 3,
+          "text": "Historical testing"
+        },
+        {
+          "level": 3,
+          "text": "Sensitivity and robustness analysis"
+        },
+        {
+          "level": 3,
+          "text": "Implementation validation"
+        },
+        {
+          "level": 3,
+          "text": "Forward / demo reference observation"
+        },
+        {
+          "level": 3,
+          "text": "Documented results"
+        },
+        {
+          "level": 3,
+          "text": "Revision / iteration"
+        },
+        {
+          "level": 2,
+          "text": "Different tests address different uncertainties"
+        },
+        {
+          "level": 3,
+          "text": "Historical testing and implementation fidelity"
+        },
+        {
+          "level": 3,
+          "text": "Forward observation with account context"
+        },
+        {
+          "level": 2,
+          "text": "Current public research record"
+        },
+        {
+          "level": 3,
+          "text": "Emerald Quantitative Trading Technology Program"
+        },
+        {
+          "level": 2,
+          "text": "Public outputs and their limits"
+        },
+        {
+          "level": 2,
+          "text": "Research findings are not commercial promises"
+        }
+      ],
+      "text": "RESEARCH / TESTING AND ITERATION\n\nResearch, testing and documented iteration\n\nQuantitative systems need explicit questions, implementation checks and evidence that can be interpreted in context. Emerald's research approach separates an evaluation method from a claim about a product's outcomes.\n\nAn evaluation framework, not a completion certificate\n\nThese stages describe what to investigate and document. They do not assert that every product has completed every stage, passed every test or reached production. Findings can send work back to an earlier stage.\n\n01\nHypothesis / trading concept\n\nDefine the behavior to investigate, the market context and what would contradict the concept before interpreting results.\n\n02\nSignal or execution design\n\nSeparate informational outputs from entry, position-management and exit responsibilities. Keep the intended product role and configuration explicit.\n\n03\nHistorical testing\n\nDocument the dataset, period, spread/slippage assumptions and execution model. Treat a simulation as a model, not an observed account record.\n\n04\nSensitivity and robustness analysis\n\nExamine dependence on parameters and market regimes, and consider overfitting. A favorable historical window is not evidence that nearby settings or future conditions will behave similarly.\n\n05\nImplementation validation\n\nCompare intended logic with platform behavior: signal timing, chart context, order handling and position state where applicable. Account for the host platform's constraints.\n\n06\nForward / demo reference observation\n\nObserve implementation behavior after configuration. Identify the account classification, instrument, platform and observation period rather than treating every forward record as equivalent.\n\n07\nDocumented results\n\nRetain record identity, coverage dates, configuration context and evidence labels. Keep missing evidence explicit and simulations distinct from observed records.\n\n08\nRevision / iteration\n\nUse findings to revisit the hypothesis, implementation or evaluation. Disclose material corrections and distinguish a revision date from the period covered by a result.\n\nDifferent tests address different uncertainties\nHistorical testing and implementation fidelity\n\nData quality, spread/slippage assumptions, parameter sensitivity, regime dependence and overfitting all affect interpretation. Implementation fidelity asks whether the platform behavior matches the rules being evaluated, rather than assuming simulated execution transfers unchanged.\n\nForward performance vs backtest methodology\nForward observation with account context\n\nThe Public Demo Reference Account is used to observe the configured Quant implementation. Its Forward Performance Record remains specific to Metals / XAUUSD / MT4. Demo execution differs from real-money execution; the current public records are static, not a continuous feed.\n\nRead the Emerald Ledger record context\n\nValidation reduces uncertainty; it does not prove future profitability. Logic verification, historical testing, implementation testing, forward/demo observation and documented evidence address different questions. Production monitoring, where applicable, adds an operational layer; it is not a substitute for those checks. Losses remain possible.\n\nCurrent public research record\n\nWebsite visibility and publication status are different. The current research-program record is an internal research note, not evidence of peer-reviewed publication.\n\nPublication status: Draft\n\nEmerald Quantitative Trading Technology Program\n\nInternal research-program record for the Emerald Legacy Systems quantitative trading technology, covering system design, indicator logic, signal architecture, and public forward-performance analysis.\n\nNo journal, DOI, authorship or publication date is recorded in the current source. Public availability of this note does not establish external review.\n\nPublic outputs and their limits\nArchitecture and configuration notes\nProduct roles and platform context explain what is being discussed without disclosing proprietary rules. They do not establish identical implementations or completed validation.\nExplore the engineering architecture\nDocumented observations and records\nEmerald Ledger is a public context and documentation layer, not a scientific certification mechanism. Documented Performance belongs to the stated configuration, not every related product.\nUnderstand the performance evidence\nMethodology and evidence comparisons\nComparisons distinguish available evidence from missing data. An evaluation method is not a result, and missing metrics should not be reconstructed.\nInspect documented evidence availability\nScreenshots and supporting media\nMedia needs record identity, coverage and context. A chart example or publisher thumbnail alone does not establish independent review or a complete trading record.\nReview documentation boundaries\nResearch findings are not commercial promises\n\nA finding about a signal, parameter setting or historical period does not establish a product-wide outcome. Indicator examples, Scanner observations, Recovery Expert management and Quant strategy results have different scopes. This methodology adds no performance estimates and does not claim independent certification.\n\nMaterial revisions should identify the affected configuration, evidence and reason for change. Research owners must supply supporting records before a result, completed validation stage or publication claim is made public.\n\nReturn to technology",
+      "links": [
+        {
+          "href": "/performance/live-vs-backtest",
+          "label": "Forward performance vs backtest methodology"
+        },
+        {
+          "href": "/ledger",
+          "label": "Read the Emerald Ledger record context"
+        },
+        {
+          "href": "/technology",
+          "label": "Explore the engineering architecture"
+        },
+        {
+          "href": "/performance",
+          "label": "Understand the performance evidence"
+        },
+        {
+          "href": "/performance/compare",
+          "label": "Inspect documented evidence availability"
+        },
+        {
+          "href": "/verification",
+          "label": "Review documentation boundaries"
+        },
+        {
+          "href": "/technology",
+          "label": "Return to technology"
+        }
+      ],
+      "title": "Quantitative Trading Research | Emerald Legacy Systems",
+      "description": "Emerald's research approach to historical testing, implementation validation, forward demo observation and documented iteration, with explicit evidence limits.",
+      "main": 1,
+      "brokenImages": [],
+      "clippedText": [],
+      "keyboardFocus": {
+        "visible": true,
+        "outline": "solid",
+        "width": "2px",
+        "href": "/ledger"
+      },
+      "keyboardActivation": true
+    }
+  ],
+  "links": [
+    {
+      "href": "/signals",
+      "status": 200
+    },
+    {
+      "href": "/indicators",
+      "status": 200
+    },
+    {
+      "href": "/signal-scanner",
+      "status": 200
+    },
+    {
+      "href": "/systems/quant",
+      "status": 200
+    },
+    {
+      "href": "/recovery-expert",
+      "status": 200
+    },
+    {
+      "href": "/performance",
+      "status": 200
+    },
+    {
+      "href": "/systems",
+      "status": 200
+    },
+    {
+      "href": "/research",
+      "status": 200
+    },
+    {
+      "href": "/verification",
+      "status": 200
+    },
+    {
+      "href": "/performance/live-vs-backtest",
+      "status": 200
+    },
+    {
+      "href": "/ledger",
+      "status": 200
+    },
+    {
+      "href": "/technology",
+      "status": 200
+    },
+    {
+      "href": "/performance/compare",
+      "status": 200
+    },
+    {
+      "href": "/videos",
+      "status": 200
+    },
+    {
+      "href": "/professional",
+      "status": 200
+    },
+    {
+      "href": "/platforms",
+      "status": 200
+    }
+  ],
+  "errors": [
+    {
+      "method": "Log.entryAdded",
+      "params": {
+        "entry": {
+          "source": "network",
+          "level": "error",
+          "text": "Failed to load resource: the server responded with a status of 404 (Not Found)",
+          "timestamp": 1789419598237.434,
+          "url": "http://localhost:3041/favicon.ico",
+          "networkRequestId": "66316.42"
+        }
+      }
+    }
+  ],
+  "runtimeErrors": [],
+  "note": "Production build port 3041. 720 CSS px is a desktop 200% reflow-equivalent width, not a browser zoom claim. Any existing favicon 404 is retained separately from application runtime errors."
+}

@@ -19,7 +19,8 @@
     "foundation:audit": "node scripts/audit-foundation.mjs",
     "seo:audit": "node scripts/audit-seo.mjs",
     "portal:audit": "node scripts/audit-portal-navigation.mjs",
-    "evidence:audit": "node scripts/audit-performance-evidence.mjs"
+    "evidence:audit": "node scripts/audit-performance-evidence.mjs",
+    "engineering:audit": "node scripts/audit-engineering-content.mjs"
   },
   "dependencies": {
     "clsx": "^2.1.1",
