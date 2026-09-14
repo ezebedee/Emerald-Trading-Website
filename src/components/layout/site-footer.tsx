@@ -3,6 +3,7 @@ import { BrandLockup } from "@/components/brand/brand-lockup";
 import { Badge } from "@/components/ui/badge";
 import { Container } from "@/components/ui/container";
 import { siteBrand } from "@/data/site";
+import { portalLoginUrl } from "@/lib/portal";
 
 const footerSections = [
   {
@@ -23,7 +24,7 @@ const footerSections = [
     links: [
       { href: "/systems", label: "Systems" },
       { href: "/indicators", label: "Indicators & Signals" },
-      { href: "/signals", label: "Signal Dashboard" },
+      { href: "/signals", label: "Signal Library" },
       { href: "/technology", label: "Technology" },
     ],
   },
@@ -34,7 +35,8 @@ const footerSections = [
       { href: "/research", label: "Research" },
       { href: "/about", label: "About" },
       { href: "/professional", label: "Professional / Investor" },
-      { href: "/private-access", label: "Private Access" },
+      { href: portalLoginUrl, label: "Client Portal" },
+      { href: portalLoginUrl, label: "Partner Portal" },
     ],
   },
 ] as const;
@@ -92,7 +94,7 @@ export function SiteFooter() {
               <p className="type-label text-gold-muted">{section.title}</p>
               <ul className="mt-4 grid gap-3">
                 {section.links.map((link) => (
-                  <li key={link.href}>
+                  <li key={link.label}>
                     <Link href={link.href} className={footerLinkClassName}>
                       {link.label}
                     </Link>

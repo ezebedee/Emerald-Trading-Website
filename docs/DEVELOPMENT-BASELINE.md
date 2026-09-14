@@ -41,7 +41,7 @@ the pinned runtime and package manager, frozen install, format check, lint,
 typecheck, all foundation audits, and production build. It does not deploy or
 require production credentials.
 
-`foundation:audit` aggregates seven checks: `data:audit`, `assets:audit`,
+`foundation:audit` aggregates eight checks: `data:audit`, `assets:audit`,
 `seo:audit`, `analytics:audit`, `reliability:audit`, `accessibility:audit`, and
-`performance:audit`. These source/registry audits supplement, not replace,
-browser QA. Including the aggregate command, there are eight audit commands.
+`performance:audit`, and `portal:audit`. These source/registry audits supplement,
+not replace, browser QA. Including the aggregate, there are nine audit commands.

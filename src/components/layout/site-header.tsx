@@ -6,6 +6,7 @@ import { DesktopNav } from "@/components/layout/desktop-nav";
 import { HeaderScrollState } from "@/components/layout/header-scroll-state";
 import { MobileNav } from "@/components/layout/mobile-nav";
 import { siteBrand } from "@/data/site";
+import { portalLoginUrl } from "@/lib/portal";
 
 export function SiteHeader() {
   return (
@@ -28,8 +29,8 @@ export function SiteHeader() {
             <LinkButton href="/ledger" size="sm" variant="primary">
               Follow Performance
             </LinkButton>
-            <LinkButton href="/private-access" size="sm" variant="premium">
-              Request Private Access
+            <LinkButton href={portalLoginUrl} size="sm" variant="premium">
+              Sign In
             </LinkButton>
           </div>
         </div>
