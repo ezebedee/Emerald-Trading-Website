@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
 
-import { PagePlaceholder } from "@/components/dev/page-placeholder";
+import { PerformanceOverview } from "@/components/performance/performance-overview";
 import { JsonLd } from "@/components/seo/json-ld";
 import {
   createPageMetadata,
@@ -21,7 +21,7 @@ export default function PerformancePage() {
   return (
     <>
       <JsonLd data={pageJsonLd} />
-      <PagePlaceholder title="Performance" variant="dashboard" />
+      <PerformanceOverview />
     </>
   );
 }

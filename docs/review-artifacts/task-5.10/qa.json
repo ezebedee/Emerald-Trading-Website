@@ -1,0 +1,831 @@
+{
+  "results": [
+    {
+      "route": "/performance",
+      "width": 375,
+      "client": 360,
+      "scroll": 360,
+      "h1": ["Performance, with context."],
+      "headings": [
+        {
+          "level": 1,
+          "text": "Performance, with context."
+        },
+        {
+          "level": 2,
+          "text": "Current public record"
+        },
+        {
+          "level": 3,
+          "text": "Emerald Quant System"
+        },
+        {
+          "level": 2,
+          "text": "Read the evidence class before the result"
+        },
+        {
+          "level": 3,
+          "text": "Backtest"
+        },
+        {
+          "level": 3,
+          "text": "Forward / Demo Reference"
+        },
+        {
+          "level": 3,
+          "text": "Documented Historical Record"
+        },
+        {
+          "level": 3,
+          "text": "Internal Documentation"
+        },
+        {
+          "level": 3,
+          "text": "Independent Third-Party Verification"
+        },
+        {
+          "level": 2,
+          "text": "Comparison depends on comparable evidence"
+        }
+      ],
+      "text": "DOCUMENTED PERFORMANCE\n\nPerformance, with context.\n\nA result is meaningful only alongside its system, evaluation method and account context. This is the starting point for understanding Emerald's Public Performance Record and the limits of its evidence.\n\nPerformance overview\nEvidence comparison\nForward vs backtest\nVerification methodology\nEmerald Ledger\nEmerald Quant System\nCurrent public record\n\nFORWARD PERFORMANCE RECORD\n\nEmerald Quant System\n\nMetals / XAUUSD / MT4. The Public Demo Reference Account is forward-observed, not a real-money account. These Documented Results belong to this configuration, not the entire product family.\n\nRead the Emerald Ledger\nRecord coverage\nAug 17-28, 2026\nLatest cumulative record ends\n2026-08-28\nPublication model\nStatic documented records; not a continuously updated feed\nIndependent audit\nNot available in the published evidence set\nRead the evidence class before the result\n\nThese labels describe different dimensions, not interchangeable proof levels. A dated forward/demo record can also be historical and internally documented. None of those labels establishes independent review.\n\nHISTORICAL SIMULATION\n\nBacktest\n\nA strategy applied to historical data under specified modeling assumptions. It is not an observed account record.\n\nComparable numerical results are not documented in the current public dataset.\n\nOBSERVATION AND ACCOUNT CONTEXT\n\nForward / Demo Reference\n\nA Forward Performance Record observes a configured system over time. The current record uses a Public Demo Reference Account, not a real-money account.\n\nDocumented for the current Emerald Quant System configuration only.\n\nRECORD DATE AND PRESERVATION\n\nDocumented Historical Record\n\nA dated record retained for inspection. Historical means the period has ended; it does not by itself mean the result is a backtest.\n\nThe Ledger retains dated daily, weekly and cumulative forward records.\n\nEVIDENCE PROVENANCE\n\nInternal Documentation\n\nPublisher-maintained source entries, contextual notes and labeled media. Reviewable documentation is not an independent audit.\n\nThe current public record is maintained by Emerald Legacy Systems.\n\nEXTERNAL REVIEW, WHERE AVAILABLE\n\nIndependent Third-Party Verification\n\nA separate evidence class requiring an identifiable independent reviewer, scope and report. Account access or a screenshot alone does not establish it.\n\nNot available in the current published evidence set.\n\nComparison depends on comparable evidence\n\nProduct availability is not performance evidence. There is no published like-for-like numerical series here for comparing Quant against Scanner, Recovery Expert or indicator examples. The comparison page separates documented values from missing evidence rather than ranking products.\n\nCompare evidence\nHistorical and backtest results do not guarantee future performance. Forward/demo records are not real-money performance. Execution conditions differ between simulation, demo and real-money trading. Losses are possible.",
+      "links": [
+        "/performance",
+        "/performance/compare",
+        "/performance/live-vs-backtest",
+        "/verification",
+        "/ledger",
+        "/systems/quant",
+        "/ledger",
+        "/performance/compare"
+      ],
+      "title": "Documented Performance | Emerald Legacy Systems",
+      "description": "Understand Emerald's documented trading results, public demo forward records, evidence classes and configuration-specific performance limits.",
+      "brokenImages": [],
+      "keyboardFocus": {
+        "visible": true,
+        "outline": "solid",
+        "width": "2px",
+        "href": "/performance/compare"
+      }
+    },
+    {
+      "route": "/performance/compare",
+      "width": 375,
+      "client": 360,
+      "scroll": 360,
+      "h1": ["Compare the evidence, not just the return."],
+      "headings": [
+        {
+          "level": 1,
+          "text": "Compare the evidence, not just the return."
+        },
+        {
+          "level": 2,
+          "text": "Emerald Quant System: forward record and backtest availability"
+        },
+        {
+          "level": 2,
+          "text": "What this comparison does not establish"
+        }
+      ],
+      "text": "EVIDENCE COMPARISON\n\nCompare the evidence, not just the return.\n\nOnly the current Quant configuration has a published numerical forward record in this dataset. The backtest column makes the missing comparison explicit; it is not evidence that a comparable backtest has been published.\n\nPerformance overview\nEvidence comparison\nForward vs backtest\nVerification methodology\nEmerald Ledger\nEmerald Quant System\nEmerald Quant System: forward record and backtest availability\nCurrent configuration only: Metals / XAUUSD / MT4. Values trace to the latest cumulative Ledger record. Percentages use human percentage units and are rounded to two decimal places. Missing values are not zero.\nComparison field\tForward / Demo Reference\tBacktest evidence\nSystem under consideration\tEmerald Quant System\tEmerald Quant System\nEvidence method\tForward Performance Record\tHistorical simulation\nAccount context\tPublic Demo Reference Account\tNot applicable: simulation\nDocumented configuration\tMetals / XAUUSD\tNot documented\nInstrument\tXAUUSD\tNot documented\nPlatform context\tMT4\tNot documented\nEvaluation period\tAug 17-28, 2026\tNot documented\nCumulative return\t20.50%\tNot documented\nMaximum drawdown\t10.67%\tNot documented\nTrade count\t499\tNot documented\nLatest cumulative record ends\t2026-08-28\tNot documented\nSource record\tcumulative-2-weeks\tNot documented\nDocumentation\tStatic, internally documented Ledger record\tNot documented\nIndependent third-party verification\tNot available\tNot available\nWhat this comparison does not establish\nNo cross-product return ranking\nScanner observations, Recovery Expert trade management and indicator signal examples are not equivalent to Quant strategy returns. Comparable numerical performance is not documented here for those products.\nNo cross-platform extrapolation\nAvailability on MT4, MT5, TradingView and NinjaTrader does not establish performance on each platform. The documented configuration here is Metals / XAUUSD on MT4.\nNo reconstructed missing metrics\nNot documented means the approved source does not supply a value. It does not mean zero performance, no trades or an unsuccessful test.\nNo universal ranking from one period\nComparable evaluation would require disclosed periods, instruments, execution assumptions and risk context. A single static cumulative record does not establish future profitability.\nHistorical and backtest results do not guarantee future performance. Forward/demo records are not real-money performance. Execution conditions differ between simulation, demo and real-money trading. Losses are possible.",
+      "links": [
+        "/performance",
+        "/performance/compare",
+        "/performance/live-vs-backtest",
+        "/verification",
+        "/ledger",
+        "/systems/quant"
+      ],
+      "title": "Performance Evidence Comparison | Emerald Legacy Systems",
+      "description": "Inspect the Quant Metals/XAUUSD MT4 forward record alongside backtest evidence availability, with source-backed metrics and explicit missing data.",
+      "brokenImages": [],
+      "keyboardFocus": {
+        "visible": true,
+        "outline": "solid",
+        "width": "2px",
+        "href": "/performance/compare"
+      },
+      "table": {
+        "client": 341,
+        "scroll": 660,
+        "caption": true,
+        "colHeaders": 3,
+        "rowHeaders": 14,
+        "keyboardScroll": true
+      }
+    },
+    {
+      "route": "/performance/live-vs-backtest",
+      "width": 375,
+      "client": 360,
+      "scroll": 360,
+      "h1": ["Forward Performance vs Backtest Performance"],
+      "headings": [
+        {
+          "level": 1,
+          "text": "Forward Performance vs Backtest Performance"
+        },
+        {
+          "level": 2,
+          "text": "Backtest: examine the model and its assumptions"
+        },
+        {
+          "level": 2,
+          "text": "Forward / Demo Reference: observe the configured implementation"
+        },
+        {
+          "level": 2,
+          "text": "Use both without treating them as equivalent"
+        }
+      ],
+      "text": "EVALUATION METHODS\n\nForward Performance vs Backtest Performance\n\nBacktesting asks how configured rules behave in a historical simulation. Forward observation asks how an implementation behaves after configuration. They answer related, but different, questions.\n\nPerformance overview\nEvidence comparison\nForward vs backtest\nVerification methodology\nEmerald Ledger\nEmerald Quant System\nBacktest: examine the model and its assumptions\nHistorical data quality\nMissing ticks, inconsistent prices or incomplete sessions can change signal timing and modeled fills. A backtest needs a disclosed data source, resolution and evaluation period.\nSpread, slippage and execution modeling\nModeled transaction costs, order timing and fill rules affect algorithmic results. A simulation that assumes ideal fills does not establish achievable execution.\nParameter sensitivity and overfitting\nRules selected to fit one historical window may not generalize. Sensitivity checks and separate evaluation periods help expose dependence on a narrow parameter choice.\nRegime dependence\nA trend, range or volatility regime can favor particular rules. Historical profitability in one regime does not establish robustness in another.\nForward / Demo Reference: observe the configured implementation\nObservation after configuration\nThe Forward Performance Record documents system behavior during an observed period after the strategy has been configured, rather than reconstructing that period as a simulation.\nBroker and demo execution conditions\nThe Public Demo Reference Account is not a real-money account. Demo fills, spreads, order handling and liquidity representation can differ from real-money execution.\nImplementation behavior\nForward observation can expose signal processing, order handling and position-management behavior. It remains specific to the stated system, instrument and platform configuration.\nA record, not a forecast\nA forward period does not eliminate model risk, operational failures or changing market conditions. Observed outcomes do not guarantee that later periods will resemble them.\nUse both without treating them as equivalent\n\nBacktesting can investigate rules across historical conditions; forward observation can examine the configured implementation over a subsequent period. Neither alone guarantees future results. The current public dataset contains a static Quant forward/demo record, not a published matched backtest series. A forward record can be stored as historical documentation without becoming a backtest.\n\nHistorical and backtest results do not guarantee future performance. Forward/demo records are not real-money performance. Execution conditions differ between simulation, demo and real-money trading. Losses are possible.",
+      "links": [
+        "/performance",
+        "/performance/compare",
+        "/performance/live-vs-backtest",
+        "/verification",
+        "/ledger",
+        "/systems/quant"
+      ],
+      "title": "Forward Performance vs Backtest Performance | Emerald Legacy Systems",
+      "description": "Understand algorithmic backtest assumptions, forward demo observation, execution differences and the limits of both evaluation methods.",
+      "brokenImages": [],
+      "keyboardFocus": {
+        "visible": true,
+        "outline": "solid",
+        "width": "2px",
+        "href": "/performance/compare"
+      }
+    },
+    {
+      "route": "/verification",
+      "width": 375,
+      "client": 360,
+      "scroll": 360,
+      "h1": ["Performance verification methodology"],
+      "headings": [
+        {
+          "level": 1,
+          "text": "Performance verification methodology"
+        },
+        {
+          "level": 2,
+          "text": "What the current documentation contains"
+        },
+        {
+          "level": 2,
+          "text": "Review context currently listed"
+        },
+        {
+          "level": 3,
+          "text": "Public Demo Reference Account"
+        },
+        {
+          "level": 3,
+          "text": "Public Demo Read-Only Access"
+        },
+        {
+          "level": 2,
+          "text": "Media, updates and corrections"
+        }
+      ],
+      "text": "DOCUMENTATION AND REVIEW BOUNDARIES\n\nPerformance verification methodology\n\nEmerald Ledger is the public record and context layer for Documented Performance. Its source entries and supporting context make results reviewable; they do not establish independent certification.\n\nPerformance overview\nEvidence comparison\nForward vs backtest\nVerification methodology\nEmerald Ledger\nEmerald Quant System\nWhat the current documentation contains\nSystem and configuration identity\nEmerald Quant System; Metals / XAUUSD; MT4. Record ownership remains with this configuration, separate from broader system-family coverage and product availability.\nDated record identity\nDaily, weekly and cumulative entries have stable record IDs and explicit coverage dates. The latest cumulative source is cumulative-2-weeks, ending 2026-08-28. The end date is record coverage, not a last-updated timestamp.\nEvidence and account classification\nThe current entries are a Forward Performance Record from a Public Demo Reference Account. A backtest should be labeled separately as historical simulation, with its assumptions and period disclosed.\nSource versions\nRecords are maintained in version-controlled site source. This is not an immutable verification system or a public per-record correction log. A source revision is distinct from the period covered by a result.\nReview context currently listed\n\nAccount Reference / Available\n\nPublic Demo Reference Account\n\nSupporting account-reference information identifies the public demo record associated with the Ledger.\n\nRead-Only Review Access / Available\n\nPublic Demo Read-Only Access\n\nRead-only review access may be provided separately for review without trading control.\n\nAvailable describes the listed review method, not an independent audit or public access credentials. Reviewable documentation does not imply independent audit or third-party certification. Independent third-party verification, where available, would need a named reviewer, explicit scope and report; none is supplied in the current published evidence set.\n\nMedia, updates and corrections\nLabel the media, not just the result\nThe asset registry associates media with a record, media type, coverage dates and descriptive context. A screenshot or publisher-produced thumbnail is supporting documentation, not a complete transaction history or proof of independent verification.\nRead embedded claims cautiously\nSome legacy Ledger artwork includes verification wording and account identifiers. It is not reproduced on these pages. Embedded wording is not evidence of independent audit, real-money performance or results on other platforms.\nStatic publication, not a continuous feed\nThe displayed source records are static. Forward describes how results were observed, not how frequently this website refreshes. No current timestamp, streaming account connection or automatic update cadence is claimed.\nDisclose corrections explicitly\nA correction should identify the affected record and field, previous and revised values, reason and revision date. Its original coverage dates should remain distinct from the correction date. This is the disclosure practice to follow, not a claim that a public correction log already exists.\nKeep review access separate\nSensitive account identifiers and access details are not displayed on these methodology pages. Review access, where arranged separately, does not grant trading authority and is not third-party certification.\nCheck the limits of the evidence\nA short observed period, incomplete media or missing backtest assumptions limits interpretation. Use the Ledger's classification and configuration context, and do not infer unavailable results or future profitability.\nHistorical and backtest results do not guarantee future performance. Forward/demo records are not real-money performance. Execution conditions differ between simulation, demo and real-money trading. Losses are possible.",
+      "links": [
+        "/performance",
+        "/performance/compare",
+        "/performance/live-vs-backtest",
+        "/verification",
+        "/ledger",
+        "/systems/quant"
+      ],
+      "title": "Performance Verification Methodology | Emerald Legacy Systems",
+      "description": "How Emerald documents public performance records: configuration identity, dated sources, media context, correction practices and independent-review boundaries.",
+      "brokenImages": [],
+      "keyboardFocus": {
+        "visible": true,
+        "outline": "solid",
+        "width": "2px",
+        "href": "/performance/compare"
+      }
+    },
+    {
+      "route": "/ledger",
+      "width": 375,
+      "client": 360,
+      "scroll": 360,
+      "h1": ["The public record of documented forward performance."],
+      "headings": [
+        {
+          "level": 1,
+          "text": "The public record of documented forward performance."
+        },
+        {
+          "level": 2,
+          "text": "A documented forward-performance record with explicit account classification."
+        },
+        {
+          "level": 2,
+          "text": "The latest cumulative Forward Performance snapshot."
+        },
+        {
+          "level": 3,
+          "text": "Emerald Ledger - First Two Weeks"
+        },
+        {
+          "level": 2,
+          "text": "Cumulative performance across documented reporting checkpoints."
+        },
+        {
+          "level": 2,
+          "text": "A chronological record of documented daily, weekly and cumulative reporting."
+        },
+        {
+          "level": 3,
+          "text": "Day 001"
+        },
+        {
+          "level": 3,
+          "text": "Day 002"
+        },
+        {
+          "level": 3,
+          "text": "Day 003"
+        },
+        {
+          "level": 3,
+          "text": "Week 01"
+        },
+        {
+          "level": 3,
+          "text": "Week 02"
+        },
+        {
+          "level": 3,
+          "text": "First Two Weeks"
+        },
+        {
+          "level": 2,
+          "text": "Review mechanisms supporting the public Ledger record."
+        },
+        {
+          "level": 3,
+          "text": "Public Demo Reference Account"
+        },
+        {
+          "level": 3,
+          "text": "Public Demo Read-Only Access"
+        },
+        {
+          "level": 2,
+          "text": "Supporting video records linked to documented Ledger checkpoints."
+        },
+        {
+          "level": 3,
+          "text": "Day 001 Performance Update"
+        },
+        {
+          "level": 3,
+          "text": "Day 002 Performance Update"
+        },
+        {
+          "level": 3,
+          "text": "Day 003 Performance Update"
+        },
+        {
+          "level": 3,
+          "text": "Week 01 Performance Update"
+        },
+        {
+          "level": 3,
+          "text": "First Two Weeks Performance Update"
+        }
+      ],
+      "text": "ASSET-CLASS CONFIGURATION\n\nSelect an available public configuration. Other asset classes remain family coverage only.\n\nSELECTED\nMETALS / XAUUSD\nMETALS\n, SELECTED\nFOREX\n, NO PUBLIC CONFIGURATION CURRENTLY AVAILABLE\nFUTURES\n, NO PUBLIC CONFIGURATION CURRENTLY AVAILABLE\nEQUITIES\n, NO PUBLIC CONFIGURATION CURRENTLY AVAILABLE\n\nEMERALD LEDGER\n\nThe public record of documented forward performance.\n\nThe Emerald Ledger documents the ongoing Forward Performance history associated with the selected Emerald Quant System configuration.\n\nPUBLIC RECORD PERIOD\nAug 17-28, 2026\nACCOUNT TYPE\nPublic Demo Reference Account\nPERFORMANCE TYPE\nForward Performance\nPerformance Verification\nExplore Quant System\n\nRECORD FILE\n\nPublic Forward Ledger\n\nDaily Entry\nWeekly Summary\nCumulative Summary\n\nCOVERAGE\n\nAug 17-28, 2026\n\nPUBLIC RECORD CLASSIFICATION\n\nA documented forward-performance record with explicit account classification.\n\nThe Ledger identifies what the public record represents before any later detail views, tables, or verification material are added. Private-account material, if made available, remains separate from this public record.\n\nACCOUNT TYPE\nPUBLIC DEMO REFERENCE ACCOUNT\n\nThe account classification identifies the type of account associated with the selected public performance record.\n\nPERFORMANCE TYPE\nFORWARD PERFORMANCE\n\nThe Ledger documents forward performance separately from historical backtesting.\n\nRECORD SCOPE\nDAILY, WEEKLY & CUMULATIVE\n\nAvailable public entries define the current daily, weekly & cumulative reporting scope.\n\nREVIEW PATH\nPUBLIC LEDGER + VERIFICATION\n\nSupporting review material is handled through the public Ledger and the separate verification route.\n\nCURRENT PERFORMANCE SNAPSHOT\n\nThe latest cumulative Forward Performance snapshot.\n\nThis section summarizes the most recent cumulative public record for the Public Demo Reference Account.\n\nPUBLIC DEMO REFERENCE ACCOUNT\nFORWARD PERFORMANCE\nCUMULATIVE NET PROFIT\n\n$204,966.54\n\nNet result across the documented cumulative public record.\n\nCUMULATIVE RETURN\n\n20.50%\n\nCanonical cumulative return, displayed to two decimals.\n\nTOTAL TRADES\n\n499\n\n346 winning / 153 losing.\n\nWIN RATE\n\n69.34%\n\nWinning trades as a share of documented total trades.\n\nMAXIMUM DRAWDOWN\n\n10.67%\n\nMaximum observed drawdown in the documented record.\n\nLATEST CUMULATIVE RECORD\n\nEmerald Ledger - First Two Weeks\nCUMULATIVE\nAUG 17-28, 2026\nRECORD TITLE\nEmerald Ledger - First Two Weeks\nPERIOD COVERAGE\nAug 17-28, 2026\nACCOUNT CLASSIFICATION\nPublic Demo Reference Account\nPERFORMANCE CLASSIFICATION\nForward Performance\nENDING BALANCE\n$1,204,966.54\nEQUITY\n$1,204,966.54\nTOTAL TRADES\n499\nWINNING TRADES\n346\nLOSING TRADES\n153\n\nPERFORMANCE PROGRESSION\n\nCumulative performance across documented reporting checkpoints.\n\nEach point represents a documented cumulative checkpoint in the public Forward Performance record. Lines connect documented cumulative checkpoints for readability; they do not represent continuous account sampling between reported dates.\n\nCUMULATIVE NET PROFIT\n\nDocumented public checkpoints\n\n5 CHECKPOINTS\n$0\n$100k\n$200k\n$300k\nAug 17\nAug 18\nAug 19\nAug 21\nAug 28\n\nLATEST DOCUMENTED CHECKPOINT\n\nDATE\nAug 28, 2026\nCUMULATIVE NET PROFIT\n$204,966.54\nCUMULATIVE RETURN\n20.50%\nDATE\tNET PROFIT\tRETURN\nAug 17, 2026\t$11,409.60\t1.14%\nAug 18, 2026\t$31,796.48\t3.18%\nAug 19, 2026\t$55,889.54\t5.59%\nAug 21, 2026\t$157,604.63\t15.76%\nAug 28, 2026\t$204,966.54\t20.50%\n\nLEDGER CHRONOLOGY\n\nA chronological record of documented daily, weekly and cumulative reporting.\n\nThe chronology preserves each published public Forward Performance record as a distinct reporting checkpoint, from daily entries through weekly and cumulative summaries.\n\n6 PUBLIC RECORDS\nFORWARD PERFORMANCE\nDAILY\nFORWARD PERFORMANCE\n01\nDay 001\n\nSingle-day reporting entry\n\nCOVERAGE\n\nAug 17, 2026\n\nPERIOD NET PROFIT\n$11,409.60\nPERIOD RETURN\n1.14%\nTOTAL TRADES\n86\nWIN RATE\n70.93%\nDAILY\nFORWARD PERFORMANCE\n02\nDay 002\n\nSingle-day reporting entry\n\nCOVERAGE\n\nAug 18, 2026\n\nPERIOD NET PROFIT\n$20,386.88\nPERIOD RETURN\n2.02%\nTOTAL TRADES\n41\nWIN RATE\n65.85%\n\nCUMULATIVE TO DATE\n\nNET PROFIT\n$31,796.48\nRETURN\n3.18%\nDAILY\nFORWARD PERFORMANCE\n03\nDay 003\n\nSingle-day reporting entry\n\nCOVERAGE\n\nAug 19, 2026\n\nPERIOD NET PROFIT\n$24,093.06\nPERIOD RETURN\n2.34%\nTOTAL TRADES\n39\nWIN RATE\n61.54%\n\nCUMULATIVE TO DATE\n\nNET PROFIT\n$55,889.54\nRETURN\n5.59%\nWEEKLY\nFORWARD PERFORMANCE\n04\nWeek 01\n\nMulti-day weekly summary\n\nCOVERAGE\n\nAug 17-21, 2026\n\nPERIOD NET PROFIT\n$157,604.63\nPERIOD RETURN\n15.76%\nTOTAL TRADES\n281\nWIN RATE\n70.46%\nWEEKLY\nFORWARD PERFORMANCE\n05\nWeek 02\n\nMulti-day weekly summary\n\nCOVERAGE\n\nAug 24-28, 2026\n\nPERIOD NET PROFIT\n$47,361.91\nPERIOD RETURN\n4.09%\nTOTAL TRADES\n218\nWIN RATE\n67.89%\n\nCUMULATIVE TO DATE\n\nNET PROFIT\n$204,966.54\nRETURN\n20.50%\nCUMULATIVE\nFORWARD PERFORMANCE\n06\nFirst Two Weeks\n\nAggregate public record through period end\n\nCOVERAGE\n\nAug 17-28, 2026\n\nCUMULATIVE NET PROFIT\n$204,966.54\nCUMULATIVE RETURN\n20.50%\nTOTAL TRADES\n499\nWIN RATE\n69.34%\n\nVERIFICATION & EVIDENCE\n\nReview mechanisms supporting the public Ledger record.\n\nThe public Ledger is accompanied by supporting account-reference information and read-only review mechanisms tied to the selected public record and its account classification.\n\nReviewable documentation does not imply independent audit or third-party certification. Sensitive account identifiers and access details are not displayed on the public Ledger.\n\nView Verification Methodology\nACCOUNT REFERENCE\nAVAILABLE\nPublic Demo Reference Account\n\nSupporting account-reference information identifies the public demo record associated with the Ledger.\n\nMETHOD\nAccount Reference\nSTATUS\nAvailable\nACCOUNT CLASSIFICATION\nPublic Demo Reference Account\nLEDGER SCOPE\nAssociated with the current public Ledger history.\nREAD-ONLY REVIEW ACCESS\nAVAILABLE\nPublic Demo Read-Only Access\n\nRead-only review access may be provided separately for review without trading control.\n\nMETHOD\nRead-Only Review Access\nSTATUS\nAvailable\nACCOUNT CLASSIFICATION\nPublic Demo Reference Account\nLEDGER SCOPE\nAssociated with the current public Ledger history.\n\nMEDIA & VIDEO RECORD\n\nSupporting video records linked to documented Ledger checkpoints.\n\nSelected public Ledger checkpoints have supporting video metadata records. External video links are pending, and these media records provide context rather than independent performance verification.\n\nNot every Ledger reporting record currently has an associated video record.\n\n5 VIDEO RECORDS LINKED TO PUBLIC LEDGER CHECKPOINTS\nExplore Video Archive\nVIDEO RECORD\nYOUTUBE\nDay 001 Performance Update\n\nSupporting video record associated with the Day 001 public Ledger update.\n\nEXTERNAL VIDEO LINK PENDING\n\nRELATED LEDGER RECORD\nDay 001\nCOVERAGE\nAug 17, 2026\nPERIOD TYPE\nDaily\nVIDEO RECORD\nYOUTUBE\nDay 002 Performance Update\n\nSupporting video record associated with the Day 002 public Ledger update.\n\nEXTERNAL VIDEO LINK PENDING\n\nRELATED LEDGER RECORD\nDay 002\nCOVERAGE\nAug 18, 2026\nPERIOD TYPE\nDaily\nVIDEO RECORD\nYOUTUBE\nDay 003 Performance Update\n\nSupporting video record associated with the Day 003 public Ledger update.\n\nEXTERNAL VIDEO LINK PENDING\n\nRELATED LEDGER RECORD\nDay 003\nCOVERAGE\nAug 19, 2026\nPERIOD TYPE\nDaily\nVIDEO RECORD\nYOUTUBE\nWeek 01 Performance Update\n\nSupporting video record associated with the Week 01 public Ledger update.\n\nEXTERNAL VIDEO LINK PENDING\n\nRELATED LEDGER RECORD\nWeek 01\nCOVERAGE\nAug 17-21, 2026\nPERIOD TYPE\nWeekly\nVIDEO RECORD\nYOUTUBE\nFirst Two Weeks Performance Update\n\nSupporting video record associated with the First Two Weeks public Ledger update.\n\nEXTERNAL VIDEO LINK PENDING\n\nRELATED LEDGER RECORD\nFirst Two Weeks\nCOVERAGE\nAug 17-28, 2026\nPERIOD TYPE\nCumulative",
+      "links": [
+        "/ledger",
+        "/verification",
+        "/systems/quant",
+        "/verification",
+        "/videos"
+      ],
+      "title": "Emerald Ledger | Emerald Legacy Systems",
+      "description": "Public forward-performance records from the Emerald Legacy Systems demo reference account.",
+      "brokenImages": []
+    },
+    {
+      "route": "/systems/quant",
+      "width": 375,
+      "client": 360,
+      "scroll": 360,
+      "h1": ["Emerald Quant System"],
+      "headings": [
+        {
+          "level": 1,
+          "text": "Emerald Quant System"
+        },
+        {
+          "level": 2,
+          "text": "A full trading-system layer, not simply a signal indicator."
+        },
+        {
+          "level": 2,
+          "text": "Signals are inputs. System execution is broader."
+        },
+        {
+          "level": 3,
+          "text": "Emerald Legacy System"
+        },
+        {
+          "level": 3,
+          "text": "Emerald Signal Framework"
+        },
+        {
+          "level": 3,
+          "text": "Emerald Quant System"
+        },
+        {
+          "level": 2,
+          "text": "System-level capabilities govern how signals become managed trade execution."
+        },
+        {
+          "level": 3,
+          "text": "Signal Interpretation"
+        },
+        {
+          "level": 3,
+          "text": "Automated Trade Execution"
+        },
+        {
+          "level": 3,
+          "text": "Risk-Management Logic"
+        },
+        {
+          "level": 3,
+          "text": "Position Management"
+        },
+        {
+          "level": 3,
+          "text": "Trade Lifecycle Management"
+        },
+        {
+          "level": 2,
+          "text": "Documented Forward Performance for the current Metals / XAUUSD configuration."
+        },
+        {
+          "level": 3,
+          "text": "Current public record"
+        }
+      ],
+      "text": "TRADING SYSTEMS\n\nEmerald Quant System\n\nSystematic execution built around signals, rules, and risk logic.\n\nEmerald Quant System is the broader algorithmic trading system within Emerald Legacy Systems. It incorporates signal-generation inputs, rule logic, risk-management logic, and automated execution for its supported market scope.\n\nALGORITHMIC TRADING SYSTEM\nPUBLIC FORWARD TEST\nMT4\nMETALS\nXAUUSD\nView Public Performance\nExplore Technology\nSYSTEM ARCHITECTURE\nEmerald Quant\nSignal Input\n01\nRule Logic\n02\nRisk Logic\n03\nExecution\n04\n\nSignals inform the system.\n\nExecution is governed by rules, risk logic, and trade handling.\n\nSYSTEM POSITIONING\n\nA full trading-system layer, not simply a signal indicator.\n\nEmerald Quant System coordinates signal interpretation, system rules, risk-management logic, and execution handling as one system-level architecture.\n\nSYSTEM TYPE\nALGORITHMIC TRADING SYSTEM\n\nThe product is positioned as a broader algorithmic system layer rather than a standalone chart signal.\n\nFAMILY COVERAGE\nMETALS\nFOREX\nFUTURES\nEQUITIES\n\nFamily-level coverage describes where Emerald Legacy Systems develops quantitative system architecture.\n\nCURRENT PUBLIC CONFIGURATION\nMETALS / XAUUSD\n\nThe documented public Forward Performance program is scoped to this concrete configuration.\n\nPLATFORM\nMT4\n\nPlatform support is taken from the current configuration record, separate from family-level coverage.\n\nPUBLIC RECORD\nEMERALD LEDGER\n\nDocumented public Forward Performance is maintained separately in the Emerald Ledger.\n\nSYSTEM RELATIONSHIPS\n\nSignals are inputs. System execution is broader.\n\nThe Emerald Signal Indicator and Emerald Directional Signal Stream provide signal context. The Emerald Quant System applies system rules, risk logic, and execution handling around those inputs.\n\nINDICATOR LAYER\nEmerald Legacy System\n\nChart-based analytical and signal-generation input.\n\nExplore Indicators\nSIGNAL CONTEXT\nEmerald Signal Framework\n\nDirectional signal context for the system layer.\n\nView Signals\nSYSTEM LAYER\nEmerald Quant System\n\nSignals inform the system; execution is governed by a broader rule set covering rules, risk logic, and trade handling.\n\nSYSTEM CAPABILITIES\n\nSystem-level capabilities govern how signals become managed trade execution.\n5 CANONICAL CAPABILITIES\n\nEmerald Quant System is broader than signal generation because it combines interpretation, execution, risk logic, position handling, and trade lifecycle management within the current public system capability set.\n\n01\nINPUT PROCESSING\nSignal Interpretation\n\nProcesses signal-generation inputs within the broader system rule set.\n\n02\nEXECUTION\nAutomated Trade Execution\n\nApplies system rules to automated trade implementation on the supported execution platform.\n\n03\nSYSTEM CONTROL\nRisk-Management Logic\n\nApplies defined risk-management logic as part of system-level trade handling.\n\n04\nTRADE MANAGEMENT\nPosition Management\n\nManages open-position handling within the system's defined rule framework.\n\n05\nLIFECYCLE COORDINATION\nTrade Lifecycle Management\n\nCoordinates trade handling across system-defined stages from initiation through closure.\n\nSYSTEM HANDLING LAYERS\nConceptual relationship\n\nSignal Interpretation\n\nRisk-Management Logic\n\nAutomated Trade Execution\n\nPosition Management\n\nTrade Lifecycle Management\n\nASSET-CLASS CONFIGURATION\n\nSelect an available public configuration. Other asset classes remain family coverage only.\n\nMETALS\n, SELECTED\nFOREX\n, NO PUBLIC CONFIGURATION CURRENTLY AVAILABLE\nFUTURES\n, NO PUBLIC CONFIGURATION CURRENTLY AVAILABLE\nEQUITIES\n, NO PUBLIC CONFIGURATION CURRENTLY AVAILABLE\n\nPUBLIC PERFORMANCE CONTEXT\n\nDocumented Forward Performance for the current Metals / XAUUSD configuration.\n\nThe current public Forward Performance record is associated with the Metals / XAUUSD configuration of the Emerald Quant System family. Complete public history remains in the Emerald Ledger.\n\nPerformance shown in this module applies only to the selected Metals / XAUUSD public configuration.\n\nView Complete Ledger\nMETALS / XAUUSD\nEMERALD LEDGER\nCurrent public record\nCLASSIFICATION\nForward Performance\nCOVERAGE\nAug 17-28, 2026\nPLATFORM\nMT4\nLIFECYCLE\nPublic Forward Test\nCUMULATIVE NET PROFIT\n$204,966.54\nCUMULATIVE RETURN\n20.50%\nTOTAL TRADES\n499\nWIN RATE\n69.34%\nMAXIMUM DRAWDOWN\n10.67%\n\n6 Public Ledger Records are associated with this configuration.",
+      "links": [
+        "/ledger",
+        "/technology",
+        "/indicators",
+        "/signals",
+        "/systems/quant",
+        "/ledger"
+      ],
+      "title": "Emerald Quant System | Emerald Legacy Systems",
+      "description": "Explore the fully automated Emerald Quant System, its architecture, public Forward Performance context, and current configuration relationships.",
+      "brokenImages": []
+    },
+    {
+      "route": "/performance",
+      "width": 1440,
+      "client": 1425,
+      "scroll": 1425,
+      "h1": ["Performance, with context."],
+      "headings": [
+        {
+          "level": 1,
+          "text": "Performance, with context."
+        },
+        {
+          "level": 2,
+          "text": "Current public record"
+        },
+        {
+          "level": 3,
+          "text": "Emerald Quant System"
+        },
+        {
+          "level": 2,
+          "text": "Read the evidence class before the result"
+        },
+        {
+          "level": 3,
+          "text": "Backtest"
+        },
+        {
+          "level": 3,
+          "text": "Forward / Demo Reference"
+        },
+        {
+          "level": 3,
+          "text": "Documented Historical Record"
+        },
+        {
+          "level": 3,
+          "text": "Internal Documentation"
+        },
+        {
+          "level": 3,
+          "text": "Independent Third-Party Verification"
+        },
+        {
+          "level": 2,
+          "text": "Comparison depends on comparable evidence"
+        }
+      ],
+      "text": "DOCUMENTED PERFORMANCE\n\nPerformance, with context.\n\nA result is meaningful only alongside its system, evaluation method and account context. This is the starting point for understanding Emerald's Public Performance Record and the limits of its evidence.\n\nPerformance overview\nEvidence comparison\nForward vs backtest\nVerification methodology\nEmerald Ledger\nEmerald Quant System\nCurrent public record\n\nFORWARD PERFORMANCE RECORD\n\nEmerald Quant System\n\nMetals / XAUUSD / MT4. The Public Demo Reference Account is forward-observed, not a real-money account. These Documented Results belong to this configuration, not the entire product family.\n\nRead the Emerald Ledger\nRecord coverage\nAug 17-28, 2026\nLatest cumulative record ends\n2026-08-28\nPublication model\nStatic documented records; not a continuously updated feed\nIndependent audit\nNot available in the published evidence set\nRead the evidence class before the result\n\nThese labels describe different dimensions, not interchangeable proof levels. A dated forward/demo record can also be historical and internally documented. None of those labels establishes independent review.\n\nHISTORICAL SIMULATION\n\nBacktest\n\nA strategy applied to historical data under specified modeling assumptions. It is not an observed account record.\n\nComparable numerical results are not documented in the current public dataset.\n\nOBSERVATION AND ACCOUNT CONTEXT\n\nForward / Demo Reference\n\nA Forward Performance Record observes a configured system over time. The current record uses a Public Demo Reference Account, not a real-money account.\n\nDocumented for the current Emerald Quant System configuration only.\n\nRECORD DATE AND PRESERVATION\n\nDocumented Historical Record\n\nA dated record retained for inspection. Historical means the period has ended; it does not by itself mean the result is a backtest.\n\nThe Ledger retains dated daily, weekly and cumulative forward records.\n\nEVIDENCE PROVENANCE\n\nInternal Documentation\n\nPublisher-maintained source entries, contextual notes and labeled media. Reviewable documentation is not an independent audit.\n\nThe current public record is maintained by Emerald Legacy Systems.\n\nEXTERNAL REVIEW, WHERE AVAILABLE\n\nIndependent Third-Party Verification\n\nA separate evidence class requiring an identifiable independent reviewer, scope and report. Account access or a screenshot alone does not establish it.\n\nNot available in the current published evidence set.\n\nComparison depends on comparable evidence\n\nProduct availability is not performance evidence. There is no published like-for-like numerical series here for comparing Quant against Scanner, Recovery Expert or indicator examples. The comparison page separates documented values from missing evidence rather than ranking products.\n\nCompare evidence\nHistorical and backtest results do not guarantee future performance. Forward/demo records are not real-money performance. Execution conditions differ between simulation, demo and real-money trading. Losses are possible.",
+      "links": [
+        "/performance",
+        "/performance/compare",
+        "/performance/live-vs-backtest",
+        "/verification",
+        "/ledger",
+        "/systems/quant",
+        "/ledger",
+        "/performance/compare"
+      ],
+      "title": "Documented Performance | Emerald Legacy Systems",
+      "description": "Understand Emerald's documented trading results, public demo forward records, evidence classes and configuration-specific performance limits.",
+      "brokenImages": [],
+      "keyboardFocus": {
+        "visible": true,
+        "outline": "solid",
+        "width": "2px",
+        "href": "/performance/compare"
+      }
+    },
+    {
+      "route": "/performance/compare",
+      "width": 1440,
+      "client": 1425,
+      "scroll": 1425,
+      "h1": ["Compare the evidence, not just the return."],
+      "headings": [
+        {
+          "level": 1,
+          "text": "Compare the evidence, not just the return."
+        },
+        {
+          "level": 2,
+          "text": "Emerald Quant System: forward record and backtest availability"
+        },
+        {
+          "level": 2,
+          "text": "What this comparison does not establish"
+        }
+      ],
+      "text": "EVIDENCE COMPARISON\n\nCompare the evidence, not just the return.\n\nOnly the current Quant configuration has a published numerical forward record in this dataset. The backtest column makes the missing comparison explicit; it is not evidence that a comparable backtest has been published.\n\nPerformance overview\nEvidence comparison\nForward vs backtest\nVerification methodology\nEmerald Ledger\nEmerald Quant System\nEmerald Quant System: forward record and backtest availability\nCurrent configuration only: Metals / XAUUSD / MT4. Values trace to the latest cumulative Ledger record. Percentages use human percentage units and are rounded to two decimal places. Missing values are not zero.\nComparison field\tForward / Demo Reference\tBacktest evidence\nSystem under consideration\tEmerald Quant System\tEmerald Quant System\nEvidence method\tForward Performance Record\tHistorical simulation\nAccount context\tPublic Demo Reference Account\tNot applicable: simulation\nDocumented configuration\tMetals / XAUUSD\tNot documented\nInstrument\tXAUUSD\tNot documented\nPlatform context\tMT4\tNot documented\nEvaluation period\tAug 17-28, 2026\tNot documented\nCumulative return\t20.50%\tNot documented\nMaximum drawdown\t10.67%\tNot documented\nTrade count\t499\tNot documented\nLatest cumulative record ends\t2026-08-28\tNot documented\nSource record\tcumulative-2-weeks\tNot documented\nDocumentation\tStatic, internally documented Ledger record\tNot documented\nIndependent third-party verification\tNot available\tNot available\nWhat this comparison does not establish\nNo cross-product return ranking\nScanner observations, Recovery Expert trade management and indicator signal examples are not equivalent to Quant strategy returns. Comparable numerical performance is not documented here for those products.\nNo cross-platform extrapolation\nAvailability on MT4, MT5, TradingView and NinjaTrader does not establish performance on each platform. The documented configuration here is Metals / XAUUSD on MT4.\nNo reconstructed missing metrics\nNot documented means the approved source does not supply a value. It does not mean zero performance, no trades or an unsuccessful test.\nNo universal ranking from one period\nComparable evaluation would require disclosed periods, instruments, execution assumptions and risk context. A single static cumulative record does not establish future profitability.\nHistorical and backtest results do not guarantee future performance. Forward/demo records are not real-money performance. Execution conditions differ between simulation, demo and real-money trading. Losses are possible.",
+      "links": [
+        "/performance",
+        "/performance/compare",
+        "/performance/live-vs-backtest",
+        "/verification",
+        "/ledger",
+        "/systems/quant"
+      ],
+      "title": "Performance Evidence Comparison | Emerald Legacy Systems",
+      "description": "Inspect the Quant Metals/XAUUSD MT4 forward record alongside backtest evidence availability, with source-backed metrics and explicit missing data.",
+      "brokenImages": [],
+      "keyboardFocus": {
+        "visible": true,
+        "outline": "solid",
+        "width": "2px",
+        "href": "/performance/compare"
+      },
+      "table": {
+        "client": 1198,
+        "scroll": 1198,
+        "caption": true,
+        "colHeaders": 3,
+        "rowHeaders": 14,
+        "keyboardScroll": false
+      }
+    },
+    {
+      "route": "/performance/live-vs-backtest",
+      "width": 1440,
+      "client": 1425,
+      "scroll": 1425,
+      "h1": ["Forward Performance vs Backtest Performance"],
+      "headings": [
+        {
+          "level": 1,
+          "text": "Forward Performance vs Backtest Performance"
+        },
+        {
+          "level": 2,
+          "text": "Backtest: examine the model and its assumptions"
+        },
+        {
+          "level": 2,
+          "text": "Forward / Demo Reference: observe the configured implementation"
+        },
+        {
+          "level": 2,
+          "text": "Use both without treating them as equivalent"
+        }
+      ],
+      "text": "EVALUATION METHODS\n\nForward Performance vs Backtest Performance\n\nBacktesting asks how configured rules behave in a historical simulation. Forward observation asks how an implementation behaves after configuration. They answer related, but different, questions.\n\nPerformance overview\nEvidence comparison\nForward vs backtest\nVerification methodology\nEmerald Ledger\nEmerald Quant System\nBacktest: examine the model and its assumptions\nHistorical data quality\nMissing ticks, inconsistent prices or incomplete sessions can change signal timing and modeled fills. A backtest needs a disclosed data source, resolution and evaluation period.\nSpread, slippage and execution modeling\nModeled transaction costs, order timing and fill rules affect algorithmic results. A simulation that assumes ideal fills does not establish achievable execution.\nParameter sensitivity and overfitting\nRules selected to fit one historical window may not generalize. Sensitivity checks and separate evaluation periods help expose dependence on a narrow parameter choice.\nRegime dependence\nA trend, range or volatility regime can favor particular rules. Historical profitability in one regime does not establish robustness in another.\nForward / Demo Reference: observe the configured implementation\nObservation after configuration\nThe Forward Performance Record documents system behavior during an observed period after the strategy has been configured, rather than reconstructing that period as a simulation.\nBroker and demo execution conditions\nThe Public Demo Reference Account is not a real-money account. Demo fills, spreads, order handling and liquidity representation can differ from real-money execution.\nImplementation behavior\nForward observation can expose signal processing, order handling and position-management behavior. It remains specific to the stated system, instrument and platform configuration.\nA record, not a forecast\nA forward period does not eliminate model risk, operational failures or changing market conditions. Observed outcomes do not guarantee that later periods will resemble them.\nUse both without treating them as equivalent\n\nBacktesting can investigate rules across historical conditions; forward observation can examine the configured implementation over a subsequent period. Neither alone guarantees future results. The current public dataset contains a static Quant forward/demo record, not a published matched backtest series. A forward record can be stored as historical documentation without becoming a backtest.\n\nHistorical and backtest results do not guarantee future performance. Forward/demo records are not real-money performance. Execution conditions differ between simulation, demo and real-money trading. Losses are possible.",
+      "links": [
+        "/performance",
+        "/performance/compare",
+        "/performance/live-vs-backtest",
+        "/verification",
+        "/ledger",
+        "/systems/quant"
+      ],
+      "title": "Forward Performance vs Backtest Performance | Emerald Legacy Systems",
+      "description": "Understand algorithmic backtest assumptions, forward demo observation, execution differences and the limits of both evaluation methods.",
+      "brokenImages": [],
+      "keyboardFocus": {
+        "visible": true,
+        "outline": "solid",
+        "width": "2px",
+        "href": "/performance/compare"
+      }
+    },
+    {
+      "route": "/verification",
+      "width": 1440,
+      "client": 1425,
+      "scroll": 1425,
+      "h1": ["Performance verification methodology"],
+      "headings": [
+        {
+          "level": 1,
+          "text": "Performance verification methodology"
+        },
+        {
+          "level": 2,
+          "text": "What the current documentation contains"
+        },
+        {
+          "level": 2,
+          "text": "Review context currently listed"
+        },
+        {
+          "level": 3,
+          "text": "Public Demo Reference Account"
+        },
+        {
+          "level": 3,
+          "text": "Public Demo Read-Only Access"
+        },
+        {
+          "level": 2,
+          "text": "Media, updates and corrections"
+        }
+      ],
+      "text": "DOCUMENTATION AND REVIEW BOUNDARIES\n\nPerformance verification methodology\n\nEmerald Ledger is the public record and context layer for Documented Performance. Its source entries and supporting context make results reviewable; they do not establish independent certification.\n\nPerformance overview\nEvidence comparison\nForward vs backtest\nVerification methodology\nEmerald Ledger\nEmerald Quant System\nWhat the current documentation contains\nSystem and configuration identity\nEmerald Quant System; Metals / XAUUSD; MT4. Record ownership remains with this configuration, separate from broader system-family coverage and product availability.\nDated record identity\nDaily, weekly and cumulative entries have stable record IDs and explicit coverage dates. The latest cumulative source is cumulative-2-weeks, ending 2026-08-28. The end date is record coverage, not a last-updated timestamp.\nEvidence and account classification\nThe current entries are a Forward Performance Record from a Public Demo Reference Account. A backtest should be labeled separately as historical simulation, with its assumptions and period disclosed.\nSource versions\nRecords are maintained in version-controlled site source. This is not an immutable verification system or a public per-record correction log. A source revision is distinct from the period covered by a result.\nReview context currently listed\n\nAccount Reference / Available\n\nPublic Demo Reference Account\n\nSupporting account-reference information identifies the public demo record associated with the Ledger.\n\nRead-Only Review Access / Available\n\nPublic Demo Read-Only Access\n\nRead-only review access may be provided separately for review without trading control.\n\nAvailable describes the listed review method, not an independent audit or public access credentials. Reviewable documentation does not imply independent audit or third-party certification. Independent third-party verification, where available, would need a named reviewer, explicit scope and report; none is supplied in the current published evidence set.\n\nMedia, updates and corrections\nLabel the media, not just the result\nThe asset registry associates media with a record, media type, coverage dates and descriptive context. A screenshot or publisher-produced thumbnail is supporting documentation, not a complete transaction history or proof of independent verification.\nRead embedded claims cautiously\nSome legacy Ledger artwork includes verification wording and account identifiers. It is not reproduced on these pages. Embedded wording is not evidence of independent audit, real-money performance or results on other platforms.\nStatic publication, not a continuous feed\nThe displayed source records are static. Forward describes how results were observed, not how frequently this website refreshes. No current timestamp, streaming account connection or automatic update cadence is claimed.\nDisclose corrections explicitly\nA correction should identify the affected record and field, previous and revised values, reason and revision date. Its original coverage dates should remain distinct from the correction date. This is the disclosure practice to follow, not a claim that a public correction log already exists.\nKeep review access separate\nSensitive account identifiers and access details are not displayed on these methodology pages. Review access, where arranged separately, does not grant trading authority and is not third-party certification.\nCheck the limits of the evidence\nA short observed period, incomplete media or missing backtest assumptions limits interpretation. Use the Ledger's classification and configuration context, and do not infer unavailable results or future profitability.\nHistorical and backtest results do not guarantee future performance. Forward/demo records are not real-money performance. Execution conditions differ between simulation, demo and real-money trading. Losses are possible.",
+      "links": [
+        "/performance",
+        "/performance/compare",
+        "/performance/live-vs-backtest",
+        "/verification",
+        "/ledger",
+        "/systems/quant"
+      ],
+      "title": "Performance Verification Methodology | Emerald Legacy Systems",
+      "description": "How Emerald documents public performance records: configuration identity, dated sources, media context, correction practices and independent-review boundaries.",
+      "brokenImages": [],
+      "keyboardFocus": {
+        "visible": true,
+        "outline": "solid",
+        "width": "2px",
+        "href": "/performance/compare"
+      }
+    },
+    {
+      "route": "/ledger",
+      "width": 1440,
+      "client": 1425,
+      "scroll": 1425,
+      "h1": ["The public record of documented forward performance."],
+      "headings": [
+        {
+          "level": 1,
+          "text": "The public record of documented forward performance."
+        },
+        {
+          "level": 2,
+          "text": "A documented forward-performance record with explicit account classification."
+        },
+        {
+          "level": 2,
+          "text": "The latest cumulative Forward Performance snapshot."
+        },
+        {
+          "level": 3,
+          "text": "Emerald Ledger - First Two Weeks"
+        },
+        {
+          "level": 2,
+          "text": "Cumulative performance across documented reporting checkpoints."
+        },
+        {
+          "level": 2,
+          "text": "A chronological record of documented daily, weekly and cumulative reporting."
+        },
+        {
+          "level": 3,
+          "text": "Day 001"
+        },
+        {
+          "level": 3,
+          "text": "Day 002"
+        },
+        {
+          "level": 3,
+          "text": "Day 003"
+        },
+        {
+          "level": 3,
+          "text": "Week 01"
+        },
+        {
+          "level": 3,
+          "text": "Week 02"
+        },
+        {
+          "level": 3,
+          "text": "First Two Weeks"
+        },
+        {
+          "level": 2,
+          "text": "Review mechanisms supporting the public Ledger record."
+        },
+        {
+          "level": 3,
+          "text": "Public Demo Reference Account"
+        },
+        {
+          "level": 3,
+          "text": "Public Demo Read-Only Access"
+        },
+        {
+          "level": 2,
+          "text": "Supporting video records linked to documented Ledger checkpoints."
+        },
+        {
+          "level": 3,
+          "text": "Day 001 Performance Update"
+        },
+        {
+          "level": 3,
+          "text": "Day 002 Performance Update"
+        },
+        {
+          "level": 3,
+          "text": "Day 003 Performance Update"
+        },
+        {
+          "level": 3,
+          "text": "Week 01 Performance Update"
+        },
+        {
+          "level": 3,
+          "text": "First Two Weeks Performance Update"
+        }
+      ],
+      "text": "ASSET-CLASS CONFIGURATION\n\nSelect an available public configuration. Other asset classes remain family coverage only.\n\nSELECTED\nMETALS / XAUUSD\nMETALS\n, SELECTED\nFOREX\n, NO PUBLIC CONFIGURATION CURRENTLY AVAILABLE\nFUTURES\n, NO PUBLIC CONFIGURATION CURRENTLY AVAILABLE\nEQUITIES\n, NO PUBLIC CONFIGURATION CURRENTLY AVAILABLE\n\nEMERALD LEDGER\n\nThe public record of documented forward performance.\n\nThe Emerald Ledger documents the ongoing Forward Performance history associated with the selected Emerald Quant System configuration.\n\nPUBLIC RECORD PERIOD\nAug 17-28, 2026\nACCOUNT TYPE\nPublic Demo Reference Account\nPERFORMANCE TYPE\nForward Performance\nPerformance Verification\nExplore Quant System\n\nRECORD FILE\n\nPublic Forward Ledger\n\nDaily Entry\nWeekly Summary\nCumulative Summary\n\nCOVERAGE\n\nAug 17-28, 2026\n\nPUBLIC RECORD CLASSIFICATION\n\nA documented forward-performance record with explicit account classification.\n\nThe Ledger identifies what the public record represents before any later detail views, tables, or verification material are added. Private-account material, if made available, remains separate from this public record.\n\nACCOUNT TYPE\nPUBLIC DEMO REFERENCE ACCOUNT\n\nThe account classification identifies the type of account associated with the selected public performance record.\n\nPERFORMANCE TYPE\nFORWARD PERFORMANCE\n\nThe Ledger documents forward performance separately from historical backtesting.\n\nRECORD SCOPE\nDAILY, WEEKLY & CUMULATIVE\n\nAvailable public entries define the current daily, weekly & cumulative reporting scope.\n\nREVIEW PATH\nPUBLIC LEDGER + VERIFICATION\n\nSupporting review material is handled through the public Ledger and the separate verification route.\n\nCURRENT PERFORMANCE SNAPSHOT\n\nThe latest cumulative Forward Performance snapshot.\n\nThis section summarizes the most recent cumulative public record for the Public Demo Reference Account.\n\nPUBLIC DEMO REFERENCE ACCOUNT\nFORWARD PERFORMANCE\nCUMULATIVE NET PROFIT\n\n$204,966.54\n\nNet result across the documented cumulative public record.\n\nCUMULATIVE RETURN\n\n20.50%\n\nCanonical cumulative return, displayed to two decimals.\n\nTOTAL TRADES\n\n499\n\n346 winning / 153 losing.\n\nWIN RATE\n\n69.34%\n\nWinning trades as a share of documented total trades.\n\nMAXIMUM DRAWDOWN\n\n10.67%\n\nMaximum observed drawdown in the documented record.\n\nLATEST CUMULATIVE RECORD\n\nEmerald Ledger - First Two Weeks\nCUMULATIVE\nAUG 17-28, 2026\nRECORD TITLE\nEmerald Ledger - First Two Weeks\nPERIOD COVERAGE\nAug 17-28, 2026\nACCOUNT CLASSIFICATION\nPublic Demo Reference Account\nPERFORMANCE CLASSIFICATION\nForward Performance\nENDING BALANCE\n$1,204,966.54\nEQUITY\n$1,204,966.54\nTOTAL TRADES\n499\nWINNING TRADES\n346\nLOSING TRADES\n153\n\nPERFORMANCE PROGRESSION\n\nCumulative performance across documented reporting checkpoints.\n\nEach point represents a documented cumulative checkpoint in the public Forward Performance record. Lines connect documented cumulative checkpoints for readability; they do not represent continuous account sampling between reported dates.\n\nCUMULATIVE NET PROFIT\n\nDocumented public checkpoints\n\n5 CHECKPOINTS\n$0\n$100k\n$200k\n$300k\nAug 17\nAug 18\nAug 19\nAug 21\nAug 28\n\nLATEST DOCUMENTED CHECKPOINT\n\nDATE\nAug 28, 2026\nCUMULATIVE NET PROFIT\n$204,966.54\nCUMULATIVE RETURN\n20.50%\nDATE\tNET PROFIT\tRETURN\nAug 17, 2026\t$11,409.60\t1.14%\nAug 18, 2026\t$31,796.48\t3.18%\nAug 19, 2026\t$55,889.54\t5.59%\nAug 21, 2026\t$157,604.63\t15.76%\nAug 28, 2026\t$204,966.54\t20.50%\n\nLEDGER CHRONOLOGY\n\nA chronological record of documented daily, weekly and cumulative reporting.\n\nThe chronology preserves each published public Forward Performance record as a distinct reporting checkpoint, from daily entries through weekly and cumulative summaries.\n\n6 PUBLIC RECORDS\nFORWARD PERFORMANCE\nDAILY\nFORWARD PERFORMANCE\n01\nDay 001\n\nSingle-day reporting entry\n\nCOVERAGE\n\nAug 17, 2026\n\nPERIOD NET PROFIT\n$11,409.60\nPERIOD RETURN\n1.14%\nTOTAL TRADES\n86\nWIN RATE\n70.93%\nDAILY\nFORWARD PERFORMANCE\n02\nDay 002\n\nSingle-day reporting entry\n\nCOVERAGE\n\nAug 18, 2026\n\nPERIOD NET PROFIT\n$20,386.88\nPERIOD RETURN\n2.02%\nTOTAL TRADES\n41\nWIN RATE\n65.85%\n\nCUMULATIVE TO DATE\n\nNET PROFIT\n$31,796.48\nRETURN\n3.18%\nDAILY\nFORWARD PERFORMANCE\n03\nDay 003\n\nSingle-day reporting entry\n\nCOVERAGE\n\nAug 19, 2026\n\nPERIOD NET PROFIT\n$24,093.06\nPERIOD RETURN\n2.34%\nTOTAL TRADES\n39\nWIN RATE\n61.54%\n\nCUMULATIVE TO DATE\n\nNET PROFIT\n$55,889.54\nRETURN\n5.59%\nWEEKLY\nFORWARD PERFORMANCE\n04\nWeek 01\n\nMulti-day weekly summary\n\nCOVERAGE\n\nAug 17-21, 2026\n\nPERIOD NET PROFIT\n$157,604.63\nPERIOD RETURN\n15.76%\nTOTAL TRADES\n281\nWIN RATE\n70.46%\nWEEKLY\nFORWARD PERFORMANCE\n05\nWeek 02\n\nMulti-day weekly summary\n\nCOVERAGE\n\nAug 24-28, 2026\n\nPERIOD NET PROFIT\n$47,361.91\nPERIOD RETURN\n4.09%\nTOTAL TRADES\n218\nWIN RATE\n67.89%\n\nCUMULATIVE TO DATE\n\nNET PROFIT\n$204,966.54\nRETURN\n20.50%\nCUMULATIVE\nFORWARD PERFORMANCE\n06\nFirst Two Weeks\n\nAggregate public record through period end\n\nCOVERAGE\n\nAug 17-28, 2026\n\nCUMULATIVE NET PROFIT\n$204,966.54\nCUMULATIVE RETURN\n20.50%\nTOTAL TRADES\n499\nWIN RATE\n69.34%\n\nVERIFICATION & EVIDENCE\n\nReview mechanisms supporting the public Ledger record.\n\nThe public Ledger is accompanied by supporting account-reference information and read-only review mechanisms tied to the selected public record and its account classification.\n\nReviewable documentation does not imply independent audit or third-party certification. Sensitive account identifiers and access details are not displayed on the public Ledger.\n\nView Verification Methodology\nACCOUNT REFERENCE\nAVAILABLE\nPublic Demo Reference Account\n\nSupporting account-reference information identifies the public demo record associated with the Ledger.\n\nMETHOD\nAccount Reference\nSTATUS\nAvailable\nACCOUNT CLASSIFICATION\nPublic Demo Reference Account\nLEDGER SCOPE\nAssociated with the current public Ledger history.\nREAD-ONLY REVIEW ACCESS\nAVAILABLE\nPublic Demo Read-Only Access\n\nRead-only review access may be provided separately for review without trading control.\n\nMETHOD\nRead-Only Review Access\nSTATUS\nAvailable\nACCOUNT CLASSIFICATION\nPublic Demo Reference Account\nLEDGER SCOPE\nAssociated with the current public Ledger history.\n\nMEDIA & VIDEO RECORD\n\nSupporting video records linked to documented Ledger checkpoints.\n\nSelected public Ledger checkpoints have supporting video metadata records. External video links are pending, and these media records provide context rather than independent performance verification.\n\nNot every Ledger reporting record currently has an associated video record.\n\n5 VIDEO RECORDS LINKED TO PUBLIC LEDGER CHECKPOINTS\nExplore Video Archive\nVIDEO RECORD\nYOUTUBE\nDay 001 Performance Update\n\nSupporting video record associated with the Day 001 public Ledger update.\n\nEXTERNAL VIDEO LINK PENDING\n\nRELATED LEDGER RECORD\nDay 001\nCOVERAGE\nAug 17, 2026\nPERIOD TYPE\nDaily\nVIDEO RECORD\nYOUTUBE\nDay 002 Performance Update\n\nSupporting video record associated with the Day 002 public Ledger update.\n\nEXTERNAL VIDEO LINK PENDING\n\nRELATED LEDGER RECORD\nDay 002\nCOVERAGE\nAug 18, 2026\nPERIOD TYPE\nDaily\nVIDEO RECORD\nYOUTUBE\nDay 003 Performance Update\n\nSupporting video record associated with the Day 003 public Ledger update.\n\nEXTERNAL VIDEO LINK PENDING\n\nRELATED LEDGER RECORD\nDay 003\nCOVERAGE\nAug 19, 2026\nPERIOD TYPE\nDaily\nVIDEO RECORD\nYOUTUBE\nWeek 01 Performance Update\n\nSupporting video record associated with the Week 01 public Ledger update.\n\nEXTERNAL VIDEO LINK PENDING\n\nRELATED LEDGER RECORD\nWeek 01\nCOVERAGE\nAug 17-21, 2026\nPERIOD TYPE\nWeekly\nVIDEO RECORD\nYOUTUBE\nFirst Two Weeks Performance Update\n\nSupporting video record associated with the First Two Weeks public Ledger update.\n\nEXTERNAL VIDEO LINK PENDING\n\nRELATED LEDGER RECORD\nFirst Two Weeks\nCOVERAGE\nAug 17-28, 2026\nPERIOD TYPE\nCumulative",
+      "links": [
+        "/ledger",
+        "/verification",
+        "/systems/quant",
+        "/verification",
+        "/videos"
+      ],
+      "title": "Emerald Ledger | Emerald Legacy Systems",
+      "description": "Public forward-performance records from the Emerald Legacy Systems demo reference account.",
+      "brokenImages": []
+    },
+    {
+      "route": "/systems/quant",
+      "width": 1440,
+      "client": 1425,
+      "scroll": 1425,
+      "h1": ["Emerald Quant System"],
+      "headings": [
+        {
+          "level": 1,
+          "text": "Emerald Quant System"
+        },
+        {
+          "level": 2,
+          "text": "A full trading-system layer, not simply a signal indicator."
+        },
+        {
+          "level": 2,
+          "text": "Signals are inputs. System execution is broader."
+        },
+        {
+          "level": 3,
+          "text": "Emerald Legacy System"
+        },
+        {
+          "level": 3,
+          "text": "Emerald Signal Framework"
+        },
+        {
+          "level": 3,
+          "text": "Emerald Quant System"
+        },
+        {
+          "level": 2,
+          "text": "System-level capabilities govern how signals become managed trade execution."
+        },
+        {
+          "level": 3,
+          "text": "Signal Interpretation"
+        },
+        {
+          "level": 3,
+          "text": "Automated Trade Execution"
+        },
+        {
+          "level": 3,
+          "text": "Risk-Management Logic"
+        },
+        {
+          "level": 3,
+          "text": "Position Management"
+        },
+        {
+          "level": 3,
+          "text": "Trade Lifecycle Management"
+        },
+        {
+          "level": 2,
+          "text": "Documented Forward Performance for the current Metals / XAUUSD configuration."
+        },
+        {
+          "level": 3,
+          "text": "Current public record"
+        }
+      ],
+      "text": "TRADING SYSTEMS\n\nEmerald Quant System\n\nSystematic execution built around signals, rules, and risk logic.\n\nEmerald Quant System is the broader algorithmic trading system within Emerald Legacy Systems. It incorporates signal-generation inputs, rule logic, risk-management logic, and automated execution for its supported market scope.\n\nALGORITHMIC TRADING SYSTEM\nPUBLIC FORWARD TEST\nMT4\nMETALS\nXAUUSD\nView Public Performance\nExplore Technology\nSYSTEM ARCHITECTURE\nEmerald Quant\nSignal Input\n01\nRule Logic\n02\nRisk Logic\n03\nExecution\n04\n\nSignals inform the system.\n\nExecution is governed by rules, risk logic, and trade handling.\n\nSYSTEM POSITIONING\n\nA full trading-system layer, not simply a signal indicator.\n\nEmerald Quant System coordinates signal interpretation, system rules, risk-management logic, and execution handling as one system-level architecture.\n\nSYSTEM TYPE\nALGORITHMIC TRADING SYSTEM\n\nThe product is positioned as a broader algorithmic system layer rather than a standalone chart signal.\n\nFAMILY COVERAGE\nMETALS\nFOREX\nFUTURES\nEQUITIES\n\nFamily-level coverage describes where Emerald Legacy Systems develops quantitative system architecture.\n\nCURRENT PUBLIC CONFIGURATION\nMETALS / XAUUSD\n\nThe documented public Forward Performance program is scoped to this concrete configuration.\n\nPLATFORM\nMT4\n\nPlatform support is taken from the current configuration record, separate from family-level coverage.\n\nPUBLIC RECORD\nEMERALD LEDGER\n\nDocumented public Forward Performance is maintained separately in the Emerald Ledger.\n\nSYSTEM RELATIONSHIPS\n\nSignals are inputs. System execution is broader.\n\nThe Emerald Signal Indicator and Emerald Directional Signal Stream provide signal context. The Emerald Quant System applies system rules, risk logic, and execution handling around those inputs.\n\nINDICATOR LAYER\nEmerald Legacy System\n\nChart-based analytical and signal-generation input.\n\nExplore Indicators\nSIGNAL CONTEXT\nEmerald Signal Framework\n\nDirectional signal context for the system layer.\n\nView Signals\nSYSTEM LAYER\nEmerald Quant System\n\nSignals inform the system; execution is governed by a broader rule set covering rules, risk logic, and trade handling.\n\nSYSTEM CAPABILITIES\n\nSystem-level capabilities govern how signals become managed trade execution.\n5 CANONICAL CAPABILITIES\n\nEmerald Quant System is broader than signal generation because it combines interpretation, execution, risk logic, position handling, and trade lifecycle management within the current public system capability set.\n\n01\nINPUT PROCESSING\nSignal Interpretation\n\nProcesses signal-generation inputs within the broader system rule set.\n\n02\nEXECUTION\nAutomated Trade Execution\n\nApplies system rules to automated trade implementation on the supported execution platform.\n\n03\nSYSTEM CONTROL\nRisk-Management Logic\n\nApplies defined risk-management logic as part of system-level trade handling.\n\n04\nTRADE MANAGEMENT\nPosition Management\n\nManages open-position handling within the system's defined rule framework.\n\n05\nLIFECYCLE COORDINATION\nTrade Lifecycle Management\n\nCoordinates trade handling across system-defined stages from initiation through closure.\n\nSYSTEM HANDLING LAYERS\nConceptual relationship\n\nSignal Interpretation\n\nRisk-Management Logic\n\nAutomated Trade Execution\n\nPosition Management\n\nTrade Lifecycle Management\n\nASSET-CLASS CONFIGURATION\n\nSelect an available public configuration. Other asset classes remain family coverage only.\n\nMETALS\n, SELECTED\nFOREX\n, NO PUBLIC CONFIGURATION CURRENTLY AVAILABLE\nFUTURES\n, NO PUBLIC CONFIGURATION CURRENTLY AVAILABLE\nEQUITIES\n, NO PUBLIC CONFIGURATION CURRENTLY AVAILABLE\n\nPUBLIC PERFORMANCE CONTEXT\n\nDocumented Forward Performance for the current Metals / XAUUSD configuration.\n\nThe current public Forward Performance record is associated with the Metals / XAUUSD configuration of the Emerald Quant System family. Complete public history remains in the Emerald Ledger.\n\nPerformance shown in this module applies only to the selected Metals / XAUUSD public configuration.\n\nView Complete Ledger\nMETALS / XAUUSD\nEMERALD LEDGER\nCurrent public record\nCLASSIFICATION\nForward Performance\nCOVERAGE\nAug 17-28, 2026\nPLATFORM\nMT4\nLIFECYCLE\nPublic Forward Test\nCUMULATIVE NET PROFIT\n$204,966.54\nCUMULATIVE RETURN\n20.50%\nTOTAL TRADES\n499\nWIN RATE\n69.34%\nMAXIMUM DRAWDOWN\n10.67%\n\n6 Public Ledger Records are associated with this configuration.",
+      "links": [
+        "/ledger",
+        "/technology",
+        "/indicators",
+        "/signals",
+        "/systems/quant",
+        "/ledger"
+      ],
+      "title": "Emerald Quant System | Emerald Legacy Systems",
+      "description": "Explore the fully automated Emerald Quant System, its architecture, public Forward Performance context, and current configuration relationships.",
+      "brokenImages": []
+    }
+  ],
+  "links": [
+    {
+      "href": "/performance",
+      "status": 200
+    },
+    {
+      "href": "/performance/compare",
+      "status": 200
+    },
+    {
+      "href": "/performance/live-vs-backtest",
+      "status": 200
+    },
+    {
+      "href": "/verification",
+      "status": 200
+    },
+    {
+      "href": "/ledger",
+      "status": 200
+    },
+    {
+      "href": "/systems/quant",
+      "status": 200
+    },
+    {
+      "href": "/videos",
+      "status": 200
+    },
+    {
+      "href": "/technology",
+      "status": 200
+    },
+    {
+      "href": "/indicators",
+      "status": 200
+    },
+    {
+      "href": "/signals",
+      "status": 200
+    }
+  ],
+  "errors": [],
+  "runtimeErrors": [],
+  "note": "Production build on port 3040. Existing Ledger/Quant media not copied as review PNGs. Favicon 404, if present, is recorded separately from application runtime errors."
+}

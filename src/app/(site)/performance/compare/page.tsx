@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
 
-import { PagePlaceholder } from "@/components/dev/page-placeholder";
+import { PerformanceComparison } from "@/components/performance/performance-comparison";
 import { JsonLd } from "@/components/seo/json-ld";
 import {
   createPageMetadata,
@@ -22,10 +22,7 @@ export default function PerformanceComparePage() {
   return (
     <>
       <JsonLd data={pageJsonLd} />
-      <PagePlaceholder
-        title="System Performance Comparison"
-        variant="dashboard"
-      />
+      <PerformanceComparison />
     </>
   );
 }

@@ -93,21 +93,21 @@ export const routeSeoMetadata = {
     path: "/platforms/ninjatrader",
   },
   "/performance": {
-    title: "Performance",
+    title: "Documented Performance",
     description:
-      "Documented performance records, comparisons, and analytical views from Emerald Legacy Systems.",
+      "Understand Emerald's documented trading results, public demo forward records, evidence classes and configuration-specific performance limits.",
     path: "/performance",
   },
   "/performance/compare": {
-    title: "Performance Comparison",
+    title: "Performance Evidence Comparison",
     description:
-      "Compare documented Emerald Legacy Systems performance records across periods and system views.",
+      "Inspect the Quant Metals/XAUUSD MT4 forward record alongside backtest evidence availability, with source-backed metrics and explicit missing data.",
     path: "/performance/compare",
   },
   "/performance/live-vs-backtest": {
-    title: "Live vs Backtest Performance",
+    title: "Forward Performance vs Backtest Performance",
     description:
-      "Compare forward-performance records with historical backtest results while keeping methodology and scope distinct.",
+      "Understand algorithmic backtest assumptions, forward demo observation, execution differences and the limits of both evaluation methods.",
     path: "/performance/live-vs-backtest",
   },
   "/technology": {
@@ -123,9 +123,9 @@ export const routeSeoMetadata = {
     path: "/research",
   },
   "/verification": {
-    title: "Performance Verification",
+    title: "Performance Verification Methodology",
     description:
-      "Methods and supporting evidence used to document and review Emerald Legacy Systems public performance records.",
+      "How Emerald documents public performance records: configuration identity, dated sources, media context, correction practices and independent-review boundaries.",
     path: "/verification",
   },
   "/videos": {

@@ -11,9 +11,9 @@ const footerSections = [
     ariaLabel: "Footer Performance",
     links: [
       { href: "/ledger", label: "Emerald Ledger" },
-      { href: "/performance", label: "System Performance" },
-      { href: "/performance/compare", label: "Compare Systems" },
-      { href: "/performance/live-vs-backtest", label: "Live vs Backtest" },
+      { href: "/performance", label: "Performance Overview" },
+      { href: "/performance/compare", label: "Evidence Comparison" },
+      { href: "/performance/live-vs-backtest", label: "Forward vs Backtest" },
       { href: "/verification", label: "Verification" },
       { href: "/videos", label: "Video Archive" },
     ],

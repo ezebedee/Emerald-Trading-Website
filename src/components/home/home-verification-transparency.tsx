@@ -125,7 +125,7 @@ export function HomeVerificationTransparency({
                 size="lg"
                 trailingIcon={<ArrowRight aria-hidden="true" />}
               >
-                View Performance Verification
+                View Verification Methodology
               </LinkButton>
               <LinkButton href="/ledger" variant="secondary" size="lg">
                 View Emerald Ledger
