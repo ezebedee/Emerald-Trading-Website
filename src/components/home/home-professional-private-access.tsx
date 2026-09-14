@@ -10,6 +10,7 @@ import { Badge } from "@/components/ui/badge";
 import { LinkButton } from "@/components/ui/button";
 import { Container } from "@/components/ui/container";
 import { SectionLabel } from "@/components/ui/section-label";
+import { portalLoginUrl } from "@/lib/portal";
 
 const accessPaths = [
   {
@@ -27,8 +28,8 @@ const accessPaths = [
     description:
       "Selected non-public performance materials may be made available separately to approved viewers, subject to review and distinct from the public demo record.",
     badge: "Controlled Access",
-    cta: "Request Private Access",
-    href: "/private-access",
+    cta: "Explore Emerald Quant System",
+    href: "/systems/quant",
     icon: LockKeyhole,
     isEmphasized: true,
   },
@@ -125,11 +126,11 @@ export function HomeProfessionalPrivateAccess() {
 
             <div className="mt-8 flex flex-col gap-3 sm:flex-row">
               <LinkButton
-                href="/private-access"
+                href={portalLoginUrl}
                 size="lg"
                 trailingIcon={<ArrowRight aria-hidden="true" />}
               >
-                Request Private Access
+                Client Portal
               </LinkButton>
               <LinkButton href="/professional" variant="secondary" size="lg">
                 Professional Overview

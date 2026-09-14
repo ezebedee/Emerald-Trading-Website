@@ -1,0 +1,6636 @@
+{
+  "results": [
+    {
+      "route": "/",
+      "width": 375,
+      "overflow": false,
+      "portalCount": 4,
+      "visiblePortal": {
+        "label": "Sign In",
+        "width": 328,
+        "height": 40,
+        "right": 344,
+        "left": 16
+      },
+      "keyboardFocus": {
+        "visible": true,
+        "outline": "solid",
+        "width": "2px"
+      },
+      "keyboardActivation": true,
+      "mobileCloses": true
+    },
+    {
+      "route": "/systems",
+      "width": 375,
+      "overflow": false,
+      "portalCount": 4,
+      "visiblePortal": {
+        "label": "Sign In",
+        "width": 328,
+        "height": 40,
+        "right": 344,
+        "left": 16
+      },
+      "keyboardFocus": {
+        "visible": true,
+        "outline": "solid",
+        "width": "2px"
+      },
+      "keyboardActivation": true,
+      "mobileCloses": true
+    },
+    {
+      "route": "/systems/quant",
+      "width": 375,
+      "overflow": false,
+      "portalCount": 3,
+      "visiblePortal": {
+        "label": "Sign In",
+        "width": 328,
+        "height": 40,
+        "right": 344,
+        "left": 16
+      },
+      "keyboardFocus": {
+        "visible": true,
+        "outline": "solid",
+        "width": "2px"
+      },
+      "keyboardActivation": true,
+      "mobileCloses": true
+    },
+    {
+      "route": "/indicators",
+      "width": 375,
+      "overflow": false,
+      "portalCount": 3,
+      "visiblePortal": {
+        "label": "Sign In",
+        "width": 328,
+        "height": 40,
+        "right": 344,
+        "left": 16
+      },
+      "keyboardFocus": {
+        "visible": true,
+        "outline": "solid",
+        "width": "2px"
+      },
+      "keyboardActivation": true,
+      "mobileCloses": true
+    },
+    {
+      "route": "/signals",
+      "width": 375,
+      "overflow": false,
+      "portalCount": 3,
+      "visiblePortal": {
+        "label": "Sign In",
+        "width": 328,
+        "height": 40,
+        "right": 344,
+        "left": 16
+      },
+      "keyboardFocus": {
+        "visible": true,
+        "outline": "solid",
+        "width": "2px"
+      },
+      "keyboardActivation": true,
+      "mobileCloses": true
+    },
+    {
+      "route": "/signal-scanner",
+      "width": 375,
+      "overflow": false,
+      "portalCount": 3,
+      "visiblePortal": {
+        "label": "Sign In",
+        "width": 328,
+        "height": 40,
+        "right": 344,
+        "left": 16
+      },
+      "keyboardFocus": {
+        "visible": true,
+        "outline": "solid",
+        "width": "2px"
+      },
+      "keyboardActivation": true,
+      "mobileCloses": true
+    },
+    {
+      "route": "/recovery-expert",
+      "width": 375,
+      "overflow": false,
+      "portalCount": 3,
+      "visiblePortal": {
+        "label": "Sign In",
+        "width": 328,
+        "height": 40,
+        "right": 344,
+        "left": 16
+      },
+      "keyboardFocus": {
+        "visible": true,
+        "outline": "solid",
+        "width": "2px"
+      },
+      "keyboardActivation": true,
+      "mobileCloses": true
+    },
+    {
+      "route": "/",
+      "width": 1440,
+      "overflow": false,
+      "portalCount": 4,
+      "visiblePortal": {
+        "label": "Sign In",
+        "width": 65.484375,
+        "height": 36,
+        "right": 1409,
+        "left": 1343.515625
+      },
+      "keyboardFocus": {
+        "visible": true,
+        "outline": "solid",
+        "width": "2px"
+      },
+      "keyboardActivation": true,
+      "mobileCloses": null
+    },
+    {
+      "route": "/systems",
+      "width": 1440,
+      "overflow": false,
+      "portalCount": 4,
+      "visiblePortal": {
+        "label": "Sign In",
+        "width": 65.484375,
+        "height": 36,
+        "right": 1409,
+        "left": 1343.515625
+      },
+      "keyboardFocus": {
+        "visible": true,
+        "outline": "solid",
+        "width": "2px"
+      },
+      "keyboardActivation": true,
+      "mobileCloses": null
+    },
+    {
+      "route": "/systems/quant",
+      "width": 1440,
+      "overflow": false,
+      "portalCount": 3,
+      "visiblePortal": {
+        "label": "Sign In",
+        "width": 65.484375,
+        "height": 36,
+        "right": 1409,
+        "left": 1343.515625
+      },
+      "keyboardFocus": {
+        "visible": true,
+        "outline": "solid",
+        "width": "2px"
+      },
+      "keyboardActivation": true,
+      "mobileCloses": null
+    },
+    {
+      "route": "/indicators",
+      "width": 1440,
+      "overflow": false,
+      "portalCount": 3,
+      "visiblePortal": {
+        "label": "Sign In",
+        "width": 65.484375,
+        "height": 36,
+        "right": 1409,
+        "left": 1343.515625
+      },
+      "keyboardFocus": {
+        "visible": true,
+        "outline": "solid",
+        "width": "2px"
+      },
+      "keyboardActivation": true,
+      "mobileCloses": null
+    },
+    {
+      "route": "/signals",
+      "width": 1440,
+      "overflow": false,
+      "portalCount": 3,
+      "visiblePortal": {
+        "label": "Sign In",
+        "width": 65.484375,
+        "height": 36,
+        "right": 1409,
+        "left": 1343.515625
+      },
+      "keyboardFocus": {
+        "visible": true,
+        "outline": "solid",
+        "width": "2px"
+      },
+      "keyboardActivation": true,
+      "mobileCloses": null
+    },
+    {
+      "route": "/signal-scanner",
+      "width": 1440,
+      "overflow": false,
+      "portalCount": 3,
+      "visiblePortal": {
+        "label": "Sign In",
+        "width": 65.484375,
+        "height": 36,
+        "right": 1409,
+        "left": 1343.515625
+      },
+      "keyboardFocus": {
+        "visible": true,
+        "outline": "solid",
+        "width": "2px"
+      },
+      "keyboardActivation": true,
+      "mobileCloses": null
+    },
+    {
+      "route": "/recovery-expert",
+      "width": 1440,
+      "overflow": false,
+      "portalCount": 3,
+      "visiblePortal": {
+        "label": "Sign In",
+        "width": 65.484375,
+        "height": 36,
+        "right": 1409,
+        "left": 1343.515625
+      },
+      "keyboardFocus": {
+        "visible": true,
+        "outline": "solid",
+        "width": "2px"
+      },
+      "keyboardActivation": true,
+      "mobileCloses": null
+    }
+  ],
+  "links": [
+    {
+      "href": "#main-content",
+      "label": "Skip to main content",
+      "target": "",
+      "rel": "",
+      "location": "main",
+      "visible": true,
+      "route": "/",
+      "width": 375
+    },
+    {
+      "href": "/",
+      "label": "EMERALDLEGACY SYSTEMS",
+      "target": "",
+      "rel": "",
+      "location": "header",
+      "visible": true,
+      "route": "/",
+      "width": 375
+    },
+    {
+      "href": "/",
+      "label": "Home",
+      "target": "",
+      "rel": "",
+      "location": "header",
+      "visible": false,
+      "route": "/",
+      "width": 375
+    },
+    {
+      "href": "/ledger",
+      "label": "Emerald Ledger",
+      "target": "",
+      "rel": "",
+      "location": "header",
+      "visible": false,
+      "route": "/",
+      "width": 375
+    },
+    {
+      "href": "/systems",
+      "label": "Systems",
+      "target": "",
+      "rel": "",
+      "location": "header",
+      "visible": false,
+      "route": "/",
+      "width": 375
+    },
+    {
+      "href": "/indicators",
+      "label": "Indicators & Signals",
+      "target": "",
+      "rel": "",
+      "location": "header",
+      "visible": false,
+      "route": "/",
+      "width": 375
+    },
+    {
+      "href": "/technology",
+      "label": "Technology",
+      "target": "",
+      "rel": "",
+      "location": "header",
+      "visible": false,
+      "route": "/",
+      "width": 375
+    },
+    {
+      "href": "/research",
+      "label": "Research",
+      "target": "",
+      "rel": "",
+      "location": "header",
+      "visible": false,
+      "route": "/",
+      "width": 375
+    },
+    {
+      "href": "/about",
+      "label": "About",
+      "target": "",
+      "rel": "",
+      "location": "header",
+      "visible": false,
+      "route": "/",
+      "width": 375
+    },
+    {
+      "href": "/ledger",
+      "label": "Follow Performance",
+      "target": "",
+      "rel": "",
+      "location": "header",
+      "visible": false,
+      "route": "/",
+      "width": 375
+    },
+    {
+      "href": "https://portal.emeraldforexsystem.com/login",
+      "label": "Sign In",
+      "target": "",
+      "rel": "",
+      "location": "header",
+      "visible": false,
+      "route": "/",
+      "width": 375
+    },
+    {
+      "href": "/ledger",
+      "label": "Follow Performance",
+      "target": "",
+      "rel": "",
+      "location": "main",
+      "visible": true,
+      "route": "/",
+      "width": 375
+    },
+    {
+      "href": "/systems",
+      "label": "Explore Systems",
+      "target": "",
+      "rel": "",
+      "location": "main",
+      "visible": true,
+      "route": "/",
+      "width": 375
+    },
+    {
+      "href": "/verification",
+      "label": "How Performance Is Documented",
+      "target": "",
+      "rel": "",
+      "location": "main",
+      "visible": true,
+      "route": "/",
+      "width": 375
+    },
+    {
+      "href": "/ledger",
+      "label": "View Full Emerald Ledger",
+      "target": "",
+      "rel": "",
+      "location": "main",
+      "visible": true,
+      "route": "/",
+      "width": 375
+    },
+    {
+      "href": "/ledger",
+      "label": "View Full Emerald Ledger",
+      "target": "",
+      "rel": "",
+      "location": "main",
+      "visible": true,
+      "route": "/",
+      "width": 375
+    },
+    {
+      "href": "/ledger",
+      "label": "View ledger record",
+      "target": "",
+      "rel": "",
+      "location": "main",
+      "visible": true,
+      "route": "/",
+      "width": 375
+    },
+    {
+      "href": "/ledger",
+      "label": "View ledger record",
+      "target": "",
+      "rel": "",
+      "location": "main",
+      "visible": true,
+      "route": "/",
+      "width": 375
+    },
+    {
+      "href": "/ledger",
+      "label": "View ledger record",
+      "target": "",
+      "rel": "",
+      "location": "main",
+      "visible": true,
+      "route": "/",
+      "width": 375
+    },
+    {
+      "href": "/systems/quant",
+      "label": "Explore Quant System",
+      "target": "",
+      "rel": "",
+      "location": "main",
+      "visible": true,
+      "route": "/",
+      "width": 375
+    },
+    {
+      "href": "/ledger",
+      "label": "View Public Performance",
+      "target": "",
+      "rel": "",
+      "location": "main",
+      "visible": true,
+      "route": "/",
+      "width": 375
+    },
+    {
+      "href": "/systems/quant",
+      "label": "Explore the Trading System",
+      "target": "",
+      "rel": "",
+      "location": "main",
+      "visible": true,
+      "route": "/",
+      "width": 375
+    },
+    {
+      "href": "/indicators",
+      "label": "Explore Indicators",
+      "target": "",
+      "rel": "",
+      "location": "main",
+      "visible": true,
+      "route": "/",
+      "width": 375
+    },
+    {
+      "href": "/signals",
+      "label": "View Signals",
+      "target": "",
+      "rel": "",
+      "location": "main",
+      "visible": true,
+      "route": "/",
+      "width": 375
+    },
+    {
+      "href": "/technology",
+      "label": "Explore Technology",
+      "target": "",
+      "rel": "",
+      "location": "main",
+      "visible": true,
+      "route": "/",
+      "width": 375
+    },
+    {
+      "href": "/research",
+      "label": "View Research",
+      "target": "",
+      "rel": "",
+      "location": "main",
+      "visible": true,
+      "route": "/",
+      "width": 375
+    },
+    {
+      "href": "/verification",
+      "label": "View Performance Verification",
+      "target": "",
+      "rel": "",
+      "location": "main",
+      "visible": true,
+      "route": "/",
+      "width": 375
+    },
+    {
+      "href": "/ledger",
+      "label": "View Emerald Ledger",
+      "target": "",
+      "rel": "",
+      "location": "main",
+      "visible": true,
+      "route": "/",
+      "width": 375
+    },
+    {
+      "href": "/videos",
+      "label": "Explore Video Archive",
+      "target": "",
+      "rel": "",
+      "location": "main",
+      "visible": true,
+      "route": "/",
+      "width": 375
+    },
+    {
+      "href": "/ledger",
+      "label": "View Emerald Ledger",
+      "target": "",
+      "rel": "",
+      "location": "main",
+      "visible": true,
+      "route": "/",
+      "width": 375
+    },
+    {
+      "href": "/videos",
+      "label": "View archive entry",
+      "target": "",
+      "rel": "",
+      "location": "main",
+      "visible": true,
+      "route": "/",
+      "width": 375
+    },
+    {
+      "href": "/videos",
+      "label": "View archive entry",
+      "target": "",
+      "rel": "",
+      "location": "main",
+      "visible": true,
+      "route": "/",
+      "width": 375
+    },
+    {
+      "href": "/videos",
+      "label": "View archive entry",
+      "target": "",
+      "rel": "",
+      "location": "main",
+      "visible": true,
+      "route": "/",
+      "width": 375
+    },
+    {
+      "href": "/ledger",
+      "label": "View Public Performance",
+      "target": "",
+      "rel": "",
+      "location": "main",
+      "visible": true,
+      "route": "/",
+      "width": 375
+    },
+    {
+      "href": "/systems/quant",
+      "label": "Explore Emerald Quant System",
+      "target": "",
+      "rel": "",
+      "location": "main",
+      "visible": true,
+      "route": "/",
+      "width": 375
+    },
+    {
+      "href": "https://portal.emeraldforexsystem.com/login",
+      "label": "Client Portal",
+      "target": "",
+      "rel": "",
+      "location": "main",
+      "visible": true,
+      "route": "/",
+      "width": 375
+    },
+    {
+      "href": "/professional",
+      "label": "Professional Overview",
+      "target": "",
+      "rel": "",
+      "location": "main",
+      "visible": true,
+      "route": "/",
+      "width": 375
+    },
+    {
+      "href": "/ledger",
+      "label": "Follow Performance",
+      "target": "",
+      "rel": "",
+      "location": "main",
+      "visible": true,
+      "route": "/",
+      "width": 375
+    },
+    {
+      "href": "/systems",
+      "label": "Explore Systems",
+      "target": "",
+      "rel": "",
+      "location": "main",
+      "visible": true,
+      "route": "/",
+      "width": 375
+    },
+    {
+      "href": "/technology",
+      "label": "explore the technology",
+      "target": "",
+      "rel": "",
+      "location": "main",
+      "visible": true,
+      "route": "/",
+      "width": 375
+    },
+    {
+      "href": "/",
+      "label": "EMERALDLEGACY SYSTEMSQuantitative Trading Technology",
+      "target": "",
+      "rel": "",
+      "location": "footer",
+      "visible": true,
+      "route": "/",
+      "width": 375
+    },
+    {
+      "href": "mailto:support@emeraldforexsystem.com",
+      "label": "support@emeraldforexsystem.com",
+      "target": "",
+      "rel": "",
+      "location": "footer",
+      "visible": true,
+      "route": "/",
+      "width": 375
+    },
+    {
+      "href": "/ledger",
+      "label": "Emerald Ledger",
+      "target": "",
+      "rel": "",
+      "location": "footer",
+      "visible": true,
+      "route": "/",
+      "width": 375
+    },
+    {
+      "href": "/performance",
+      "label": "System Performance",
+      "target": "",
+      "rel": "",
+      "location": "footer",
+      "visible": true,
+      "route": "/",
+      "width": 375
+    },
+    {
+      "href": "/performance/compare",
+      "label": "Compare Systems",
+      "target": "",
+      "rel": "",
+      "location": "footer",
+      "visible": true,
+      "route": "/",
+      "width": 375
+    },
+    {
+      "href": "/performance/live-vs-backtest",
+      "label": "Live vs Backtest",
+      "target": "",
+      "rel": "",
+      "location": "footer",
+      "visible": true,
+      "route": "/",
+      "width": 375
+    },
+    {
+      "href": "/verification",
+      "label": "Verification",
+      "target": "",
+      "rel": "",
+      "location": "footer",
+      "visible": true,
+      "route": "/",
+      "width": 375
+    },
+    {
+      "href": "/videos",
+      "label": "Video Archive",
+      "target": "",
+      "rel": "",
+      "location": "footer",
+      "visible": true,
+      "route": "/",
+      "width": 375
+    },
+    {
+      "href": "/systems",
+      "label": "Systems",
+      "target": "",
+      "rel": "",
+      "location": "footer",
+      "visible": true,
+      "route": "/",
+      "width": 375
+    },
+    {
+      "href": "/indicators",
+      "label": "Indicators & Signals",
+      "target": "",
+      "rel": "",
+      "location": "footer",
+      "visible": true,
+      "route": "/",
+      "width": 375
+    },
+    {
+      "href": "/signals",
+      "label": "Signal Library",
+      "target": "",
+      "rel": "",
+      "location": "footer",
+      "visible": true,
+      "route": "/",
+      "width": 375
+    },
+    {
+      "href": "/technology",
+      "label": "Technology",
+      "target": "",
+      "rel": "",
+      "location": "footer",
+      "visible": true,
+      "route": "/",
+      "width": 375
+    },
+    {
+      "href": "/research",
+      "label": "Research",
+      "target": "",
+      "rel": "",
+      "location": "footer",
+      "visible": true,
+      "route": "/",
+      "width": 375
+    },
+    {
+      "href": "/about",
+      "label": "About",
+      "target": "",
+      "rel": "",
+      "location": "footer",
+      "visible": true,
+      "route": "/",
+      "width": 375
+    },
+    {
+      "href": "/professional",
+      "label": "Professional / Investor",
+      "target": "",
+      "rel": "",
+      "location": "footer",
+      "visible": true,
+      "route": "/",
+      "width": 375
+    },
+    {
+      "href": "https://portal.emeraldforexsystem.com/login",
+      "label": "Client Portal",
+      "target": "",
+      "rel": "",
+      "location": "footer",
+      "visible": true,
+      "route": "/",
+      "width": 375
+    },
+    {
+      "href": "https://portal.emeraldforexsystem.com/login",
+      "label": "Partner Portal",
+      "target": "",
+      "rel": "",
+      "location": "footer",
+      "visible": true,
+      "route": "/",
+      "width": 375
+    },
+    {
+      "href": "/privacy",
+      "label": "Privacy",
+      "target": "",
+      "rel": "",
+      "location": "footer",
+      "visible": true,
+      "route": "/",
+      "width": 375
+    },
+    {
+      "href": "/terms",
+      "label": "Terms",
+      "target": "",
+      "rel": "",
+      "location": "footer",
+      "visible": true,
+      "route": "/",
+      "width": 375
+    },
+    {
+      "href": "/risk-disclosure",
+      "label": "Risk Disclosure",
+      "target": "",
+      "rel": "",
+      "location": "footer",
+      "visible": true,
+      "route": "/",
+      "width": 375
+    },
+    {
+      "href": "#main-content",
+      "label": "Skip to main content",
+      "target": "",
+      "rel": "",
+      "location": "main",
+      "visible": true,
+      "route": "/systems",
+      "width": 375
+    },
+    {
+      "href": "/",
+      "label": "EMERALDLEGACY SYSTEMS",
+      "target": "",
+      "rel": "",
+      "location": "header",
+      "visible": true,
+      "route": "/systems",
+      "width": 375
+    },
+    {
+      "href": "/",
+      "label": "Home",
+      "target": "",
+      "rel": "",
+      "location": "header",
+      "visible": false,
+      "route": "/systems",
+      "width": 375
+    },
+    {
+      "href": "/ledger",
+      "label": "Emerald Ledger",
+      "target": "",
+      "rel": "",
+      "location": "header",
+      "visible": false,
+      "route": "/systems",
+      "width": 375
+    },
+    {
+      "href": "/systems",
+      "label": "Systems",
+      "target": "",
+      "rel": "",
+      "location": "header",
+      "visible": false,
+      "route": "/systems",
+      "width": 375
+    },
+    {
+      "href": "/indicators",
+      "label": "Indicators & Signals",
+      "target": "",
+      "rel": "",
+      "location": "header",
+      "visible": false,
+      "route": "/systems",
+      "width": 375
+    },
+    {
+      "href": "/technology",
+      "label": "Technology",
+      "target": "",
+      "rel": "",
+      "location": "header",
+      "visible": false,
+      "route": "/systems",
+      "width": 375
+    },
+    {
+      "href": "/research",
+      "label": "Research",
+      "target": "",
+      "rel": "",
+      "location": "header",
+      "visible": false,
+      "route": "/systems",
+      "width": 375
+    },
+    {
+      "href": "/about",
+      "label": "About",
+      "target": "",
+      "rel": "",
+      "location": "header",
+      "visible": false,
+      "route": "/systems",
+      "width": 375
+    },
+    {
+      "href": "/ledger",
+      "label": "Follow Performance",
+      "target": "",
+      "rel": "",
+      "location": "header",
+      "visible": false,
+      "route": "/systems",
+      "width": 375
+    },
+    {
+      "href": "https://portal.emeraldforexsystem.com/login",
+      "label": "Sign In",
+      "target": "",
+      "rel": "",
+      "location": "header",
+      "visible": false,
+      "route": "/systems",
+      "width": 375
+    },
+    {
+      "href": "#product-catalog",
+      "label": "Explore Products",
+      "target": "",
+      "rel": "",
+      "location": "main",
+      "visible": true,
+      "route": "/systems",
+      "width": 375
+    },
+    {
+      "href": "/platforms",
+      "label": "View Platforms",
+      "target": "",
+      "rel": "",
+      "location": "main",
+      "visible": true,
+      "route": "/systems",
+      "width": 375
+    },
+    {
+      "href": "/indicators",
+      "label": "Explore Emerald Legacy System",
+      "target": "",
+      "rel": "",
+      "location": "main",
+      "visible": true,
+      "route": "/systems",
+      "width": 375
+    },
+    {
+      "href": "/signal-scanner",
+      "label": "Explore Signal Scanner",
+      "target": "",
+      "rel": "",
+      "location": "main",
+      "visible": true,
+      "route": "/systems",
+      "width": 375
+    },
+    {
+      "href": "/recovery-expert",
+      "label": "Explore Recovery Expert",
+      "target": "",
+      "rel": "",
+      "location": "main",
+      "visible": true,
+      "route": "/systems",
+      "width": 375
+    },
+    {
+      "href": "/systems/quant",
+      "label": "Explore Quant System",
+      "target": "",
+      "rel": "",
+      "location": "main",
+      "visible": true,
+      "route": "/systems",
+      "width": 375
+    },
+    {
+      "href": "https://portal.emeraldforexsystem.com/login",
+      "label": "Client Portal",
+      "target": "",
+      "rel": "",
+      "location": "main",
+      "visible": true,
+      "route": "/systems",
+      "width": 375
+    },
+    {
+      "href": "/platforms",
+      "label": "View Platforms",
+      "target": "",
+      "rel": "",
+      "location": "main",
+      "visible": true,
+      "route": "/systems",
+      "width": 375
+    },
+    {
+      "href": "/systems/quant",
+      "label": "Explore Quant System",
+      "target": "",
+      "rel": "",
+      "location": "main",
+      "visible": true,
+      "route": "/systems",
+      "width": 375
+    },
+    {
+      "href": "/",
+      "label": "EMERALDLEGACY SYSTEMSQuantitative Trading Technology",
+      "target": "",
+      "rel": "",
+      "location": "footer",
+      "visible": true,
+      "route": "/systems",
+      "width": 375
+    },
+    {
+      "href": "mailto:support@emeraldforexsystem.com",
+      "label": "support@emeraldforexsystem.com",
+      "target": "",
+      "rel": "",
+      "location": "footer",
+      "visible": true,
+      "route": "/systems",
+      "width": 375
+    },
+    {
+      "href": "/ledger",
+      "label": "Emerald Ledger",
+      "target": "",
+      "rel": "",
+      "location": "footer",
+      "visible": true,
+      "route": "/systems",
+      "width": 375
+    },
+    {
+      "href": "/performance",
+      "label": "System Performance",
+      "target": "",
+      "rel": "",
+      "location": "footer",
+      "visible": true,
+      "route": "/systems",
+      "width": 375
+    },
+    {
+      "href": "/performance/compare",
+      "label": "Compare Systems",
+      "target": "",
+      "rel": "",
+      "location": "footer",
+      "visible": true,
+      "route": "/systems",
+      "width": 375
+    },
+    {
+      "href": "/performance/live-vs-backtest",
+      "label": "Live vs Backtest",
+      "target": "",
+      "rel": "",
+      "location": "footer",
+      "visible": true,
+      "route": "/systems",
+      "width": 375
+    },
+    {
+      "href": "/verification",
+      "label": "Verification",
+      "target": "",
+      "rel": "",
+      "location": "footer",
+      "visible": true,
+      "route": "/systems",
+      "width": 375
+    },
+    {
+      "href": "/videos",
+      "label": "Video Archive",
+      "target": "",
+      "rel": "",
+      "location": "footer",
+      "visible": true,
+      "route": "/systems",
+      "width": 375
+    },
+    {
+      "href": "/systems",
+      "label": "Systems",
+      "target": "",
+      "rel": "",
+      "location": "footer",
+      "visible": true,
+      "route": "/systems",
+      "width": 375
+    },
+    {
+      "href": "/indicators",
+      "label": "Indicators & Signals",
+      "target": "",
+      "rel": "",
+      "location": "footer",
+      "visible": true,
+      "route": "/systems",
+      "width": 375
+    },
+    {
+      "href": "/signals",
+      "label": "Signal Library",
+      "target": "",
+      "rel": "",
+      "location": "footer",
+      "visible": true,
+      "route": "/systems",
+      "width": 375
+    },
+    {
+      "href": "/technology",
+      "label": "Technology",
+      "target": "",
+      "rel": "",
+      "location": "footer",
+      "visible": true,
+      "route": "/systems",
+      "width": 375
+    },
+    {
+      "href": "/research",
+      "label": "Research",
+      "target": "",
+      "rel": "",
+      "location": "footer",
+      "visible": true,
+      "route": "/systems",
+      "width": 375
+    },
+    {
+      "href": "/about",
+      "label": "About",
+      "target": "",
+      "rel": "",
+      "location": "footer",
+      "visible": true,
+      "route": "/systems",
+      "width": 375
+    },
+    {
+      "href": "/professional",
+      "label": "Professional / Investor",
+      "target": "",
+      "rel": "",
+      "location": "footer",
+      "visible": true,
+      "route": "/systems",
+      "width": 375
+    },
+    {
+      "href": "https://portal.emeraldforexsystem.com/login",
+      "label": "Client Portal",
+      "target": "",
+      "rel": "",
+      "location": "footer",
+      "visible": true,
+      "route": "/systems",
+      "width": 375
+    },
+    {
+      "href": "https://portal.emeraldforexsystem.com/login",
+      "label": "Partner Portal",
+      "target": "",
+      "rel": "",
+      "location": "footer",
+      "visible": true,
+      "route": "/systems",
+      "width": 375
+    },
+    {
+      "href": "/privacy",
+      "label": "Privacy",
+      "target": "",
+      "rel": "",
+      "location": "footer",
+      "visible": true,
+      "route": "/systems",
+      "width": 375
+    },
+    {
+      "href": "/terms",
+      "label": "Terms",
+      "target": "",
+      "rel": "",
+      "location": "footer",
+      "visible": true,
+      "route": "/systems",
+      "width": 375
+    },
+    {
+      "href": "/risk-disclosure",
+      "label": "Risk Disclosure",
+      "target": "",
+      "rel": "",
+      "location": "footer",
+      "visible": true,
+      "route": "/systems",
+      "width": 375
+    },
+    {
+      "href": "#main-content",
+      "label": "Skip to main content",
+      "target": "",
+      "rel": "",
+      "location": "main",
+      "visible": true,
+      "route": "/systems/quant",
+      "width": 375
+    },
+    {
+      "href": "/",
+      "label": "EMERALDLEGACY SYSTEMS",
+      "target": "",
+      "rel": "",
+      "location": "header",
+      "visible": true,
+      "route": "/systems/quant",
+      "width": 375
+    },
+    {
+      "href": "/",
+      "label": "Home",
+      "target": "",
+      "rel": "",
+      "location": "header",
+      "visible": false,
+      "route": "/systems/quant",
+      "width": 375
+    },
+    {
+      "href": "/ledger",
+      "label": "Emerald Ledger",
+      "target": "",
+      "rel": "",
+      "location": "header",
+      "visible": false,
+      "route": "/systems/quant",
+      "width": 375
+    },
+    {
+      "href": "/systems",
+      "label": "Systems",
+      "target": "",
+      "rel": "",
+      "location": "header",
+      "visible": false,
+      "route": "/systems/quant",
+      "width": 375
+    },
+    {
+      "href": "/indicators",
+      "label": "Indicators & Signals",
+      "target": "",
+      "rel": "",
+      "location": "header",
+      "visible": false,
+      "route": "/systems/quant",
+      "width": 375
+    },
+    {
+      "href": "/technology",
+      "label": "Technology",
+      "target": "",
+      "rel": "",
+      "location": "header",
+      "visible": false,
+      "route": "/systems/quant",
+      "width": 375
+    },
+    {
+      "href": "/research",
+      "label": "Research",
+      "target": "",
+      "rel": "",
+      "location": "header",
+      "visible": false,
+      "route": "/systems/quant",
+      "width": 375
+    },
+    {
+      "href": "/about",
+      "label": "About",
+      "target": "",
+      "rel": "",
+      "location": "header",
+      "visible": false,
+      "route": "/systems/quant",
+      "width": 375
+    },
+    {
+      "href": "/ledger",
+      "label": "Follow Performance",
+      "target": "",
+      "rel": "",
+      "location": "header",
+      "visible": false,
+      "route": "/systems/quant",
+      "width": 375
+    },
+    {
+      "href": "https://portal.emeraldforexsystem.com/login",
+      "label": "Sign In",
+      "target": "",
+      "rel": "",
+      "location": "header",
+      "visible": false,
+      "route": "/systems/quant",
+      "width": 375
+    },
+    {
+      "href": "/ledger",
+      "label": "View Public Performance",
+      "target": "",
+      "rel": "",
+      "location": "main",
+      "visible": true,
+      "route": "/systems/quant",
+      "width": 375
+    },
+    {
+      "href": "/technology",
+      "label": "Explore Technology",
+      "target": "",
+      "rel": "",
+      "location": "main",
+      "visible": true,
+      "route": "/systems/quant",
+      "width": 375
+    },
+    {
+      "href": "/indicators",
+      "label": "Explore Indicators",
+      "target": "",
+      "rel": "",
+      "location": "main",
+      "visible": true,
+      "route": "/systems/quant",
+      "width": 375
+    },
+    {
+      "href": "/signals",
+      "label": "View Signals",
+      "target": "",
+      "rel": "",
+      "location": "main",
+      "visible": true,
+      "route": "/systems/quant",
+      "width": 375
+    },
+    {
+      "href": "/systems/quant",
+      "label": "Metals, selected",
+      "target": "",
+      "rel": "",
+      "location": "main",
+      "visible": true,
+      "route": "/systems/quant",
+      "width": 375
+    },
+    {
+      "href": "/ledger",
+      "label": "View Complete Ledger",
+      "target": "",
+      "rel": "",
+      "location": "main",
+      "visible": true,
+      "route": "/systems/quant",
+      "width": 375
+    },
+    {
+      "href": "/",
+      "label": "EMERALDLEGACY SYSTEMSQuantitative Trading Technology",
+      "target": "",
+      "rel": "",
+      "location": "footer",
+      "visible": true,
+      "route": "/systems/quant",
+      "width": 375
+    },
+    {
+      "href": "mailto:support@emeraldforexsystem.com",
+      "label": "support@emeraldforexsystem.com",
+      "target": "",
+      "rel": "",
+      "location": "footer",
+      "visible": true,
+      "route": "/systems/quant",
+      "width": 375
+    },
+    {
+      "href": "/ledger",
+      "label": "Emerald Ledger",
+      "target": "",
+      "rel": "",
+      "location": "footer",
+      "visible": true,
+      "route": "/systems/quant",
+      "width": 375
+    },
+    {
+      "href": "/performance",
+      "label": "System Performance",
+      "target": "",
+      "rel": "",
+      "location": "footer",
+      "visible": true,
+      "route": "/systems/quant",
+      "width": 375
+    },
+    {
+      "href": "/performance/compare",
+      "label": "Compare Systems",
+      "target": "",
+      "rel": "",
+      "location": "footer",
+      "visible": true,
+      "route": "/systems/quant",
+      "width": 375
+    },
+    {
+      "href": "/performance/live-vs-backtest",
+      "label": "Live vs Backtest",
+      "target": "",
+      "rel": "",
+      "location": "footer",
+      "visible": true,
+      "route": "/systems/quant",
+      "width": 375
+    },
+    {
+      "href": "/verification",
+      "label": "Verification",
+      "target": "",
+      "rel": "",
+      "location": "footer",
+      "visible": true,
+      "route": "/systems/quant",
+      "width": 375
+    },
+    {
+      "href": "/videos",
+      "label": "Video Archive",
+      "target": "",
+      "rel": "",
+      "location": "footer",
+      "visible": true,
+      "route": "/systems/quant",
+      "width": 375
+    },
+    {
+      "href": "/systems",
+      "label": "Systems",
+      "target": "",
+      "rel": "",
+      "location": "footer",
+      "visible": true,
+      "route": "/systems/quant",
+      "width": 375
+    },
+    {
+      "href": "/indicators",
+      "label": "Indicators & Signals",
+      "target": "",
+      "rel": "",
+      "location": "footer",
+      "visible": true,
+      "route": "/systems/quant",
+      "width": 375
+    },
+    {
+      "href": "/signals",
+      "label": "Signal Library",
+      "target": "",
+      "rel": "",
+      "location": "footer",
+      "visible": true,
+      "route": "/systems/quant",
+      "width": 375
+    },
+    {
+      "href": "/technology",
+      "label": "Technology",
+      "target": "",
+      "rel": "",
+      "location": "footer",
+      "visible": true,
+      "route": "/systems/quant",
+      "width": 375
+    },
+    {
+      "href": "/research",
+      "label": "Research",
+      "target": "",
+      "rel": "",
+      "location": "footer",
+      "visible": true,
+      "route": "/systems/quant",
+      "width": 375
+    },
+    {
+      "href": "/about",
+      "label": "About",
+      "target": "",
+      "rel": "",
+      "location": "footer",
+      "visible": true,
+      "route": "/systems/quant",
+      "width": 375
+    },
+    {
+      "href": "/professional",
+      "label": "Professional / Investor",
+      "target": "",
+      "rel": "",
+      "location": "footer",
+      "visible": true,
+      "route": "/systems/quant",
+      "width": 375
+    },
+    {
+      "href": "https://portal.emeraldforexsystem.com/login",
+      "label": "Client Portal",
+      "target": "",
+      "rel": "",
+      "location": "footer",
+      "visible": true,
+      "route": "/systems/quant",
+      "width": 375
+    },
+    {
+      "href": "https://portal.emeraldforexsystem.com/login",
+      "label": "Partner Portal",
+      "target": "",
+      "rel": "",
+      "location": "footer",
+      "visible": true,
+      "route": "/systems/quant",
+      "width": 375
+    },
+    {
+      "href": "/privacy",
+      "label": "Privacy",
+      "target": "",
+      "rel": "",
+      "location": "footer",
+      "visible": true,
+      "route": "/systems/quant",
+      "width": 375
+    },
+    {
+      "href": "/terms",
+      "label": "Terms",
+      "target": "",
+      "rel": "",
+      "location": "footer",
+      "visible": true,
+      "route": "/systems/quant",
+      "width": 375
+    },
+    {
+      "href": "/risk-disclosure",
+      "label": "Risk Disclosure",
+      "target": "",
+      "rel": "",
+      "location": "footer",
+      "visible": true,
+      "route": "/systems/quant",
+      "width": 375
+    },
+    {
+      "href": "#main-content",
+      "label": "Skip to main content",
+      "target": "",
+      "rel": "",
+      "location": "main",
+      "visible": true,
+      "route": "/indicators",
+      "width": 375
+    },
+    {
+      "href": "/",
+      "label": "EMERALDLEGACY SYSTEMS",
+      "target": "",
+      "rel": "",
+      "location": "header",
+      "visible": true,
+      "route": "/indicators",
+      "width": 375
+    },
+    {
+      "href": "/",
+      "label": "Home",
+      "target": "",
+      "rel": "",
+      "location": "header",
+      "visible": false,
+      "route": "/indicators",
+      "width": 375
+    },
+    {
+      "href": "/ledger",
+      "label": "Emerald Ledger",
+      "target": "",
+      "rel": "",
+      "location": "header",
+      "visible": false,
+      "route": "/indicators",
+      "width": 375
+    },
+    {
+      "href": "/systems",
+      "label": "Systems",
+      "target": "",
+      "rel": "",
+      "location": "header",
+      "visible": false,
+      "route": "/indicators",
+      "width": 375
+    },
+    {
+      "href": "/indicators",
+      "label": "Indicators & Signals",
+      "target": "",
+      "rel": "",
+      "location": "header",
+      "visible": false,
+      "route": "/indicators",
+      "width": 375
+    },
+    {
+      "href": "/technology",
+      "label": "Technology",
+      "target": "",
+      "rel": "",
+      "location": "header",
+      "visible": false,
+      "route": "/indicators",
+      "width": 375
+    },
+    {
+      "href": "/research",
+      "label": "Research",
+      "target": "",
+      "rel": "",
+      "location": "header",
+      "visible": false,
+      "route": "/indicators",
+      "width": 375
+    },
+    {
+      "href": "/about",
+      "label": "About",
+      "target": "",
+      "rel": "",
+      "location": "header",
+      "visible": false,
+      "route": "/indicators",
+      "width": 375
+    },
+    {
+      "href": "/ledger",
+      "label": "Follow Performance",
+      "target": "",
+      "rel": "",
+      "location": "header",
+      "visible": false,
+      "route": "/indicators",
+      "width": 375
+    },
+    {
+      "href": "https://portal.emeraldforexsystem.com/login",
+      "label": "Sign In",
+      "target": "",
+      "rel": "",
+      "location": "header",
+      "visible": false,
+      "route": "/indicators",
+      "width": 375
+    },
+    {
+      "href": "/signals",
+      "label": "Explore Signal Library",
+      "target": "",
+      "rel": "",
+      "location": "main",
+      "visible": true,
+      "route": "/indicators",
+      "width": 375
+    },
+    {
+      "href": "/signal-scanner",
+      "label": "View Signal Scanner",
+      "target": "",
+      "rel": "",
+      "location": "main",
+      "visible": true,
+      "route": "/indicators",
+      "width": 375
+    },
+    {
+      "href": "/signals#main",
+      "label": "View in Signal Library",
+      "target": "",
+      "rel": "",
+      "location": "main",
+      "visible": true,
+      "route": "/indicators",
+      "width": 375
+    },
+    {
+      "href": "/signals#finescalp",
+      "label": "View in Signal Library",
+      "target": "",
+      "rel": "",
+      "location": "main",
+      "visible": true,
+      "route": "/indicators",
+      "width": 375
+    },
+    {
+      "href": "/signals#scalp",
+      "label": "View in Signal Library",
+      "target": "",
+      "rel": "",
+      "location": "main",
+      "visible": true,
+      "route": "/indicators",
+      "width": 375
+    },
+    {
+      "href": "/signals#range",
+      "label": "View in Signal Library",
+      "target": "",
+      "rel": "",
+      "location": "main",
+      "visible": true,
+      "route": "/indicators",
+      "width": 375
+    },
+    {
+      "href": "/signals#harmonizer",
+      "label": "View in Signal Library",
+      "target": "",
+      "rel": "",
+      "location": "main",
+      "visible": true,
+      "route": "/indicators",
+      "width": 375
+    },
+    {
+      "href": "/signals#harmonizer-safe",
+      "label": "View in Signal Library",
+      "target": "",
+      "rel": "",
+      "location": "main",
+      "visible": true,
+      "route": "/indicators",
+      "width": 375
+    },
+    {
+      "href": "/platforms",
+      "label": "Explore Platforms",
+      "target": "",
+      "rel": "",
+      "location": "main",
+      "visible": true,
+      "route": "/indicators",
+      "width": 375
+    },
+    {
+      "href": "/signal-scanner",
+      "label": "Explore Signal Scanner",
+      "target": "",
+      "rel": "",
+      "location": "main",
+      "visible": true,
+      "route": "/indicators",
+      "width": 375
+    },
+    {
+      "href": "/recovery-expert",
+      "label": "Explore Recovery Expert",
+      "target": "",
+      "rel": "",
+      "location": "main",
+      "visible": true,
+      "route": "/indicators",
+      "width": 375
+    },
+    {
+      "href": "/systems/quant",
+      "label": "Explore Quant System",
+      "target": "",
+      "rel": "",
+      "location": "main",
+      "visible": true,
+      "route": "/indicators",
+      "width": 375
+    },
+    {
+      "href": "/signals",
+      "label": "Explore Signal Library",
+      "target": "",
+      "rel": "",
+      "location": "main",
+      "visible": true,
+      "route": "/indicators",
+      "width": 375
+    },
+    {
+      "href": "/research",
+      "label": "Explore Research",
+      "target": "",
+      "rel": "",
+      "location": "main",
+      "visible": true,
+      "route": "/indicators",
+      "width": 375
+    },
+    {
+      "href": "/",
+      "label": "EMERALDLEGACY SYSTEMSQuantitative Trading Technology",
+      "target": "",
+      "rel": "",
+      "location": "footer",
+      "visible": true,
+      "route": "/indicators",
+      "width": 375
+    },
+    {
+      "href": "mailto:support@emeraldforexsystem.com",
+      "label": "support@emeraldforexsystem.com",
+      "target": "",
+      "rel": "",
+      "location": "footer",
+      "visible": true,
+      "route": "/indicators",
+      "width": 375
+    },
+    {
+      "href": "/ledger",
+      "label": "Emerald Ledger",
+      "target": "",
+      "rel": "",
+      "location": "footer",
+      "visible": true,
+      "route": "/indicators",
+      "width": 375
+    },
+    {
+      "href": "/performance",
+      "label": "System Performance",
+      "target": "",
+      "rel": "",
+      "location": "footer",
+      "visible": true,
+      "route": "/indicators",
+      "width": 375
+    },
+    {
+      "href": "/performance/compare",
+      "label": "Compare Systems",
+      "target": "",
+      "rel": "",
+      "location": "footer",
+      "visible": true,
+      "route": "/indicators",
+      "width": 375
+    },
+    {
+      "href": "/performance/live-vs-backtest",
+      "label": "Live vs Backtest",
+      "target": "",
+      "rel": "",
+      "location": "footer",
+      "visible": true,
+      "route": "/indicators",
+      "width": 375
+    },
+    {
+      "href": "/verification",
+      "label": "Verification",
+      "target": "",
+      "rel": "",
+      "location": "footer",
+      "visible": true,
+      "route": "/indicators",
+      "width": 375
+    },
+    {
+      "href": "/videos",
+      "label": "Video Archive",
+      "target": "",
+      "rel": "",
+      "location": "footer",
+      "visible": true,
+      "route": "/indicators",
+      "width": 375
+    },
+    {
+      "href": "/systems",
+      "label": "Systems",
+      "target": "",
+      "rel": "",
+      "location": "footer",
+      "visible": true,
+      "route": "/indicators",
+      "width": 375
+    },
+    {
+      "href": "/indicators",
+      "label": "Indicators & Signals",
+      "target": "",
+      "rel": "",
+      "location": "footer",
+      "visible": true,
+      "route": "/indicators",
+      "width": 375
+    },
+    {
+      "href": "/signals",
+      "label": "Signal Library",
+      "target": "",
+      "rel": "",
+      "location": "footer",
+      "visible": true,
+      "route": "/indicators",
+      "width": 375
+    },
+    {
+      "href": "/technology",
+      "label": "Technology",
+      "target": "",
+      "rel": "",
+      "location": "footer",
+      "visible": true,
+      "route": "/indicators",
+      "width": 375
+    },
+    {
+      "href": "/research",
+      "label": "Research",
+      "target": "",
+      "rel": "",
+      "location": "footer",
+      "visible": true,
+      "route": "/indicators",
+      "width": 375
+    },
+    {
+      "href": "/about",
+      "label": "About",
+      "target": "",
+      "rel": "",
+      "location": "footer",
+      "visible": true,
+      "route": "/indicators",
+      "width": 375
+    },
+    {
+      "href": "/professional",
+      "label": "Professional / Investor",
+      "target": "",
+      "rel": "",
+      "location": "footer",
+      "visible": true,
+      "route": "/indicators",
+      "width": 375
+    },
+    {
+      "href": "https://portal.emeraldforexsystem.com/login",
+      "label": "Client Portal",
+      "target": "",
+      "rel": "",
+      "location": "footer",
+      "visible": true,
+      "route": "/indicators",
+      "width": 375
+    },
+    {
+      "href": "https://portal.emeraldforexsystem.com/login",
+      "label": "Partner Portal",
+      "target": "",
+      "rel": "",
+      "location": "footer",
+      "visible": true,
+      "route": "/indicators",
+      "width": 375
+    },
+    {
+      "href": "/privacy",
+      "label": "Privacy",
+      "target": "",
+      "rel": "",
+      "location": "footer",
+      "visible": true,
+      "route": "/indicators",
+      "width": 375
+    },
+    {
+      "href": "/terms",
+      "label": "Terms",
+      "target": "",
+      "rel": "",
+      "location": "footer",
+      "visible": true,
+      "route": "/indicators",
+      "width": 375
+    },
+    {
+      "href": "/risk-disclosure",
+      "label": "Risk Disclosure",
+      "target": "",
+      "rel": "",
+      "location": "footer",
+      "visible": true,
+      "route": "/indicators",
+      "width": 375
+    },
+    {
+      "href": "#main-content",
+      "label": "Skip to main content",
+      "target": "",
+      "rel": "",
+      "location": "main",
+      "visible": true,
+      "route": "/signals",
+      "width": 375
+    },
+    {
+      "href": "/",
+      "label": "EMERALDLEGACY SYSTEMS",
+      "target": "",
+      "rel": "",
+      "location": "header",
+      "visible": true,
+      "route": "/signals",
+      "width": 375
+    },
+    {
+      "href": "/",
+      "label": "Home",
+      "target": "",
+      "rel": "",
+      "location": "header",
+      "visible": false,
+      "route": "/signals",
+      "width": 375
+    },
+    {
+      "href": "/ledger",
+      "label": "Emerald Ledger",
+      "target": "",
+      "rel": "",
+      "location": "header",
+      "visible": false,
+      "route": "/signals",
+      "width": 375
+    },
+    {
+      "href": "/systems",
+      "label": "Systems",
+      "target": "",
+      "rel": "",
+      "location": "header",
+      "visible": false,
+      "route": "/signals",
+      "width": 375
+    },
+    {
+      "href": "/indicators",
+      "label": "Indicators & Signals",
+      "target": "",
+      "rel": "",
+      "location": "header",
+      "visible": false,
+      "route": "/signals",
+      "width": 375
+    },
+    {
+      "href": "/technology",
+      "label": "Technology",
+      "target": "",
+      "rel": "",
+      "location": "header",
+      "visible": false,
+      "route": "/signals",
+      "width": 375
+    },
+    {
+      "href": "/research",
+      "label": "Research",
+      "target": "",
+      "rel": "",
+      "location": "header",
+      "visible": false,
+      "route": "/signals",
+      "width": 375
+    },
+    {
+      "href": "/about",
+      "label": "About",
+      "target": "",
+      "rel": "",
+      "location": "header",
+      "visible": false,
+      "route": "/signals",
+      "width": 375
+    },
+    {
+      "href": "/ledger",
+      "label": "Follow Performance",
+      "target": "",
+      "rel": "",
+      "location": "header",
+      "visible": false,
+      "route": "/signals",
+      "width": 375
+    },
+    {
+      "href": "https://portal.emeraldforexsystem.com/login",
+      "label": "Sign In",
+      "target": "",
+      "rel": "",
+      "location": "header",
+      "visible": false,
+      "route": "/signals",
+      "width": 375
+    },
+    {
+      "href": "/indicators",
+      "label": "Explore Emerald Legacy System",
+      "target": "",
+      "rel": "",
+      "location": "main",
+      "visible": true,
+      "route": "/signals",
+      "width": 375
+    },
+    {
+      "href": "/signal-scanner",
+      "label": "View Signal Scanner",
+      "target": "",
+      "rel": "",
+      "location": "main",
+      "visible": true,
+      "route": "/signals",
+      "width": 375
+    },
+    {
+      "href": "#main",
+      "label": "Main",
+      "target": "",
+      "rel": "",
+      "location": "main",
+      "visible": true,
+      "route": "/signals",
+      "width": 375
+    },
+    {
+      "href": "#finescalp",
+      "label": "FineScalp",
+      "target": "",
+      "rel": "",
+      "location": "main",
+      "visible": true,
+      "route": "/signals",
+      "width": 375
+    },
+    {
+      "href": "#scalp",
+      "label": "Scalp",
+      "target": "",
+      "rel": "",
+      "location": "main",
+      "visible": true,
+      "route": "/signals",
+      "width": 375
+    },
+    {
+      "href": "#range",
+      "label": "Range",
+      "target": "",
+      "rel": "",
+      "location": "main",
+      "visible": true,
+      "route": "/signals",
+      "width": 375
+    },
+    {
+      "href": "#harmonizer",
+      "label": "Harmonizer",
+      "target": "",
+      "rel": "",
+      "location": "main",
+      "visible": true,
+      "route": "/signals",
+      "width": 375
+    },
+    {
+      "href": "#harmonizer-safe",
+      "label": "SAFE",
+      "target": "",
+      "rel": "",
+      "location": "main",
+      "visible": true,
+      "route": "/signals",
+      "width": 375
+    },
+    {
+      "href": "/signal-scanner",
+      "label": "Explore Signal Scanner",
+      "target": "",
+      "rel": "",
+      "location": "main",
+      "visible": true,
+      "route": "/signals",
+      "width": 375
+    },
+    {
+      "href": "/recovery-expert",
+      "label": "Explore Recovery Expert",
+      "target": "",
+      "rel": "",
+      "location": "main",
+      "visible": true,
+      "route": "/signals",
+      "width": 375
+    },
+    {
+      "href": "/platforms",
+      "label": "Explore Platforms",
+      "target": "",
+      "rel": "",
+      "location": "main",
+      "visible": true,
+      "route": "/signals",
+      "width": 375
+    },
+    {
+      "href": "/indicators",
+      "label": "Explore Emerald Legacy System",
+      "target": "",
+      "rel": "",
+      "location": "main",
+      "visible": true,
+      "route": "/signals",
+      "width": 375
+    },
+    {
+      "href": "/signal-scanner",
+      "label": "Explore Signal Scanner",
+      "target": "",
+      "rel": "",
+      "location": "main",
+      "visible": true,
+      "route": "/signals",
+      "width": 375
+    },
+    {
+      "href": "/recovery-expert",
+      "label": "Explore Recovery Expert",
+      "target": "",
+      "rel": "",
+      "location": "main",
+      "visible": true,
+      "route": "/signals",
+      "width": 375
+    },
+    {
+      "href": "/systems/quant",
+      "label": "Explore Quant System",
+      "target": "",
+      "rel": "",
+      "location": "main",
+      "visible": true,
+      "route": "/signals",
+      "width": 375
+    },
+    {
+      "href": "/research",
+      "label": "Explore Research",
+      "target": "",
+      "rel": "",
+      "location": "main",
+      "visible": true,
+      "route": "/signals",
+      "width": 375
+    },
+    {
+      "href": "/indicators",
+      "label": "Explore Emerald Legacy System",
+      "target": "",
+      "rel": "",
+      "location": "main",
+      "visible": true,
+      "route": "/signals",
+      "width": 375
+    },
+    {
+      "href": "/indicators",
+      "label": "Explore Emerald Legacy System",
+      "target": "",
+      "rel": "",
+      "location": "main",
+      "visible": true,
+      "route": "/signals",
+      "width": 375
+    },
+    {
+      "href": "/signal-scanner",
+      "label": "View Signal Scanner",
+      "target": "",
+      "rel": "",
+      "location": "main",
+      "visible": true,
+      "route": "/signals",
+      "width": 375
+    },
+    {
+      "href": "/platforms",
+      "label": "Explore Platforms",
+      "target": "",
+      "rel": "",
+      "location": "main",
+      "visible": true,
+      "route": "/signals",
+      "width": 375
+    },
+    {
+      "href": "/",
+      "label": "EMERALDLEGACY SYSTEMSQuantitative Trading Technology",
+      "target": "",
+      "rel": "",
+      "location": "footer",
+      "visible": true,
+      "route": "/signals",
+      "width": 375
+    },
+    {
+      "href": "mailto:support@emeraldforexsystem.com",
+      "label": "support@emeraldforexsystem.com",
+      "target": "",
+      "rel": "",
+      "location": "footer",
+      "visible": true,
+      "route": "/signals",
+      "width": 375
+    },
+    {
+      "href": "/ledger",
+      "label": "Emerald Ledger",
+      "target": "",
+      "rel": "",
+      "location": "footer",
+      "visible": true,
+      "route": "/signals",
+      "width": 375
+    },
+    {
+      "href": "/performance",
+      "label": "System Performance",
+      "target": "",
+      "rel": "",
+      "location": "footer",
+      "visible": true,
+      "route": "/signals",
+      "width": 375
+    },
+    {
+      "href": "/performance/compare",
+      "label": "Compare Systems",
+      "target": "",
+      "rel": "",
+      "location": "footer",
+      "visible": true,
+      "route": "/signals",
+      "width": 375
+    },
+    {
+      "href": "/performance/live-vs-backtest",
+      "label": "Live vs Backtest",
+      "target": "",
+      "rel": "",
+      "location": "footer",
+      "visible": true,
+      "route": "/signals",
+      "width": 375
+    },
+    {
+      "href": "/verification",
+      "label": "Verification",
+      "target": "",
+      "rel": "",
+      "location": "footer",
+      "visible": true,
+      "route": "/signals",
+      "width": 375
+    },
+    {
+      "href": "/videos",
+      "label": "Video Archive",
+      "target": "",
+      "rel": "",
+      "location": "footer",
+      "visible": true,
+      "route": "/signals",
+      "width": 375
+    },
+    {
+      "href": "/systems",
+      "label": "Systems",
+      "target": "",
+      "rel": "",
+      "location": "footer",
+      "visible": true,
+      "route": "/signals",
+      "width": 375
+    },
+    {
+      "href": "/indicators",
+      "label": "Indicators & Signals",
+      "target": "",
+      "rel": "",
+      "location": "footer",
+      "visible": true,
+      "route": "/signals",
+      "width": 375
+    },
+    {
+      "href": "/signals",
+      "label": "Signal Library",
+      "target": "",
+      "rel": "",
+      "location": "footer",
+      "visible": true,
+      "route": "/signals",
+      "width": 375
+    },
+    {
+      "href": "/technology",
+      "label": "Technology",
+      "target": "",
+      "rel": "",
+      "location": "footer",
+      "visible": true,
+      "route": "/signals",
+      "width": 375
+    },
+    {
+      "href": "/research",
+      "label": "Research",
+      "target": "",
+      "rel": "",
+      "location": "footer",
+      "visible": true,
+      "route": "/signals",
+      "width": 375
+    },
+    {
+      "href": "/about",
+      "label": "About",
+      "target": "",
+      "rel": "",
+      "location": "footer",
+      "visible": true,
+      "route": "/signals",
+      "width": 375
+    },
+    {
+      "href": "/professional",
+      "label": "Professional / Investor",
+      "target": "",
+      "rel": "",
+      "location": "footer",
+      "visible": true,
+      "route": "/signals",
+      "width": 375
+    },
+    {
+      "href": "https://portal.emeraldforexsystem.com/login",
+      "label": "Client Portal",
+      "target": "",
+      "rel": "",
+      "location": "footer",
+      "visible": true,
+      "route": "/signals",
+      "width": 375
+    },
+    {
+      "href": "https://portal.emeraldforexsystem.com/login",
+      "label": "Partner Portal",
+      "target": "",
+      "rel": "",
+      "location": "footer",
+      "visible": true,
+      "route": "/signals",
+      "width": 375
+    },
+    {
+      "href": "/privacy",
+      "label": "Privacy",
+      "target": "",
+      "rel": "",
+      "location": "footer",
+      "visible": true,
+      "route": "/signals",
+      "width": 375
+    },
+    {
+      "href": "/terms",
+      "label": "Terms",
+      "target": "",
+      "rel": "",
+      "location": "footer",
+      "visible": true,
+      "route": "/signals",
+      "width": 375
+    },
+    {
+      "href": "/risk-disclosure",
+      "label": "Risk Disclosure",
+      "target": "",
+      "rel": "",
+      "location": "footer",
+      "visible": true,
+      "route": "/signals",
+      "width": 375
+    },
+    {
+      "href": "#main-content",
+      "label": "Skip to main content",
+      "target": "",
+      "rel": "",
+      "location": "main",
+      "visible": true,
+      "route": "/signal-scanner",
+      "width": 375
+    },
+    {
+      "href": "/",
+      "label": "EMERALDLEGACY SYSTEMS",
+      "target": "",
+      "rel": "",
+      "location": "header",
+      "visible": true,
+      "route": "/signal-scanner",
+      "width": 375
+    },
+    {
+      "href": "/",
+      "label": "Home",
+      "target": "",
+      "rel": "",
+      "location": "header",
+      "visible": false,
+      "route": "/signal-scanner",
+      "width": 375
+    },
+    {
+      "href": "/ledger",
+      "label": "Emerald Ledger",
+      "target": "",
+      "rel": "",
+      "location": "header",
+      "visible": false,
+      "route": "/signal-scanner",
+      "width": 375
+    },
+    {
+      "href": "/systems",
+      "label": "Systems",
+      "target": "",
+      "rel": "",
+      "location": "header",
+      "visible": false,
+      "route": "/signal-scanner",
+      "width": 375
+    },
+    {
+      "href": "/indicators",
+      "label": "Indicators & Signals",
+      "target": "",
+      "rel": "",
+      "location": "header",
+      "visible": false,
+      "route": "/signal-scanner",
+      "width": 375
+    },
+    {
+      "href": "/technology",
+      "label": "Technology",
+      "target": "",
+      "rel": "",
+      "location": "header",
+      "visible": false,
+      "route": "/signal-scanner",
+      "width": 375
+    },
+    {
+      "href": "/research",
+      "label": "Research",
+      "target": "",
+      "rel": "",
+      "location": "header",
+      "visible": false,
+      "route": "/signal-scanner",
+      "width": 375
+    },
+    {
+      "href": "/about",
+      "label": "About",
+      "target": "",
+      "rel": "",
+      "location": "header",
+      "visible": false,
+      "route": "/signal-scanner",
+      "width": 375
+    },
+    {
+      "href": "/ledger",
+      "label": "Follow Performance",
+      "target": "",
+      "rel": "",
+      "location": "header",
+      "visible": false,
+      "route": "/signal-scanner",
+      "width": 375
+    },
+    {
+      "href": "https://portal.emeraldforexsystem.com/login",
+      "label": "Sign In",
+      "target": "",
+      "rel": "",
+      "location": "header",
+      "visible": false,
+      "route": "/signal-scanner",
+      "width": 375
+    },
+    {
+      "href": "/signals",
+      "label": "Explore Signal Library",
+      "target": "",
+      "rel": "",
+      "location": "main",
+      "visible": true,
+      "route": "/signal-scanner",
+      "width": 375
+    },
+    {
+      "href": "/platforms",
+      "label": "View Platforms",
+      "target": "",
+      "rel": "",
+      "location": "main",
+      "visible": true,
+      "route": "/signal-scanner",
+      "width": 375
+    },
+    {
+      "href": "/signals",
+      "label": "Review Signal Library",
+      "target": "",
+      "rel": "",
+      "location": "main",
+      "visible": true,
+      "route": "/signal-scanner",
+      "width": 375
+    },
+    {
+      "href": "/platforms",
+      "label": "Explore Platforms",
+      "target": "",
+      "rel": "",
+      "location": "main",
+      "visible": true,
+      "route": "/signal-scanner",
+      "width": 375
+    },
+    {
+      "href": "/indicators",
+      "label": "Explore",
+      "target": "",
+      "rel": "",
+      "location": "main",
+      "visible": true,
+      "route": "/signal-scanner",
+      "width": 375
+    },
+    {
+      "href": "/signals",
+      "label": "Explore Signal Library",
+      "target": "",
+      "rel": "",
+      "location": "main",
+      "visible": true,
+      "route": "/signal-scanner",
+      "width": 375
+    },
+    {
+      "href": "/indicators",
+      "label": "Explore Legacy System",
+      "target": "",
+      "rel": "",
+      "location": "main",
+      "visible": true,
+      "route": "/signal-scanner",
+      "width": 375
+    },
+    {
+      "href": "/",
+      "label": "EMERALDLEGACY SYSTEMSQuantitative Trading Technology",
+      "target": "",
+      "rel": "",
+      "location": "footer",
+      "visible": true,
+      "route": "/signal-scanner",
+      "width": 375
+    },
+    {
+      "href": "mailto:support@emeraldforexsystem.com",
+      "label": "support@emeraldforexsystem.com",
+      "target": "",
+      "rel": "",
+      "location": "footer",
+      "visible": true,
+      "route": "/signal-scanner",
+      "width": 375
+    },
+    {
+      "href": "/ledger",
+      "label": "Emerald Ledger",
+      "target": "",
+      "rel": "",
+      "location": "footer",
+      "visible": true,
+      "route": "/signal-scanner",
+      "width": 375
+    },
+    {
+      "href": "/performance",
+      "label": "System Performance",
+      "target": "",
+      "rel": "",
+      "location": "footer",
+      "visible": true,
+      "route": "/signal-scanner",
+      "width": 375
+    },
+    {
+      "href": "/performance/compare",
+      "label": "Compare Systems",
+      "target": "",
+      "rel": "",
+      "location": "footer",
+      "visible": true,
+      "route": "/signal-scanner",
+      "width": 375
+    },
+    {
+      "href": "/performance/live-vs-backtest",
+      "label": "Live vs Backtest",
+      "target": "",
+      "rel": "",
+      "location": "footer",
+      "visible": true,
+      "route": "/signal-scanner",
+      "width": 375
+    },
+    {
+      "href": "/verification",
+      "label": "Verification",
+      "target": "",
+      "rel": "",
+      "location": "footer",
+      "visible": true,
+      "route": "/signal-scanner",
+      "width": 375
+    },
+    {
+      "href": "/videos",
+      "label": "Video Archive",
+      "target": "",
+      "rel": "",
+      "location": "footer",
+      "visible": true,
+      "route": "/signal-scanner",
+      "width": 375
+    },
+    {
+      "href": "/systems",
+      "label": "Systems",
+      "target": "",
+      "rel": "",
+      "location": "footer",
+      "visible": true,
+      "route": "/signal-scanner",
+      "width": 375
+    },
+    {
+      "href": "/indicators",
+      "label": "Indicators & Signals",
+      "target": "",
+      "rel": "",
+      "location": "footer",
+      "visible": true,
+      "route": "/signal-scanner",
+      "width": 375
+    },
+    {
+      "href": "/signals",
+      "label": "Signal Library",
+      "target": "",
+      "rel": "",
+      "location": "footer",
+      "visible": true,
+      "route": "/signal-scanner",
+      "width": 375
+    },
+    {
+      "href": "/technology",
+      "label": "Technology",
+      "target": "",
+      "rel": "",
+      "location": "footer",
+      "visible": true,
+      "route": "/signal-scanner",
+      "width": 375
+    },
+    {
+      "href": "/research",
+      "label": "Research",
+      "target": "",
+      "rel": "",
+      "location": "footer",
+      "visible": true,
+      "route": "/signal-scanner",
+      "width": 375
+    },
+    {
+      "href": "/about",
+      "label": "About",
+      "target": "",
+      "rel": "",
+      "location": "footer",
+      "visible": true,
+      "route": "/signal-scanner",
+      "width": 375
+    },
+    {
+      "href": "/professional",
+      "label": "Professional / Investor",
+      "target": "",
+      "rel": "",
+      "location": "footer",
+      "visible": true,
+      "route": "/signal-scanner",
+      "width": 375
+    },
+    {
+      "href": "https://portal.emeraldforexsystem.com/login",
+      "label": "Client Portal",
+      "target": "",
+      "rel": "",
+      "location": "footer",
+      "visible": true,
+      "route": "/signal-scanner",
+      "width": 375
+    },
+    {
+      "href": "https://portal.emeraldforexsystem.com/login",
+      "label": "Partner Portal",
+      "target": "",
+      "rel": "",
+      "location": "footer",
+      "visible": true,
+      "route": "/signal-scanner",
+      "width": 375
+    },
+    {
+      "href": "/privacy",
+      "label": "Privacy",
+      "target": "",
+      "rel": "",
+      "location": "footer",
+      "visible": true,
+      "route": "/signal-scanner",
+      "width": 375
+    },
+    {
+      "href": "/terms",
+      "label": "Terms",
+      "target": "",
+      "rel": "",
+      "location": "footer",
+      "visible": true,
+      "route": "/signal-scanner",
+      "width": 375
+    },
+    {
+      "href": "/risk-disclosure",
+      "label": "Risk Disclosure",
+      "target": "",
+      "rel": "",
+      "location": "footer",
+      "visible": true,
+      "route": "/signal-scanner",
+      "width": 375
+    },
+    {
+      "href": "#main-content",
+      "label": "Skip to main content",
+      "target": "",
+      "rel": "",
+      "location": "main",
+      "visible": true,
+      "route": "/recovery-expert",
+      "width": 375
+    },
+    {
+      "href": "/",
+      "label": "EMERALDLEGACY SYSTEMS",
+      "target": "",
+      "rel": "",
+      "location": "header",
+      "visible": true,
+      "route": "/recovery-expert",
+      "width": 375
+    },
+    {
+      "href": "/",
+      "label": "Home",
+      "target": "",
+      "rel": "",
+      "location": "header",
+      "visible": false,
+      "route": "/recovery-expert",
+      "width": 375
+    },
+    {
+      "href": "/ledger",
+      "label": "Emerald Ledger",
+      "target": "",
+      "rel": "",
+      "location": "header",
+      "visible": false,
+      "route": "/recovery-expert",
+      "width": 375
+    },
+    {
+      "href": "/systems",
+      "label": "Systems",
+      "target": "",
+      "rel": "",
+      "location": "header",
+      "visible": false,
+      "route": "/recovery-expert",
+      "width": 375
+    },
+    {
+      "href": "/indicators",
+      "label": "Indicators & Signals",
+      "target": "",
+      "rel": "",
+      "location": "header",
+      "visible": false,
+      "route": "/recovery-expert",
+      "width": 375
+    },
+    {
+      "href": "/technology",
+      "label": "Technology",
+      "target": "",
+      "rel": "",
+      "location": "header",
+      "visible": false,
+      "route": "/recovery-expert",
+      "width": 375
+    },
+    {
+      "href": "/research",
+      "label": "Research",
+      "target": "",
+      "rel": "",
+      "location": "header",
+      "visible": false,
+      "route": "/recovery-expert",
+      "width": 375
+    },
+    {
+      "href": "/about",
+      "label": "About",
+      "target": "",
+      "rel": "",
+      "location": "header",
+      "visible": false,
+      "route": "/recovery-expert",
+      "width": 375
+    },
+    {
+      "href": "/ledger",
+      "label": "Follow Performance",
+      "target": "",
+      "rel": "",
+      "location": "header",
+      "visible": false,
+      "route": "/recovery-expert",
+      "width": 375
+    },
+    {
+      "href": "https://portal.emeraldforexsystem.com/login",
+      "label": "Sign In",
+      "target": "",
+      "rel": "",
+      "location": "header",
+      "visible": false,
+      "route": "/recovery-expert",
+      "width": 375
+    },
+    {
+      "href": "/systems",
+      "label": "Explore Systems & Products",
+      "target": "",
+      "rel": "",
+      "location": "main",
+      "visible": true,
+      "route": "/recovery-expert",
+      "width": 375
+    },
+    {
+      "href": "/platforms",
+      "label": "View Platforms",
+      "target": "",
+      "rel": "",
+      "location": "main",
+      "visible": true,
+      "route": "/recovery-expert",
+      "width": 375
+    },
+    {
+      "href": "/systems/quant",
+      "label": "Explore Quant System",
+      "target": "",
+      "rel": "",
+      "location": "main",
+      "visible": true,
+      "route": "/recovery-expert",
+      "width": 375
+    },
+    {
+      "href": "/indicators",
+      "label": "Explore",
+      "target": "",
+      "rel": "",
+      "location": "main",
+      "visible": true,
+      "route": "/recovery-expert",
+      "width": 375
+    },
+    {
+      "href": "/signal-scanner",
+      "label": "Explore",
+      "target": "",
+      "rel": "",
+      "location": "main",
+      "visible": true,
+      "route": "/recovery-expert",
+      "width": 375
+    },
+    {
+      "href": "/systems/quant",
+      "label": "Explore",
+      "target": "",
+      "rel": "",
+      "location": "main",
+      "visible": true,
+      "route": "/recovery-expert",
+      "width": 375
+    },
+    {
+      "href": "/platforms",
+      "label": "Explore Platforms",
+      "target": "",
+      "rel": "",
+      "location": "main",
+      "visible": true,
+      "route": "/recovery-expert",
+      "width": 375
+    },
+    {
+      "href": "/systems",
+      "label": "Explore Systems & Products",
+      "target": "",
+      "rel": "",
+      "location": "main",
+      "visible": true,
+      "route": "/recovery-expert",
+      "width": 375
+    },
+    {
+      "href": "/platforms",
+      "label": "View Platforms",
+      "target": "",
+      "rel": "",
+      "location": "main",
+      "visible": true,
+      "route": "/recovery-expert",
+      "width": 375
+    },
+    {
+      "href": "/",
+      "label": "EMERALDLEGACY SYSTEMSQuantitative Trading Technology",
+      "target": "",
+      "rel": "",
+      "location": "footer",
+      "visible": true,
+      "route": "/recovery-expert",
+      "width": 375
+    },
+    {
+      "href": "mailto:support@emeraldforexsystem.com",
+      "label": "support@emeraldforexsystem.com",
+      "target": "",
+      "rel": "",
+      "location": "footer",
+      "visible": true,
+      "route": "/recovery-expert",
+      "width": 375
+    },
+    {
+      "href": "/ledger",
+      "label": "Emerald Ledger",
+      "target": "",
+      "rel": "",
+      "location": "footer",
+      "visible": true,
+      "route": "/recovery-expert",
+      "width": 375
+    },
+    {
+      "href": "/performance",
+      "label": "System Performance",
+      "target": "",
+      "rel": "",
+      "location": "footer",
+      "visible": true,
+      "route": "/recovery-expert",
+      "width": 375
+    },
+    {
+      "href": "/performance/compare",
+      "label": "Compare Systems",
+      "target": "",
+      "rel": "",
+      "location": "footer",
+      "visible": true,
+      "route": "/recovery-expert",
+      "width": 375
+    },
+    {
+      "href": "/performance/live-vs-backtest",
+      "label": "Live vs Backtest",
+      "target": "",
+      "rel": "",
+      "location": "footer",
+      "visible": true,
+      "route": "/recovery-expert",
+      "width": 375
+    },
+    {
+      "href": "/verification",
+      "label": "Verification",
+      "target": "",
+      "rel": "",
+      "location": "footer",
+      "visible": true,
+      "route": "/recovery-expert",
+      "width": 375
+    },
+    {
+      "href": "/videos",
+      "label": "Video Archive",
+      "target": "",
+      "rel": "",
+      "location": "footer",
+      "visible": true,
+      "route": "/recovery-expert",
+      "width": 375
+    },
+    {
+      "href": "/systems",
+      "label": "Systems",
+      "target": "",
+      "rel": "",
+      "location": "footer",
+      "visible": true,
+      "route": "/recovery-expert",
+      "width": 375
+    },
+    {
+      "href": "/indicators",
+      "label": "Indicators & Signals",
+      "target": "",
+      "rel": "",
+      "location": "footer",
+      "visible": true,
+      "route": "/recovery-expert",
+      "width": 375
+    },
+    {
+      "href": "/signals",
+      "label": "Signal Library",
+      "target": "",
+      "rel": "",
+      "location": "footer",
+      "visible": true,
+      "route": "/recovery-expert",
+      "width": 375
+    },
+    {
+      "href": "/technology",
+      "label": "Technology",
+      "target": "",
+      "rel": "",
+      "location": "footer",
+      "visible": true,
+      "route": "/recovery-expert",
+      "width": 375
+    },
+    {
+      "href": "/research",
+      "label": "Research",
+      "target": "",
+      "rel": "",
+      "location": "footer",
+      "visible": true,
+      "route": "/recovery-expert",
+      "width": 375
+    },
+    {
+      "href": "/about",
+      "label": "About",
+      "target": "",
+      "rel": "",
+      "location": "footer",
+      "visible": true,
+      "route": "/recovery-expert",
+      "width": 375
+    },
+    {
+      "href": "/professional",
+      "label": "Professional / Investor",
+      "target": "",
+      "rel": "",
+      "location": "footer",
+      "visible": true,
+      "route": "/recovery-expert",
+      "width": 375
+    },
+    {
+      "href": "https://portal.emeraldforexsystem.com/login",
+      "label": "Client Portal",
+      "target": "",
+      "rel": "",
+      "location": "footer",
+      "visible": true,
+      "route": "/recovery-expert",
+      "width": 375
+    },
+    {
+      "href": "https://portal.emeraldforexsystem.com/login",
+      "label": "Partner Portal",
+      "target": "",
+      "rel": "",
+      "location": "footer",
+      "visible": true,
+      "route": "/recovery-expert",
+      "width": 375
+    },
+    {
+      "href": "/privacy",
+      "label": "Privacy",
+      "target": "",
+      "rel": "",
+      "location": "footer",
+      "visible": true,
+      "route": "/recovery-expert",
+      "width": 375
+    },
+    {
+      "href": "/terms",
+      "label": "Terms",
+      "target": "",
+      "rel": "",
+      "location": "footer",
+      "visible": true,
+      "route": "/recovery-expert",
+      "width": 375
+    },
+    {
+      "href": "/risk-disclosure",
+      "label": "Risk Disclosure",
+      "target": "",
+      "rel": "",
+      "location": "footer",
+      "visible": true,
+      "route": "/recovery-expert",
+      "width": 375
+    },
+    {
+      "href": "#main-content",
+      "label": "Skip to main content",
+      "target": "",
+      "rel": "",
+      "location": "main",
+      "visible": true,
+      "route": "/",
+      "width": 1440
+    },
+    {
+      "href": "/",
+      "label": "EMERALDLEGACY SYSTEMS",
+      "target": "",
+      "rel": "",
+      "location": "header",
+      "visible": true,
+      "route": "/",
+      "width": 1440
+    },
+    {
+      "href": "/",
+      "label": "Home",
+      "target": "",
+      "rel": "",
+      "location": "header",
+      "visible": true,
+      "route": "/",
+      "width": 1440
+    },
+    {
+      "href": "/ledger",
+      "label": "Emerald Ledger",
+      "target": "",
+      "rel": "",
+      "location": "header",
+      "visible": true,
+      "route": "/",
+      "width": 1440
+    },
+    {
+      "href": "/systems",
+      "label": "Systems",
+      "target": "",
+      "rel": "",
+      "location": "header",
+      "visible": true,
+      "route": "/",
+      "width": 1440
+    },
+    {
+      "href": "/indicators",
+      "label": "Indicators & Signals",
+      "target": "",
+      "rel": "",
+      "location": "header",
+      "visible": true,
+      "route": "/",
+      "width": 1440
+    },
+    {
+      "href": "/technology",
+      "label": "Technology",
+      "target": "",
+      "rel": "",
+      "location": "header",
+      "visible": true,
+      "route": "/",
+      "width": 1440
+    },
+    {
+      "href": "/research",
+      "label": "Research",
+      "target": "",
+      "rel": "",
+      "location": "header",
+      "visible": true,
+      "route": "/",
+      "width": 1440
+    },
+    {
+      "href": "/about",
+      "label": "About",
+      "target": "",
+      "rel": "",
+      "location": "header",
+      "visible": true,
+      "route": "/",
+      "width": 1440
+    },
+    {
+      "href": "/ledger",
+      "label": "Follow Performance",
+      "target": "",
+      "rel": "",
+      "location": "header",
+      "visible": true,
+      "route": "/",
+      "width": 1440
+    },
+    {
+      "href": "https://portal.emeraldforexsystem.com/login",
+      "label": "Sign In",
+      "target": "",
+      "rel": "",
+      "location": "header",
+      "visible": true,
+      "route": "/",
+      "width": 1440
+    },
+    {
+      "href": "/ledger",
+      "label": "Follow Performance",
+      "target": "",
+      "rel": "",
+      "location": "main",
+      "visible": true,
+      "route": "/",
+      "width": 1440
+    },
+    {
+      "href": "/systems",
+      "label": "Explore Systems",
+      "target": "",
+      "rel": "",
+      "location": "main",
+      "visible": true,
+      "route": "/",
+      "width": 1440
+    },
+    {
+      "href": "/verification",
+      "label": "How Performance Is Documented",
+      "target": "",
+      "rel": "",
+      "location": "main",
+      "visible": true,
+      "route": "/",
+      "width": 1440
+    },
+    {
+      "href": "/ledger",
+      "label": "View Full Emerald Ledger",
+      "target": "",
+      "rel": "",
+      "location": "main",
+      "visible": true,
+      "route": "/",
+      "width": 1440
+    },
+    {
+      "href": "/ledger",
+      "label": "View Full Emerald Ledger",
+      "target": "",
+      "rel": "",
+      "location": "main",
+      "visible": true,
+      "route": "/",
+      "width": 1440
+    },
+    {
+      "href": "/ledger",
+      "label": "View ledger record",
+      "target": "",
+      "rel": "",
+      "location": "main",
+      "visible": true,
+      "route": "/",
+      "width": 1440
+    },
+    {
+      "href": "/ledger",
+      "label": "View ledger record",
+      "target": "",
+      "rel": "",
+      "location": "main",
+      "visible": true,
+      "route": "/",
+      "width": 1440
+    },
+    {
+      "href": "/ledger",
+      "label": "View ledger record",
+      "target": "",
+      "rel": "",
+      "location": "main",
+      "visible": true,
+      "route": "/",
+      "width": 1440
+    },
+    {
+      "href": "/systems/quant",
+      "label": "Explore Quant System",
+      "target": "",
+      "rel": "",
+      "location": "main",
+      "visible": true,
+      "route": "/",
+      "width": 1440
+    },
+    {
+      "href": "/ledger",
+      "label": "View Public Performance",
+      "target": "",
+      "rel": "",
+      "location": "main",
+      "visible": true,
+      "route": "/",
+      "width": 1440
+    },
+    {
+      "href": "/systems/quant",
+      "label": "Explore the Trading System",
+      "target": "",
+      "rel": "",
+      "location": "main",
+      "visible": true,
+      "route": "/",
+      "width": 1440
+    },
+    {
+      "href": "/indicators",
+      "label": "Explore Indicators",
+      "target": "",
+      "rel": "",
+      "location": "main",
+      "visible": true,
+      "route": "/",
+      "width": 1440
+    },
+    {
+      "href": "/signals",
+      "label": "View Signals",
+      "target": "",
+      "rel": "",
+      "location": "main",
+      "visible": true,
+      "route": "/",
+      "width": 1440
+    },
+    {
+      "href": "/technology",
+      "label": "Explore Technology",
+      "target": "",
+      "rel": "",
+      "location": "main",
+      "visible": true,
+      "route": "/",
+      "width": 1440
+    },
+    {
+      "href": "/research",
+      "label": "View Research",
+      "target": "",
+      "rel": "",
+      "location": "main",
+      "visible": true,
+      "route": "/",
+      "width": 1440
+    },
+    {
+      "href": "/verification",
+      "label": "View Performance Verification",
+      "target": "",
+      "rel": "",
+      "location": "main",
+      "visible": true,
+      "route": "/",
+      "width": 1440
+    },
+    {
+      "href": "/ledger",
+      "label": "View Emerald Ledger",
+      "target": "",
+      "rel": "",
+      "location": "main",
+      "visible": true,
+      "route": "/",
+      "width": 1440
+    },
+    {
+      "href": "/videos",
+      "label": "Explore Video Archive",
+      "target": "",
+      "rel": "",
+      "location": "main",
+      "visible": true,
+      "route": "/",
+      "width": 1440
+    },
+    {
+      "href": "/ledger",
+      "label": "View Emerald Ledger",
+      "target": "",
+      "rel": "",
+      "location": "main",
+      "visible": true,
+      "route": "/",
+      "width": 1440
+    },
+    {
+      "href": "/videos",
+      "label": "View archive entry",
+      "target": "",
+      "rel": "",
+      "location": "main",
+      "visible": true,
+      "route": "/",
+      "width": 1440
+    },
+    {
+      "href": "/videos",
+      "label": "View archive entry",
+      "target": "",
+      "rel": "",
+      "location": "main",
+      "visible": true,
+      "route": "/",
+      "width": 1440
+    },
+    {
+      "href": "/videos",
+      "label": "View archive entry",
+      "target": "",
+      "rel": "",
+      "location": "main",
+      "visible": true,
+      "route": "/",
+      "width": 1440
+    },
+    {
+      "href": "/ledger",
+      "label": "View Public Performance",
+      "target": "",
+      "rel": "",
+      "location": "main",
+      "visible": true,
+      "route": "/",
+      "width": 1440
+    },
+    {
+      "href": "/systems/quant",
+      "label": "Explore Emerald Quant System",
+      "target": "",
+      "rel": "",
+      "location": "main",
+      "visible": true,
+      "route": "/",
+      "width": 1440
+    },
+    {
+      "href": "https://portal.emeraldforexsystem.com/login",
+      "label": "Client Portal",
+      "target": "",
+      "rel": "",
+      "location": "main",
+      "visible": true,
+      "route": "/",
+      "width": 1440
+    },
+    {
+      "href": "/professional",
+      "label": "Professional Overview",
+      "target": "",
+      "rel": "",
+      "location": "main",
+      "visible": true,
+      "route": "/",
+      "width": 1440
+    },
+    {
+      "href": "/ledger",
+      "label": "Follow Performance",
+      "target": "",
+      "rel": "",
+      "location": "main",
+      "visible": true,
+      "route": "/",
+      "width": 1440
+    },
+    {
+      "href": "/systems",
+      "label": "Explore Systems",
+      "target": "",
+      "rel": "",
+      "location": "main",
+      "visible": true,
+      "route": "/",
+      "width": 1440
+    },
+    {
+      "href": "/technology",
+      "label": "explore the technology",
+      "target": "",
+      "rel": "",
+      "location": "main",
+      "visible": true,
+      "route": "/",
+      "width": 1440
+    },
+    {
+      "href": "/",
+      "label": "EMERALDLEGACY SYSTEMSQuantitative Trading Technology",
+      "target": "",
+      "rel": "",
+      "location": "footer",
+      "visible": true,
+      "route": "/",
+      "width": 1440
+    },
+    {
+      "href": "mailto:support@emeraldforexsystem.com",
+      "label": "support@emeraldforexsystem.com",
+      "target": "",
+      "rel": "",
+      "location": "footer",
+      "visible": true,
+      "route": "/",
+      "width": 1440
+    },
+    {
+      "href": "/ledger",
+      "label": "Emerald Ledger",
+      "target": "",
+      "rel": "",
+      "location": "footer",
+      "visible": true,
+      "route": "/",
+      "width": 1440
+    },
+    {
+      "href": "/performance",
+      "label": "System Performance",
+      "target": "",
+      "rel": "",
+      "location": "footer",
+      "visible": true,
+      "route": "/",
+      "width": 1440
+    },
+    {
+      "href": "/performance/compare",
+      "label": "Compare Systems",
+      "target": "",
+      "rel": "",
+      "location": "footer",
+      "visible": true,
+      "route": "/",
+      "width": 1440
+    },
+    {
+      "href": "/performance/live-vs-backtest",
+      "label": "Live vs Backtest",
+      "target": "",
+      "rel": "",
+      "location": "footer",
+      "visible": true,
+      "route": "/",
+      "width": 1440
+    },
+    {
+      "href": "/verification",
+      "label": "Verification",
+      "target": "",
+      "rel": "",
+      "location": "footer",
+      "visible": true,
+      "route": "/",
+      "width": 1440
+    },
+    {
+      "href": "/videos",
+      "label": "Video Archive",
+      "target": "",
+      "rel": "",
+      "location": "footer",
+      "visible": true,
+      "route": "/",
+      "width": 1440
+    },
+    {
+      "href": "/systems",
+      "label": "Systems",
+      "target": "",
+      "rel": "",
+      "location": "footer",
+      "visible": true,
+      "route": "/",
+      "width": 1440
+    },
+    {
+      "href": "/indicators",
+      "label": "Indicators & Signals",
+      "target": "",
+      "rel": "",
+      "location": "footer",
+      "visible": true,
+      "route": "/",
+      "width": 1440
+    },
+    {
+      "href": "/signals",
+      "label": "Signal Library",
+      "target": "",
+      "rel": "",
+      "location": "footer",
+      "visible": true,
+      "route": "/",
+      "width": 1440
+    },
+    {
+      "href": "/technology",
+      "label": "Technology",
+      "target": "",
+      "rel": "",
+      "location": "footer",
+      "visible": true,
+      "route": "/",
+      "width": 1440
+    },
+    {
+      "href": "/research",
+      "label": "Research",
+      "target": "",
+      "rel": "",
+      "location": "footer",
+      "visible": true,
+      "route": "/",
+      "width": 1440
+    },
+    {
+      "href": "/about",
+      "label": "About",
+      "target": "",
+      "rel": "",
+      "location": "footer",
+      "visible": true,
+      "route": "/",
+      "width": 1440
+    },
+    {
+      "href": "/professional",
+      "label": "Professional / Investor",
+      "target": "",
+      "rel": "",
+      "location": "footer",
+      "visible": true,
+      "route": "/",
+      "width": 1440
+    },
+    {
+      "href": "https://portal.emeraldforexsystem.com/login",
+      "label": "Client Portal",
+      "target": "",
+      "rel": "",
+      "location": "footer",
+      "visible": true,
+      "route": "/",
+      "width": 1440
+    },
+    {
+      "href": "https://portal.emeraldforexsystem.com/login",
+      "label": "Partner Portal",
+      "target": "",
+      "rel": "",
+      "location": "footer",
+      "visible": true,
+      "route": "/",
+      "width": 1440
+    },
+    {
+      "href": "/privacy",
+      "label": "Privacy",
+      "target": "",
+      "rel": "",
+      "location": "footer",
+      "visible": true,
+      "route": "/",
+      "width": 1440
+    },
+    {
+      "href": "/terms",
+      "label": "Terms",
+      "target": "",
+      "rel": "",
+      "location": "footer",
+      "visible": true,
+      "route": "/",
+      "width": 1440
+    },
+    {
+      "href": "/risk-disclosure",
+      "label": "Risk Disclosure",
+      "target": "",
+      "rel": "",
+      "location": "footer",
+      "visible": true,
+      "route": "/",
+      "width": 1440
+    },
+    {
+      "href": "#main-content",
+      "label": "Skip to main content",
+      "target": "",
+      "rel": "",
+      "location": "main",
+      "visible": true,
+      "route": "/systems",
+      "width": 1440
+    },
+    {
+      "href": "/",
+      "label": "EMERALDLEGACY SYSTEMS",
+      "target": "",
+      "rel": "",
+      "location": "header",
+      "visible": true,
+      "route": "/systems",
+      "width": 1440
+    },
+    {
+      "href": "/",
+      "label": "Home",
+      "target": "",
+      "rel": "",
+      "location": "header",
+      "visible": true,
+      "route": "/systems",
+      "width": 1440
+    },
+    {
+      "href": "/ledger",
+      "label": "Emerald Ledger",
+      "target": "",
+      "rel": "",
+      "location": "header",
+      "visible": true,
+      "route": "/systems",
+      "width": 1440
+    },
+    {
+      "href": "/systems",
+      "label": "Systems",
+      "target": "",
+      "rel": "",
+      "location": "header",
+      "visible": true,
+      "route": "/systems",
+      "width": 1440
+    },
+    {
+      "href": "/indicators",
+      "label": "Indicators & Signals",
+      "target": "",
+      "rel": "",
+      "location": "header",
+      "visible": true,
+      "route": "/systems",
+      "width": 1440
+    },
+    {
+      "href": "/technology",
+      "label": "Technology",
+      "target": "",
+      "rel": "",
+      "location": "header",
+      "visible": true,
+      "route": "/systems",
+      "width": 1440
+    },
+    {
+      "href": "/research",
+      "label": "Research",
+      "target": "",
+      "rel": "",
+      "location": "header",
+      "visible": true,
+      "route": "/systems",
+      "width": 1440
+    },
+    {
+      "href": "/about",
+      "label": "About",
+      "target": "",
+      "rel": "",
+      "location": "header",
+      "visible": true,
+      "route": "/systems",
+      "width": 1440
+    },
+    {
+      "href": "/ledger",
+      "label": "Follow Performance",
+      "target": "",
+      "rel": "",
+      "location": "header",
+      "visible": true,
+      "route": "/systems",
+      "width": 1440
+    },
+    {
+      "href": "https://portal.emeraldforexsystem.com/login",
+      "label": "Sign In",
+      "target": "",
+      "rel": "",
+      "location": "header",
+      "visible": true,
+      "route": "/systems",
+      "width": 1440
+    },
+    {
+      "href": "#product-catalog",
+      "label": "Explore Products",
+      "target": "",
+      "rel": "",
+      "location": "main",
+      "visible": true,
+      "route": "/systems",
+      "width": 1440
+    },
+    {
+      "href": "/platforms",
+      "label": "View Platforms",
+      "target": "",
+      "rel": "",
+      "location": "main",
+      "visible": true,
+      "route": "/systems",
+      "width": 1440
+    },
+    {
+      "href": "/indicators",
+      "label": "Explore Emerald Legacy System",
+      "target": "",
+      "rel": "",
+      "location": "main",
+      "visible": true,
+      "route": "/systems",
+      "width": 1440
+    },
+    {
+      "href": "/signal-scanner",
+      "label": "Explore Signal Scanner",
+      "target": "",
+      "rel": "",
+      "location": "main",
+      "visible": true,
+      "route": "/systems",
+      "width": 1440
+    },
+    {
+      "href": "/recovery-expert",
+      "label": "Explore Recovery Expert",
+      "target": "",
+      "rel": "",
+      "location": "main",
+      "visible": true,
+      "route": "/systems",
+      "width": 1440
+    },
+    {
+      "href": "/systems/quant",
+      "label": "Explore Quant System",
+      "target": "",
+      "rel": "",
+      "location": "main",
+      "visible": true,
+      "route": "/systems",
+      "width": 1440
+    },
+    {
+      "href": "https://portal.emeraldforexsystem.com/login",
+      "label": "Client Portal",
+      "target": "",
+      "rel": "",
+      "location": "main",
+      "visible": true,
+      "route": "/systems",
+      "width": 1440
+    },
+    {
+      "href": "/platforms",
+      "label": "View Platforms",
+      "target": "",
+      "rel": "",
+      "location": "main",
+      "visible": true,
+      "route": "/systems",
+      "width": 1440
+    },
+    {
+      "href": "/systems/quant",
+      "label": "Explore Quant System",
+      "target": "",
+      "rel": "",
+      "location": "main",
+      "visible": true,
+      "route": "/systems",
+      "width": 1440
+    },
+    {
+      "href": "/",
+      "label": "EMERALDLEGACY SYSTEMSQuantitative Trading Technology",
+      "target": "",
+      "rel": "",
+      "location": "footer",
+      "visible": true,
+      "route": "/systems",
+      "width": 1440
+    },
+    {
+      "href": "mailto:support@emeraldforexsystem.com",
+      "label": "support@emeraldforexsystem.com",
+      "target": "",
+      "rel": "",
+      "location": "footer",
+      "visible": true,
+      "route": "/systems",
+      "width": 1440
+    },
+    {
+      "href": "/ledger",
+      "label": "Emerald Ledger",
+      "target": "",
+      "rel": "",
+      "location": "footer",
+      "visible": true,
+      "route": "/systems",
+      "width": 1440
+    },
+    {
+      "href": "/performance",
+      "label": "System Performance",
+      "target": "",
+      "rel": "",
+      "location": "footer",
+      "visible": true,
+      "route": "/systems",
+      "width": 1440
+    },
+    {
+      "href": "/performance/compare",
+      "label": "Compare Systems",
+      "target": "",
+      "rel": "",
+      "location": "footer",
+      "visible": true,
+      "route": "/systems",
+      "width": 1440
+    },
+    {
+      "href": "/performance/live-vs-backtest",
+      "label": "Live vs Backtest",
+      "target": "",
+      "rel": "",
+      "location": "footer",
+      "visible": true,
+      "route": "/systems",
+      "width": 1440
+    },
+    {
+      "href": "/verification",
+      "label": "Verification",
+      "target": "",
+      "rel": "",
+      "location": "footer",
+      "visible": true,
+      "route": "/systems",
+      "width": 1440
+    },
+    {
+      "href": "/videos",
+      "label": "Video Archive",
+      "target": "",
+      "rel": "",
+      "location": "footer",
+      "visible": true,
+      "route": "/systems",
+      "width": 1440
+    },
+    {
+      "href": "/systems",
+      "label": "Systems",
+      "target": "",
+      "rel": "",
+      "location": "footer",
+      "visible": true,
+      "route": "/systems",
+      "width": 1440
+    },
+    {
+      "href": "/indicators",
+      "label": "Indicators & Signals",
+      "target": "",
+      "rel": "",
+      "location": "footer",
+      "visible": true,
+      "route": "/systems",
+      "width": 1440
+    },
+    {
+      "href": "/signals",
+      "label": "Signal Library",
+      "target": "",
+      "rel": "",
+      "location": "footer",
+      "visible": true,
+      "route": "/systems",
+      "width": 1440
+    },
+    {
+      "href": "/technology",
+      "label": "Technology",
+      "target": "",
+      "rel": "",
+      "location": "footer",
+      "visible": true,
+      "route": "/systems",
+      "width": 1440
+    },
+    {
+      "href": "/research",
+      "label": "Research",
+      "target": "",
+      "rel": "",
+      "location": "footer",
+      "visible": true,
+      "route": "/systems",
+      "width": 1440
+    },
+    {
+      "href": "/about",
+      "label": "About",
+      "target": "",
+      "rel": "",
+      "location": "footer",
+      "visible": true,
+      "route": "/systems",
+      "width": 1440
+    },
+    {
+      "href": "/professional",
+      "label": "Professional / Investor",
+      "target": "",
+      "rel": "",
+      "location": "footer",
+      "visible": true,
+      "route": "/systems",
+      "width": 1440
+    },
+    {
+      "href": "https://portal.emeraldforexsystem.com/login",
+      "label": "Client Portal",
+      "target": "",
+      "rel": "",
+      "location": "footer",
+      "visible": true,
+      "route": "/systems",
+      "width": 1440
+    },
+    {
+      "href": "https://portal.emeraldforexsystem.com/login",
+      "label": "Partner Portal",
+      "target": "",
+      "rel": "",
+      "location": "footer",
+      "visible": true,
+      "route": "/systems",
+      "width": 1440
+    },
+    {
+      "href": "/privacy",
+      "label": "Privacy",
+      "target": "",
+      "rel": "",
+      "location": "footer",
+      "visible": true,
+      "route": "/systems",
+      "width": 1440
+    },
+    {
+      "href": "/terms",
+      "label": "Terms",
+      "target": "",
+      "rel": "",
+      "location": "footer",
+      "visible": true,
+      "route": "/systems",
+      "width": 1440
+    },
+    {
+      "href": "/risk-disclosure",
+      "label": "Risk Disclosure",
+      "target": "",
+      "rel": "",
+      "location": "footer",
+      "visible": true,
+      "route": "/systems",
+      "width": 1440
+    },
+    {
+      "href": "#main-content",
+      "label": "Skip to main content",
+      "target": "",
+      "rel": "",
+      "location": "main",
+      "visible": true,
+      "route": "/systems/quant",
+      "width": 1440
+    },
+    {
+      "href": "/",
+      "label": "EMERALDLEGACY SYSTEMS",
+      "target": "",
+      "rel": "",
+      "location": "header",
+      "visible": true,
+      "route": "/systems/quant",
+      "width": 1440
+    },
+    {
+      "href": "/",
+      "label": "Home",
+      "target": "",
+      "rel": "",
+      "location": "header",
+      "visible": true,
+      "route": "/systems/quant",
+      "width": 1440
+    },
+    {
+      "href": "/ledger",
+      "label": "Emerald Ledger",
+      "target": "",
+      "rel": "",
+      "location": "header",
+      "visible": true,
+      "route": "/systems/quant",
+      "width": 1440
+    },
+    {
+      "href": "/systems",
+      "label": "Systems",
+      "target": "",
+      "rel": "",
+      "location": "header",
+      "visible": true,
+      "route": "/systems/quant",
+      "width": 1440
+    },
+    {
+      "href": "/indicators",
+      "label": "Indicators & Signals",
+      "target": "",
+      "rel": "",
+      "location": "header",
+      "visible": true,
+      "route": "/systems/quant",
+      "width": 1440
+    },
+    {
+      "href": "/technology",
+      "label": "Technology",
+      "target": "",
+      "rel": "",
+      "location": "header",
+      "visible": true,
+      "route": "/systems/quant",
+      "width": 1440
+    },
+    {
+      "href": "/research",
+      "label": "Research",
+      "target": "",
+      "rel": "",
+      "location": "header",
+      "visible": true,
+      "route": "/systems/quant",
+      "width": 1440
+    },
+    {
+      "href": "/about",
+      "label": "About",
+      "target": "",
+      "rel": "",
+      "location": "header",
+      "visible": true,
+      "route": "/systems/quant",
+      "width": 1440
+    },
+    {
+      "href": "/ledger",
+      "label": "Follow Performance",
+      "target": "",
+      "rel": "",
+      "location": "header",
+      "visible": true,
+      "route": "/systems/quant",
+      "width": 1440
+    },
+    {
+      "href": "https://portal.emeraldforexsystem.com/login",
+      "label": "Sign In",
+      "target": "",
+      "rel": "",
+      "location": "header",
+      "visible": true,
+      "route": "/systems/quant",
+      "width": 1440
+    },
+    {
+      "href": "/ledger",
+      "label": "View Public Performance",
+      "target": "",
+      "rel": "",
+      "location": "main",
+      "visible": true,
+      "route": "/systems/quant",
+      "width": 1440
+    },
+    {
+      "href": "/technology",
+      "label": "Explore Technology",
+      "target": "",
+      "rel": "",
+      "location": "main",
+      "visible": true,
+      "route": "/systems/quant",
+      "width": 1440
+    },
+    {
+      "href": "/indicators",
+      "label": "Explore Indicators",
+      "target": "",
+      "rel": "",
+      "location": "main",
+      "visible": true,
+      "route": "/systems/quant",
+      "width": 1440
+    },
+    {
+      "href": "/signals",
+      "label": "View Signals",
+      "target": "",
+      "rel": "",
+      "location": "main",
+      "visible": true,
+      "route": "/systems/quant",
+      "width": 1440
+    },
+    {
+      "href": "/systems/quant",
+      "label": "Metals, selected",
+      "target": "",
+      "rel": "",
+      "location": "main",
+      "visible": true,
+      "route": "/systems/quant",
+      "width": 1440
+    },
+    {
+      "href": "/ledger",
+      "label": "View Complete Ledger",
+      "target": "",
+      "rel": "",
+      "location": "main",
+      "visible": true,
+      "route": "/systems/quant",
+      "width": 1440
+    },
+    {
+      "href": "/",
+      "label": "EMERALDLEGACY SYSTEMSQuantitative Trading Technology",
+      "target": "",
+      "rel": "",
+      "location": "footer",
+      "visible": true,
+      "route": "/systems/quant",
+      "width": 1440
+    },
+    {
+      "href": "mailto:support@emeraldforexsystem.com",
+      "label": "support@emeraldforexsystem.com",
+      "target": "",
+      "rel": "",
+      "location": "footer",
+      "visible": true,
+      "route": "/systems/quant",
+      "width": 1440
+    },
+    {
+      "href": "/ledger",
+      "label": "Emerald Ledger",
+      "target": "",
+      "rel": "",
+      "location": "footer",
+      "visible": true,
+      "route": "/systems/quant",
+      "width": 1440
+    },
+    {
+      "href": "/performance",
+      "label": "System Performance",
+      "target": "",
+      "rel": "",
+      "location": "footer",
+      "visible": true,
+      "route": "/systems/quant",
+      "width": 1440
+    },
+    {
+      "href": "/performance/compare",
+      "label": "Compare Systems",
+      "target": "",
+      "rel": "",
+      "location": "footer",
+      "visible": true,
+      "route": "/systems/quant",
+      "width": 1440
+    },
+    {
+      "href": "/performance/live-vs-backtest",
+      "label": "Live vs Backtest",
+      "target": "",
+      "rel": "",
+      "location": "footer",
+      "visible": true,
+      "route": "/systems/quant",
+      "width": 1440
+    },
+    {
+      "href": "/verification",
+      "label": "Verification",
+      "target": "",
+      "rel": "",
+      "location": "footer",
+      "visible": true,
+      "route": "/systems/quant",
+      "width": 1440
+    },
+    {
+      "href": "/videos",
+      "label": "Video Archive",
+      "target": "",
+      "rel": "",
+      "location": "footer",
+      "visible": true,
+      "route": "/systems/quant",
+      "width": 1440
+    },
+    {
+      "href": "/systems",
+      "label": "Systems",
+      "target": "",
+      "rel": "",
+      "location": "footer",
+      "visible": true,
+      "route": "/systems/quant",
+      "width": 1440
+    },
+    {
+      "href": "/indicators",
+      "label": "Indicators & Signals",
+      "target": "",
+      "rel": "",
+      "location": "footer",
+      "visible": true,
+      "route": "/systems/quant",
+      "width": 1440
+    },
+    {
+      "href": "/signals",
+      "label": "Signal Library",
+      "target": "",
+      "rel": "",
+      "location": "footer",
+      "visible": true,
+      "route": "/systems/quant",
+      "width": 1440
+    },
+    {
+      "href": "/technology",
+      "label": "Technology",
+      "target": "",
+      "rel": "",
+      "location": "footer",
+      "visible": true,
+      "route": "/systems/quant",
+      "width": 1440
+    },
+    {
+      "href": "/research",
+      "label": "Research",
+      "target": "",
+      "rel": "",
+      "location": "footer",
+      "visible": true,
+      "route": "/systems/quant",
+      "width": 1440
+    },
+    {
+      "href": "/about",
+      "label": "About",
+      "target": "",
+      "rel": "",
+      "location": "footer",
+      "visible": true,
+      "route": "/systems/quant",
+      "width": 1440
+    },
+    {
+      "href": "/professional",
+      "label": "Professional / Investor",
+      "target": "",
+      "rel": "",
+      "location": "footer",
+      "visible": true,
+      "route": "/systems/quant",
+      "width": 1440
+    },
+    {
+      "href": "https://portal.emeraldforexsystem.com/login",
+      "label": "Client Portal",
+      "target": "",
+      "rel": "",
+      "location": "footer",
+      "visible": true,
+      "route": "/systems/quant",
+      "width": 1440
+    },
+    {
+      "href": "https://portal.emeraldforexsystem.com/login",
+      "label": "Partner Portal",
+      "target": "",
+      "rel": "",
+      "location": "footer",
+      "visible": true,
+      "route": "/systems/quant",
+      "width": 1440
+    },
+    {
+      "href": "/privacy",
+      "label": "Privacy",
+      "target": "",
+      "rel": "",
+      "location": "footer",
+      "visible": true,
+      "route": "/systems/quant",
+      "width": 1440
+    },
+    {
+      "href": "/terms",
+      "label": "Terms",
+      "target": "",
+      "rel": "",
+      "location": "footer",
+      "visible": true,
+      "route": "/systems/quant",
+      "width": 1440
+    },
+    {
+      "href": "/risk-disclosure",
+      "label": "Risk Disclosure",
+      "target": "",
+      "rel": "",
+      "location": "footer",
+      "visible": true,
+      "route": "/systems/quant",
+      "width": 1440
+    },
+    {
+      "href": "#main-content",
+      "label": "Skip to main content",
+      "target": "",
+      "rel": "",
+      "location": "main",
+      "visible": true,
+      "route": "/indicators",
+      "width": 1440
+    },
+    {
+      "href": "/",
+      "label": "EMERALDLEGACY SYSTEMS",
+      "target": "",
+      "rel": "",
+      "location": "header",
+      "visible": true,
+      "route": "/indicators",
+      "width": 1440
+    },
+    {
+      "href": "/",
+      "label": "Home",
+      "target": "",
+      "rel": "",
+      "location": "header",
+      "visible": true,
+      "route": "/indicators",
+      "width": 1440
+    },
+    {
+      "href": "/ledger",
+      "label": "Emerald Ledger",
+      "target": "",
+      "rel": "",
+      "location": "header",
+      "visible": true,
+      "route": "/indicators",
+      "width": 1440
+    },
+    {
+      "href": "/systems",
+      "label": "Systems",
+      "target": "",
+      "rel": "",
+      "location": "header",
+      "visible": true,
+      "route": "/indicators",
+      "width": 1440
+    },
+    {
+      "href": "/indicators",
+      "label": "Indicators & Signals",
+      "target": "",
+      "rel": "",
+      "location": "header",
+      "visible": true,
+      "route": "/indicators",
+      "width": 1440
+    },
+    {
+      "href": "/technology",
+      "label": "Technology",
+      "target": "",
+      "rel": "",
+      "location": "header",
+      "visible": true,
+      "route": "/indicators",
+      "width": 1440
+    },
+    {
+      "href": "/research",
+      "label": "Research",
+      "target": "",
+      "rel": "",
+      "location": "header",
+      "visible": true,
+      "route": "/indicators",
+      "width": 1440
+    },
+    {
+      "href": "/about",
+      "label": "About",
+      "target": "",
+      "rel": "",
+      "location": "header",
+      "visible": true,
+      "route": "/indicators",
+      "width": 1440
+    },
+    {
+      "href": "/ledger",
+      "label": "Follow Performance",
+      "target": "",
+      "rel": "",
+      "location": "header",
+      "visible": true,
+      "route": "/indicators",
+      "width": 1440
+    },
+    {
+      "href": "https://portal.emeraldforexsystem.com/login",
+      "label": "Sign In",
+      "target": "",
+      "rel": "",
+      "location": "header",
+      "visible": true,
+      "route": "/indicators",
+      "width": 1440
+    },
+    {
+      "href": "/signals",
+      "label": "Explore Signal Library",
+      "target": "",
+      "rel": "",
+      "location": "main",
+      "visible": true,
+      "route": "/indicators",
+      "width": 1440
+    },
+    {
+      "href": "/signal-scanner",
+      "label": "View Signal Scanner",
+      "target": "",
+      "rel": "",
+      "location": "main",
+      "visible": true,
+      "route": "/indicators",
+      "width": 1440
+    },
+    {
+      "href": "/signals#main",
+      "label": "View in Signal Library",
+      "target": "",
+      "rel": "",
+      "location": "main",
+      "visible": true,
+      "route": "/indicators",
+      "width": 1440
+    },
+    {
+      "href": "/signals#finescalp",
+      "label": "View in Signal Library",
+      "target": "",
+      "rel": "",
+      "location": "main",
+      "visible": true,
+      "route": "/indicators",
+      "width": 1440
+    },
+    {
+      "href": "/signals#scalp",
+      "label": "View in Signal Library",
+      "target": "",
+      "rel": "",
+      "location": "main",
+      "visible": true,
+      "route": "/indicators",
+      "width": 1440
+    },
+    {
+      "href": "/signals#range",
+      "label": "View in Signal Library",
+      "target": "",
+      "rel": "",
+      "location": "main",
+      "visible": true,
+      "route": "/indicators",
+      "width": 1440
+    },
+    {
+      "href": "/signals#harmonizer",
+      "label": "View in Signal Library",
+      "target": "",
+      "rel": "",
+      "location": "main",
+      "visible": true,
+      "route": "/indicators",
+      "width": 1440
+    },
+    {
+      "href": "/signals#harmonizer-safe",
+      "label": "View in Signal Library",
+      "target": "",
+      "rel": "",
+      "location": "main",
+      "visible": true,
+      "route": "/indicators",
+      "width": 1440
+    },
+    {
+      "href": "/platforms",
+      "label": "Explore Platforms",
+      "target": "",
+      "rel": "",
+      "location": "main",
+      "visible": true,
+      "route": "/indicators",
+      "width": 1440
+    },
+    {
+      "href": "/signal-scanner",
+      "label": "Explore Signal Scanner",
+      "target": "",
+      "rel": "",
+      "location": "main",
+      "visible": true,
+      "route": "/indicators",
+      "width": 1440
+    },
+    {
+      "href": "/recovery-expert",
+      "label": "Explore Recovery Expert",
+      "target": "",
+      "rel": "",
+      "location": "main",
+      "visible": true,
+      "route": "/indicators",
+      "width": 1440
+    },
+    {
+      "href": "/systems/quant",
+      "label": "Explore Quant System",
+      "target": "",
+      "rel": "",
+      "location": "main",
+      "visible": true,
+      "route": "/indicators",
+      "width": 1440
+    },
+    {
+      "href": "/signals",
+      "label": "Explore Signal Library",
+      "target": "",
+      "rel": "",
+      "location": "main",
+      "visible": true,
+      "route": "/indicators",
+      "width": 1440
+    },
+    {
+      "href": "/research",
+      "label": "Explore Research",
+      "target": "",
+      "rel": "",
+      "location": "main",
+      "visible": true,
+      "route": "/indicators",
+      "width": 1440
+    },
+    {
+      "href": "/",
+      "label": "EMERALDLEGACY SYSTEMSQuantitative Trading Technology",
+      "target": "",
+      "rel": "",
+      "location": "footer",
+      "visible": true,
+      "route": "/indicators",
+      "width": 1440
+    },
+    {
+      "href": "mailto:support@emeraldforexsystem.com",
+      "label": "support@emeraldforexsystem.com",
+      "target": "",
+      "rel": "",
+      "location": "footer",
+      "visible": true,
+      "route": "/indicators",
+      "width": 1440
+    },
+    {
+      "href": "/ledger",
+      "label": "Emerald Ledger",
+      "target": "",
+      "rel": "",
+      "location": "footer",
+      "visible": true,
+      "route": "/indicators",
+      "width": 1440
+    },
+    {
+      "href": "/performance",
+      "label": "System Performance",
+      "target": "",
+      "rel": "",
+      "location": "footer",
+      "visible": true,
+      "route": "/indicators",
+      "width": 1440
+    },
+    {
+      "href": "/performance/compare",
+      "label": "Compare Systems",
+      "target": "",
+      "rel": "",
+      "location": "footer",
+      "visible": true,
+      "route": "/indicators",
+      "width": 1440
+    },
+    {
+      "href": "/performance/live-vs-backtest",
+      "label": "Live vs Backtest",
+      "target": "",
+      "rel": "",
+      "location": "footer",
+      "visible": true,
+      "route": "/indicators",
+      "width": 1440
+    },
+    {
+      "href": "/verification",
+      "label": "Verification",
+      "target": "",
+      "rel": "",
+      "location": "footer",
+      "visible": true,
+      "route": "/indicators",
+      "width": 1440
+    },
+    {
+      "href": "/videos",
+      "label": "Video Archive",
+      "target": "",
+      "rel": "",
+      "location": "footer",
+      "visible": true,
+      "route": "/indicators",
+      "width": 1440
+    },
+    {
+      "href": "/systems",
+      "label": "Systems",
+      "target": "",
+      "rel": "",
+      "location": "footer",
+      "visible": true,
+      "route": "/indicators",
+      "width": 1440
+    },
+    {
+      "href": "/indicators",
+      "label": "Indicators & Signals",
+      "target": "",
+      "rel": "",
+      "location": "footer",
+      "visible": true,
+      "route": "/indicators",
+      "width": 1440
+    },
+    {
+      "href": "/signals",
+      "label": "Signal Library",
+      "target": "",
+      "rel": "",
+      "location": "footer",
+      "visible": true,
+      "route": "/indicators",
+      "width": 1440
+    },
+    {
+      "href": "/technology",
+      "label": "Technology",
+      "target": "",
+      "rel": "",
+      "location": "footer",
+      "visible": true,
+      "route": "/indicators",
+      "width": 1440
+    },
+    {
+      "href": "/research",
+      "label": "Research",
+      "target": "",
+      "rel": "",
+      "location": "footer",
+      "visible": true,
+      "route": "/indicators",
+      "width": 1440
+    },
+    {
+      "href": "/about",
+      "label": "About",
+      "target": "",
+      "rel": "",
+      "location": "footer",
+      "visible": true,
+      "route": "/indicators",
+      "width": 1440
+    },
+    {
+      "href": "/professional",
+      "label": "Professional / Investor",
+      "target": "",
+      "rel": "",
+      "location": "footer",
+      "visible": true,
+      "route": "/indicators",
+      "width": 1440
+    },
+    {
+      "href": "https://portal.emeraldforexsystem.com/login",
+      "label": "Client Portal",
+      "target": "",
+      "rel": "",
+      "location": "footer",
+      "visible": true,
+      "route": "/indicators",
+      "width": 1440
+    },
+    {
+      "href": "https://portal.emeraldforexsystem.com/login",
+      "label": "Partner Portal",
+      "target": "",
+      "rel": "",
+      "location": "footer",
+      "visible": true,
+      "route": "/indicators",
+      "width": 1440
+    },
+    {
+      "href": "/privacy",
+      "label": "Privacy",
+      "target": "",
+      "rel": "",
+      "location": "footer",
+      "visible": true,
+      "route": "/indicators",
+      "width": 1440
+    },
+    {
+      "href": "/terms",
+      "label": "Terms",
+      "target": "",
+      "rel": "",
+      "location": "footer",
+      "visible": true,
+      "route": "/indicators",
+      "width": 1440
+    },
+    {
+      "href": "/risk-disclosure",
+      "label": "Risk Disclosure",
+      "target": "",
+      "rel": "",
+      "location": "footer",
+      "visible": true,
+      "route": "/indicators",
+      "width": 1440
+    },
+    {
+      "href": "#main-content",
+      "label": "Skip to main content",
+      "target": "",
+      "rel": "",
+      "location": "main",
+      "visible": true,
+      "route": "/signals",
+      "width": 1440
+    },
+    {
+      "href": "/",
+      "label": "EMERALDLEGACY SYSTEMS",
+      "target": "",
+      "rel": "",
+      "location": "header",
+      "visible": true,
+      "route": "/signals",
+      "width": 1440
+    },
+    {
+      "href": "/",
+      "label": "Home",
+      "target": "",
+      "rel": "",
+      "location": "header",
+      "visible": true,
+      "route": "/signals",
+      "width": 1440
+    },
+    {
+      "href": "/ledger",
+      "label": "Emerald Ledger",
+      "target": "",
+      "rel": "",
+      "location": "header",
+      "visible": true,
+      "route": "/signals",
+      "width": 1440
+    },
+    {
+      "href": "/systems",
+      "label": "Systems",
+      "target": "",
+      "rel": "",
+      "location": "header",
+      "visible": true,
+      "route": "/signals",
+      "width": 1440
+    },
+    {
+      "href": "/indicators",
+      "label": "Indicators & Signals",
+      "target": "",
+      "rel": "",
+      "location": "header",
+      "visible": true,
+      "route": "/signals",
+      "width": 1440
+    },
+    {
+      "href": "/technology",
+      "label": "Technology",
+      "target": "",
+      "rel": "",
+      "location": "header",
+      "visible": true,
+      "route": "/signals",
+      "width": 1440
+    },
+    {
+      "href": "/research",
+      "label": "Research",
+      "target": "",
+      "rel": "",
+      "location": "header",
+      "visible": true,
+      "route": "/signals",
+      "width": 1440
+    },
+    {
+      "href": "/about",
+      "label": "About",
+      "target": "",
+      "rel": "",
+      "location": "header",
+      "visible": true,
+      "route": "/signals",
+      "width": 1440
+    },
+    {
+      "href": "/ledger",
+      "label": "Follow Performance",
+      "target": "",
+      "rel": "",
+      "location": "header",
+      "visible": true,
+      "route": "/signals",
+      "width": 1440
+    },
+    {
+      "href": "https://portal.emeraldforexsystem.com/login",
+      "label": "Sign In",
+      "target": "",
+      "rel": "",
+      "location": "header",
+      "visible": true,
+      "route": "/signals",
+      "width": 1440
+    },
+    {
+      "href": "/indicators",
+      "label": "Explore Emerald Legacy System",
+      "target": "",
+      "rel": "",
+      "location": "main",
+      "visible": true,
+      "route": "/signals",
+      "width": 1440
+    },
+    {
+      "href": "/signal-scanner",
+      "label": "View Signal Scanner",
+      "target": "",
+      "rel": "",
+      "location": "main",
+      "visible": true,
+      "route": "/signals",
+      "width": 1440
+    },
+    {
+      "href": "#main",
+      "label": "Main",
+      "target": "",
+      "rel": "",
+      "location": "main",
+      "visible": true,
+      "route": "/signals",
+      "width": 1440
+    },
+    {
+      "href": "#finescalp",
+      "label": "FineScalp",
+      "target": "",
+      "rel": "",
+      "location": "main",
+      "visible": true,
+      "route": "/signals",
+      "width": 1440
+    },
+    {
+      "href": "#scalp",
+      "label": "Scalp",
+      "target": "",
+      "rel": "",
+      "location": "main",
+      "visible": true,
+      "route": "/signals",
+      "width": 1440
+    },
+    {
+      "href": "#range",
+      "label": "Range",
+      "target": "",
+      "rel": "",
+      "location": "main",
+      "visible": true,
+      "route": "/signals",
+      "width": 1440
+    },
+    {
+      "href": "#harmonizer",
+      "label": "Harmonizer",
+      "target": "",
+      "rel": "",
+      "location": "main",
+      "visible": true,
+      "route": "/signals",
+      "width": 1440
+    },
+    {
+      "href": "#harmonizer-safe",
+      "label": "SAFE",
+      "target": "",
+      "rel": "",
+      "location": "main",
+      "visible": true,
+      "route": "/signals",
+      "width": 1440
+    },
+    {
+      "href": "/signal-scanner",
+      "label": "Explore Signal Scanner",
+      "target": "",
+      "rel": "",
+      "location": "main",
+      "visible": true,
+      "route": "/signals",
+      "width": 1440
+    },
+    {
+      "href": "/recovery-expert",
+      "label": "Explore Recovery Expert",
+      "target": "",
+      "rel": "",
+      "location": "main",
+      "visible": true,
+      "route": "/signals",
+      "width": 1440
+    },
+    {
+      "href": "/platforms",
+      "label": "Explore Platforms",
+      "target": "",
+      "rel": "",
+      "location": "main",
+      "visible": true,
+      "route": "/signals",
+      "width": 1440
+    },
+    {
+      "href": "/indicators",
+      "label": "Explore Emerald Legacy System",
+      "target": "",
+      "rel": "",
+      "location": "main",
+      "visible": true,
+      "route": "/signals",
+      "width": 1440
+    },
+    {
+      "href": "/signal-scanner",
+      "label": "Explore Signal Scanner",
+      "target": "",
+      "rel": "",
+      "location": "main",
+      "visible": true,
+      "route": "/signals",
+      "width": 1440
+    },
+    {
+      "href": "/recovery-expert",
+      "label": "Explore Recovery Expert",
+      "target": "",
+      "rel": "",
+      "location": "main",
+      "visible": true,
+      "route": "/signals",
+      "width": 1440
+    },
+    {
+      "href": "/systems/quant",
+      "label": "Explore Quant System",
+      "target": "",
+      "rel": "",
+      "location": "main",
+      "visible": true,
+      "route": "/signals",
+      "width": 1440
+    },
+    {
+      "href": "/research",
+      "label": "Explore Research",
+      "target": "",
+      "rel": "",
+      "location": "main",
+      "visible": true,
+      "route": "/signals",
+      "width": 1440
+    },
+    {
+      "href": "/indicators",
+      "label": "Explore Emerald Legacy System",
+      "target": "",
+      "rel": "",
+      "location": "main",
+      "visible": true,
+      "route": "/signals",
+      "width": 1440
+    },
+    {
+      "href": "/indicators",
+      "label": "Explore Emerald Legacy System",
+      "target": "",
+      "rel": "",
+      "location": "main",
+      "visible": true,
+      "route": "/signals",
+      "width": 1440
+    },
+    {
+      "href": "/signal-scanner",
+      "label": "View Signal Scanner",
+      "target": "",
+      "rel": "",
+      "location": "main",
+      "visible": true,
+      "route": "/signals",
+      "width": 1440
+    },
+    {
+      "href": "/platforms",
+      "label": "Explore Platforms",
+      "target": "",
+      "rel": "",
+      "location": "main",
+      "visible": true,
+      "route": "/signals",
+      "width": 1440
+    },
+    {
+      "href": "/",
+      "label": "EMERALDLEGACY SYSTEMSQuantitative Trading Technology",
+      "target": "",
+      "rel": "",
+      "location": "footer",
+      "visible": true,
+      "route": "/signals",
+      "width": 1440
+    },
+    {
+      "href": "mailto:support@emeraldforexsystem.com",
+      "label": "support@emeraldforexsystem.com",
+      "target": "",
+      "rel": "",
+      "location": "footer",
+      "visible": true,
+      "route": "/signals",
+      "width": 1440
+    },
+    {
+      "href": "/ledger",
+      "label": "Emerald Ledger",
+      "target": "",
+      "rel": "",
+      "location": "footer",
+      "visible": true,
+      "route": "/signals",
+      "width": 1440
+    },
+    {
+      "href": "/performance",
+      "label": "System Performance",
+      "target": "",
+      "rel": "",
+      "location": "footer",
+      "visible": true,
+      "route": "/signals",
+      "width": 1440
+    },
+    {
+      "href": "/performance/compare",
+      "label": "Compare Systems",
+      "target": "",
+      "rel": "",
+      "location": "footer",
+      "visible": true,
+      "route": "/signals",
+      "width": 1440
+    },
+    {
+      "href": "/performance/live-vs-backtest",
+      "label": "Live vs Backtest",
+      "target": "",
+      "rel": "",
+      "location": "footer",
+      "visible": true,
+      "route": "/signals",
+      "width": 1440
+    },
+    {
+      "href": "/verification",
+      "label": "Verification",
+      "target": "",
+      "rel": "",
+      "location": "footer",
+      "visible": true,
+      "route": "/signals",
+      "width": 1440
+    },
+    {
+      "href": "/videos",
+      "label": "Video Archive",
+      "target": "",
+      "rel": "",
+      "location": "footer",
+      "visible": true,
+      "route": "/signals",
+      "width": 1440
+    },
+    {
+      "href": "/systems",
+      "label": "Systems",
+      "target": "",
+      "rel": "",
+      "location": "footer",
+      "visible": true,
+      "route": "/signals",
+      "width": 1440
+    },
+    {
+      "href": "/indicators",
+      "label": "Indicators & Signals",
+      "target": "",
+      "rel": "",
+      "location": "footer",
+      "visible": true,
+      "route": "/signals",
+      "width": 1440
+    },
+    {
+      "href": "/signals",
+      "label": "Signal Library",
+      "target": "",
+      "rel": "",
+      "location": "footer",
+      "visible": true,
+      "route": "/signals",
+      "width": 1440
+    },
+    {
+      "href": "/technology",
+      "label": "Technology",
+      "target": "",
+      "rel": "",
+      "location": "footer",
+      "visible": true,
+      "route": "/signals",
+      "width": 1440
+    },
+    {
+      "href": "/research",
+      "label": "Research",
+      "target": "",
+      "rel": "",
+      "location": "footer",
+      "visible": true,
+      "route": "/signals",
+      "width": 1440
+    },
+    {
+      "href": "/about",
+      "label": "About",
+      "target": "",
+      "rel": "",
+      "location": "footer",
+      "visible": true,
+      "route": "/signals",
+      "width": 1440
+    },
+    {
+      "href": "/professional",
+      "label": "Professional / Investor",
+      "target": "",
+      "rel": "",
+      "location": "footer",
+      "visible": true,
+      "route": "/signals",
+      "width": 1440
+    },
+    {
+      "href": "https://portal.emeraldforexsystem.com/login",
+      "label": "Client Portal",
+      "target": "",
+      "rel": "",
+      "location": "footer",
+      "visible": true,
+      "route": "/signals",
+      "width": 1440
+    },
+    {
+      "href": "https://portal.emeraldforexsystem.com/login",
+      "label": "Partner Portal",
+      "target": "",
+      "rel": "",
+      "location": "footer",
+      "visible": true,
+      "route": "/signals",
+      "width": 1440
+    },
+    {
+      "href": "/privacy",
+      "label": "Privacy",
+      "target": "",
+      "rel": "",
+      "location": "footer",
+      "visible": true,
+      "route": "/signals",
+      "width": 1440
+    },
+    {
+      "href": "/terms",
+      "label": "Terms",
+      "target": "",
+      "rel": "",
+      "location": "footer",
+      "visible": true,
+      "route": "/signals",
+      "width": 1440
+    },
+    {
+      "href": "/risk-disclosure",
+      "label": "Risk Disclosure",
+      "target": "",
+      "rel": "",
+      "location": "footer",
+      "visible": true,
+      "route": "/signals",
+      "width": 1440
+    },
+    {
+      "href": "#main-content",
+      "label": "Skip to main content",
+      "target": "",
+      "rel": "",
+      "location": "main",
+      "visible": true,
+      "route": "/signal-scanner",
+      "width": 1440
+    },
+    {
+      "href": "/",
+      "label": "EMERALDLEGACY SYSTEMS",
+      "target": "",
+      "rel": "",
+      "location": "header",
+      "visible": true,
+      "route": "/signal-scanner",
+      "width": 1440
+    },
+    {
+      "href": "/",
+      "label": "Home",
+      "target": "",
+      "rel": "",
+      "location": "header",
+      "visible": true,
+      "route": "/signal-scanner",
+      "width": 1440
+    },
+    {
+      "href": "/ledger",
+      "label": "Emerald Ledger",
+      "target": "",
+      "rel": "",
+      "location": "header",
+      "visible": true,
+      "route": "/signal-scanner",
+      "width": 1440
+    },
+    {
+      "href": "/systems",
+      "label": "Systems",
+      "target": "",
+      "rel": "",
+      "location": "header",
+      "visible": true,
+      "route": "/signal-scanner",
+      "width": 1440
+    },
+    {
+      "href": "/indicators",
+      "label": "Indicators & Signals",
+      "target": "",
+      "rel": "",
+      "location": "header",
+      "visible": true,
+      "route": "/signal-scanner",
+      "width": 1440
+    },
+    {
+      "href": "/technology",
+      "label": "Technology",
+      "target": "",
+      "rel": "",
+      "location": "header",
+      "visible": true,
+      "route": "/signal-scanner",
+      "width": 1440
+    },
+    {
+      "href": "/research",
+      "label": "Research",
+      "target": "",
+      "rel": "",
+      "location": "header",
+      "visible": true,
+      "route": "/signal-scanner",
+      "width": 1440
+    },
+    {
+      "href": "/about",
+      "label": "About",
+      "target": "",
+      "rel": "",
+      "location": "header",
+      "visible": true,
+      "route": "/signal-scanner",
+      "width": 1440
+    },
+    {
+      "href": "/ledger",
+      "label": "Follow Performance",
+      "target": "",
+      "rel": "",
+      "location": "header",
+      "visible": true,
+      "route": "/signal-scanner",
+      "width": 1440
+    },
+    {
+      "href": "https://portal.emeraldforexsystem.com/login",
+      "label": "Sign In",
+      "target": "",
+      "rel": "",
+      "location": "header",
+      "visible": true,
+      "route": "/signal-scanner",
+      "width": 1440
+    },
+    {
+      "href": "/signals",
+      "label": "Explore Signal Library",
+      "target": "",
+      "rel": "",
+      "location": "main",
+      "visible": true,
+      "route": "/signal-scanner",
+      "width": 1440
+    },
+    {
+      "href": "/platforms",
+      "label": "View Platforms",
+      "target": "",
+      "rel": "",
+      "location": "main",
+      "visible": true,
+      "route": "/signal-scanner",
+      "width": 1440
+    },
+    {
+      "href": "/signals",
+      "label": "Review Signal Library",
+      "target": "",
+      "rel": "",
+      "location": "main",
+      "visible": true,
+      "route": "/signal-scanner",
+      "width": 1440
+    },
+    {
+      "href": "/platforms",
+      "label": "Explore Platforms",
+      "target": "",
+      "rel": "",
+      "location": "main",
+      "visible": true,
+      "route": "/signal-scanner",
+      "width": 1440
+    },
+    {
+      "href": "/indicators",
+      "label": "Explore",
+      "target": "",
+      "rel": "",
+      "location": "main",
+      "visible": true,
+      "route": "/signal-scanner",
+      "width": 1440
+    },
+    {
+      "href": "/signals",
+      "label": "Explore Signal Library",
+      "target": "",
+      "rel": "",
+      "location": "main",
+      "visible": true,
+      "route": "/signal-scanner",
+      "width": 1440
+    },
+    {
+      "href": "/indicators",
+      "label": "Explore Legacy System",
+      "target": "",
+      "rel": "",
+      "location": "main",
+      "visible": true,
+      "route": "/signal-scanner",
+      "width": 1440
+    },
+    {
+      "href": "/",
+      "label": "EMERALDLEGACY SYSTEMSQuantitative Trading Technology",
+      "target": "",
+      "rel": "",
+      "location": "footer",
+      "visible": true,
+      "route": "/signal-scanner",
+      "width": 1440
+    },
+    {
+      "href": "mailto:support@emeraldforexsystem.com",
+      "label": "support@emeraldforexsystem.com",
+      "target": "",
+      "rel": "",
+      "location": "footer",
+      "visible": true,
+      "route": "/signal-scanner",
+      "width": 1440
+    },
+    {
+      "href": "/ledger",
+      "label": "Emerald Ledger",
+      "target": "",
+      "rel": "",
+      "location": "footer",
+      "visible": true,
+      "route": "/signal-scanner",
+      "width": 1440
+    },
+    {
+      "href": "/performance",
+      "label": "System Performance",
+      "target": "",
+      "rel": "",
+      "location": "footer",
+      "visible": true,
+      "route": "/signal-scanner",
+      "width": 1440
+    },
+    {
+      "href": "/performance/compare",
+      "label": "Compare Systems",
+      "target": "",
+      "rel": "",
+      "location": "footer",
+      "visible": true,
+      "route": "/signal-scanner",
+      "width": 1440
+    },
+    {
+      "href": "/performance/live-vs-backtest",
+      "label": "Live vs Backtest",
+      "target": "",
+      "rel": "",
+      "location": "footer",
+      "visible": true,
+      "route": "/signal-scanner",
+      "width": 1440
+    },
+    {
+      "href": "/verification",
+      "label": "Verification",
+      "target": "",
+      "rel": "",
+      "location": "footer",
+      "visible": true,
+      "route": "/signal-scanner",
+      "width": 1440
+    },
+    {
+      "href": "/videos",
+      "label": "Video Archive",
+      "target": "",
+      "rel": "",
+      "location": "footer",
+      "visible": true,
+      "route": "/signal-scanner",
+      "width": 1440
+    },
+    {
+      "href": "/systems",
+      "label": "Systems",
+      "target": "",
+      "rel": "",
+      "location": "footer",
+      "visible": true,
+      "route": "/signal-scanner",
+      "width": 1440
+    },
+    {
+      "href": "/indicators",
+      "label": "Indicators & Signals",
+      "target": "",
+      "rel": "",
+      "location": "footer",
+      "visible": true,
+      "route": "/signal-scanner",
+      "width": 1440
+    },
+    {
+      "href": "/signals",
+      "label": "Signal Library",
+      "target": "",
+      "rel": "",
+      "location": "footer",
+      "visible": true,
+      "route": "/signal-scanner",
+      "width": 1440
+    },
+    {
+      "href": "/technology",
+      "label": "Technology",
+      "target": "",
+      "rel": "",
+      "location": "footer",
+      "visible": true,
+      "route": "/signal-scanner",
+      "width": 1440
+    },
+    {
+      "href": "/research",
+      "label": "Research",
+      "target": "",
+      "rel": "",
+      "location": "footer",
+      "visible": true,
+      "route": "/signal-scanner",
+      "width": 1440
+    },
+    {
+      "href": "/about",
+      "label": "About",
+      "target": "",
+      "rel": "",
+      "location": "footer",
+      "visible": true,
+      "route": "/signal-scanner",
+      "width": 1440
+    },
+    {
+      "href": "/professional",
+      "label": "Professional / Investor",
+      "target": "",
+      "rel": "",
+      "location": "footer",
+      "visible": true,
+      "route": "/signal-scanner",
+      "width": 1440
+    },
+    {
+      "href": "https://portal.emeraldforexsystem.com/login",
+      "label": "Client Portal",
+      "target": "",
+      "rel": "",
+      "location": "footer",
+      "visible": true,
+      "route": "/signal-scanner",
+      "width": 1440
+    },
+    {
+      "href": "https://portal.emeraldforexsystem.com/login",
+      "label": "Partner Portal",
+      "target": "",
+      "rel": "",
+      "location": "footer",
+      "visible": true,
+      "route": "/signal-scanner",
+      "width": 1440
+    },
+    {
+      "href": "/privacy",
+      "label": "Privacy",
+      "target": "",
+      "rel": "",
+      "location": "footer",
+      "visible": true,
+      "route": "/signal-scanner",
+      "width": 1440
+    },
+    {
+      "href": "/terms",
+      "label": "Terms",
+      "target": "",
+      "rel": "",
+      "location": "footer",
+      "visible": true,
+      "route": "/signal-scanner",
+      "width": 1440
+    },
+    {
+      "href": "/risk-disclosure",
+      "label": "Risk Disclosure",
+      "target": "",
+      "rel": "",
+      "location": "footer",
+      "visible": true,
+      "route": "/signal-scanner",
+      "width": 1440
+    },
+    {
+      "href": "#main-content",
+      "label": "Skip to main content",
+      "target": "",
+      "rel": "",
+      "location": "main",
+      "visible": true,
+      "route": "/recovery-expert",
+      "width": 1440
+    },
+    {
+      "href": "/",
+      "label": "EMERALDLEGACY SYSTEMS",
+      "target": "",
+      "rel": "",
+      "location": "header",
+      "visible": true,
+      "route": "/recovery-expert",
+      "width": 1440
+    },
+    {
+      "href": "/",
+      "label": "Home",
+      "target": "",
+      "rel": "",
+      "location": "header",
+      "visible": true,
+      "route": "/recovery-expert",
+      "width": 1440
+    },
+    {
+      "href": "/ledger",
+      "label": "Emerald Ledger",
+      "target": "",
+      "rel": "",
+      "location": "header",
+      "visible": true,
+      "route": "/recovery-expert",
+      "width": 1440
+    },
+    {
+      "href": "/systems",
+      "label": "Systems",
+      "target": "",
+      "rel": "",
+      "location": "header",
+      "visible": true,
+      "route": "/recovery-expert",
+      "width": 1440
+    },
+    {
+      "href": "/indicators",
+      "label": "Indicators & Signals",
+      "target": "",
+      "rel": "",
+      "location": "header",
+      "visible": true,
+      "route": "/recovery-expert",
+      "width": 1440
+    },
+    {
+      "href": "/technology",
+      "label": "Technology",
+      "target": "",
+      "rel": "",
+      "location": "header",
+      "visible": true,
+      "route": "/recovery-expert",
+      "width": 1440
+    },
+    {
+      "href": "/research",
+      "label": "Research",
+      "target": "",
+      "rel": "",
+      "location": "header",
+      "visible": true,
+      "route": "/recovery-expert",
+      "width": 1440
+    },
+    {
+      "href": "/about",
+      "label": "About",
+      "target": "",
+      "rel": "",
+      "location": "header",
+      "visible": true,
+      "route": "/recovery-expert",
+      "width": 1440
+    },
+    {
+      "href": "/ledger",
+      "label": "Follow Performance",
+      "target": "",
+      "rel": "",
+      "location": "header",
+      "visible": true,
+      "route": "/recovery-expert",
+      "width": 1440
+    },
+    {
+      "href": "https://portal.emeraldforexsystem.com/login",
+      "label": "Sign In",
+      "target": "",
+      "rel": "",
+      "location": "header",
+      "visible": true,
+      "route": "/recovery-expert",
+      "width": 1440
+    },
+    {
+      "href": "/systems",
+      "label": "Explore Systems & Products",
+      "target": "",
+      "rel": "",
+      "location": "main",
+      "visible": true,
+      "route": "/recovery-expert",
+      "width": 1440
+    },
+    {
+      "href": "/platforms",
+      "label": "View Platforms",
+      "target": "",
+      "rel": "",
+      "location": "main",
+      "visible": true,
+      "route": "/recovery-expert",
+      "width": 1440
+    },
+    {
+      "href": "/systems/quant",
+      "label": "Explore Quant System",
+      "target": "",
+      "rel": "",
+      "location": "main",
+      "visible": true,
+      "route": "/recovery-expert",
+      "width": 1440
+    },
+    {
+      "href": "/indicators",
+      "label": "Explore",
+      "target": "",
+      "rel": "",
+      "location": "main",
+      "visible": true,
+      "route": "/recovery-expert",
+      "width": 1440
+    },
+    {
+      "href": "/signal-scanner",
+      "label": "Explore",
+      "target": "",
+      "rel": "",
+      "location": "main",
+      "visible": true,
+      "route": "/recovery-expert",
+      "width": 1440
+    },
+    {
+      "href": "/systems/quant",
+      "label": "Explore",
+      "target": "",
+      "rel": "",
+      "location": "main",
+      "visible": true,
+      "route": "/recovery-expert",
+      "width": 1440
+    },
+    {
+      "href": "/platforms",
+      "label": "Explore Platforms",
+      "target": "",
+      "rel": "",
+      "location": "main",
+      "visible": true,
+      "route": "/recovery-expert",
+      "width": 1440
+    },
+    {
+      "href": "/systems",
+      "label": "Explore Systems & Products",
+      "target": "",
+      "rel": "",
+      "location": "main",
+      "visible": true,
+      "route": "/recovery-expert",
+      "width": 1440
+    },
+    {
+      "href": "/platforms",
+      "label": "View Platforms",
+      "target": "",
+      "rel": "",
+      "location": "main",
+      "visible": true,
+      "route": "/recovery-expert",
+      "width": 1440
+    },
+    {
+      "href": "/",
+      "label": "EMERALDLEGACY SYSTEMSQuantitative Trading Technology",
+      "target": "",
+      "rel": "",
+      "location": "footer",
+      "visible": true,
+      "route": "/recovery-expert",
+      "width": 1440
+    },
+    {
+      "href": "mailto:support@emeraldforexsystem.com",
+      "label": "support@emeraldforexsystem.com",
+      "target": "",
+      "rel": "",
+      "location": "footer",
+      "visible": true,
+      "route": "/recovery-expert",
+      "width": 1440
+    },
+    {
+      "href": "/ledger",
+      "label": "Emerald Ledger",
+      "target": "",
+      "rel": "",
+      "location": "footer",
+      "visible": true,
+      "route": "/recovery-expert",
+      "width": 1440
+    },
+    {
+      "href": "/performance",
+      "label": "System Performance",
+      "target": "",
+      "rel": "",
+      "location": "footer",
+      "visible": true,
+      "route": "/recovery-expert",
+      "width": 1440
+    },
+    {
+      "href": "/performance/compare",
+      "label": "Compare Systems",
+      "target": "",
+      "rel": "",
+      "location": "footer",
+      "visible": true,
+      "route": "/recovery-expert",
+      "width": 1440
+    },
+    {
+      "href": "/performance/live-vs-backtest",
+      "label": "Live vs Backtest",
+      "target": "",
+      "rel": "",
+      "location": "footer",
+      "visible": true,
+      "route": "/recovery-expert",
+      "width": 1440
+    },
+    {
+      "href": "/verification",
+      "label": "Verification",
+      "target": "",
+      "rel": "",
+      "location": "footer",
+      "visible": true,
+      "route": "/recovery-expert",
+      "width": 1440
+    },
+    {
+      "href": "/videos",
+      "label": "Video Archive",
+      "target": "",
+      "rel": "",
+      "location": "footer",
+      "visible": true,
+      "route": "/recovery-expert",
+      "width": 1440
+    },
+    {
+      "href": "/systems",
+      "label": "Systems",
+      "target": "",
+      "rel": "",
+      "location": "footer",
+      "visible": true,
+      "route": "/recovery-expert",
+      "width": 1440
+    },
+    {
+      "href": "/indicators",
+      "label": "Indicators & Signals",
+      "target": "",
+      "rel": "",
+      "location": "footer",
+      "visible": true,
+      "route": "/recovery-expert",
+      "width": 1440
+    },
+    {
+      "href": "/signals",
+      "label": "Signal Library",
+      "target": "",
+      "rel": "",
+      "location": "footer",
+      "visible": true,
+      "route": "/recovery-expert",
+      "width": 1440
+    },
+    {
+      "href": "/technology",
+      "label": "Technology",
+      "target": "",
+      "rel": "",
+      "location": "footer",
+      "visible": true,
+      "route": "/recovery-expert",
+      "width": 1440
+    },
+    {
+      "href": "/research",
+      "label": "Research",
+      "target": "",
+      "rel": "",
+      "location": "footer",
+      "visible": true,
+      "route": "/recovery-expert",
+      "width": 1440
+    },
+    {
+      "href": "/about",
+      "label": "About",
+      "target": "",
+      "rel": "",
+      "location": "footer",
+      "visible": true,
+      "route": "/recovery-expert",
+      "width": 1440
+    },
+    {
+      "href": "/professional",
+      "label": "Professional / Investor",
+      "target": "",
+      "rel": "",
+      "location": "footer",
+      "visible": true,
+      "route": "/recovery-expert",
+      "width": 1440
+    },
+    {
+      "href": "https://portal.emeraldforexsystem.com/login",
+      "label": "Client Portal",
+      "target": "",
+      "rel": "",
+      "location": "footer",
+      "visible": true,
+      "route": "/recovery-expert",
+      "width": 1440
+    },
+    {
+      "href": "https://portal.emeraldforexsystem.com/login",
+      "label": "Partner Portal",
+      "target": "",
+      "rel": "",
+      "location": "footer",
+      "visible": true,
+      "route": "/recovery-expert",
+      "width": 1440
+    },
+    {
+      "href": "/privacy",
+      "label": "Privacy",
+      "target": "",
+      "rel": "",
+      "location": "footer",
+      "visible": true,
+      "route": "/recovery-expert",
+      "width": 1440
+    },
+    {
+      "href": "/terms",
+      "label": "Terms",
+      "target": "",
+      "rel": "",
+      "location": "footer",
+      "visible": true,
+      "route": "/recovery-expert",
+      "width": 1440
+    },
+    {
+      "href": "/risk-disclosure",
+      "label": "Risk Disclosure",
+      "target": "",
+      "rel": "",
+      "location": "footer",
+      "visible": true,
+      "route": "/recovery-expert",
+      "width": 1440
+    }
+  ],
+  "internalResults": [
+    {
+      "href": "/",
+      "status": 200
+    },
+    {
+      "href": "/ledger",
+      "status": 200
+    },
+    {
+      "href": "/systems",
+      "status": 200
+    },
+    {
+      "href": "/indicators",
+      "status": 200
+    },
+    {
+      "href": "/technology",
+      "status": 200
+    },
+    {
+      "href": "/research",
+      "status": 200
+    },
+    {
+      "href": "/about",
+      "status": 200
+    },
+    {
+      "href": "/verification",
+      "status": 200
+    },
+    {
+      "href": "/systems/quant",
+      "status": 200
+    },
+    {
+      "href": "/signals",
+      "status": 200
+    },
+    {
+      "href": "/videos",
+      "status": 200
+    },
+    {
+      "href": "/professional",
+      "status": 200
+    },
+    {
+      "href": "/performance",
+      "status": 200
+    },
+    {
+      "href": "/performance/compare",
+      "status": 200
+    },
+    {
+      "href": "/performance/live-vs-backtest",
+      "status": 200
+    },
+    {
+      "href": "/privacy",
+      "status": 200
+    },
+    {
+      "href": "/terms",
+      "status": 200
+    },
+    {
+      "href": "/risk-disclosure",
+      "status": 200
+    },
+    {
+      "href": "/platforms",
+      "status": 200
+    },
+    {
+      "href": "/signal-scanner",
+      "status": 200
+    },
+    {
+      "href": "/recovery-expert",
+      "status": 200
+    },
+    {
+      "href": "/signals#main",
+      "status": 200
+    },
+    {
+      "href": "/signals#finescalp",
+      "status": 200
+    },
+    {
+      "href": "/signals#scalp",
+      "status": 200
+    },
+    {
+      "href": "/signals#range",
+      "status": 200
+    },
+    {
+      "href": "/signals#harmonizer",
+      "status": 200
+    },
+    {
+      "href": "/signals#harmonizer-safe",
+      "status": 200
+    }
+  ],
+  "portalGet": {
+    "url": "https://portal.emeraldforexsystem.com/login",
+    "status": 200
+  },
+  "errors": [
+    {
+      "method": "Log.entryAdded",
+      "params": {
+        "entry": {
+          "source": "network",
+          "level": "error",
+          "text": "Failed to load resource: the server responded with a status of 404 (Not Found)",
+          "timestamp": 1789414403052.146,
+          "url": "http://localhost:3039/favicon.ico",
+          "networkRequestId": "36244.43"
+        }
+      }
+    }
+  ],
+  "note": "Portal keyboard activation intercepted in test document only to avoid production navigation; live login verified by unauthenticated GET."
+}

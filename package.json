@@ -17,7 +17,8 @@
     "accessibility:audit": "node scripts/audit-accessibility.mjs",
     "performance:audit": "node scripts/audit-performance.mjs",
     "foundation:audit": "node scripts/audit-foundation.mjs",
-    "seo:audit": "node scripts/audit-seo.mjs"
+    "seo:audit": "node scripts/audit-seo.mjs",
+    "portal:audit": "node scripts/audit-portal-navigation.mjs"
   },
   "dependencies": {
     "clsx": "^2.1.1",

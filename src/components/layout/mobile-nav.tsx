@@ -8,6 +8,7 @@ import { isActiveRoute, navigationLinks } from "@/components/layout/navigation";
 import { LinkButton } from "@/components/ui/button";
 import { Container } from "@/components/ui/container";
 import { cn } from "@/lib/utils";
+import { portalLoginUrl } from "@/lib/portal";
 
 export function MobileNav() {
   const pathname = usePathname();
@@ -126,12 +127,12 @@ export function MobileNav() {
               </LinkButton>
               <LinkButton
                 className="mt-3 w-full md:mt-0 md:w-auto"
-                href="/private-access"
+                href={portalLoginUrl}
                 size="md"
                 variant="premium"
                 onClick={closeMenu}
               >
-                Request Private Access
+                Sign In
               </LinkButton>
             </div>
           </Container>

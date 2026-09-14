@@ -6,6 +6,7 @@ import { LinkButton } from "@/components/ui/button";
 import { Container } from "@/components/ui/container";
 import { SectionLabel } from "@/components/ui/section-label";
 import type { SystemsCatalogProduct } from "@/data/selectors";
+import { portalLoginUrl } from "@/lib/portal";
 
 type SystemsProductGridProps = Readonly<{
   products: readonly SystemsCatalogProduct[];
@@ -126,11 +127,11 @@ export function SystemsProductGrid({ products }: SystemsProductGridProps) {
                   </LinkButton>
                   {product.id === "emerald-quant-system-product" ? (
                     <LinkButton
-                      href="/private-access"
+                      href={portalLoginUrl}
                       className="h-auto min-h-12 w-full px-4 py-3 text-center text-sm leading-6 whitespace-normal sm:w-auto sm:text-base [&>span]:whitespace-normal"
                       variant="secondary"
                     >
-                      Request Private Access
+                      Client Portal
                     </LinkButton>
                   ) : null}
                 </div>
