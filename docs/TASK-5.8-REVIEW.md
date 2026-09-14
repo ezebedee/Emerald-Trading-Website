@@ -121,6 +121,7 @@ repository permissions and no application secrets.
 
 ## Review Screenshots
 
-Nine PNGs accompany this report under `review-artifacts/task-5.8`: home, systems,
-signals, and recovery-expert at 375/1440, plus the open mobile navigation.
-They document the existing appearance, not a redesign.
+Nine PNGs documented home, systems, signals, and recovery-expert at 375/1440,
+plus the open mobile navigation. After approval, they were removed from the
+current tree as requested. The JSON evidence remains; screenshots are preserved
+in the [reviewed commit](https://github.com/ezebedee/Emerald-Trading-Website/tree/d263f6e286f1d891d13504a3c24e3edd030531c3/docs/review-artifacts/task-5.8).
