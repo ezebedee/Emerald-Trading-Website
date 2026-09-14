@@ -62,8 +62,10 @@ remain: those five plus `/about`, `/platforms`, `/performance`,
 - No target=_blank on portal entries; same-tab behavior preserved. No portal
   sitemap/canonical entry or analytics integration added.
 
-Screenshots and raw results are in `review-artifacts/task-5.9/`. Keep screenshots
-available for review; remove them only after approval and a merge instruction.
+After approval and the merge instruction, the 20 review screenshots were removed
+from the current tree. Raw results remain in `review-artifacts/task-5.9/qa.json`.
+Screenshots remain available in the
+[reviewed commit](https://github.com/ezebedee/Emerald-Trading-Website/tree/87c033cf936e01b5cc7c68175cafb4bbc3fe63a0/docs/review-artifacts/task-5.9).
 
 ## Scope and Warnings
 
@@ -81,4 +83,5 @@ security proof. Changed-file credential scan is performed before final push.
 Implementation files: five existing navigation/CTA components, shared
 `src/lib/portal.ts`, new `scripts/audit-portal-navigation.mjs`, foundation runner,
 package audit script, and documentation/evidence. No dependencies or lockfile
-changes. No files deleted.
+changes. No implementation files deleted; only approved review screenshots were
+removed during pre-merge cleanup.
