@@ -1,0 +1,2863 @@
+{
+  "results": [
+    {
+      "route": "/",
+      "title": "Emerald Legacy Systems | Quantitative Trading Technology",
+      "width": 375,
+      "scrollWidth": 360,
+      "footer": true,
+      "main": true,
+      "images": []
+    },
+    {
+      "route": "/ledger",
+      "title": "Emerald Ledger | Emerald Legacy Systems",
+      "width": 375,
+      "scrollWidth": 360,
+      "footer": true,
+      "main": true,
+      "images": []
+    },
+    {
+      "route": "/systems",
+      "title": "Systems & Products | Emerald Legacy Systems",
+      "width": 375,
+      "scrollWidth": 360,
+      "footer": true,
+      "main": true,
+      "images": []
+    },
+    {
+      "route": "/systems/quant",
+      "title": "Emerald Quant System | Emerald Legacy Systems",
+      "width": 375,
+      "scrollWidth": 360,
+      "footer": true,
+      "main": true,
+      "images": []
+    },
+    {
+      "route": "/indicators",
+      "title": "Emerald Legacy System | Emerald Legacy Systems",
+      "width": 375,
+      "scrollWidth": 360,
+      "footer": true,
+      "main": true,
+      "images": []
+    },
+    {
+      "route": "/signals",
+      "title": "Signal Library | Emerald Legacy Systems",
+      "width": 375,
+      "scrollWidth": 360,
+      "footer": true,
+      "main": true,
+      "images": []
+    },
+    {
+      "route": "/signal-scanner",
+      "title": "Emerald Signal Scanner | Emerald Legacy Systems",
+      "width": 375,
+      "scrollWidth": 360,
+      "footer": true,
+      "main": true,
+      "images": []
+    },
+    {
+      "route": "/recovery-expert",
+      "title": "Emerald Recovery Expert | Emerald Legacy Systems",
+      "width": 375,
+      "scrollWidth": 360,
+      "footer": true,
+      "main": true,
+      "images": []
+    },
+    {
+      "route": "/",
+      "title": "Emerald Legacy Systems | Quantitative Trading Technology",
+      "width": 1440,
+      "scrollWidth": 1425,
+      "footer": true,
+      "main": true,
+      "images": []
+    },
+    {
+      "route": "/ledger",
+      "title": "Emerald Ledger | Emerald Legacy Systems",
+      "width": 1440,
+      "scrollWidth": 1425,
+      "footer": true,
+      "main": true,
+      "images": []
+    },
+    {
+      "route": "/systems",
+      "title": "Systems & Products | Emerald Legacy Systems",
+      "width": 1440,
+      "scrollWidth": 1425,
+      "footer": true,
+      "main": true,
+      "images": []
+    },
+    {
+      "route": "/systems/quant",
+      "title": "Emerald Quant System | Emerald Legacy Systems",
+      "width": 1440,
+      "scrollWidth": 1425,
+      "footer": true,
+      "main": true,
+      "images": []
+    },
+    {
+      "route": "/indicators",
+      "title": "Emerald Legacy System | Emerald Legacy Systems",
+      "width": 1440,
+      "scrollWidth": 1425,
+      "footer": true,
+      "main": true,
+      "images": []
+    },
+    {
+      "route": "/signals",
+      "title": "Signal Library | Emerald Legacy Systems",
+      "width": 1440,
+      "scrollWidth": 1425,
+      "footer": true,
+      "main": true,
+      "images": []
+    },
+    {
+      "route": "/signal-scanner",
+      "title": "Emerald Signal Scanner | Emerald Legacy Systems",
+      "width": 1440,
+      "scrollWidth": 1425,
+      "footer": true,
+      "main": true,
+      "images": []
+    },
+    {
+      "route": "/recovery-expert",
+      "title": "Emerald Recovery Expert | Emerald Legacy Systems",
+      "width": 1440,
+      "scrollWidth": 1425,
+      "footer": true,
+      "main": true,
+      "images": []
+    }
+  ],
+  "links": [
+    {
+      "href": "#main-content",
+      "label": "Skip to main content"
+    },
+    {
+      "href": "/",
+      "label": "EMERALDLEGACY SYSTEMS"
+    },
+    {
+      "href": "/",
+      "label": "Home"
+    },
+    {
+      "href": "/ledger",
+      "label": "Emerald Ledger"
+    },
+    {
+      "href": "/systems",
+      "label": "Systems"
+    },
+    {
+      "href": "/indicators",
+      "label": "Indicators & Signals"
+    },
+    {
+      "href": "/technology",
+      "label": "Technology"
+    },
+    {
+      "href": "/research",
+      "label": "Research"
+    },
+    {
+      "href": "/about",
+      "label": "About"
+    },
+    {
+      "href": "/ledger",
+      "label": "Follow Performance"
+    },
+    {
+      "href": "/private-access",
+      "label": "Request Private Access"
+    },
+    {
+      "href": "/ledger",
+      "label": "Follow Performance"
+    },
+    {
+      "href": "/systems",
+      "label": "Explore Systems"
+    },
+    {
+      "href": "/verification",
+      "label": "How Performance Is Documented"
+    },
+    {
+      "href": "/ledger",
+      "label": "View Full Emerald Ledger"
+    },
+    {
+      "href": "/ledger",
+      "label": "View Full Emerald Ledger"
+    },
+    {
+      "href": "/ledger",
+      "label": "View ledger record"
+    },
+    {
+      "href": "/ledger",
+      "label": "View ledger record"
+    },
+    {
+      "href": "/ledger",
+      "label": "View ledger record"
+    },
+    {
+      "href": "/systems/quant",
+      "label": "Explore Quant System"
+    },
+    {
+      "href": "/ledger",
+      "label": "View Public Performance"
+    },
+    {
+      "href": "/systems/quant",
+      "label": "Explore the Trading System"
+    },
+    {
+      "href": "/indicators",
+      "label": "Explore Indicators"
+    },
+    {
+      "href": "/signals",
+      "label": "View Signals"
+    },
+    {
+      "href": "/technology",
+      "label": "Explore Technology"
+    },
+    {
+      "href": "/research",
+      "label": "View Research"
+    },
+    {
+      "href": "/verification",
+      "label": "View Performance Verification"
+    },
+    {
+      "href": "/ledger",
+      "label": "View Emerald Ledger"
+    },
+    {
+      "href": "/videos",
+      "label": "Explore Video Archive"
+    },
+    {
+      "href": "/ledger",
+      "label": "View Emerald Ledger"
+    },
+    {
+      "href": "/videos",
+      "label": "View archive entry"
+    },
+    {
+      "href": "/videos",
+      "label": "View archive entry"
+    },
+    {
+      "href": "/videos",
+      "label": "View archive entry"
+    },
+    {
+      "href": "/ledger",
+      "label": "View Public Performance"
+    },
+    {
+      "href": "/private-access",
+      "label": "Request Private Access"
+    },
+    {
+      "href": "/private-access",
+      "label": "Request Private Access"
+    },
+    {
+      "href": "/professional",
+      "label": "Professional Overview"
+    },
+    {
+      "href": "/ledger",
+      "label": "Follow Performance"
+    },
+    {
+      "href": "/systems",
+      "label": "Explore Systems"
+    },
+    {
+      "href": "/technology",
+      "label": "explore the technology"
+    },
+    {
+      "href": "/",
+      "label": "EMERALDLEGACY SYSTEMSQuantitative Trading Technology"
+    },
+    {
+      "href": "mailto:support@emeraldforexsystem.com",
+      "label": "support@emeraldforexsystem.com"
+    },
+    {
+      "href": "/ledger",
+      "label": "Emerald Ledger"
+    },
+    {
+      "href": "/performance",
+      "label": "System Performance"
+    },
+    {
+      "href": "/performance/compare",
+      "label": "Compare Systems"
+    },
+    {
+      "href": "/performance/live-vs-backtest",
+      "label": "Live vs Backtest"
+    },
+    {
+      "href": "/verification",
+      "label": "Verification"
+    },
+    {
+      "href": "/videos",
+      "label": "Video Archive"
+    },
+    {
+      "href": "/systems",
+      "label": "Systems"
+    },
+    {
+      "href": "/indicators",
+      "label": "Indicators & Signals"
+    },
+    {
+      "href": "/signals",
+      "label": "Signal Dashboard"
+    },
+    {
+      "href": "/technology",
+      "label": "Technology"
+    },
+    {
+      "href": "/research",
+      "label": "Research"
+    },
+    {
+      "href": "/about",
+      "label": "About"
+    },
+    {
+      "href": "/professional",
+      "label": "Professional / Investor"
+    },
+    {
+      "href": "/private-access",
+      "label": "Private Access"
+    },
+    {
+      "href": "/privacy",
+      "label": "Privacy"
+    },
+    {
+      "href": "/terms",
+      "label": "Terms"
+    },
+    {
+      "href": "/risk-disclosure",
+      "label": "Risk Disclosure"
+    },
+    {
+      "href": "#main-content",
+      "label": "Skip to main content"
+    },
+    {
+      "href": "/",
+      "label": "EMERALDLEGACY SYSTEMS"
+    },
+    {
+      "href": "/",
+      "label": "Home"
+    },
+    {
+      "href": "/ledger",
+      "label": "Emerald Ledger"
+    },
+    {
+      "href": "/systems",
+      "label": "Systems"
+    },
+    {
+      "href": "/indicators",
+      "label": "Indicators & Signals"
+    },
+    {
+      "href": "/technology",
+      "label": "Technology"
+    },
+    {
+      "href": "/research",
+      "label": "Research"
+    },
+    {
+      "href": "/about",
+      "label": "About"
+    },
+    {
+      "href": "/ledger",
+      "label": "Follow Performance"
+    },
+    {
+      "href": "/private-access",
+      "label": "Request Private Access"
+    },
+    {
+      "href": "/ledger",
+      "label": "Metals, selected"
+    },
+    {
+      "href": "/verification",
+      "label": "Performance Verification"
+    },
+    {
+      "href": "/systems/quant",
+      "label": "Explore Quant System"
+    },
+    {
+      "href": "/verification",
+      "label": "View Performance Verification"
+    },
+    {
+      "href": "/videos",
+      "label": "Explore Video Archive"
+    },
+    {
+      "href": "/",
+      "label": "EMERALDLEGACY SYSTEMSQuantitative Trading Technology"
+    },
+    {
+      "href": "mailto:support@emeraldforexsystem.com",
+      "label": "support@emeraldforexsystem.com"
+    },
+    {
+      "href": "/ledger",
+      "label": "Emerald Ledger"
+    },
+    {
+      "href": "/performance",
+      "label": "System Performance"
+    },
+    {
+      "href": "/performance/compare",
+      "label": "Compare Systems"
+    },
+    {
+      "href": "/performance/live-vs-backtest",
+      "label": "Live vs Backtest"
+    },
+    {
+      "href": "/verification",
+      "label": "Verification"
+    },
+    {
+      "href": "/videos",
+      "label": "Video Archive"
+    },
+    {
+      "href": "/systems",
+      "label": "Systems"
+    },
+    {
+      "href": "/indicators",
+      "label": "Indicators & Signals"
+    },
+    {
+      "href": "/signals",
+      "label": "Signal Dashboard"
+    },
+    {
+      "href": "/technology",
+      "label": "Technology"
+    },
+    {
+      "href": "/research",
+      "label": "Research"
+    },
+    {
+      "href": "/about",
+      "label": "About"
+    },
+    {
+      "href": "/professional",
+      "label": "Professional / Investor"
+    },
+    {
+      "href": "/private-access",
+      "label": "Private Access"
+    },
+    {
+      "href": "/privacy",
+      "label": "Privacy"
+    },
+    {
+      "href": "/terms",
+      "label": "Terms"
+    },
+    {
+      "href": "/risk-disclosure",
+      "label": "Risk Disclosure"
+    },
+    {
+      "href": "#main-content",
+      "label": "Skip to main content"
+    },
+    {
+      "href": "/",
+      "label": "EMERALDLEGACY SYSTEMS"
+    },
+    {
+      "href": "/",
+      "label": "Home"
+    },
+    {
+      "href": "/ledger",
+      "label": "Emerald Ledger"
+    },
+    {
+      "href": "/systems",
+      "label": "Systems"
+    },
+    {
+      "href": "/indicators",
+      "label": "Indicators & Signals"
+    },
+    {
+      "href": "/technology",
+      "label": "Technology"
+    },
+    {
+      "href": "/research",
+      "label": "Research"
+    },
+    {
+      "href": "/about",
+      "label": "About"
+    },
+    {
+      "href": "/ledger",
+      "label": "Follow Performance"
+    },
+    {
+      "href": "/private-access",
+      "label": "Request Private Access"
+    },
+    {
+      "href": "#product-catalog",
+      "label": "Explore Products"
+    },
+    {
+      "href": "/platforms",
+      "label": "View Platforms"
+    },
+    {
+      "href": "/indicators",
+      "label": "Explore Emerald Legacy System"
+    },
+    {
+      "href": "/signal-scanner",
+      "label": "Explore Signal Scanner"
+    },
+    {
+      "href": "/recovery-expert",
+      "label": "Explore Recovery Expert"
+    },
+    {
+      "href": "/systems/quant",
+      "label": "Explore Quant System"
+    },
+    {
+      "href": "/private-access",
+      "label": "Request Private Access"
+    },
+    {
+      "href": "/platforms",
+      "label": "View Platforms"
+    },
+    {
+      "href": "/systems/quant",
+      "label": "Explore Quant System"
+    },
+    {
+      "href": "/",
+      "label": "EMERALDLEGACY SYSTEMSQuantitative Trading Technology"
+    },
+    {
+      "href": "mailto:support@emeraldforexsystem.com",
+      "label": "support@emeraldforexsystem.com"
+    },
+    {
+      "href": "/ledger",
+      "label": "Emerald Ledger"
+    },
+    {
+      "href": "/performance",
+      "label": "System Performance"
+    },
+    {
+      "href": "/performance/compare",
+      "label": "Compare Systems"
+    },
+    {
+      "href": "/performance/live-vs-backtest",
+      "label": "Live vs Backtest"
+    },
+    {
+      "href": "/verification",
+      "label": "Verification"
+    },
+    {
+      "href": "/videos",
+      "label": "Video Archive"
+    },
+    {
+      "href": "/systems",
+      "label": "Systems"
+    },
+    {
+      "href": "/indicators",
+      "label": "Indicators & Signals"
+    },
+    {
+      "href": "/signals",
+      "label": "Signal Dashboard"
+    },
+    {
+      "href": "/technology",
+      "label": "Technology"
+    },
+    {
+      "href": "/research",
+      "label": "Research"
+    },
+    {
+      "href": "/about",
+      "label": "About"
+    },
+    {
+      "href": "/professional",
+      "label": "Professional / Investor"
+    },
+    {
+      "href": "/private-access",
+      "label": "Private Access"
+    },
+    {
+      "href": "/privacy",
+      "label": "Privacy"
+    },
+    {
+      "href": "/terms",
+      "label": "Terms"
+    },
+    {
+      "href": "/risk-disclosure",
+      "label": "Risk Disclosure"
+    },
+    {
+      "href": "#main-content",
+      "label": "Skip to main content"
+    },
+    {
+      "href": "/",
+      "label": "EMERALDLEGACY SYSTEMS"
+    },
+    {
+      "href": "/",
+      "label": "Home"
+    },
+    {
+      "href": "/ledger",
+      "label": "Emerald Ledger"
+    },
+    {
+      "href": "/systems",
+      "label": "Systems"
+    },
+    {
+      "href": "/indicators",
+      "label": "Indicators & Signals"
+    },
+    {
+      "href": "/technology",
+      "label": "Technology"
+    },
+    {
+      "href": "/research",
+      "label": "Research"
+    },
+    {
+      "href": "/about",
+      "label": "About"
+    },
+    {
+      "href": "/ledger",
+      "label": "Follow Performance"
+    },
+    {
+      "href": "/private-access",
+      "label": "Request Private Access"
+    },
+    {
+      "href": "/ledger",
+      "label": "View Public Performance"
+    },
+    {
+      "href": "/technology",
+      "label": "Explore Technology"
+    },
+    {
+      "href": "/indicators",
+      "label": "Explore Indicators"
+    },
+    {
+      "href": "/signals",
+      "label": "View Signals"
+    },
+    {
+      "href": "/systems/quant",
+      "label": "Metals, selected"
+    },
+    {
+      "href": "/ledger",
+      "label": "View Complete Ledger"
+    },
+    {
+      "href": "/",
+      "label": "EMERALDLEGACY SYSTEMSQuantitative Trading Technology"
+    },
+    {
+      "href": "mailto:support@emeraldforexsystem.com",
+      "label": "support@emeraldforexsystem.com"
+    },
+    {
+      "href": "/ledger",
+      "label": "Emerald Ledger"
+    },
+    {
+      "href": "/performance",
+      "label": "System Performance"
+    },
+    {
+      "href": "/performance/compare",
+      "label": "Compare Systems"
+    },
+    {
+      "href": "/performance/live-vs-backtest",
+      "label": "Live vs Backtest"
+    },
+    {
+      "href": "/verification",
+      "label": "Verification"
+    },
+    {
+      "href": "/videos",
+      "label": "Video Archive"
+    },
+    {
+      "href": "/systems",
+      "label": "Systems"
+    },
+    {
+      "href": "/indicators",
+      "label": "Indicators & Signals"
+    },
+    {
+      "href": "/signals",
+      "label": "Signal Dashboard"
+    },
+    {
+      "href": "/technology",
+      "label": "Technology"
+    },
+    {
+      "href": "/research",
+      "label": "Research"
+    },
+    {
+      "href": "/about",
+      "label": "About"
+    },
+    {
+      "href": "/professional",
+      "label": "Professional / Investor"
+    },
+    {
+      "href": "/private-access",
+      "label": "Private Access"
+    },
+    {
+      "href": "/privacy",
+      "label": "Privacy"
+    },
+    {
+      "href": "/terms",
+      "label": "Terms"
+    },
+    {
+      "href": "/risk-disclosure",
+      "label": "Risk Disclosure"
+    },
+    {
+      "href": "#main-content",
+      "label": "Skip to main content"
+    },
+    {
+      "href": "/",
+      "label": "EMERALDLEGACY SYSTEMS"
+    },
+    {
+      "href": "/",
+      "label": "Home"
+    },
+    {
+      "href": "/ledger",
+      "label": "Emerald Ledger"
+    },
+    {
+      "href": "/systems",
+      "label": "Systems"
+    },
+    {
+      "href": "/indicators",
+      "label": "Indicators & Signals"
+    },
+    {
+      "href": "/technology",
+      "label": "Technology"
+    },
+    {
+      "href": "/research",
+      "label": "Research"
+    },
+    {
+      "href": "/about",
+      "label": "About"
+    },
+    {
+      "href": "/ledger",
+      "label": "Follow Performance"
+    },
+    {
+      "href": "/private-access",
+      "label": "Request Private Access"
+    },
+    {
+      "href": "/signals",
+      "label": "Explore Signal Library"
+    },
+    {
+      "href": "/signal-scanner",
+      "label": "View Signal Scanner"
+    },
+    {
+      "href": "/signals#main",
+      "label": "View in Signal Library"
+    },
+    {
+      "href": "/signals#finescalp",
+      "label": "View in Signal Library"
+    },
+    {
+      "href": "/signals#scalp",
+      "label": "View in Signal Library"
+    },
+    {
+      "href": "/signals#range",
+      "label": "View in Signal Library"
+    },
+    {
+      "href": "/signals#harmonizer",
+      "label": "View in Signal Library"
+    },
+    {
+      "href": "/signals#harmonizer-safe",
+      "label": "View in Signal Library"
+    },
+    {
+      "href": "/platforms",
+      "label": "Explore Platforms"
+    },
+    {
+      "href": "/signal-scanner",
+      "label": "Explore Signal Scanner"
+    },
+    {
+      "href": "/recovery-expert",
+      "label": "Explore Recovery Expert"
+    },
+    {
+      "href": "/systems/quant",
+      "label": "Explore Quant System"
+    },
+    {
+      "href": "/signals",
+      "label": "Explore Signal Library"
+    },
+    {
+      "href": "/research",
+      "label": "Explore Research"
+    },
+    {
+      "href": "/",
+      "label": "EMERALDLEGACY SYSTEMSQuantitative Trading Technology"
+    },
+    {
+      "href": "mailto:support@emeraldforexsystem.com",
+      "label": "support@emeraldforexsystem.com"
+    },
+    {
+      "href": "/ledger",
+      "label": "Emerald Ledger"
+    },
+    {
+      "href": "/performance",
+      "label": "System Performance"
+    },
+    {
+      "href": "/performance/compare",
+      "label": "Compare Systems"
+    },
+    {
+      "href": "/performance/live-vs-backtest",
+      "label": "Live vs Backtest"
+    },
+    {
+      "href": "/verification",
+      "label": "Verification"
+    },
+    {
+      "href": "/videos",
+      "label": "Video Archive"
+    },
+    {
+      "href": "/systems",
+      "label": "Systems"
+    },
+    {
+      "href": "/indicators",
+      "label": "Indicators & Signals"
+    },
+    {
+      "href": "/signals",
+      "label": "Signal Dashboard"
+    },
+    {
+      "href": "/technology",
+      "label": "Technology"
+    },
+    {
+      "href": "/research",
+      "label": "Research"
+    },
+    {
+      "href": "/about",
+      "label": "About"
+    },
+    {
+      "href": "/professional",
+      "label": "Professional / Investor"
+    },
+    {
+      "href": "/private-access",
+      "label": "Private Access"
+    },
+    {
+      "href": "/privacy",
+      "label": "Privacy"
+    },
+    {
+      "href": "/terms",
+      "label": "Terms"
+    },
+    {
+      "href": "/risk-disclosure",
+      "label": "Risk Disclosure"
+    },
+    {
+      "href": "#main-content",
+      "label": "Skip to main content"
+    },
+    {
+      "href": "/",
+      "label": "EMERALDLEGACY SYSTEMS"
+    },
+    {
+      "href": "/",
+      "label": "Home"
+    },
+    {
+      "href": "/ledger",
+      "label": "Emerald Ledger"
+    },
+    {
+      "href": "/systems",
+      "label": "Systems"
+    },
+    {
+      "href": "/indicators",
+      "label": "Indicators & Signals"
+    },
+    {
+      "href": "/technology",
+      "label": "Technology"
+    },
+    {
+      "href": "/research",
+      "label": "Research"
+    },
+    {
+      "href": "/about",
+      "label": "About"
+    },
+    {
+      "href": "/ledger",
+      "label": "Follow Performance"
+    },
+    {
+      "href": "/private-access",
+      "label": "Request Private Access"
+    },
+    {
+      "href": "/indicators",
+      "label": "Explore Emerald Legacy System"
+    },
+    {
+      "href": "/signal-scanner",
+      "label": "View Signal Scanner"
+    },
+    {
+      "href": "#main",
+      "label": "Main"
+    },
+    {
+      "href": "#finescalp",
+      "label": "FineScalp"
+    },
+    {
+      "href": "#scalp",
+      "label": "Scalp"
+    },
+    {
+      "href": "#range",
+      "label": "Range"
+    },
+    {
+      "href": "#harmonizer",
+      "label": "Harmonizer"
+    },
+    {
+      "href": "#harmonizer-safe",
+      "label": "SAFE"
+    },
+    {
+      "href": "/signal-scanner",
+      "label": "Explore Signal Scanner"
+    },
+    {
+      "href": "/recovery-expert",
+      "label": "Explore Recovery Expert"
+    },
+    {
+      "href": "/platforms",
+      "label": "Explore Platforms"
+    },
+    {
+      "href": "/indicators",
+      "label": "Explore Emerald Legacy System"
+    },
+    {
+      "href": "/signal-scanner",
+      "label": "Explore Signal Scanner"
+    },
+    {
+      "href": "/recovery-expert",
+      "label": "Explore Recovery Expert"
+    },
+    {
+      "href": "/systems/quant",
+      "label": "Explore Quant System"
+    },
+    {
+      "href": "/research",
+      "label": "Explore Research"
+    },
+    {
+      "href": "/indicators",
+      "label": "Explore Emerald Legacy System"
+    },
+    {
+      "href": "/indicators",
+      "label": "Explore Emerald Legacy System"
+    },
+    {
+      "href": "/signal-scanner",
+      "label": "View Signal Scanner"
+    },
+    {
+      "href": "/platforms",
+      "label": "Explore Platforms"
+    },
+    {
+      "href": "/",
+      "label": "EMERALDLEGACY SYSTEMSQuantitative Trading Technology"
+    },
+    {
+      "href": "mailto:support@emeraldforexsystem.com",
+      "label": "support@emeraldforexsystem.com"
+    },
+    {
+      "href": "/ledger",
+      "label": "Emerald Ledger"
+    },
+    {
+      "href": "/performance",
+      "label": "System Performance"
+    },
+    {
+      "href": "/performance/compare",
+      "label": "Compare Systems"
+    },
+    {
+      "href": "/performance/live-vs-backtest",
+      "label": "Live vs Backtest"
+    },
+    {
+      "href": "/verification",
+      "label": "Verification"
+    },
+    {
+      "href": "/videos",
+      "label": "Video Archive"
+    },
+    {
+      "href": "/systems",
+      "label": "Systems"
+    },
+    {
+      "href": "/indicators",
+      "label": "Indicators & Signals"
+    },
+    {
+      "href": "/signals",
+      "label": "Signal Dashboard"
+    },
+    {
+      "href": "/technology",
+      "label": "Technology"
+    },
+    {
+      "href": "/research",
+      "label": "Research"
+    },
+    {
+      "href": "/about",
+      "label": "About"
+    },
+    {
+      "href": "/professional",
+      "label": "Professional / Investor"
+    },
+    {
+      "href": "/private-access",
+      "label": "Private Access"
+    },
+    {
+      "href": "/privacy",
+      "label": "Privacy"
+    },
+    {
+      "href": "/terms",
+      "label": "Terms"
+    },
+    {
+      "href": "/risk-disclosure",
+      "label": "Risk Disclosure"
+    },
+    {
+      "href": "#main-content",
+      "label": "Skip to main content"
+    },
+    {
+      "href": "/",
+      "label": "EMERALDLEGACY SYSTEMS"
+    },
+    {
+      "href": "/",
+      "label": "Home"
+    },
+    {
+      "href": "/ledger",
+      "label": "Emerald Ledger"
+    },
+    {
+      "href": "/systems",
+      "label": "Systems"
+    },
+    {
+      "href": "/indicators",
+      "label": "Indicators & Signals"
+    },
+    {
+      "href": "/technology",
+      "label": "Technology"
+    },
+    {
+      "href": "/research",
+      "label": "Research"
+    },
+    {
+      "href": "/about",
+      "label": "About"
+    },
+    {
+      "href": "/ledger",
+      "label": "Follow Performance"
+    },
+    {
+      "href": "/private-access",
+      "label": "Request Private Access"
+    },
+    {
+      "href": "/signals",
+      "label": "Explore Signal Library"
+    },
+    {
+      "href": "/platforms",
+      "label": "View Platforms"
+    },
+    {
+      "href": "/signals",
+      "label": "Review Signal Library"
+    },
+    {
+      "href": "/platforms",
+      "label": "Explore Platforms"
+    },
+    {
+      "href": "/indicators",
+      "label": "Explore"
+    },
+    {
+      "href": "/signals",
+      "label": "Explore Signal Library"
+    },
+    {
+      "href": "/indicators",
+      "label": "Explore Legacy System"
+    },
+    {
+      "href": "/",
+      "label": "EMERALDLEGACY SYSTEMSQuantitative Trading Technology"
+    },
+    {
+      "href": "mailto:support@emeraldforexsystem.com",
+      "label": "support@emeraldforexsystem.com"
+    },
+    {
+      "href": "/ledger",
+      "label": "Emerald Ledger"
+    },
+    {
+      "href": "/performance",
+      "label": "System Performance"
+    },
+    {
+      "href": "/performance/compare",
+      "label": "Compare Systems"
+    },
+    {
+      "href": "/performance/live-vs-backtest",
+      "label": "Live vs Backtest"
+    },
+    {
+      "href": "/verification",
+      "label": "Verification"
+    },
+    {
+      "href": "/videos",
+      "label": "Video Archive"
+    },
+    {
+      "href": "/systems",
+      "label": "Systems"
+    },
+    {
+      "href": "/indicators",
+      "label": "Indicators & Signals"
+    },
+    {
+      "href": "/signals",
+      "label": "Signal Dashboard"
+    },
+    {
+      "href": "/technology",
+      "label": "Technology"
+    },
+    {
+      "href": "/research",
+      "label": "Research"
+    },
+    {
+      "href": "/about",
+      "label": "About"
+    },
+    {
+      "href": "/professional",
+      "label": "Professional / Investor"
+    },
+    {
+      "href": "/private-access",
+      "label": "Private Access"
+    },
+    {
+      "href": "/privacy",
+      "label": "Privacy"
+    },
+    {
+      "href": "/terms",
+      "label": "Terms"
+    },
+    {
+      "href": "/risk-disclosure",
+      "label": "Risk Disclosure"
+    },
+    {
+      "href": "#main-content",
+      "label": "Skip to main content"
+    },
+    {
+      "href": "/",
+      "label": "EMERALDLEGACY SYSTEMS"
+    },
+    {
+      "href": "/",
+      "label": "Home"
+    },
+    {
+      "href": "/ledger",
+      "label": "Emerald Ledger"
+    },
+    {
+      "href": "/systems",
+      "label": "Systems"
+    },
+    {
+      "href": "/indicators",
+      "label": "Indicators & Signals"
+    },
+    {
+      "href": "/technology",
+      "label": "Technology"
+    },
+    {
+      "href": "/research",
+      "label": "Research"
+    },
+    {
+      "href": "/about",
+      "label": "About"
+    },
+    {
+      "href": "/ledger",
+      "label": "Follow Performance"
+    },
+    {
+      "href": "/private-access",
+      "label": "Request Private Access"
+    },
+    {
+      "href": "/systems",
+      "label": "Explore Systems & Products"
+    },
+    {
+      "href": "/platforms",
+      "label": "View Platforms"
+    },
+    {
+      "href": "/systems/quant",
+      "label": "Explore Quant System"
+    },
+    {
+      "href": "/indicators",
+      "label": "Explore"
+    },
+    {
+      "href": "/signal-scanner",
+      "label": "Explore"
+    },
+    {
+      "href": "/systems/quant",
+      "label": "Explore"
+    },
+    {
+      "href": "/platforms",
+      "label": "Explore Platforms"
+    },
+    {
+      "href": "/systems",
+      "label": "Explore Systems & Products"
+    },
+    {
+      "href": "/platforms",
+      "label": "View Platforms"
+    },
+    {
+      "href": "/",
+      "label": "EMERALDLEGACY SYSTEMSQuantitative Trading Technology"
+    },
+    {
+      "href": "mailto:support@emeraldforexsystem.com",
+      "label": "support@emeraldforexsystem.com"
+    },
+    {
+      "href": "/ledger",
+      "label": "Emerald Ledger"
+    },
+    {
+      "href": "/performance",
+      "label": "System Performance"
+    },
+    {
+      "href": "/performance/compare",
+      "label": "Compare Systems"
+    },
+    {
+      "href": "/performance/live-vs-backtest",
+      "label": "Live vs Backtest"
+    },
+    {
+      "href": "/verification",
+      "label": "Verification"
+    },
+    {
+      "href": "/videos",
+      "label": "Video Archive"
+    },
+    {
+      "href": "/systems",
+      "label": "Systems"
+    },
+    {
+      "href": "/indicators",
+      "label": "Indicators & Signals"
+    },
+    {
+      "href": "/signals",
+      "label": "Signal Dashboard"
+    },
+    {
+      "href": "/technology",
+      "label": "Technology"
+    },
+    {
+      "href": "/research",
+      "label": "Research"
+    },
+    {
+      "href": "/about",
+      "label": "About"
+    },
+    {
+      "href": "/professional",
+      "label": "Professional / Investor"
+    },
+    {
+      "href": "/private-access",
+      "label": "Private Access"
+    },
+    {
+      "href": "/privacy",
+      "label": "Privacy"
+    },
+    {
+      "href": "/terms",
+      "label": "Terms"
+    },
+    {
+      "href": "/risk-disclosure",
+      "label": "Risk Disclosure"
+    },
+    {
+      "href": "#main-content",
+      "label": "Skip to main content"
+    },
+    {
+      "href": "/",
+      "label": "EMERALDLEGACY SYSTEMS"
+    },
+    {
+      "href": "/",
+      "label": "Home"
+    },
+    {
+      "href": "/ledger",
+      "label": "Emerald Ledger"
+    },
+    {
+      "href": "/systems",
+      "label": "Systems"
+    },
+    {
+      "href": "/indicators",
+      "label": "Indicators & Signals"
+    },
+    {
+      "href": "/technology",
+      "label": "Technology"
+    },
+    {
+      "href": "/research",
+      "label": "Research"
+    },
+    {
+      "href": "/about",
+      "label": "About"
+    },
+    {
+      "href": "/ledger",
+      "label": "Follow Performance"
+    },
+    {
+      "href": "/private-access",
+      "label": "Request Private Access"
+    },
+    {
+      "href": "/ledger",
+      "label": "Follow Performance"
+    },
+    {
+      "href": "/systems",
+      "label": "Explore Systems"
+    },
+    {
+      "href": "/verification",
+      "label": "How Performance Is Documented"
+    },
+    {
+      "href": "/ledger",
+      "label": "View Full Emerald Ledger"
+    },
+    {
+      "href": "/ledger",
+      "label": "View Full Emerald Ledger"
+    },
+    {
+      "href": "/ledger",
+      "label": "View ledger record"
+    },
+    {
+      "href": "/ledger",
+      "label": "View ledger record"
+    },
+    {
+      "href": "/ledger",
+      "label": "View ledger record"
+    },
+    {
+      "href": "/systems/quant",
+      "label": "Explore Quant System"
+    },
+    {
+      "href": "/ledger",
+      "label": "View Public Performance"
+    },
+    {
+      "href": "/systems/quant",
+      "label": "Explore the Trading System"
+    },
+    {
+      "href": "/indicators",
+      "label": "Explore Indicators"
+    },
+    {
+      "href": "/signals",
+      "label": "View Signals"
+    },
+    {
+      "href": "/technology",
+      "label": "Explore Technology"
+    },
+    {
+      "href": "/research",
+      "label": "View Research"
+    },
+    {
+      "href": "/verification",
+      "label": "View Performance Verification"
+    },
+    {
+      "href": "/ledger",
+      "label": "View Emerald Ledger"
+    },
+    {
+      "href": "/videos",
+      "label": "Explore Video Archive"
+    },
+    {
+      "href": "/ledger",
+      "label": "View Emerald Ledger"
+    },
+    {
+      "href": "/videos",
+      "label": "View archive entry"
+    },
+    {
+      "href": "/videos",
+      "label": "View archive entry"
+    },
+    {
+      "href": "/videos",
+      "label": "View archive entry"
+    },
+    {
+      "href": "/ledger",
+      "label": "View Public Performance"
+    },
+    {
+      "href": "/private-access",
+      "label": "Request Private Access"
+    },
+    {
+      "href": "/private-access",
+      "label": "Request Private Access"
+    },
+    {
+      "href": "/professional",
+      "label": "Professional Overview"
+    },
+    {
+      "href": "/ledger",
+      "label": "Follow Performance"
+    },
+    {
+      "href": "/systems",
+      "label": "Explore Systems"
+    },
+    {
+      "href": "/technology",
+      "label": "explore the technology"
+    },
+    {
+      "href": "/",
+      "label": "EMERALDLEGACY SYSTEMSQuantitative Trading Technology"
+    },
+    {
+      "href": "mailto:support@emeraldforexsystem.com",
+      "label": "support@emeraldforexsystem.com"
+    },
+    {
+      "href": "/ledger",
+      "label": "Emerald Ledger"
+    },
+    {
+      "href": "/performance",
+      "label": "System Performance"
+    },
+    {
+      "href": "/performance/compare",
+      "label": "Compare Systems"
+    },
+    {
+      "href": "/performance/live-vs-backtest",
+      "label": "Live vs Backtest"
+    },
+    {
+      "href": "/verification",
+      "label": "Verification"
+    },
+    {
+      "href": "/videos",
+      "label": "Video Archive"
+    },
+    {
+      "href": "/systems",
+      "label": "Systems"
+    },
+    {
+      "href": "/indicators",
+      "label": "Indicators & Signals"
+    },
+    {
+      "href": "/signals",
+      "label": "Signal Dashboard"
+    },
+    {
+      "href": "/technology",
+      "label": "Technology"
+    },
+    {
+      "href": "/research",
+      "label": "Research"
+    },
+    {
+      "href": "/about",
+      "label": "About"
+    },
+    {
+      "href": "/professional",
+      "label": "Professional / Investor"
+    },
+    {
+      "href": "/private-access",
+      "label": "Private Access"
+    },
+    {
+      "href": "/privacy",
+      "label": "Privacy"
+    },
+    {
+      "href": "/terms",
+      "label": "Terms"
+    },
+    {
+      "href": "/risk-disclosure",
+      "label": "Risk Disclosure"
+    },
+    {
+      "href": "#main-content",
+      "label": "Skip to main content"
+    },
+    {
+      "href": "/",
+      "label": "EMERALDLEGACY SYSTEMS"
+    },
+    {
+      "href": "/",
+      "label": "Home"
+    },
+    {
+      "href": "/ledger",
+      "label": "Emerald Ledger"
+    },
+    {
+      "href": "/systems",
+      "label": "Systems"
+    },
+    {
+      "href": "/indicators",
+      "label": "Indicators & Signals"
+    },
+    {
+      "href": "/technology",
+      "label": "Technology"
+    },
+    {
+      "href": "/research",
+      "label": "Research"
+    },
+    {
+      "href": "/about",
+      "label": "About"
+    },
+    {
+      "href": "/ledger",
+      "label": "Follow Performance"
+    },
+    {
+      "href": "/private-access",
+      "label": "Request Private Access"
+    },
+    {
+      "href": "/ledger",
+      "label": "Metals, selected"
+    },
+    {
+      "href": "/verification",
+      "label": "Performance Verification"
+    },
+    {
+      "href": "/systems/quant",
+      "label": "Explore Quant System"
+    },
+    {
+      "href": "/verification",
+      "label": "View Performance Verification"
+    },
+    {
+      "href": "/videos",
+      "label": "Explore Video Archive"
+    },
+    {
+      "href": "/",
+      "label": "EMERALDLEGACY SYSTEMSQuantitative Trading Technology"
+    },
+    {
+      "href": "mailto:support@emeraldforexsystem.com",
+      "label": "support@emeraldforexsystem.com"
+    },
+    {
+      "href": "/ledger",
+      "label": "Emerald Ledger"
+    },
+    {
+      "href": "/performance",
+      "label": "System Performance"
+    },
+    {
+      "href": "/performance/compare",
+      "label": "Compare Systems"
+    },
+    {
+      "href": "/performance/live-vs-backtest",
+      "label": "Live vs Backtest"
+    },
+    {
+      "href": "/verification",
+      "label": "Verification"
+    },
+    {
+      "href": "/videos",
+      "label": "Video Archive"
+    },
+    {
+      "href": "/systems",
+      "label": "Systems"
+    },
+    {
+      "href": "/indicators",
+      "label": "Indicators & Signals"
+    },
+    {
+      "href": "/signals",
+      "label": "Signal Dashboard"
+    },
+    {
+      "href": "/technology",
+      "label": "Technology"
+    },
+    {
+      "href": "/research",
+      "label": "Research"
+    },
+    {
+      "href": "/about",
+      "label": "About"
+    },
+    {
+      "href": "/professional",
+      "label": "Professional / Investor"
+    },
+    {
+      "href": "/private-access",
+      "label": "Private Access"
+    },
+    {
+      "href": "/privacy",
+      "label": "Privacy"
+    },
+    {
+      "href": "/terms",
+      "label": "Terms"
+    },
+    {
+      "href": "/risk-disclosure",
+      "label": "Risk Disclosure"
+    },
+    {
+      "href": "#main-content",
+      "label": "Skip to main content"
+    },
+    {
+      "href": "/",
+      "label": "EMERALDLEGACY SYSTEMS"
+    },
+    {
+      "href": "/",
+      "label": "Home"
+    },
+    {
+      "href": "/ledger",
+      "label": "Emerald Ledger"
+    },
+    {
+      "href": "/systems",
+      "label": "Systems"
+    },
+    {
+      "href": "/indicators",
+      "label": "Indicators & Signals"
+    },
+    {
+      "href": "/technology",
+      "label": "Technology"
+    },
+    {
+      "href": "/research",
+      "label": "Research"
+    },
+    {
+      "href": "/about",
+      "label": "About"
+    },
+    {
+      "href": "/ledger",
+      "label": "Follow Performance"
+    },
+    {
+      "href": "/private-access",
+      "label": "Request Private Access"
+    },
+    {
+      "href": "#product-catalog",
+      "label": "Explore Products"
+    },
+    {
+      "href": "/platforms",
+      "label": "View Platforms"
+    },
+    {
+      "href": "/indicators",
+      "label": "Explore Emerald Legacy System"
+    },
+    {
+      "href": "/signal-scanner",
+      "label": "Explore Signal Scanner"
+    },
+    {
+      "href": "/recovery-expert",
+      "label": "Explore Recovery Expert"
+    },
+    {
+      "href": "/systems/quant",
+      "label": "Explore Quant System"
+    },
+    {
+      "href": "/private-access",
+      "label": "Request Private Access"
+    },
+    {
+      "href": "/platforms",
+      "label": "View Platforms"
+    },
+    {
+      "href": "/systems/quant",
+      "label": "Explore Quant System"
+    },
+    {
+      "href": "/",
+      "label": "EMERALDLEGACY SYSTEMSQuantitative Trading Technology"
+    },
+    {
+      "href": "mailto:support@emeraldforexsystem.com",
+      "label": "support@emeraldforexsystem.com"
+    },
+    {
+      "href": "/ledger",
+      "label": "Emerald Ledger"
+    },
+    {
+      "href": "/performance",
+      "label": "System Performance"
+    },
+    {
+      "href": "/performance/compare",
+      "label": "Compare Systems"
+    },
+    {
+      "href": "/performance/live-vs-backtest",
+      "label": "Live vs Backtest"
+    },
+    {
+      "href": "/verification",
+      "label": "Verification"
+    },
+    {
+      "href": "/videos",
+      "label": "Video Archive"
+    },
+    {
+      "href": "/systems",
+      "label": "Systems"
+    },
+    {
+      "href": "/indicators",
+      "label": "Indicators & Signals"
+    },
+    {
+      "href": "/signals",
+      "label": "Signal Dashboard"
+    },
+    {
+      "href": "/technology",
+      "label": "Technology"
+    },
+    {
+      "href": "/research",
+      "label": "Research"
+    },
+    {
+      "href": "/about",
+      "label": "About"
+    },
+    {
+      "href": "/professional",
+      "label": "Professional / Investor"
+    },
+    {
+      "href": "/private-access",
+      "label": "Private Access"
+    },
+    {
+      "href": "/privacy",
+      "label": "Privacy"
+    },
+    {
+      "href": "/terms",
+      "label": "Terms"
+    },
+    {
+      "href": "/risk-disclosure",
+      "label": "Risk Disclosure"
+    },
+    {
+      "href": "#main-content",
+      "label": "Skip to main content"
+    },
+    {
+      "href": "/",
+      "label": "EMERALDLEGACY SYSTEMS"
+    },
+    {
+      "href": "/",
+      "label": "Home"
+    },
+    {
+      "href": "/ledger",
+      "label": "Emerald Ledger"
+    },
+    {
+      "href": "/systems",
+      "label": "Systems"
+    },
+    {
+      "href": "/indicators",
+      "label": "Indicators & Signals"
+    },
+    {
+      "href": "/technology",
+      "label": "Technology"
+    },
+    {
+      "href": "/research",
+      "label": "Research"
+    },
+    {
+      "href": "/about",
+      "label": "About"
+    },
+    {
+      "href": "/ledger",
+      "label": "Follow Performance"
+    },
+    {
+      "href": "/private-access",
+      "label": "Request Private Access"
+    },
+    {
+      "href": "/ledger",
+      "label": "View Public Performance"
+    },
+    {
+      "href": "/technology",
+      "label": "Explore Technology"
+    },
+    {
+      "href": "/indicators",
+      "label": "Explore Indicators"
+    },
+    {
+      "href": "/signals",
+      "label": "View Signals"
+    },
+    {
+      "href": "/systems/quant",
+      "label": "Metals, selected"
+    },
+    {
+      "href": "/ledger",
+      "label": "View Complete Ledger"
+    },
+    {
+      "href": "/",
+      "label": "EMERALDLEGACY SYSTEMSQuantitative Trading Technology"
+    },
+    {
+      "href": "mailto:support@emeraldforexsystem.com",
+      "label": "support@emeraldforexsystem.com"
+    },
+    {
+      "href": "/ledger",
+      "label": "Emerald Ledger"
+    },
+    {
+      "href": "/performance",
+      "label": "System Performance"
+    },
+    {
+      "href": "/performance/compare",
+      "label": "Compare Systems"
+    },
+    {
+      "href": "/performance/live-vs-backtest",
+      "label": "Live vs Backtest"
+    },
+    {
+      "href": "/verification",
+      "label": "Verification"
+    },
+    {
+      "href": "/videos",
+      "label": "Video Archive"
+    },
+    {
+      "href": "/systems",
+      "label": "Systems"
+    },
+    {
+      "href": "/indicators",
+      "label": "Indicators & Signals"
+    },
+    {
+      "href": "/signals",
+      "label": "Signal Dashboard"
+    },
+    {
+      "href": "/technology",
+      "label": "Technology"
+    },
+    {
+      "href": "/research",
+      "label": "Research"
+    },
+    {
+      "href": "/about",
+      "label": "About"
+    },
+    {
+      "href": "/professional",
+      "label": "Professional / Investor"
+    },
+    {
+      "href": "/private-access",
+      "label": "Private Access"
+    },
+    {
+      "href": "/privacy",
+      "label": "Privacy"
+    },
+    {
+      "href": "/terms",
+      "label": "Terms"
+    },
+    {
+      "href": "/risk-disclosure",
+      "label": "Risk Disclosure"
+    },
+    {
+      "href": "#main-content",
+      "label": "Skip to main content"
+    },
+    {
+      "href": "/",
+      "label": "EMERALDLEGACY SYSTEMS"
+    },
+    {
+      "href": "/",
+      "label": "Home"
+    },
+    {
+      "href": "/ledger",
+      "label": "Emerald Ledger"
+    },
+    {
+      "href": "/systems",
+      "label": "Systems"
+    },
+    {
+      "href": "/indicators",
+      "label": "Indicators & Signals"
+    },
+    {
+      "href": "/technology",
+      "label": "Technology"
+    },
+    {
+      "href": "/research",
+      "label": "Research"
+    },
+    {
+      "href": "/about",
+      "label": "About"
+    },
+    {
+      "href": "/ledger",
+      "label": "Follow Performance"
+    },
+    {
+      "href": "/private-access",
+      "label": "Request Private Access"
+    },
+    {
+      "href": "/signals",
+      "label": "Explore Signal Library"
+    },
+    {
+      "href": "/signal-scanner",
+      "label": "View Signal Scanner"
+    },
+    {
+      "href": "/signals#main",
+      "label": "View in Signal Library"
+    },
+    {
+      "href": "/signals#finescalp",
+      "label": "View in Signal Library"
+    },
+    {
+      "href": "/signals#scalp",
+      "label": "View in Signal Library"
+    },
+    {
+      "href": "/signals#range",
+      "label": "View in Signal Library"
+    },
+    {
+      "href": "/signals#harmonizer",
+      "label": "View in Signal Library"
+    },
+    {
+      "href": "/signals#harmonizer-safe",
+      "label": "View in Signal Library"
+    },
+    {
+      "href": "/platforms",
+      "label": "Explore Platforms"
+    },
+    {
+      "href": "/signal-scanner",
+      "label": "Explore Signal Scanner"
+    },
+    {
+      "href": "/recovery-expert",
+      "label": "Explore Recovery Expert"
+    },
+    {
+      "href": "/systems/quant",
+      "label": "Explore Quant System"
+    },
+    {
+      "href": "/signals",
+      "label": "Explore Signal Library"
+    },
+    {
+      "href": "/research",
+      "label": "Explore Research"
+    },
+    {
+      "href": "/",
+      "label": "EMERALDLEGACY SYSTEMSQuantitative Trading Technology"
+    },
+    {
+      "href": "mailto:support@emeraldforexsystem.com",
+      "label": "support@emeraldforexsystem.com"
+    },
+    {
+      "href": "/ledger",
+      "label": "Emerald Ledger"
+    },
+    {
+      "href": "/performance",
+      "label": "System Performance"
+    },
+    {
+      "href": "/performance/compare",
+      "label": "Compare Systems"
+    },
+    {
+      "href": "/performance/live-vs-backtest",
+      "label": "Live vs Backtest"
+    },
+    {
+      "href": "/verification",
+      "label": "Verification"
+    },
+    {
+      "href": "/videos",
+      "label": "Video Archive"
+    },
+    {
+      "href": "/systems",
+      "label": "Systems"
+    },
+    {
+      "href": "/indicators",
+      "label": "Indicators & Signals"
+    },
+    {
+      "href": "/signals",
+      "label": "Signal Dashboard"
+    },
+    {
+      "href": "/technology",
+      "label": "Technology"
+    },
+    {
+      "href": "/research",
+      "label": "Research"
+    },
+    {
+      "href": "/about",
+      "label": "About"
+    },
+    {
+      "href": "/professional",
+      "label": "Professional / Investor"
+    },
+    {
+      "href": "/private-access",
+      "label": "Private Access"
+    },
+    {
+      "href": "/privacy",
+      "label": "Privacy"
+    },
+    {
+      "href": "/terms",
+      "label": "Terms"
+    },
+    {
+      "href": "/risk-disclosure",
+      "label": "Risk Disclosure"
+    },
+    {
+      "href": "#main-content",
+      "label": "Skip to main content"
+    },
+    {
+      "href": "/",
+      "label": "EMERALDLEGACY SYSTEMS"
+    },
+    {
+      "href": "/",
+      "label": "Home"
+    },
+    {
+      "href": "/ledger",
+      "label": "Emerald Ledger"
+    },
+    {
+      "href": "/systems",
+      "label": "Systems"
+    },
+    {
+      "href": "/indicators",
+      "label": "Indicators & Signals"
+    },
+    {
+      "href": "/technology",
+      "label": "Technology"
+    },
+    {
+      "href": "/research",
+      "label": "Research"
+    },
+    {
+      "href": "/about",
+      "label": "About"
+    },
+    {
+      "href": "/ledger",
+      "label": "Follow Performance"
+    },
+    {
+      "href": "/private-access",
+      "label": "Request Private Access"
+    },
+    {
+      "href": "/indicators",
+      "label": "Explore Emerald Legacy System"
+    },
+    {
+      "href": "/signal-scanner",
+      "label": "View Signal Scanner"
+    },
+    {
+      "href": "#main",
+      "label": "Main"
+    },
+    {
+      "href": "#finescalp",
+      "label": "FineScalp"
+    },
+    {
+      "href": "#scalp",
+      "label": "Scalp"
+    },
+    {
+      "href": "#range",
+      "label": "Range"
+    },
+    {
+      "href": "#harmonizer",
+      "label": "Harmonizer"
+    },
+    {
+      "href": "#harmonizer-safe",
+      "label": "SAFE"
+    },
+    {
+      "href": "/signal-scanner",
+      "label": "Explore Signal Scanner"
+    },
+    {
+      "href": "/recovery-expert",
+      "label": "Explore Recovery Expert"
+    },
+    {
+      "href": "/platforms",
+      "label": "Explore Platforms"
+    },
+    {
+      "href": "/indicators",
+      "label": "Explore Emerald Legacy System"
+    },
+    {
+      "href": "/signal-scanner",
+      "label": "Explore Signal Scanner"
+    },
+    {
+      "href": "/recovery-expert",
+      "label": "Explore Recovery Expert"
+    },
+    {
+      "href": "/systems/quant",
+      "label": "Explore Quant System"
+    },
+    {
+      "href": "/research",
+      "label": "Explore Research"
+    },
+    {
+      "href": "/indicators",
+      "label": "Explore Emerald Legacy System"
+    },
+    {
+      "href": "/indicators",
+      "label": "Explore Emerald Legacy System"
+    },
+    {
+      "href": "/signal-scanner",
+      "label": "View Signal Scanner"
+    },
+    {
+      "href": "/platforms",
+      "label": "Explore Platforms"
+    },
+    {
+      "href": "/",
+      "label": "EMERALDLEGACY SYSTEMSQuantitative Trading Technology"
+    },
+    {
+      "href": "mailto:support@emeraldforexsystem.com",
+      "label": "support@emeraldforexsystem.com"
+    },
+    {
+      "href": "/ledger",
+      "label": "Emerald Ledger"
+    },
+    {
+      "href": "/performance",
+      "label": "System Performance"
+    },
+    {
+      "href": "/performance/compare",
+      "label": "Compare Systems"
+    },
+    {
+      "href": "/performance/live-vs-backtest",
+      "label": "Live vs Backtest"
+    },
+    {
+      "href": "/verification",
+      "label": "Verification"
+    },
+    {
+      "href": "/videos",
+      "label": "Video Archive"
+    },
+    {
+      "href": "/systems",
+      "label": "Systems"
+    },
+    {
+      "href": "/indicators",
+      "label": "Indicators & Signals"
+    },
+    {
+      "href": "/signals",
+      "label": "Signal Dashboard"
+    },
+    {
+      "href": "/technology",
+      "label": "Technology"
+    },
+    {
+      "href": "/research",
+      "label": "Research"
+    },
+    {
+      "href": "/about",
+      "label": "About"
+    },
+    {
+      "href": "/professional",
+      "label": "Professional / Investor"
+    },
+    {
+      "href": "/private-access",
+      "label": "Private Access"
+    },
+    {
+      "href": "/privacy",
+      "label": "Privacy"
+    },
+    {
+      "href": "/terms",
+      "label": "Terms"
+    },
+    {
+      "href": "/risk-disclosure",
+      "label": "Risk Disclosure"
+    },
+    {
+      "href": "#main-content",
+      "label": "Skip to main content"
+    },
+    {
+      "href": "/",
+      "label": "EMERALDLEGACY SYSTEMS"
+    },
+    {
+      "href": "/",
+      "label": "Home"
+    },
+    {
+      "href": "/ledger",
+      "label": "Emerald Ledger"
+    },
+    {
+      "href": "/systems",
+      "label": "Systems"
+    },
+    {
+      "href": "/indicators",
+      "label": "Indicators & Signals"
+    },
+    {
+      "href": "/technology",
+      "label": "Technology"
+    },
+    {
+      "href": "/research",
+      "label": "Research"
+    },
+    {
+      "href": "/about",
+      "label": "About"
+    },
+    {
+      "href": "/ledger",
+      "label": "Follow Performance"
+    },
+    {
+      "href": "/private-access",
+      "label": "Request Private Access"
+    },
+    {
+      "href": "/signals",
+      "label": "Explore Signal Library"
+    },
+    {
+      "href": "/platforms",
+      "label": "View Platforms"
+    },
+    {
+      "href": "/signals",
+      "label": "Review Signal Library"
+    },
+    {
+      "href": "/platforms",
+      "label": "Explore Platforms"
+    },
+    {
+      "href": "/indicators",
+      "label": "Explore"
+    },
+    {
+      "href": "/signals",
+      "label": "Explore Signal Library"
+    },
+    {
+      "href": "/indicators",
+      "label": "Explore Legacy System"
+    },
+    {
+      "href": "/",
+      "label": "EMERALDLEGACY SYSTEMSQuantitative Trading Technology"
+    },
+    {
+      "href": "mailto:support@emeraldforexsystem.com",
+      "label": "support@emeraldforexsystem.com"
+    },
+    {
+      "href": "/ledger",
+      "label": "Emerald Ledger"
+    },
+    {
+      "href": "/performance",
+      "label": "System Performance"
+    },
+    {
+      "href": "/performance/compare",
+      "label": "Compare Systems"
+    },
+    {
+      "href": "/performance/live-vs-backtest",
+      "label": "Live vs Backtest"
+    },
+    {
+      "href": "/verification",
+      "label": "Verification"
+    },
+    {
+      "href": "/videos",
+      "label": "Video Archive"
+    },
+    {
+      "href": "/systems",
+      "label": "Systems"
+    },
+    {
+      "href": "/indicators",
+      "label": "Indicators & Signals"
+    },
+    {
+      "href": "/signals",
+      "label": "Signal Dashboard"
+    },
+    {
+      "href": "/technology",
+      "label": "Technology"
+    },
+    {
+      "href": "/research",
+      "label": "Research"
+    },
+    {
+      "href": "/about",
+      "label": "About"
+    },
+    {
+      "href": "/professional",
+      "label": "Professional / Investor"
+    },
+    {
+      "href": "/private-access",
+      "label": "Private Access"
+    },
+    {
+      "href": "/privacy",
+      "label": "Privacy"
+    },
+    {
+      "href": "/terms",
+      "label": "Terms"
+    },
+    {
+      "href": "/risk-disclosure",
+      "label": "Risk Disclosure"
+    },
+    {
+      "href": "#main-content",
+      "label": "Skip to main content"
+    },
+    {
+      "href": "/",
+      "label": "EMERALDLEGACY SYSTEMS"
+    },
+    {
+      "href": "/",
+      "label": "Home"
+    },
+    {
+      "href": "/ledger",
+      "label": "Emerald Ledger"
+    },
+    {
+      "href": "/systems",
+      "label": "Systems"
+    },
+    {
+      "href": "/indicators",
+      "label": "Indicators & Signals"
+    },
+    {
+      "href": "/technology",
+      "label": "Technology"
+    },
+    {
+      "href": "/research",
+      "label": "Research"
+    },
+    {
+      "href": "/about",
+      "label": "About"
+    },
+    {
+      "href": "/ledger",
+      "label": "Follow Performance"
+    },
+    {
+      "href": "/private-access",
+      "label": "Request Private Access"
+    },
+    {
+      "href": "/systems",
+      "label": "Explore Systems & Products"
+    },
+    {
+      "href": "/platforms",
+      "label": "View Platforms"
+    },
+    {
+      "href": "/systems/quant",
+      "label": "Explore Quant System"
+    },
+    {
+      "href": "/indicators",
+      "label": "Explore"
+    },
+    {
+      "href": "/signal-scanner",
+      "label": "Explore"
+    },
+    {
+      "href": "/systems/quant",
+      "label": "Explore"
+    },
+    {
+      "href": "/platforms",
+      "label": "Explore Platforms"
+    },
+    {
+      "href": "/systems",
+      "label": "Explore Systems & Products"
+    },
+    {
+      "href": "/platforms",
+      "label": "View Platforms"
+    },
+    {
+      "href": "/",
+      "label": "EMERALDLEGACY SYSTEMSQuantitative Trading Technology"
+    },
+    {
+      "href": "mailto:support@emeraldforexsystem.com",
+      "label": "support@emeraldforexsystem.com"
+    },
+    {
+      "href": "/ledger",
+      "label": "Emerald Ledger"
+    },
+    {
+      "href": "/performance",
+      "label": "System Performance"
+    },
+    {
+      "href": "/performance/compare",
+      "label": "Compare Systems"
+    },
+    {
+      "href": "/performance/live-vs-backtest",
+      "label": "Live vs Backtest"
+    },
+    {
+      "href": "/verification",
+      "label": "Verification"
+    },
+    {
+      "href": "/videos",
+      "label": "Video Archive"
+    },
+    {
+      "href": "/systems",
+      "label": "Systems"
+    },
+    {
+      "href": "/indicators",
+      "label": "Indicators & Signals"
+    },
+    {
+      "href": "/signals",
+      "label": "Signal Dashboard"
+    },
+    {
+      "href": "/technology",
+      "label": "Technology"
+    },
+    {
+      "href": "/research",
+      "label": "Research"
+    },
+    {
+      "href": "/about",
+      "label": "About"
+    },
+    {
+      "href": "/professional",
+      "label": "Professional / Investor"
+    },
+    {
+      "href": "/private-access",
+      "label": "Private Access"
+    },
+    {
+      "href": "/privacy",
+      "label": "Privacy"
+    },
+    {
+      "href": "/terms",
+      "label": "Terms"
+    },
+    {
+      "href": "/risk-disclosure",
+      "label": "Risk Disclosure"
+    }
+  ],
+  "errors": []
+}
