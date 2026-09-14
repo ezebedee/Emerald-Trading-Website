@@ -1,0 +1,196 @@
+{
+  "navigation": [
+    {
+      "width": 375,
+      "opened": "true"
+    },
+    {
+      "width": 375,
+      "escapeClosed": true
+    },
+    {
+      "width": 375,
+      "path": "/systems"
+    },
+    {
+      "width": 1440,
+      "path": "/systems"
+    }
+  ],
+  "checked": [
+    {
+      "href": "/",
+      "label": "EMERALDLEGACY SYSTEMSQuantitative Trading Technology",
+      "status": 200,
+      "classification": "VALID IMPLEMENTED"
+    },
+    {
+      "href": "/ledger",
+      "label": "Emerald Ledger",
+      "status": 200,
+      "classification": "VALID IMPLEMENTED"
+    },
+    {
+      "href": "/systems",
+      "label": "Systems",
+      "status": 200,
+      "classification": "VALID IMPLEMENTED"
+    },
+    {
+      "href": "/indicators",
+      "label": "Indicators & Signals",
+      "status": 200,
+      "classification": "VALID IMPLEMENTED"
+    },
+    {
+      "href": "/technology",
+      "label": "Technology",
+      "status": 200,
+      "classification": "VALID PLACEHOLDER DESTINATION"
+    },
+    {
+      "href": "/research",
+      "label": "Research",
+      "status": 200,
+      "classification": "VALID PLACEHOLDER DESTINATION"
+    },
+    {
+      "href": "/about",
+      "label": "About",
+      "status": 200,
+      "classification": "VALID PLACEHOLDER DESTINATION"
+    },
+    {
+      "href": "/private-access",
+      "label": "Private Access",
+      "status": 200,
+      "classification": "VALID PLACEHOLDER DESTINATION"
+    },
+    {
+      "href": "/verification",
+      "label": "Verification",
+      "status": 200,
+      "classification": "VALID PLACEHOLDER DESTINATION"
+    },
+    {
+      "href": "/systems/quant",
+      "label": "Explore",
+      "status": 200,
+      "classification": "VALID IMPLEMENTED"
+    },
+    {
+      "href": "/signals",
+      "label": "Signal Dashboard",
+      "status": 200,
+      "classification": "VALID IMPLEMENTED"
+    },
+    {
+      "href": "/videos",
+      "label": "Video Archive",
+      "status": 200,
+      "classification": "VALID PLACEHOLDER DESTINATION"
+    },
+    {
+      "href": "/professional",
+      "label": "Professional / Investor",
+      "status": 200,
+      "classification": "VALID PLACEHOLDER DESTINATION"
+    },
+    {
+      "href": "/performance",
+      "label": "System Performance",
+      "status": 200,
+      "classification": "VALID PLACEHOLDER DESTINATION"
+    },
+    {
+      "href": "/performance/compare",
+      "label": "Compare Systems",
+      "status": 200,
+      "classification": "VALID PLACEHOLDER DESTINATION"
+    },
+    {
+      "href": "/performance/live-vs-backtest",
+      "label": "Live vs Backtest",
+      "status": 200,
+      "classification": "VALID PLACEHOLDER DESTINATION"
+    },
+    {
+      "href": "/privacy",
+      "label": "Privacy",
+      "status": 200,
+      "classification": "VALID PLACEHOLDER DESTINATION"
+    },
+    {
+      "href": "/terms",
+      "label": "Terms",
+      "status": 200,
+      "classification": "VALID PLACEHOLDER DESTINATION"
+    },
+    {
+      "href": "/risk-disclosure",
+      "label": "Risk Disclosure",
+      "status": 200,
+      "classification": "VALID PLACEHOLDER DESTINATION"
+    },
+    {
+      "href": "/platforms",
+      "label": "View Platforms",
+      "status": 200,
+      "classification": "VALID PLACEHOLDER DESTINATION"
+    },
+    {
+      "href": "/signal-scanner",
+      "label": "Explore",
+      "status": 200,
+      "classification": "VALID IMPLEMENTED"
+    },
+    {
+      "href": "/recovery-expert",
+      "label": "Explore Recovery Expert",
+      "status": 200,
+      "classification": "VALID IMPLEMENTED"
+    },
+    {
+      "href": "/signals#main",
+      "label": "View in Signal Library",
+      "status": 200,
+      "classification": "VALID IMPLEMENTED"
+    },
+    {
+      "href": "/signals#finescalp",
+      "label": "View in Signal Library",
+      "status": 200,
+      "classification": "VALID IMPLEMENTED"
+    },
+    {
+      "href": "/signals#scalp",
+      "label": "View in Signal Library",
+      "status": 200,
+      "classification": "VALID IMPLEMENTED"
+    },
+    {
+      "href": "/signals#range",
+      "label": "View in Signal Library",
+      "status": 200,
+      "classification": "VALID IMPLEMENTED"
+    },
+    {
+      "href": "/signals#harmonizer",
+      "label": "View in Signal Library",
+      "status": 200,
+      "classification": "VALID IMPLEMENTED"
+    },
+    {
+      "href": "/signals#harmonizer-safe",
+      "label": "View in Signal Library",
+      "status": 200,
+      "classification": "VALID IMPLEMENTED"
+    }
+  ],
+  "staleLabels": [
+    {
+      "href": "/signals",
+      "label": "Signal Dashboard"
+    }
+  ]
+}
