@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
 
-import { PagePlaceholder } from "@/components/dev/page-placeholder";
+import { VerificationMethodology } from "@/components/performance/verification-methodology";
 import { JsonLd } from "@/components/seo/json-ld";
 import {
   createPageMetadata,
@@ -14,14 +14,14 @@ export const metadata: Metadata = createPageMetadata(
 
 const pageJsonLd = createRouteWebPageJsonLd("/verification", [
   { name: "Home", path: "/" },
-  { name: "Performance Verification", path: "/verification" },
+  { name: "Verification Methodology", path: "/verification" },
 ]);
 
 export default function VerificationPage() {
   return (
     <>
       <JsonLd data={pageJsonLd} />
-      <PagePlaceholder title="Performance Verification" />
+      <VerificationMethodology />
     </>
   );
 }

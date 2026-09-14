@@ -111,7 +111,7 @@ export function LedgerVerificationEvidence({
               href="/verification"
               trailingIcon={<ArrowRight className="size-4" />}
             >
-              View Performance Verification
+              View Verification Methodology
             </LinkButton>
           </div>
 

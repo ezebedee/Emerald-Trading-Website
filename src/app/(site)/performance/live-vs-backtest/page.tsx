@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
 
-import { PagePlaceholder } from "@/components/dev/page-placeholder";
+import { ForwardBacktestGuide } from "@/components/performance/forward-backtest-guide";
 import { JsonLd } from "@/components/seo/json-ld";
 import {
   createPageMetadata,
@@ -16,7 +16,7 @@ const pageJsonLd = createRouteWebPageJsonLd("/performance/live-vs-backtest", [
   { name: "Home", path: "/" },
   { name: "Performance", path: "/performance" },
   {
-    name: "Live vs Backtest Performance",
+    name: "Forward Performance vs Backtest Performance",
     path: "/performance/live-vs-backtest",
   },
 ]);
@@ -25,10 +25,7 @@ export default function LiveVsBacktestPage() {
   return (
     <>
       <JsonLd data={pageJsonLd} />
-      <PagePlaceholder
-        title="Live Performance vs Backtest Performance"
-        variant="dashboard"
-      />
+      <ForwardBacktestGuide />
     </>
   );
 }
