@@ -4,22 +4,13 @@ Branch: `task-5.10-performance-transparency-verification`.
 Base: `a399a05688d690e91470645c514fac70fc95f0c8` (approved Task 5.9).
 The user's short message said Task 5.9; the attached authoritative brief specifies Task 5.10.
 
-## Screenshots
+## Archived Screenshots
 
-Production build, 375px and 1440px viewports. Full-page captures include all
-sections; viewport and section captures are also included for readable review.
-
-| Page                | Mobile                                             | Desktop                                              |
-| ------------------- | -------------------------------------------------- | ---------------------------------------------------- |
-| Overview            | [375px](performance-full-375.png)                  | [1440px](performance-full-1440.png)                  |
-| Comparison          | [375px](performance-compare-full-375.png)          | [1440px](performance-compare-full-1440.png)          |
-| Forward vs backtest | [375px](performance-live-vs-backtest-full-375.png) | [1440px](performance-live-vs-backtest-full-1440.png) |
-| Verification        | [375px](verification-full-375.png)                 | [1440px](verification-full-1440.png)                 |
-
-The mobile comparison intentionally uses a keyboard-focusable horizontal scroll
-region. [Rightmost column](comparison-mobile-backtest-column.png) confirms that
-the unavailable backtest fields remain reachable. Resource-link focus states:
-[mobile](resource-focus-375.png), [desktop](resource-focus-1440.png).
+The owner approved Task 5.10 and authorized merging PR #3. The 41 review PNGs
+were removed from the current tree under the agreed post-approval cleanup policy.
+The QA report is retained below. All screenshots, including full-page 375px and
+1440px captures, mobile table scrolling and keyboard focus, remain accessible in
+the [approved commit's screenshot index](https://github.com/ezebedee/Emerald-Trading-Website/tree/3ed8e70cae0a72f8709e8199822827f92bff9211/docs/review-artifacts/task-5.10).
 
 ## QA Results
 
@@ -51,5 +42,4 @@ and `/systems/quant`, at both widths (12 route/viewport checks).
 - No deployment, Task 6.26, portal authentication/business logic, invented results,
   new dependencies, canonical data edits or unrelated placeholder changes.
 
-Keep these screenshots available for independent review. Remove the PNG evidence
-only after approval and an explicit merge instruction, as agreed with the owner.
+Screenshot cleanup does not alter production assets, implementation or test results.
