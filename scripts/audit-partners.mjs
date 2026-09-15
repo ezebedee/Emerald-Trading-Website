@@ -15,7 +15,7 @@ assert.deepEqual(
   partnerPrograms.map(({ status }) => status),
   [
     "Available to existing Emerald account holders",
-    "Coming later",
+    "Available to existing Emerald account holders",
     "Coming later",
     "Coming later",
     "Coming later",

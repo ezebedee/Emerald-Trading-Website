@@ -109,7 +109,8 @@ export default function PartnersPage() {
                 <p className="text-muted-foreground mt-5 border-t border-[var(--border)] pt-4 text-sm leading-relaxed">
                   {program.availability}
                 </p>
-                {program.id === "mentor-agent" ? (
+                {program.id === "mentor-agent" ||
+                program.id === "creator-partner" ? (
                   <LinkButton
                     href={portalLoginUrl}
                     trailingIcon={<ArrowRight aria-hidden="true" />}

@@ -12,13 +12,13 @@ export const partnerPrograms = [
   {
     id: "creator-partner",
     title: "Creator Partner Program",
-    status: "Coming later",
+    status: "Available to existing Emerald account holders",
     audience:
       "For educational creators and responsible trading-technology communities.",
     responsibility:
-      "A future pathway for educational content, product demonstrations, platform tutorials and responsible public communication.",
+      "A private pathway for educational content, product demonstrations, platform tutorials and responsible public communication.",
     availability:
-      "Creator applications, dedicated dashboards and distribution arrangements are not available through this Hub.",
+      "Existing Emerald account holders may sign in to the Portal to review the program and submit an authenticated application. Approval and Creator Partner activation are separate Admin-managed steps.",
   },
   {
     id: "certified-mentor",
