@@ -143,7 +143,7 @@ export const routeSeoMetadata = {
   "/professional": {
     title: "Professional & Investor",
     description:
-      "Information for professional, institutional, and investor audiences evaluating Emerald Legacy Systems technology and documented performance.",
+      "Evaluate Emerald trading technology through documented methodology, platform-specific implementation and clearly scoped performance evidence.",
     path: "/professional",
   },
   "/about": {
@@ -154,18 +154,20 @@ export const routeSeoMetadata = {
   },
   "/privacy": {
     title: "Privacy Policy",
-    description: "Privacy policy for Emerald Legacy Systems.",
+    description:
+      "How the current Emerald public website handles browsing, technical information and external links, separately from the Emerald portal.",
     path: "/privacy",
   },
   "/terms": {
     title: "Terms of Use",
-    description: "Terms of use for the Emerald Legacy Systems website.",
+    description:
+      "Terms for using Emerald's public technology content, including reliance limits, intellectual property, acceptable use and external links.",
     path: "/terms",
   },
   "/risk-disclosure": {
     title: "Risk Disclosure",
     description:
-      "Risk disclosures relating to trading, performance information, and the use of Emerald Legacy Systems technology.",
+      "Understand trading, leverage, execution and automation risks, and the limitations of historical testing and Emerald's public demo records.",
     path: "/risk-disclosure",
   },
 } as const satisfies Record<string, PageMetadataInput & { path: string }>;
