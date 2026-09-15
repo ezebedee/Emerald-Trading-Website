@@ -20,7 +20,8 @@
     "seo:audit": "node scripts/audit-seo.mjs",
     "portal:audit": "node scripts/audit-portal-navigation.mjs",
     "evidence:audit": "node scripts/audit-performance-evidence.mjs",
-    "engineering:audit": "node scripts/audit-engineering-content.mjs"
+    "engineering:audit": "node scripts/audit-engineering-content.mjs",
+    "platforms:audit": "node scripts/audit-platform-guidance.mjs"
   },
   "dependencies": {
     "clsx": "^2.1.1",

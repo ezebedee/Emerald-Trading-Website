@@ -65,31 +65,31 @@ export const routeSeoMetadata = {
   "/platforms": {
     title: "Trading Platforms",
     description:
-      "Platform overview foundation for Emerald product availability across MT4, MT5, TradingView, and NinjaTrader.",
+      "Compare Emerald product availability, platform-specific workflows and access guidance for MT4, MT5, TradingView and NinjaTrader.",
     path: "/platforms",
   },
   "/platforms/mt4": {
     title: "MT4 Trading Tools",
     description:
-      "MT4 product implementation guide foundation for Emerald Legacy System, Signal Scanner, Recovery Expert, and private Quant System availability.",
+      "Explore Emerald tools for MetaTrader 4: chart-based workflows, high-level setup, authorized access and configuration-specific performance context.",
     path: "/platforms/mt4",
   },
   "/platforms/mt5": {
     title: "MT5 Trading Tools",
     description:
-      "MT5 product implementation guide foundation for Emerald Legacy System, Signal Scanner, Recovery Expert, and private Quant System availability.",
+      "Review Emerald MT5 product compatibility, platform-specific setup and access guidance without assuming MT4 feature or performance parity.",
     path: "/platforms/mt5",
   },
   "/platforms/tradingview": {
     title: "TradingView Trading Tools",
     description:
-      "TradingView product implementation guide foundation for Emerald Legacy System, Signal Scanner, Recovery Expert, and private Quant System availability.",
+      "Understand Emerald TradingView product availability, visual analysis and managed-access guidance, distinct from MetaTrader execution workflows.",
     path: "/platforms/tradingview",
   },
   "/platforms/ninjatrader": {
     title: "NinjaTrader Trading Tools",
     description:
-      "NinjaTrader product implementation guide foundation for Emerald Legacy System, Signal Scanner, Recovery Expert, and private Quant System availability.",
+      "Explore Emerald NinjaTrader product availability, desktop setup considerations and authorized access for platform-specific implementations.",
     path: "/platforms/ninjatrader",
   },
   "/performance": {

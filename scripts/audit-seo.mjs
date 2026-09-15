@@ -79,11 +79,6 @@ const requiredProductRoutePlaceholders = new Map([
   ["/indicators", "Emerald Legacy System"],
   ["/signals", "Signal Library"],
   ["/recovery-expert", "Emerald Recovery Expert"],
-  ["/platforms", "Trading Platforms"],
-  ["/platforms/mt4", "MT4"],
-  ["/platforms/mt5", "MT5"],
-  ["/platforms/tradingview", "TradingView"],
-  ["/platforms/ninjatrader", "NinjaTrader"],
 ]);
 const platformPageRoutes = [
   "/platforms/mt4",
@@ -259,6 +254,16 @@ for (const [routePath, expectedTitle] of requiredProductRoutePlaceholders) {
     failures.push(
       `${routePath} placeholder must render title "${expectedTitle}".`,
     );
+  }
+}
+
+for (const routePath of ["/platforms", ...platformPageRoutes]) {
+  const source = pageSourceByRoute.get(routePath) ?? "";
+  if (
+    source.includes("PagePlaceholder") ||
+    !source.includes("@/components/platforms/platform-guidance")
+  ) {
+    failures.push(`${routePath} must render substantive platform guidance.`);
   }
 }
 

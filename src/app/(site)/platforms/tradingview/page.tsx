@@ -1,8 +1,7 @@
 import type { Metadata } from "next";
 
-import { PagePlaceholder } from "@/components/dev/page-placeholder";
+import { PlatformGuidance } from "@/components/platforms/platform-guidance";
 import { JsonLd } from "@/components/seo/json-ld";
-import { getPlatformDefinitionBySlug } from "@/data/selectors";
 import {
   createPageMetadata,
   createRouteWebPageJsonLd,
@@ -20,15 +19,10 @@ const pageJsonLd = createRouteWebPageJsonLd("/platforms/tradingview", [
 ]);
 
 export default function TradingViewPage() {
-  const platform = getPlatformDefinitionBySlug("tradingview");
-
   return (
     <>
       <JsonLd data={pageJsonLd} />
-      <PagePlaceholder
-        title={platform?.label ?? "TradingView"}
-        description="TradingView product implementation guide foundation for Emerald tools across supported product layers."
-      />
+      <PlatformGuidance platformId="tradingview" />
     </>
   );
 }
