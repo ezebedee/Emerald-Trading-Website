@@ -35,8 +35,20 @@ for (const route of [
     read("src/components/layout/site-footer.tsx").includes(`href: "/${route}"`),
   );
 }
-assert.match(text, /Emerald Legacy Systems is the company\/brand/);
-assert.match(text, /Emerald Legacy System, without the final s/);
+assert.match(
+  text,
+  /Emerald Legacy Systems develops quantitative trading software/,
+);
+assert.match(text, /Research and iteration are central/);
+assert.match(
+  text,
+  /communicated plainly rather than hidden behind marketing claims/,
+);
+assert.match(text, /build useful trading technology/);
+assert.doesNotMatch(
+  text,
+  /without the final s|The company and the product are distinct/,
+);
 assert.match(text, /Public Demo Reference Account/);
 assert.match(text, /Forward Performance Record/);
 assert.match(text, /Documented Performance/);

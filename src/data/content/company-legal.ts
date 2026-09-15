@@ -2,6 +2,7 @@ export type CompanyLegalPage = {
   label: string;
   title: string;
   introduction: string;
+  nextLinks?: readonly { href: string; label: string }[];
   sections: readonly {
     title: string;
     paragraphs: readonly string[];
@@ -11,61 +12,40 @@ export type CompanyLegalPage = {
 
 export const companyLegalPages = {
   about: {
-    label: "Company / Technology",
+    label: "Company",
     title: "Emerald Legacy Systems",
     introduction:
-      "Quantitative trading technology: signals, software, automation and documented performance, with product roles and evidence kept in context.",
+      "Emerald Legacy Systems develops quantitative trading software, signal tools, automation systems and research-driven market technology for modern trading platforms.",
     sections: [
       {
-        title: "The company and the product are distinct",
+        title: "Our work",
         paragraphs: [
-          "Emerald Legacy Systems is the company/brand behind the technology presented on this website. Emerald Legacy System, without the final s, is the unified multi-signal indicator product. The company name should not be read as the name of a single strategy or a performance record.",
+          "Our work combines system design, market research, software engineering and practical implementation. The Emerald product family includes signal-generation tools, market scanners, trade-management technology and automated trading systems, each designed for a specific role within the trading workflow.",
         ],
-        link: { href: "/indicators", label: "Explore Emerald Legacy System" },
       },
       {
-        title: "A family of tools with different responsibilities",
+        title: "Research and development",
         paragraphs: [
-          "Emerald Legacy System provides signal analysis. Emerald Signal Scanner monitors configured signals and symbols. Emerald Recovery Expert supports semi-automated trade management after the trader opens the first trade. Emerald Quant System is the automated system offering with private investor access.",
-          "An indicator signal is not itself an instruction to execute a trade. Monitoring, assisted management and automated execution have different responsibilities and risks.",
+          "Research and iteration are central to how we work. We test ideas, study market behavior, refine algorithms and evaluate implementation results with the goal of improving our systems over time.",
         ],
-        link: { href: "/systems", label: "Review the product family" },
       },
       {
-        title: "Research and implementation",
+        title: "Transparency",
         paragraphs: [
-          "The research approach separates hypotheses, historical testing, implementation checks and forward observation. Documentation makes assumptions and configuration boundaries explicit. An evaluation framework does not establish that every product has completed every stage or that a strategy will be profitable.",
+          "We believe trading technology should be presented with clear context. Assumptions, results, platform limitations and risk should be communicated plainly rather than hidden behind marketing claims.",
         ],
-        link: { href: "/research", label: "Read the research approach" },
       },
       {
-        title: "Platform-aware software",
+        title: "Our commitment",
         paragraphs: [
-          "The product catalog covers MT4, MT5, TradingView and NinjaTrader. Availability is separate from execution behavior, delivery and activation. A platform listing does not establish identical capabilities or results across environments.",
+          "Our commitment is straightforward: build useful trading technology, improve it continuously and communicate its capabilities and limitations clearly.",
         ],
-        link: { href: "/platforms", label: "Compare platform guidance" },
       },
-      {
-        title: "Documentation with clear limits",
-        paragraphs: [
-          "Documented Results should identify their source, period and configuration. The current Quant Forward Performance Record uses a Public Demo Reference Account for Metals / XAUUSD / MT4. It is not real-money performance and is not attributed to every Emerald product.",
-          "Reviewable documentation does not imply independent audit or third-party certification. Missing evidence should remain visible rather than being treated as assurance.",
-        ],
-        link: {
-          href: "/verification",
-          label: "Understand the evidence boundary",
-        },
-      },
-      {
-        title: "Technology, not personalized advice",
-        paragraphs: [
-          "This website presents software, research and information, not individualized investment advice. Product descriptions do not establish suitability for a particular person, trading account or objective.",
-        ],
-        link: {
-          href: "/risk-disclosure",
-          label: "Read the trading risk disclosure",
-        },
-      },
+    ],
+    nextLinks: [
+      { href: "/technology", label: "Explore our Technology" },
+      { href: "/research", label: "Read our Research" },
+      { href: "/systems", label: "View our Systems" },
     ],
   },
   professional: {

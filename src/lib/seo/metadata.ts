@@ -119,7 +119,7 @@ export const routeSeoMetadata = {
   "/research": {
     title: "Quantitative Trading Research",
     description:
-      "Emerald's research approach to historical testing, implementation validation, forward demo observation and documented iteration, with explicit evidence limits.",
+      "Explore quantitative trading research at Emerald: market hypotheses, testing, system development, methodology and non-proprietary findings.",
     path: "/research",
   },
   "/verification": {
@@ -149,7 +149,7 @@ export const routeSeoMetadata = {
   "/about": {
     title: "About",
     description:
-      "Learn about Emerald Legacy Systems and its quantitative trading technology, research, and system-development approach.",
+      "Emerald Legacy Systems develops quantitative trading software and market technology through research, engineering and continuous improvement.",
     path: "/about",
   },
   "/privacy": {

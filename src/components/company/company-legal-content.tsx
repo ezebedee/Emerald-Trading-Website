@@ -45,6 +45,18 @@ export function CompanyLegalContent({
           ) : null}
         </section>
       ))}
+      {content.nextLinks ? (
+        <nav
+          aria-label="Explore Emerald"
+          className="flex flex-wrap gap-x-8 gap-y-4"
+        >
+          {content.nextLinks.map((link) => (
+            <TextLink key={link.href} href={link.href}>
+              {link.label}
+            </TextLink>
+          ))}
+        </nav>
+      ) : null}
     </Container>
   );
 }

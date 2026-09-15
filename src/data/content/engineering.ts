@@ -60,34 +60,34 @@ export const technologyResponsibilities = [
 export const researchStages = [
   {
     title: "Hypothesis / trading concept",
-    text: "Define the behavior to investigate, the market context and what would contradict the concept before interpreting results.",
+    text: "Identify a market behavior and a question that can be tested.",
   },
   {
     title: "Signal or execution design",
-    text: "Separate informational outputs from entry, position-management and exit responsibilities. Keep the intended product role and configuration explicit.",
+    text: "Define the logic and how to judge whether the idea holds up.",
   },
   {
     title: "Historical testing",
-    text: "Document the dataset, period, spread/slippage assumptions and execution model. Treat a simulation as a model, not an observed account record.",
+    text: "Test against historical data, noting data quality and execution assumptions.",
   },
   {
     title: "Sensitivity and robustness analysis",
-    text: "Examine dependence on parameters and market regimes, and consider overfitting. A favorable historical window is not evidence that nearby settings or future conditions will behave similarly.",
+    text: "Explore nearby settings and changing market conditions, not just the best result.",
   },
   {
     title: "Implementation validation",
-    text: "Compare intended logic with platform behavior: signal timing, chart context, order handling and position state where applicable. Account for the host platform's constraints.",
+    text: "Check that the platform implementation behaves as intended.",
   },
   {
     title: "Forward / demo reference observation",
-    text: "Observe implementation behavior after configuration. Identify the account classification, instrument, platform and observation period rather than treating every forward record as equivalent.",
+    text: "Observe behavior in a forward or demo setting where appropriate.",
   },
   {
     title: "Documented results",
-    text: "Retain record identity, coverage dates, configuration context and evidence labels. Keep missing evidence explicit and simulations distinct from observed records.",
+    text: "Record findings, assumptions and limitations so they can be reviewed.",
   },
   {
     title: "Revision / iteration",
-    text: "Use findings to revisit the hypothesis, implementation or evaluation. Disclose material corrections and distinguish a revision date from the period covered by a result.",
+    text: "Use what is learned to refine the idea and repeat the process.",
   },
 ] as const;

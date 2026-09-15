@@ -1,5 +1,3 @@
-import { ArrowRight } from "lucide-react";
-import { LinkButton } from "@/components/ui/button";
 import { TextLink } from "@/components/ui/text-link";
 import { researchStages } from "@/data/content/engineering";
 import { getPublicResearchEntries } from "@/data/selectors/content";
@@ -14,26 +12,49 @@ const publicationLabels = {
   archived: "Archived",
 } as const;
 
+const principles = [
+  [
+    "Evidence before claims",
+    "Investigate the idea before drawing a conclusion.",
+  ],
+  [
+    "Context matters",
+    "Read findings alongside their assumptions, period and market conditions.",
+  ],
+  [
+    "Robustness over isolated results",
+    "Look beyond a favorable test to nearby settings and different conditions.",
+  ],
+  [
+    "Implementation matters",
+    "Check how the method behaves on its intended platform.",
+  ],
+  ["Markets change", "Revisit assumptions as behavior and conditions evolve."],
+  [
+    "Clear limitations",
+    "Explain what a result supports and what remains uncertain.",
+  ],
+] as const;
+
 export function ResearchContent() {
   const research = getPublicResearchEntries();
   return (
     <EngineeringLayout
-      label="Research / Testing and iteration"
-      title="Research, testing and documented iteration"
-      introduction="Quantitative systems need explicit questions, implementation checks and evidence that can be interpreted in context. Emerald's research approach separates an evaluation method from a claim about a product's outcomes."
+      label="Research and development"
+      title="Research at Emerald Legacy Systems"
+      introduction="Research is part of the development process, not a marketing label. We investigate market behavior, evaluate trading ideas and test assumptions to improve how our systems are built."
     >
-      <EngineeringSection title="An evaluation framework, not a completion certificate">
+      <EngineeringSection title="From idea to implementation">
         <p className="text-muted-foreground max-w-3xl leading-relaxed">
-          These stages describe what to investigate and document. They do not
-          assert that every product has completed every stage, passed every test
-          or reached production. Findings can send work back to an earlier
-          stage.
+          A useful idea must survive more than its first test. These steps guide
+          investigation and revision; they do not imply every product has
+          completed every stage.
         </p>
         <ol className="grid gap-x-10 md:grid-cols-2">
           {researchStages.map((stage, index) => (
             <li
               key={stage.title}
-              className="flex gap-4 border-t border-[var(--border)] py-6"
+              className="flex gap-4 border-t border-[var(--border)] py-5"
             >
               <span
                 aria-hidden="true"
@@ -51,165 +72,71 @@ export function ResearchContent() {
           ))}
         </ol>
       </EngineeringSection>
-      <EngineeringSection title="Different tests address different uncertainties">
-        <div className="grid gap-8 md:grid-cols-2">
-          <div>
-            <h3 className="text-xl font-semibold">
-              Historical testing and implementation fidelity
-            </h3>
-            <p className="text-muted-foreground mt-3 leading-relaxed">
-              Data quality, spread/slippage assumptions, parameter sensitivity,
-              regime dependence and overfitting all affect interpretation.
-              Implementation fidelity asks whether the platform behavior matches
-              the rules being evaluated, rather than assuming simulated
-              execution transfers unchanged.
-            </p>
-            <TextLink
-              href="/performance/live-vs-backtest"
-              className="mt-4 inline-block"
-            >
-              Forward performance vs backtest methodology
-            </TextLink>
-          </div>
-          <div>
-            <h3 className="text-xl font-semibold">
-              Forward observation with account context
-            </h3>
-            <p className="text-muted-foreground mt-3 leading-relaxed">
-              The Public Demo Reference Account is used to observe the
-              configured Quant implementation. Its Forward Performance Record
-              remains specific to Metals / XAUUSD / MT4. Demo execution differs
-              from real-money execution; the current public records are static,
-              not a continuous feed.
-            </p>
-            <TextLink href="/ledger" className="mt-4 inline-block">
-              Read the Emerald Ledger record context
-            </TextLink>
-          </div>
-        </div>
-        <p className="border-l-2 border-[var(--border-gold)] pl-5 leading-relaxed">
-          Validation reduces uncertainty; it does not prove future
-          profitability. Logic verification, historical testing, implementation
-          testing, forward/demo observation and documented evidence address
-          different questions. Production monitoring, where applicable, adds an
-          operational layer; it is not a substitute for those checks. Losses
-          remain possible.
-        </p>
-      </EngineeringSection>
-      <EngineeringSection title="Current public research record">
-        <p className="text-muted-foreground max-w-3xl leading-relaxed">
-          Website visibility and publication status are different. The current
-          research-program record is an internal research note, not evidence of
-          peer-reviewed publication.
-        </p>
-        {research.length ? (
-          research.map((entry) => (
-            <article
-              key={entry.id}
-              className="bg-surface max-w-4xl rounded-lg border border-[var(--border)] p-6"
-            >
-              <p className="text-gold-warm text-sm font-medium">
-                Publication status: {publicationLabels[entry.publicationStatus]}
-              </p>
-              <h3 className="mt-3 text-xl font-semibold">{entry.title}</h3>
-              <p className="text-muted-foreground mt-3 leading-relaxed">
-                {entry.summary}
-              </p>
-              <p className="mt-4 text-sm leading-relaxed">
-                No journal, DOI, authorship or publication date is recorded in
-                the current source. Public availability of this note does not
-                establish external review.
-              </p>
-            </article>
-          ))
-        ) : (
-          <p className="text-muted-foreground">
-            No public research record is currently available.
-          </p>
-        )}
-      </EngineeringSection>
-      <EngineeringSection title="Public outputs and their limits">
-        <dl className="grid gap-6 md:grid-cols-2">
-          <div>
-            <dt className="font-semibold">
-              Architecture and configuration notes
-            </dt>
-            <dd className="text-muted-foreground mt-2 leading-relaxed">
-              Product roles and platform context explain what is being discussed
-              without disclosing proprietary rules. They do not establish
-              identical implementations or completed validation.
-              <br />
-              <TextLink href="/technology" className="mt-3 inline-block">
-                Explore the engineering architecture
-              </TextLink>
-            </dd>
-          </div>
-          <div>
-            <dt className="font-semibold">
-              Documented observations and records
-            </dt>
-            <dd className="text-muted-foreground mt-2 leading-relaxed">
-              Emerald Ledger is a public context and documentation layer, not a
-              scientific certification mechanism. Documented Performance belongs
-              to the stated configuration, not every related product.
-              <br />
-              <TextLink href="/performance" className="mt-3 inline-block">
-                Understand the performance evidence
-              </TextLink>
-            </dd>
-          </div>
-          <div>
-            <dt className="font-semibold">
-              Methodology and evidence comparisons
-            </dt>
-            <dd className="text-muted-foreground mt-2 leading-relaxed">
-              Comparisons distinguish available evidence from missing data. An
-              evaluation method is not a result, and missing metrics should not
-              be reconstructed.
-              <br />
-              <TextLink
-                href="/performance/compare"
-                className="mt-3 inline-block"
-              >
-                Inspect documented evidence availability
-              </TextLink>
-            </dd>
-          </div>
-          <div>
-            <dt className="font-semibold">Screenshots and supporting media</dt>
-            <dd className="text-muted-foreground mt-2 leading-relaxed">
-              Media needs record identity, coverage and context. A chart example
-              or publisher thumbnail alone does not establish independent review
-              or a complete trading record.
-              <br />
-              <TextLink href="/verification" className="mt-3 inline-block">
-                Review documentation boundaries
-              </TextLink>
-            </dd>
-          </div>
+      <EngineeringSection title="Research principles">
+        <dl className="grid gap-x-10 gap-y-6 md:grid-cols-2">
+          {principles.map(([title, text]) => (
+            <div key={title}>
+              <dt className="font-semibold">{title}</dt>
+              <dd className="text-muted-foreground mt-2 leading-relaxed">
+                {text}
+              </dd>
+            </div>
+          ))}
         </dl>
       </EngineeringSection>
-      <EngineeringSection title="Research findings are not commercial promises">
+      <EngineeringSection title="What we share">
         <p className="text-muted-foreground max-w-3xl leading-relaxed">
-          A finding about a signal, parameter setting or historical period does
-          not establish a product-wide outcome. Indicator examples, Scanner
-          observations, Recovery Expert management and Quant strategy results
-          have different scopes. This methodology adds no performance estimates
-          and does not claim independent certification.
+          Public research may include methodology articles, market observations,
+          testing approaches and lessons from system development. We share
+          non-proprietary findings without publishing protected formulas, signal
+          thresholds or execution logic.
+        </p>
+        {research.map((entry) => (
+          <div
+            key={entry.id}
+            className="max-w-3xl border-l-2 border-[var(--border-gold)] pl-5"
+          >
+            <p className="text-gold-warm text-sm">
+              Publication status: {publicationLabels[entry.publicationStatus]}
+            </p>
+            <h3 className="mt-2 text-lg font-semibold">{entry.title}</h3>
+            <p className="text-muted-foreground mt-2 leading-relaxed">
+              This program note is not a peer-reviewed publication.
+            </p>
+          </div>
+        ))}
+        <p className="text-muted-foreground max-w-3xl leading-relaxed">
+          As Emerald&apos;s research program grows, selected public research and
+          community-contributed work may be presented here.
+        </p>
+      </EngineeringSection>
+      <EngineeringSection title="Continuous development">
+        <p className="text-muted-foreground max-w-3xl leading-relaxed">
+          A promising initial test is a starting point, not a finished system.
+          Review, observation and refinement feed back into development.
+          Recording changes and their limitations helps us learn from each
+          iteration.
         </p>
         <p className="text-muted-foreground max-w-3xl leading-relaxed">
-          Material revisions should identify the affected configuration,
-          evidence and reason for change. Research owners must supply supporting
-          records before a result, completed validation stage or publication
-          claim is made public.
+          Research investigates ideas and methods. Technology turns those ideas
+          into engineered tools.
         </p>
-        <LinkButton
-          href="/technology"
-          variant="secondary"
-          trailingIcon={<ArrowRight aria-hidden="true" />}
-        >
-          Return to technology
-        </LinkButton>
+        <TextLink href="/technology">Explore our Technology</TextLink>
+      </EngineeringSection>
+      <EngineeringSection title="Reading results">
+        <p className="text-muted-foreground max-w-3xl leading-relaxed">
+          Testing can reduce uncertainty, but it does not promise future
+          profitability. For account classifications, records and their limits,
+          use the dedicated performance pages.
+        </p>
+        <div className="flex flex-wrap gap-x-8 gap-y-4">
+          <TextLink href="/performance">Performance overview</TextLink>
+          <TextLink href="/verification">Verification methodology</TextLink>
+          <TextLink href="/performance/live-vs-backtest">
+            Forward Performance vs Backtest
+          </TextLink>
+          <TextLink href="/ledger">Emerald Ledger</TextLink>
+        </div>
       </EngineeringSection>
     </EngineeringLayout>
   );

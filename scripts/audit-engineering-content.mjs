@@ -72,17 +72,14 @@ assert.match(technology, /getPublicSignalModules/);
 assert.match(technology, /getPublicPlatformDefinitions/);
 assert.match(research, /getPublicResearchEntries/);
 assert.match(research, /publicationLabels\[entry.publicationStatus\]/);
+assert.match(research, /do not imply every product has completed every stage/);
 assert.match(
   research,
-  /do not assert that every product has completed every stage/,
-);
-assert.match(
-  research,
-  /Validation reduces uncertainty; it does not prove future/,
+  /Testing can reduce uncertainty, but it does not promise future/,
 );
 assert.match(content, /Public Demo Reference Account/);
 assert.match(content, /Forward Performance Record/);
-assert.match(content, /Documented Performance/);
+assert.match(research, /href="\/performance"/);
 assert.match(content, /Metals \/ XAUUSD/);
 assert.match(content, /MT4/);
 assert.match(data, /trader opens the first trade/);
@@ -91,7 +88,22 @@ assert.match(
   /FineScalp capability is not attributed to Recovery Expert or Quant/,
 );
 assert.match(technology, /documentation remains planned/);
-assert.match(research, /not evidence of peer-reviewed publication/);
+assert.match(research, /not a peer-reviewed publication/);
+for (const phrase of [
+  "Research at Emerald Legacy Systems",
+  "From idea to implementation",
+  "Research principles",
+  "What we share",
+  "Continuous development",
+  "non-proprietary findings",
+  "without publishing protected formulas",
+  "community-contributed work may be presented here",
+])
+  assert.ok(research.includes(phrase), phrase);
+assert.doesNotMatch(
+  research,
+  /community is open|submit your|challenges are live|rewards are available/i,
+);
 assert.doesNotMatch(
   content,
   /AI-powered|machine learning|institutional-grade AI|scientifically proven|guaranteed profitability|risk-free trading|live account|independently verified|proven profits|guaranteed returns/i,
