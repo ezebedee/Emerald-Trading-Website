@@ -23,13 +23,13 @@ export const partnerPrograms = [
   {
     id: "certified-mentor",
     title: "Certified Mentor Program",
-    status: "Coming later",
+    status: "Available to eligible Emerald Mentors / Agents",
     audience:
       "For mentors interested in a future quality and competency designation.",
     responsibility:
       "Planned themes include product competence, responsible support, platform familiarity and communication standards.",
     availability:
-      "Certification is not currently available. Assessment criteria and designation requirements have not been published.",
+      "Eligible active Emerald Mentors / Agents may sign in to the Portal to check eligibility and submit an authenticated application. Certification is an internal qualification and does not imply regulatory licensing or guaranteed expertise.",
   },
   {
     id: "research-challenge",

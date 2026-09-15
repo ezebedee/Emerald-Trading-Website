@@ -110,12 +110,15 @@ export default function PartnersPage() {
                   {program.availability}
                 </p>
                 {program.id === "mentor-agent" ||
-                program.id === "creator-partner" ? (
+                program.id === "creator-partner" ||
+                program.id === "certified-mentor" ? (
                   <LinkButton
                     href={portalLoginUrl}
                     trailingIcon={<ArrowRight aria-hidden="true" />}
                   >
-                    Sign in to apply
+                    {program.id === "certified-mentor"
+                      ? "Sign in to check eligibility"
+                      : "Sign in to apply"}
                   </LinkButton>
                 ) : null}
               </article>
