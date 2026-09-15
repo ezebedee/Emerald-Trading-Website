@@ -2,9 +2,37 @@ import assert from "node:assert/strict";
 import { readFileSync, readdirSync } from "node:fs";
 import path from "node:path";
 import { fileURLToPath } from "node:url";
+import {
+  navigationLinks,
+  isActiveRoute,
+} from "../src/components/layout/navigation.ts";
 
 const root = path.resolve(path.dirname(fileURLToPath(import.meta.url)), "..");
 const read = (file) => readFileSync(path.join(root, file), "utf8");
+assert.deepEqual(navigationLinks, [
+  { href: "/", label: "Home" },
+  { href: "/ledger", label: "Emerald Ledger" },
+  { href: "/systems", label: "Systems" },
+  { href: "/indicators", label: "Indicators & Signals" },
+  { href: "/technology", label: "Technology" },
+  { href: "/research", label: "Research" },
+  { href: "/partners", label: "Partners" },
+  { href: "/about", label: "About" },
+]);
+assert.equal(isActiveRoute("/partners", "/partners"), true);
+assert.equal(isActiveRoute("/research", "/partners"), false);
+assert.equal(isActiveRoute("/partnership", "/partners"), false);
+for (const file of ["desktop-nav.tsx", "mobile-nav.tsx"]) {
+  const source = read(`src/components/layout/${file}`);
+  assert.match(source, /navigationLinks\.map/);
+  assert.match(source, /href=\{link.href\}/);
+  assert.match(source, /aria-current=\{isActive \? "page" : undefined\}/);
+  assert.match(source, /focus-emerald/);
+}
+assert.match(
+  read("src/components/layout/mobile-nav.tsx"),
+  /href=\{link.href\}\s+onClick=\{closeMenu\}/,
+);
 const portal = read("src/lib/portal.ts");
 assert.match(
   portal,
@@ -25,6 +53,7 @@ assert.match(
   /href=\{portalLoginUrl\}[\s\S]*?onClick=\{closeMenu\}/,
 );
 const footer = read("src/components/layout/site-footer.tsx");
+assert.match(footer, /href: "\/partners", label: "Partner Hub"/);
 assert.match(footer, /href: "\/signals", label: "Signal Library"/);
 for (const label of ["Client Portal", "Partner Portal"]) {
   assert.ok(footer.includes(`href: portalLoginUrl, label: "${label}"`));
