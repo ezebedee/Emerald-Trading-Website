@@ -2,12 +2,12 @@ export const partnerPrograms = [
   {
     id: "mentor-agent",
     title: "Mentor / Agent Program",
-    status: "In development",
+    status: "Available to existing Emerald account holders",
     audience: "For product-focused mentors and client-support practitioners.",
     responsibility:
       "Support assigned Clients with onboarding, product understanding and ongoing product support. Assist with entitlement and license fulfillment only where authorized.",
     availability:
-      "Existing approved Agents can use assigned-client and authorized fulfillment tools in the Portal. Public program applications are not open through this Hub.",
+      "Existing Emerald account holders may sign in to the Portal to review the program and submit an authenticated application. Approval is for onboarding review; operational Agent access remains a separate Admin-managed step.",
   },
   {
     id: "creator-partner",

@@ -109,6 +109,14 @@ export default function PartnersPage() {
                 <p className="text-muted-foreground mt-5 border-t border-[var(--border)] pt-4 text-sm leading-relaxed">
                   {program.availability}
                 </p>
+                {program.id === "mentor-agent" ? (
+                  <LinkButton
+                    href={portalLoginUrl}
+                    trailingIcon={<ArrowRight aria-hidden="true" />}
+                  >
+                    Sign in to apply
+                  </LinkButton>
+                ) : null}
               </article>
             ))}
           </div>

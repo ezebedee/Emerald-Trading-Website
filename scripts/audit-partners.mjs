@@ -14,7 +14,7 @@ assert.equal(partnerPrograms.length, 5);
 assert.deepEqual(
   partnerPrograms.map(({ status }) => status),
   [
-    "In development",
+    "Available to existing Emerald account holders",
     "Coming later",
     "Coming later",
     "Coming later",
@@ -40,6 +40,7 @@ assert.doesNotMatch(
   /PagePlaceholder|<form\b|<input\b|use server|use client|fetch\(|\/api\//i,
 );
 assert.match(page, /href=\{portalLoginUrl\}/);
+assert.match(page, /Sign in to apply/);
 assert.match(
   read("src/lib/portal.ts"),
   /https:\/\/portal.emeraldforexsystem.com\/login/,
@@ -48,7 +49,11 @@ assert.match(page, /signing in does not enroll/);
 assert.match(page, /No commission is paid merely for recruiting another Agent/);
 assert.match(page, /partnerPrograms.map/);
 assert.match(page, /\{program.status\}/);
-assert.match(content, /Public program applications are not open/);
+assert.match(content, /There are no public application or submission forms/);
+assert.match(
+  content,
+  /Existing Emerald account holders may sign in to the Portal/,
+);
 assert.match(content, /Certification is not currently available/);
 assert.match(
   content,
