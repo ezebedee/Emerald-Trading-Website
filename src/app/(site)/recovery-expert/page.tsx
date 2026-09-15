@@ -36,8 +36,7 @@ export default function RecoveryExpertPage() {
       <RecoveryHero
         product={context.product}
         platforms={context.platforms}
-        asset={context.placeholderAsset}
-        isTemporaryAsset={context.isTemporaryAsset}
+        asset={context.architectureAsset}
       />
       <RecoveryTraderFirstSection />
       <RecoveryWorkflow />

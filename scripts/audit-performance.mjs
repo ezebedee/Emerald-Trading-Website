@@ -29,10 +29,6 @@ const storageTokens = [
   "document.cookie",
   "navigator.userAgent",
 ];
-const allowedLargeMedia = new Set([
-  "public\\brand\\logos\\emerald-legacy-systems-horizontal.png",
-  "public\\brand\\marks\\emerald-elq-mark-signature.png",
-]);
 
 const findFiles = (directory) => {
   const files = [];
@@ -90,13 +86,9 @@ const mediaFiles = findFiles(publicRoot).filter((filePath) =>
 
 for (const filePath of mediaFiles) {
   const relativePath = path.relative(root, filePath);
-  const normalizedRelativePath = relativePath.replaceAll("/", "\\");
   const size = statSync(filePath).size;
 
-  if (
-    size > 2 * 1024 * 1024 &&
-    !allowedLargeMedia.has(normalizedRelativePath)
-  ) {
+  if (size > 2 * 1024 * 1024) {
     failures.push(
       `Unexpected large public media file: ${relativePath} (${Math.round(size / 1024)} KB)`,
     );
@@ -110,7 +102,7 @@ if (!packageJsonSource.includes('"performance:audit"')) {
 console.log("Performance foundation audit");
 console.log(`Client component count: ${clientComponentCount}`);
 console.log(`Public media files scanned: ${mediaFiles.length}`);
-console.log("Known large brand PNGs: approved deferred optimization");
+console.log("Public media budget: 2MB per asset, with no brand exemptions");
 
 if (failures.length) {
   console.error("");

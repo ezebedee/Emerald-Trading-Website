@@ -22,14 +22,7 @@ Do not add Google Analytics, Meta Pixel, Hotjar, Clarity, Sentry, Datadog, New R
 
 Use Next/Image for application images where practical. Meaningful images must keep known dimensions to reduce layout shift.
 
-Public media should use optimized formats such as WebP where established. Official brand PNGs are approved brand assets and should not be reworked in this task.
-
-Known deferred optimization:
-
-- `public/brand/logos/emerald-legacy-systems-horizontal.png` is over 2MB
-- `public/brand/marks/emerald-elq-mark-signature.png` is over 2MB
-
-These are documented asset-audit warnings, not current blockers.
+Public media should use optimized formats such as WebP where established. Task 5.14 converted the two oversized brand PNGs to lossless WebP at their original dimensions, preserving decoded pixels. The 2MB per-file budget now applies without brand exemptions. Next/Image continues serving responsive compact header/footer mark derivatives.
 
 ## Fonts
 
@@ -68,11 +61,9 @@ Future production pages should be measured with Lighthouse, browser profiling, a
 
 The following are known and intentionally deferred:
 
-- two large approved brand PNGs
 - Week 02 Ledger thumbnail missing
 - genuine Day 001 trade-history image missing
 - real external YouTube IDs/URLs pending
 - third-party verification evidence pending
 - incomplete research publication metadata
-- simplified favicon derivative pending
 - raster claim-language corrections still required where flagged

@@ -131,14 +131,16 @@ export const routeSeoMetadata = {
   "/videos": {
     title: "Video Archive",
     description:
-      "Performance updates, product demonstrations, and research videos from Emerald Legacy Systems.",
+      "The Emerald video archive is planned. This page does not yet contain an archive.",
     path: "/videos",
+    noIndex: true,
   },
   "/private-access": {
     title: "Private Access",
     description:
-      "Request authorized access to selected private Emerald Legacy Systems performance and technology information.",
+      "This reserved Emerald page does not currently provide a private-access request workflow.",
     path: "/private-access",
+    noIndex: true,
   },
   "/professional": {
     title: "Professional & Investor",

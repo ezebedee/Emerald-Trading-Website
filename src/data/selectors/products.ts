@@ -293,13 +293,14 @@ const productCapabilityIntentsById = {
 const productAssetById = {
   "emerald-legacy-system": "indicator-emerald-legacy-mt4-overview",
   "emerald-signal-scanner": "scanner-emerald-mt4-results-dashboard",
-  "emerald-recovery-expert": "recovery-expert-placeholder",
+  "emerald-recovery-expert": "recovery-expert-architecture",
 } as const;
 
 const productAssetCaptionById = {
   "emerald-legacy-system": "Emerald Legacy System - MT4 overview",
   "emerald-signal-scanner": "Emerald Signal Scanner - results dashboard",
-  "emerald-recovery-expert": "Recovery Expert workflow preview",
+  "emerald-recovery-expert":
+    "Recovery Expert conceptual architecture, not a trading interface or performance record",
 } as const;
 
 const productLayerLabels = {
@@ -353,7 +354,7 @@ export const getSystemsCatalogPageContext = (): SystemsCatalogPageContext => {
         productAssetCaptionById[
           product.id as keyof typeof productAssetCaptionById
         ],
-      isTemporaryAsset: product.id === "emerald-recovery-expert",
+      isTemporaryAsset: false,
       evidenceNote:
         product.id === "emerald-quant-system-product"
           ? "Documented public Forward Performance is maintained separately in the Emerald Ledger for the current Metals / XAUUSD configuration."
@@ -615,8 +616,7 @@ export const getRecoveryExpertPageContext = (): RecoveryExpertPageContext => {
           Boolean(relatedProduct),
       )
       .filter(isPublicPublished),
-    placeholderAsset: getImageAssetById("recovery-expert-placeholder"),
-    isTemporaryAsset: true,
+    architectureAsset: getImageAssetById("recovery-expert-architecture"),
   };
 };
 
