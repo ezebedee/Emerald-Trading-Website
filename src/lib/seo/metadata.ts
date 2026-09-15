@@ -20,6 +20,12 @@ export type PageMetadataInput = Readonly<{
 }>;
 
 export const routeSeoMetadata = {
+  "/partners": {
+    title: "Partner Hub | Trading Technology and Research Participation",
+    description:
+      "Explore Emerald's trading technology partner pathways, mentor responsibilities and future quantitative research community participation, with clear program availability.",
+    path: "/partners",
+  },
   "/ledger": {
     title: "Emerald Ledger",
     description:

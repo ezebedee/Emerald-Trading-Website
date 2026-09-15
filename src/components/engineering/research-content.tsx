@@ -111,6 +111,9 @@ export function ResearchContent() {
         </p>
       </EngineeringSection>
       <EngineeringSection title="Continuous development">
+        <TextLink href="/partners">
+          Explore future research participation
+        </TextLink>
         <p className="text-muted-foreground max-w-3xl leading-relaxed">
           A promising initial test is a starting point, not a finished system.
           Review, observation and refinement feed back into development.

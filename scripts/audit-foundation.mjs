@@ -1,6 +1,7 @@
 import { spawnSync } from "node:child_process";
 
 const auditCommands = [
+  "scripts/audit-partners.mjs",
   "scripts/audit-data.mjs",
   "scripts/audit-assets.mjs",
   "scripts/audit-seo.mjs",

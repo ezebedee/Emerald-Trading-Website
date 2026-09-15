@@ -33,6 +33,7 @@ const footerSections = [
     ariaLabel: "Footer Company and Research",
     links: [
       { href: "/research", label: "Research" },
+      { href: "/partners", label: "Partner Hub" },
       { href: "/about", label: "About" },
       { href: "/professional", label: "Professional / Investor" },
       { href: portalLoginUrl, label: "Client Portal" },

@@ -11,6 +11,13 @@ export type SeoRoute = Readonly<{
 
 export const publicRouteRegistry = [
   {
+    path: "/partners",
+    indexable: true,
+    includeInSitemap: true,
+    changeFrequency: "monthly",
+    priority: 0.6,
+  },
+  {
     path: "/",
     indexable: true,
     includeInSitemap: true,
