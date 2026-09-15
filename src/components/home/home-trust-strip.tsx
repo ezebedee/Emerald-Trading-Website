@@ -48,7 +48,7 @@ export function HomeTrustStrip() {
             </p>
             <Link
               href="/verification"
-              className="focus-emerald transition-standard text-emerald-bright hover:text-foreground mt-5 inline-flex text-sm font-semibold underline decoration-[var(--border-emerald)] underline-offset-4"
+              className="focus-emerald transition-standard text-emerald hover:text-foreground mt-5 inline-flex text-sm font-semibold underline decoration-[var(--border-emerald)] underline-offset-4"
             >
               How Performance Is Documented
             </Link>
