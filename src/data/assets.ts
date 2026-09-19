@@ -10,9 +10,9 @@ export const brandAssets = {
   signatureMark: {
     id: "brand-elq-signature-mark",
     kind: "brand",
-    src: "/brand/marks/emerald-elq-mark-signature.png",
+    src: "/brand/marks/emerald-elq-mark-signature.webp",
     alt: "Emerald Legacy Systems",
-    format: "png",
+    format: "webp",
     width: 1254,
     height: 1254,
     description:
@@ -24,9 +24,9 @@ export const brandAssets = {
   horizontalLogo: {
     id: "brand-emerald-legacy-systems-horizontal",
     kind: "brand",
-    src: "/brand/logos/emerald-legacy-systems-horizontal.png",
+    src: "/brand/logos/emerald-legacy-systems-horizontal.webp",
     alt: "Emerald Legacy Systems - Quantitative Trading Technology",
-    format: "png",
+    format: "webp",
     width: 1672,
     height: 941,
     description:
@@ -37,7 +37,17 @@ export const brandAssets = {
   } satisfies BrandAsset,
   logos: [] satisfies BrandAsset[],
   marks: [] satisfies BrandAsset[],
-  favicon: [] satisfies BrandAsset[],
+  favicon: [
+    {
+      id: "brand-favicon-elq",
+      kind: "brand",
+      src: "/favicon.ico",
+      alt: "Emerald Legacy Systems",
+      format: "ico",
+      description: "Approved ELQ signature mark at 16, 32 and 48 pixels.",
+      provenance: { source: "Emerald Legacy Systems" },
+    },
+  ] satisfies BrandAsset[],
 } as const;
 
 export const ledgerAssets = {
@@ -152,15 +162,15 @@ export const ledgerAssets = {
 export const siteAssets = {
   systems: [
     {
-      id: "recovery-expert-placeholder",
+      id: "recovery-expert-architecture",
       kind: "image",
-      src: "/images/recovery-expert/recovery-expert-placeholder.webp",
-      alt: "Conceptual Emerald Recovery Expert workflow preview for the public product catalog.",
+      src: "/images/recovery-expert/recovery-expert-architecture.webp",
+      alt: "Recovery Expert architecture: trader-initiated first entry, configured logic and subsequent trade management. Not a trading interface or performance record.",
       format: "webp",
-      width: 1448,
-      height: 1086,
+      width: 1600,
+      height: 900,
       description:
-        "Temporary website-grade Recovery Expert placeholder for catalog use until approved real product screenshots replace it.",
+        "Conceptual product architecture using the approved Emerald mark and existing workflow roles; no account data, chart or outcome is depicted.",
       provenance: {
         source: "Emerald Legacy Systems",
       },

@@ -348,6 +348,5 @@ export type RecoveryExpertPageContext = Readonly<{
   product?: TradingProductDefinition;
   platforms: readonly PlatformDefinition[];
   relatedProducts: readonly TradingProductDefinition[];
-  placeholderAsset?: ImageAsset;
-  isTemporaryAsset: boolean;
+  architectureAsset?: ImageAsset;
 }>;

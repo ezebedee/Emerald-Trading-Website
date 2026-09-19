@@ -43,7 +43,7 @@ function RelationshipCard({ card }: { card: RelationshipCard }) {
       </p>
       {card.href && card.linkLabel ? (
         <Link
-          className="focus-emerald text-emerald-bright mt-5 inline-flex items-center gap-2 text-sm font-semibold"
+          className="focus-emerald text-emerald mt-5 inline-flex items-center gap-2 text-sm font-semibold"
           href={card.href}
         >
           {card.linkLabel}

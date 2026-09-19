@@ -9,6 +9,7 @@ import { Badge } from "@/components/ui/badge";
 import { LinkButton } from "@/components/ui/button";
 import { Container } from "@/components/ui/container";
 import { SectionLabel } from "@/components/ui/section-label";
+import { TextLink } from "@/components/ui/text-link";
 import { getHomepageFeaturedResearch } from "@/data/selectors";
 import type { ResearchItem } from "@/domain";
 
@@ -202,6 +203,10 @@ export function HomeTechnologyResearch() {
 
           <ResearchProgramCard research={research} />
         </div>
+        <p className="text-muted-foreground mt-8 border-t border-[var(--border)] pt-6 leading-relaxed">
+          Product support, education and future research participation.{" "}
+          <TextLink href="/partners">Explore the Partner Hub</TextLink>
+        </p>
       </Container>
     </section>
   );

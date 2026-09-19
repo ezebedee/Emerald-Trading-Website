@@ -20,6 +20,12 @@ export type PageMetadataInput = Readonly<{
 }>;
 
 export const routeSeoMetadata = {
+  "/partners": {
+    title: "Partner Hub | Trading Technology and Research Participation",
+    description:
+      "Explore Emerald's trading technology partner pathways, mentor responsibilities and future quantitative research community participation, with clear program availability.",
+    path: "/partners",
+  },
   "/ledger": {
     title: "Emerald Ledger",
     description:
@@ -65,31 +71,31 @@ export const routeSeoMetadata = {
   "/platforms": {
     title: "Trading Platforms",
     description:
-      "Platform overview foundation for Emerald product availability across MT4, MT5, TradingView, and NinjaTrader.",
+      "Compare Emerald product availability, platform-specific workflows and access guidance for MT4, MT5, TradingView and NinjaTrader.",
     path: "/platforms",
   },
   "/platforms/mt4": {
     title: "MT4 Trading Tools",
     description:
-      "MT4 product implementation guide foundation for Emerald Legacy System, Signal Scanner, Recovery Expert, and private Quant System availability.",
+      "Explore Emerald tools for MetaTrader 4: chart-based workflows, high-level setup, authorized access and configuration-specific performance context.",
     path: "/platforms/mt4",
   },
   "/platforms/mt5": {
     title: "MT5 Trading Tools",
     description:
-      "MT5 product implementation guide foundation for Emerald Legacy System, Signal Scanner, Recovery Expert, and private Quant System availability.",
+      "Review Emerald MT5 product compatibility, platform-specific setup and access guidance without assuming MT4 feature or performance parity.",
     path: "/platforms/mt5",
   },
   "/platforms/tradingview": {
     title: "TradingView Trading Tools",
     description:
-      "TradingView product implementation guide foundation for Emerald Legacy System, Signal Scanner, Recovery Expert, and private Quant System availability.",
+      "Understand Emerald TradingView product availability, visual analysis and managed-access guidance, distinct from MetaTrader execution workflows.",
     path: "/platforms/tradingview",
   },
   "/platforms/ninjatrader": {
     title: "NinjaTrader Trading Tools",
     description:
-      "NinjaTrader product implementation guide foundation for Emerald Legacy System, Signal Scanner, Recovery Expert, and private Quant System availability.",
+      "Explore Emerald NinjaTrader product availability, desktop setup considerations and authorized access for platform-specific implementations.",
     path: "/platforms/ninjatrader",
   },
   "/performance": {
@@ -111,15 +117,15 @@ export const routeSeoMetadata = {
     path: "/performance/live-vs-backtest",
   },
   "/technology": {
-    title: "Technology",
+    title: "Quantitative Trading Technology",
     description:
-      "Explore the quantitative trading technology, system architecture, automation, and analytical framework behind Emerald Legacy Systems.",
+      "Explore Emerald's algorithmic trading architecture: signal information, Scanner monitoring, automated and assisted execution, and platform adaptation.",
     path: "/technology",
   },
   "/research": {
-    title: "Research",
+    title: "Quantitative Trading Research",
     description:
-      "Research, methodologies, technical notes, and quantitative trading studies from Emerald Legacy Systems.",
+      "Explore quantitative trading research at Emerald: market hypotheses, testing, system development, methodology and non-proprietary findings.",
     path: "/research",
   },
   "/verification": {
@@ -131,41 +137,45 @@ export const routeSeoMetadata = {
   "/videos": {
     title: "Video Archive",
     description:
-      "Performance updates, product demonstrations, and research videos from Emerald Legacy Systems.",
+      "The Emerald video archive is planned. This page does not yet contain an archive.",
     path: "/videos",
+    noIndex: true,
   },
   "/private-access": {
     title: "Private Access",
     description:
-      "Request authorized access to selected private Emerald Legacy Systems performance and technology information.",
+      "This reserved Emerald page does not currently provide a private-access request workflow.",
     path: "/private-access",
+    noIndex: true,
   },
   "/professional": {
     title: "Professional & Investor",
     description:
-      "Information for professional, institutional, and investor audiences evaluating Emerald Legacy Systems technology and documented performance.",
+      "Evaluate Emerald trading technology through documented methodology, platform-specific implementation and clearly scoped performance evidence.",
     path: "/professional",
   },
   "/about": {
     title: "About",
     description:
-      "Learn about Emerald Legacy Systems and its quantitative trading technology, research, and system-development approach.",
+      "Emerald Legacy Systems develops quantitative trading software and market technology through research, engineering and continuous improvement.",
     path: "/about",
   },
   "/privacy": {
     title: "Privacy Policy",
-    description: "Privacy policy for Emerald Legacy Systems.",
+    description:
+      "How the current Emerald public website handles browsing, technical information and external links, separately from the Emerald portal.",
     path: "/privacy",
   },
   "/terms": {
     title: "Terms of Use",
-    description: "Terms of use for the Emerald Legacy Systems website.",
+    description:
+      "Terms for using Emerald's public technology content, including reliance limits, intellectual property, acceptable use and external links.",
     path: "/terms",
   },
   "/risk-disclosure": {
     title: "Risk Disclosure",
     description:
-      "Risk disclosures relating to trading, performance information, and the use of Emerald Legacy Systems technology.",
+      "Understand trading, leverage, execution and automation risks, and the limitations of historical testing and Emerald's public demo records.",
     path: "/risk-disclosure",
   },
 } as const satisfies Record<string, PageMetadataInput & { path: string }>;

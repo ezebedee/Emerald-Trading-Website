@@ -72,7 +72,7 @@ function SignalModuleCard({
       </p>
       <Link
         href={`/signals#${module.slug}`}
-        className="focus-emerald transition-standard text-emerald-bright hover:text-foreground mt-5 inline-flex min-h-10 items-center gap-2 text-sm font-semibold underline decoration-[var(--border-emerald)] underline-offset-4"
+        className="focus-emerald transition-standard text-emerald hover:text-foreground mt-5 inline-flex min-h-10 items-center gap-2 text-sm font-semibold underline decoration-[var(--border-emerald)] underline-offset-4"
       >
         View in Signal Library
         <ArrowRight aria-hidden="true" className="size-4" />

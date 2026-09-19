@@ -7,7 +7,7 @@ export function TextLink({ className, ...props }: TextLinkProps) {
   return (
     <a
       className={cn(
-        "focus-emerald transition-standard text-emerald-bright hover:text-foreground hover:decoration-emerald font-medium underline decoration-[var(--border-emerald)] underline-offset-4",
+        "focus-emerald transition-standard text-emerald hover:text-foreground hover:decoration-emerald font-medium underline decoration-[var(--border-emerald)] underline-offset-4",
         className,
       )}
       {...props}

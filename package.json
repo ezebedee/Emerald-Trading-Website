@@ -3,6 +3,7 @@
   "version": "0.1.0",
   "private": true,
   "scripts": {
+    "partners:audit": "node scripts/audit-partners.mjs",
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
@@ -19,7 +20,10 @@
     "foundation:audit": "node scripts/audit-foundation.mjs",
     "seo:audit": "node scripts/audit-seo.mjs",
     "portal:audit": "node scripts/audit-portal-navigation.mjs",
-    "evidence:audit": "node scripts/audit-performance-evidence.mjs"
+    "evidence:audit": "node scripts/audit-performance-evidence.mjs",
+    "engineering:audit": "node scripts/audit-engineering-content.mjs",
+    "platforms:audit": "node scripts/audit-platform-guidance.mjs",
+    "company:audit": "node scripts/audit-company-legal.mjs"
   },
   "dependencies": {
     "clsx": "^2.1.1",
@@ -44,7 +48,7 @@
   },
   "packageManager": "pnpm@11.19.0",
   "engines": {
-    "node": ">=24.19.0 <25.0.0",
+    "node": ">=24.0.0 <25.0.0",
     "pnpm": "11.19.0"
   }
 }

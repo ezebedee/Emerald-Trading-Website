@@ -38,9 +38,9 @@ Recovery Expert is semi-automated, trader-first-entry, and public subscription. 
 
 Recovery Expert uses the canonical product catalog platform matrix and is modeled across MT4, MT5, TradingView, and NinjaTrader. Product-level availability does not imply identical UI, settings, workflow, broker behavior, or implementation details.
 
-## Placeholder Asset Strategy
+## Architecture Visual
 
-The page uses the registered `recovery-expert-placeholder` asset as a temporary conceptual workflow preview. It is not presented as a final EA screenshot or live product interface.
+Task 5.14 replaces the temporary trading-chart graphic with `recovery-expert-architecture`, a neutral product architecture illustration using the approved Emerald mark and existing workflow roles. Trader entry precedes configured logic and trade management. Both its embedded label and visible caption distinguish it from a trading interface or performance record. No positions, balances, prices, outcomes or account data are depicted.
 
 ## Future Real Screenshot Replacement
 

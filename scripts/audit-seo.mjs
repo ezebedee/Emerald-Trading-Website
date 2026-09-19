@@ -1,6 +1,7 @@
 import { existsSync, readdirSync, readFileSync } from "node:fs";
 import path from "node:path";
 import { fileURLToPath } from "node:url";
+import ts from "typescript";
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const root = path.resolve(__dirname, "..");
@@ -79,11 +80,6 @@ const requiredProductRoutePlaceholders = new Map([
   ["/indicators", "Emerald Legacy System"],
   ["/signals", "Signal Library"],
   ["/recovery-expert", "Emerald Recovery Expert"],
-  ["/platforms", "Trading Platforms"],
-  ["/platforms/mt4", "MT4"],
-  ["/platforms/mt5", "MT5"],
-  ["/platforms/tradingview", "TradingView"],
-  ["/platforms/ninjatrader", "NinjaTrader"],
 ]);
 const platformPageRoutes = [
   "/platforms/mt4",
@@ -173,6 +169,61 @@ const pageSourceByRoute = new Map(
     ];
   }),
 );
+// Read literal registry entries through the TypeScript AST, not textual flags.
+const registryAst = ts.createSourceFile(
+  "routes.ts",
+  registrySource,
+  ts.ScriptTarget.Latest,
+  true,
+);
+const registryEntries = new Map();
+const inspectRegistry = (node) => {
+  if (ts.isObjectLiteralExpression(node)) {
+    const values = new Map(
+      node.properties
+        .filter(ts.isPropertyAssignment)
+        .map((property) => [
+          property.name.getText(registryAst),
+          property.initializer,
+        ]),
+    );
+    const route = values.get("path");
+    if (route && ts.isStringLiteral(route)) {
+      registryEntries.set(route.text, {
+        indexable: values.get("indexable")?.kind === ts.SyntaxKind.TrueKeyword,
+        sitemap:
+          values.get("includeInSitemap")?.kind === ts.SyntaxKind.TrueKeyword,
+      });
+    }
+  }
+  ts.forEachChild(node, inspectRegistry);
+};
+inspectRegistry(registryAst);
+for (const [route, source] of pageSourceByRoute) {
+  const entry = registryEntries.get(route);
+  const placeholder = source.includes("<PagePlaceholder");
+  const metadata = metadataBlockForRoute(route);
+  if (placeholder) {
+    if (
+      entry?.indexable ||
+      entry?.sitemap ||
+      !metadata.includes("noIndex: true") ||
+      metadata.includes("noFollow: true")
+    ) {
+      failures.push(
+        `${route}: unfinished public placeholder must be noindex/follow and excluded from sitemap.`,
+      );
+    }
+  } else if (
+    !entry?.indexable ||
+    !entry?.sitemap ||
+    metadata.includes("noIndex: true")
+  ) {
+    failures.push(
+      `${route}: completed public page must remain indexable and in sitemap.`,
+    );
+  }
+}
 const defaultSocialImageAssetIdMatch = metadataSource.match(
   /defaultSocialImageAssetId\s*=\s*"([^"]+)"/,
 );
@@ -259,6 +310,16 @@ for (const [routePath, expectedTitle] of requiredProductRoutePlaceholders) {
     failures.push(
       `${routePath} placeholder must render title "${expectedTitle}".`,
     );
+  }
+}
+
+for (const routePath of ["/platforms", ...platformPageRoutes]) {
+  const source = pageSourceByRoute.get(routePath) ?? "";
+  if (
+    source.includes("PagePlaceholder") ||
+    !source.includes("@/components/platforms/platform-guidance")
+  ) {
+    failures.push(`${routePath} must render substantive platform guidance.`);
   }
 }
 

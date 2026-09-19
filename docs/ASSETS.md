@@ -51,13 +51,14 @@ The default Open Graph image is registered under `siteAssets.socialOg` with the 
 Current approved brand assets:
 
 ```text
-public/brand/marks/emerald-elq-mark-signature.png
-public/brand/logos/emerald-legacy-systems-horizontal.png
+public/brand/marks/emerald-elq-mark-signature.webp
+public/brand/logos/emerald-legacy-systems-horizontal.webp
+src/app/favicon.ico
 ```
 
 The signature mark is approved for the compact website lockup. The horizontal banner is approved for future brand showcase, media, About, Technology, Video Archive, and social contexts. Do not shrink the full banner into the header or footer.
 
-The detailed signature mark is the current favicon source reference only. Final tiny favicon artwork requires a later approved derivative step because the detailed raster mark may not remain legible at favicon sizes.
+Task 5.14 derives the 16/32/48px favicon from the approved signature mark. The emblem identifies the site at tab size; its tiny descriptor text is not intended to be read there. Next's root app file convention serves /favicon.ico and emits the icon metadata. The asset audit resolves this registered app asset separately from public media.
 
 ## Filename Standard
 

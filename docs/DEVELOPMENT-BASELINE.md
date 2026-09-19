@@ -1,6 +1,6 @@
 # Development Baseline
 
-Use Node 24.19.0 (`.nvmrc`; supported range >=24.19.0 <25) and pnpm 11.19.0
+Use Node 24 (`.nvmrc`; supported range >=24.0.0 <25) and pnpm 11.19.0
 (`packageManager` and `engines`). pnpm is the canonical package manager.
 The unchanged lockfile resolves Next.js 16.3.3, React 19.2.8, TypeScript 5.9.3,
 and Tailwind CSS 4.3.3. No application dependencies were upgraded.

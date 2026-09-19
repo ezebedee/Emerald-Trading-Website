@@ -179,7 +179,7 @@ export function HomeLedgerTeaser({
                     <Link
                       href="/ledger"
                       aria-label={`View ${getConciseEntryTitle(entry)} in the Emerald Ledger`}
-                      className="focus-emerald transition-standard text-emerald-bright hover:text-foreground mt-6 inline-flex min-h-10 items-center text-sm font-semibold underline decoration-[var(--border-emerald)] underline-offset-4"
+                      className="focus-emerald transition-standard text-emerald hover:text-foreground mt-6 inline-flex min-h-10 items-center text-sm font-semibold underline decoration-[var(--border-emerald)] underline-offset-4"
                     >
                       View ledger record
                     </Link>

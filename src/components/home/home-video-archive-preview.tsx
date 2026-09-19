@@ -72,7 +72,7 @@ function VideoArchiveCard({ video }: { video: LedgerMediaContextRecord }) {
         <Link
           href="/videos"
           aria-label={`Explore Video Archive for ${video.title}`}
-          className="focus-emerald transition-standard text-emerald-bright hover:text-foreground mt-auto inline-flex min-h-10 items-center pt-6 text-sm font-semibold underline decoration-[var(--border-emerald)] underline-offset-4"
+          className="focus-emerald transition-standard text-emerald hover:text-foreground mt-auto inline-flex min-h-10 items-center pt-6 text-sm font-semibold underline decoration-[var(--border-emerald)] underline-offset-4"
         >
           View archive entry
         </Link>

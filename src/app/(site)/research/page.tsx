@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
 
-import { PagePlaceholder } from "@/components/dev/page-placeholder";
+import { ResearchContent } from "@/components/engineering/research-content";
 import { JsonLd } from "@/components/seo/json-ld";
 import {
   createPageMetadata,
@@ -21,7 +21,7 @@ export default function ResearchPage() {
   return (
     <>
       <JsonLd data={pageJsonLd} />
-      <PagePlaceholder title="Research" variant="narrow" />
+      <ResearchContent />
     </>
   );
 }

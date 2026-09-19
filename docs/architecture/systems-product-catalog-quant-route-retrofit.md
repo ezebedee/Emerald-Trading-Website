@@ -62,7 +62,7 @@ Links that mean product catalog discovery should point to `/systems`. Links that
 
 ## Recovery Placeholder Strategy
 
-The Recovery Expert catalog visual uses a temporary website-grade placeholder asset registered as `recovery-expert-placeholder`. It is internally documented as temporary and can later be replaced by a real Recovery Expert screenshot without restructuring the catalog.
+The Recovery Expert catalog visual uses `recovery-expert-architecture`, a neutral architecture illustration finalized in Task 5.14. It is explicitly not a trading interface or performance record; genuine product screenshots remain a future asset replacement, not fabricated evidence.
 
 ## Deferred Navigation Dropdown
 

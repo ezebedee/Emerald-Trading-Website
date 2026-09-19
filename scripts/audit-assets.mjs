@@ -52,6 +52,16 @@ const walkFiles = (directory) => {
 };
 
 const manifestSource = readFileSync(manifestPath, "utf8");
+const manifestIds = [...manifestSource.matchAll(/\bid:\s*"([^"]+)"/g)].map(
+  (match) => match[1],
+);
+const duplicateIds = manifestIds.filter(
+  (id, index) => manifestIds.indexOf(id) !== index,
+);
+const resolveAsset = (ref) =>
+  ref === "/favicon.ico"
+    ? path.join(root, "src", "app", "favicon.ico")
+    : path.join(publicDir, ref.slice(1));
 const manifestRefs = new Set(
   [...manifestSource.matchAll(/\b(?:src|href):\s*"([^"]+)"/g)]
     .map((match) => match[1])
@@ -67,7 +77,7 @@ const publicMedia = auditedRoots
 
 const publicPaths = new Set(publicMedia.map(toPublicPath));
 const missingManifestFiles = [...manifestRefs].filter(
-  (ref) => !existsSync(path.join(publicDir, ref.slice(1))),
+  (ref) => !existsSync(resolveAsset(ref)),
 );
 const orphanMedia = [...publicPaths].filter((ref) => !manifestRefs.has(ref));
 
@@ -134,6 +144,22 @@ if (duplicates.length) {
   }
 }
 
+if (duplicateIds.length) {
+  console.error(`Duplicate asset registrations: ${duplicateIds.join(", ")}`);
+}
+
+const faviconPath = resolveAsset("/favicon.ico");
+const favicon = existsSync(faviconPath) ? readFileSync(faviconPath) : undefined;
+const validFavicon =
+  favicon &&
+  favicon.length < 32 * 1024 &&
+  favicon.readUInt16LE(0) === 0 &&
+  favicon.readUInt16LE(2) === 1 &&
+  favicon.readUInt16LE(4) === 3 &&
+  [16, 32, 48].every((size, index) => favicon[6 + index * 16] === size);
+if (!validFavicon)
+  console.error("Missing or invalid compact 16/32/48 favicon.");
+
 if (videoMasters.length) {
   console.error("Large/raw video candidates found:");
   for (const filePath of videoMasters)
@@ -144,6 +170,8 @@ const hasFailures =
   missingManifestFiles.length ||
   orphanMedia.length ||
   duplicates.length ||
+  duplicateIds.length ||
+  !validFavicon ||
   videoMasters.length;
 
 if (hasFailures) {
