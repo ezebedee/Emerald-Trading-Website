@@ -38,7 +38,7 @@ export const partnerPrograms = [
     audience:
       "For people interested in structured trading-methodology exploration.",
     responsibility:
-      "A future research pathway for non-proprietary ideas, methodology discussion and system-development investigation, with assumptions and limitations stated clearly.",
+      "A structured pathway for non-proprietary ideas, methodology discussion and system-development investigation, with assumptions and limitations stated clearly.",
     availability:
       "Eligible active Emerald account holders may sign in to the Portal to review the published challenge version, enroll and submit structured research. Submissions are private, deadline-bound and not scored, ranked or presented as verified performance.",
   },
