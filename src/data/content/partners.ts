@@ -34,13 +34,13 @@ export const partnerPrograms = [
   {
     id: "research-challenge",
     title: "Trading Research Challenge",
-    status: "Coming later",
+    status: "Available to eligible Emerald account holders",
     audience:
       "For people interested in structured trading-methodology exploration.",
     responsibility:
       "A future research pathway for non-proprietary ideas, methodology discussion and system-development investigation, with assumptions and limitations stated clearly.",
     availability:
-      "Registration, submissions, scoring and prizes are not available. Participation rules will require a separate program release.",
+      "Eligible active Emerald account holders may sign in to the Portal to review the published challenge version, enroll and submit structured research. Submissions are private, deadline-bound and not scored, ranked or presented as verified performance.",
   },
   {
     id: "research-contributor",

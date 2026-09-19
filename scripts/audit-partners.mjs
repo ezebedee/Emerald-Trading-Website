@@ -17,7 +17,7 @@ assert.deepEqual(
     "Available to existing Emerald account holders",
     "Available to existing Emerald account holders",
     "Available to eligible Emerald Mentors / Agents",
-    "Coming later",
+    "Available to eligible Emerald account holders",
     "Coming later",
   ],
 );
@@ -56,10 +56,7 @@ assert.match(
   /Existing Emerald account holders may sign in to the Portal/,
 );
 assert.match(content, /Certification is an internal qualification/);
-assert.match(
-  content,
-  /Registration, submissions, scoring and prizes are not available/,
-);
+assert.match(content, /Submissions are private, deadline-bound and not scored/);
 assert.doesNotMatch(
   content,
   /guaranteed income|passive income|recruit and earn|unlimited commissions|risk-free|certified expert|official financial adviser|institutional partner|\d+(?:\.\d+)?%/i,
