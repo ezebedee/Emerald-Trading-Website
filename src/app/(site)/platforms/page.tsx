@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
 
-import { PagePlaceholder } from "@/components/dev/page-placeholder";
+import { PlatformsOverview } from "@/components/platforms/platform-guidance";
 import { JsonLd } from "@/components/seo/json-ld";
 import {
   createPageMetadata,
@@ -21,10 +21,7 @@ export default function PlatformsPage() {
   return (
     <>
       <JsonLd data={pageJsonLd} />
-      <PagePlaceholder
-        title="Trading Platforms"
-        description="Platform overview foundation for Emerald product availability across MT4, MT5, TradingView, and NinjaTrader."
-      />
+      <PlatformsOverview />
     </>
   );
 }

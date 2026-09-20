@@ -1,8 +1,7 @@
 import type { Metadata } from "next";
 
-import { PagePlaceholder } from "@/components/dev/page-placeholder";
+import { PlatformGuidance } from "@/components/platforms/platform-guidance";
 import { JsonLd } from "@/components/seo/json-ld";
-import { getPlatformDefinitionBySlug } from "@/data/selectors";
 import {
   createPageMetadata,
   createRouteWebPageJsonLd,
@@ -20,15 +19,10 @@ const pageJsonLd = createRouteWebPageJsonLd("/platforms/mt5", [
 ]);
 
 export default function Mt5Page() {
-  const platform = getPlatformDefinitionBySlug("mt5");
-
   return (
     <>
       <JsonLd data={pageJsonLd} />
-      <PagePlaceholder
-        title={platform?.label ?? "MT5"}
-        description="MT5 product implementation guide foundation for Emerald tools across supported product layers."
-      />
+      <PlatformGuidance platformId="mt5" />
     </>
   );
 }

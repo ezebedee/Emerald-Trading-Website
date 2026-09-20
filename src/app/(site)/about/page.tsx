@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
 
-import { PagePlaceholder } from "@/components/dev/page-placeholder";
+import { CompanyLegalContent } from "@/components/company/company-legal-content";
 import { JsonLd } from "@/components/seo/json-ld";
 import {
   createPageMetadata,
@@ -21,7 +21,7 @@ export default function AboutPage() {
   return (
     <>
       <JsonLd data={pageJsonLd} />
-      <PagePlaceholder title="About" />
+      <CompanyLegalContent page="about" />
     </>
   );
 }

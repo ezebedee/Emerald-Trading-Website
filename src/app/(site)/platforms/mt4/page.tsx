@@ -1,8 +1,7 @@
 import type { Metadata } from "next";
 
-import { PagePlaceholder } from "@/components/dev/page-placeholder";
+import { PlatformGuidance } from "@/components/platforms/platform-guidance";
 import { JsonLd } from "@/components/seo/json-ld";
-import { getPlatformDefinitionBySlug } from "@/data/selectors";
 import {
   createPageMetadata,
   createRouteWebPageJsonLd,
@@ -20,15 +19,10 @@ const pageJsonLd = createRouteWebPageJsonLd("/platforms/mt4", [
 ]);
 
 export default function Mt4Page() {
-  const platform = getPlatformDefinitionBySlug("mt4");
-
   return (
     <>
       <JsonLd data={pageJsonLd} />
-      <PagePlaceholder
-        title={platform?.label ?? "MT4"}
-        description="MT4 product implementation guide foundation for Emerald tools across supported product layers."
-      />
+      <PlatformGuidance platformId="mt4" />
     </>
   );
 }

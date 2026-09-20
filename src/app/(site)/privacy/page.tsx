@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
 
-import { PagePlaceholder } from "@/components/dev/page-placeholder";
+import { CompanyLegalContent } from "@/components/company/company-legal-content";
 import { createPageMetadata, routeSeoMetadata } from "@/lib/seo";
 
 export const metadata: Metadata = createPageMetadata(
@@ -8,5 +8,5 @@ export const metadata: Metadata = createPageMetadata(
 );
 
 export default function PrivacyPage() {
-  return <PagePlaceholder title="Privacy Policy" variant="narrow" />;
+  return <CompanyLegalContent page="privacy" />;
 }
