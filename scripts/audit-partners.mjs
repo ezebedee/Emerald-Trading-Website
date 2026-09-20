@@ -18,7 +18,7 @@ assert.deepEqual(
     "Available to existing Emerald account holders",
     "Available to eligible Emerald Mentors / Agents",
     "Available to eligible Emerald account holders",
-    "Coming later",
+    "Invitation-based participation",
   ],
 );
 assert.deepEqual(
@@ -42,6 +42,12 @@ assert.doesNotMatch(
 assert.match(page, /href=\{portalLoginUrl\}/);
 assert.match(page, /Sign in to apply/);
 assert.match(page, /Sign in to check eligibility/);
+assert.match(page, /Sign in to check invitations/);
+assert.match(content, /Signing in does not enroll you or guarantee selection/);
+assert.match(
+  content,
+  /membership does not grant product access or promise compensation/,
+);
 assert.match(
   read("src/lib/portal.ts"),
   /https:\/\/portal.emeraldforexsystem.com\/login/,

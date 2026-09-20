@@ -112,16 +112,19 @@ export default function PartnersPage() {
                 {program.id === "mentor-agent" ||
                 program.id === "creator-partner" ||
                 program.id === "certified-mentor" ||
-                program.id === "research-challenge" ? (
+                program.id === "research-challenge" ||
+                program.id === "research-contributor" ? (
                   <LinkButton
                     href={portalLoginUrl}
                     trailingIcon={<ArrowRight aria-hidden="true" />}
                   >
-                    {program.id === "certified-mentor"
-                      ? "Sign in to check eligibility"
-                      : program.id === "research-challenge"
-                        ? "Sign in to participate"
-                        : "Sign in to apply"}
+                    {program.id === "research-contributor"
+                      ? "Sign in to check invitations"
+                      : program.id === "certified-mentor"
+                        ? "Sign in to check eligibility"
+                        : program.id === "research-challenge"
+                          ? "Sign in to participate"
+                          : "Sign in to apply"}
                   </LinkButton>
                 ) : null}
               </article>
