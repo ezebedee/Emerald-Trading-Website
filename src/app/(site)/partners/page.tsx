@@ -9,7 +9,7 @@ import { Badge } from "@/components/ui/badge";
 import { LinkButton } from "@/components/ui/button";
 import { TextLink } from "@/components/ui/text-link";
 import { partnerPrograms } from "@/data/content/partners";
-import { portalLoginUrl } from "@/lib/portal";
+import { agentRegistrationUrl, portalLoginUrl } from "@/lib/portal";
 import {
   createPageMetadata,
   createRouteWebPageJsonLd,
@@ -66,6 +66,27 @@ export default function PartnersPage() {
             ))}
           </ul>
         </EngineeringSection>
+        <EngineeringSection title="Apply to become an Emerald Agent">
+          <p className="text-muted-foreground max-w-3xl leading-relaxed">
+            Register to apply, verify your email and set up Google Authenticator
+            MFA in the Portal. Admin review and explicit activation are required
+            before Agent access is granted. Existing account holders sign in
+            with their current account instead of creating another identity.
+          </p>
+          <p className="text-muted-foreground max-w-3xl leading-relaxed">
+            Registration does not grant licenses or promise income. Super Agent
+            is a separate Admin-approved promotion, not a sign-up option.
+          </p>
+          <div className="flex flex-wrap items-center gap-x-8 gap-y-4">
+            <LinkButton
+              href={agentRegistrationUrl}
+              trailingIcon={<ArrowRight aria-hidden="true" />}
+            >
+              Register to apply
+            </LinkButton>
+            <TextLink href={portalLoginUrl}>Sign in</TextLink>
+          </div>
+        </EngineeringSection>
         <EngineeringSection title="Available now: existing partner access">
           <p className="text-muted-foreground max-w-3xl leading-relaxed">
             Existing approved Agents have authenticated tools for assigned
@@ -88,8 +109,8 @@ export default function PartnersPage() {
         <EngineeringSection title="Program pathways">
           <p className="text-muted-foreground max-w-3xl leading-relaxed">
             These program families are not all open. Existing operational access
-            is separate from future public enrollment, certification and
-            research participation.
+            is separate from Agent applications, certification and research
+            participation.
           </p>
           <div className="grid gap-5 md:grid-cols-2">
             {partnerPrograms.map((program) => (
