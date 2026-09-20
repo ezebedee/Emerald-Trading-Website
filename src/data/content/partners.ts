@@ -45,12 +45,12 @@ export const partnerPrograms = [
   {
     id: "research-contributor",
     title: "Research Contributor Program",
-    status: "Coming later",
+    status: "Invitation-based participation",
     audience:
       "For researchers and practitioners interested in selected contributor work.",
     responsibility:
-      "A future pathway for selected non-proprietary contributions, reproducible methodology discussions and collaborative system-development research.",
+      "Selected contributors take part in assigned beta testing, structured experiments, product feedback, signal/filter proposals and product-gap identification.",
     availability:
-      "Contributor submissions and reward programs are not live. Future participation will depend on published scope and review requirements.",
+      "Existing account holders may sign in to check for a personal invitation. Signing in does not enroll you or guarantee selection. Assigned work and review feedback remain private; membership does not grant product access or promise compensation.",
   },
 ] as const;
