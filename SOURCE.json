@@ -1,0 +1,37 @@
+{
+  "sourceRepository": "ezebedee/Emerald-Trading-Website",
+  "sourceSha": "be8c3f0d51e3e48153cb15d2fc99f772c2fc50e7",
+  "generator": {
+    "version": "emerald-release-converter-r3.0",
+    "file": "tools/generate.cjs",
+    "sha256": "9443da56d8708aecbf3ded42581d5138822c2b0d5f28b20db5bff4a7114f40ee"
+  },
+  "lockInput": {
+    "file": "lock-inputs/public/package-lock.json",
+    "sha256": "599b0219313855401026dbbd39071e511bed2655b8a6cd001d5bcb5a5d9c2c87",
+    "packageSha256": "f03ef994c5f959cb0bda6521c14065a26f434938c9916567451dfabb6bdc4871",
+    "canonicalPnpmLockSha256": "2b0506333cef4966b695825c041168237af8c4f2147832bf89db197dd939dcd4"
+  },
+  "rules": {
+    "rootFiles": [
+      ".nvmrc",
+      "next.config.ts",
+      "next-env.d.ts",
+      "tsconfig.json",
+      "postcss.config.mjs",
+      "eslint.config.mjs"
+    ],
+    "directories": [
+      "src",
+      "public"
+    ],
+    "runtimeScripts": [],
+    "excludedTests": true,
+    "reference": "CORRECTION-REPORT.md R3"
+  },
+  "toolchain": {
+    "node": "v24.6.0",
+    "npm": "11.5.1"
+  },
+  "fixedProvenanceDate": "2026-09-21T00:00:00Z"
+}

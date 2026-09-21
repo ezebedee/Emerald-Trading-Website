@@ -1,0 +1,1165 @@
+import {
+  indicators,
+  platformDefinitions,
+  productPlatformImplementations,
+  productRelationships,
+  signalModules,
+  signalProducts,
+  systemFamilies,
+  tradingSystems,
+  tradingProductCatalog,
+} from "@/data/products";
+
+import { getAssetById } from "./assets";
+import {
+  getLedgerMediaContextRecords,
+  getLedgerVerificationEvidenceRecords,
+} from "./content";
+import {
+  getCumulativePerformanceSeriesFromRecords,
+  formatPublicRecordCoverage,
+  getEffectiveCumulativeMetrics,
+  getLatestPublicCumulativeLedgerRecordFromRecords,
+  getLatestPublicPerformanceSummaryFromRecords,
+  getLedgerPublicRecordOverviewFromRecords,
+  getLedgerEntryById,
+  getPublicLedgerChronologyEntriesFromRecords,
+} from "./ledger";
+import type {
+  IndicatorsPageContext,
+  LedgerConfigurationOption,
+  LedgerPageContext,
+  RecoveryExpertPageContext,
+  SignalScannerPageContext,
+  SignalsPageContext,
+  SystemsCatalogPageContext,
+  SystemsPageCapability,
+  SystemsPageConfigurationOption,
+  SystemsPagePerformanceContext,
+  SystemsPagePrimarySystem,
+} from "./types";
+
+const defaultSystemsPageConfigurationId = "emerald-quant-system";
+
+const lifecycleStatusLabels = {
+  research: "Research",
+  testing: "Testing",
+  "public-forward-test": "Public Forward Test",
+  "private-production": "Private Production",
+  retired: "Retired",
+} as const;
+
+const marketCategoryLabels = {
+  metals: "Metals",
+  forex: "Forex",
+  indices: "Indices",
+  equities: "Equities",
+  options: "Options",
+  futures: "Futures",
+  cfds: "CFDs",
+  crypto: "Crypto",
+  other: "Other",
+} as const;
+
+const performanceClassificationLabels = {
+  "forward-performance": "Forward Performance",
+  backtest: "Backtest",
+  simulation: "Simulation",
+  "private-live-performance": "Private Performance",
+} as const;
+
+const capabilityPresentation: Record<
+  string,
+  Omit<SystemsPageCapability, "id">
+> = {
+  "signal interpretation": {
+    label: "Signal Interpretation",
+    description:
+      "Processes signal-generation inputs within the broader system rule set.",
+    category: "Input Processing",
+  },
+  "automated trade execution": {
+    label: "Automated Trade Execution",
+    description:
+      "Applies system rules to automated trade implementation on the supported execution platform.",
+    category: "Execution",
+  },
+  "risk-management logic": {
+    label: "Risk-Management Logic",
+    description:
+      "Applies defined risk-management logic as part of system-level trade handling.",
+    category: "System Control",
+  },
+  "position management": {
+    label: "Position Management",
+    description:
+      "Manages open-position handling within the system's defined rule framework.",
+    category: "Trade Management",
+  },
+  "trade lifecycle management": {
+    label: "Trade Lifecycle Management",
+    description:
+      "Coordinates trade handling across system-defined stages from initiation through closure.",
+    category: "Lifecycle Coordination",
+  },
+};
+
+const titleCaseCapability = (capability: string) =>
+  capability
+    .split(/[\s-]+/)
+    .filter(Boolean)
+    .map((word) => `${word.charAt(0).toUpperCase()}${word.slice(1)}`)
+    .join(" ");
+
+const toSystemsPageCapability = (capability: string): SystemsPageCapability => {
+  const presentation = capabilityPresentation[capability] ?? {
+    label: titleCaseCapability(capability),
+    description: "Canonical system capability.",
+    category: "System Capability",
+  };
+
+  return {
+    id: capability,
+    ...presentation,
+  };
+};
+
+const isPublicPublished = <
+  T extends { visibility: string; contentStatus: string },
+>(
+  record: T,
+) => record.visibility === "public" && record.contentStatus === "published";
+
+const isPublicForwardPerformance = (entry: {
+  visibility: string;
+  performanceClassification: string;
+}) =>
+  entry.visibility === "public" &&
+  entry.performanceClassification === "forward-performance";
+
+const latestByEndDateThenId = <T extends { endDate: string; id: string }>(
+  entries: readonly T[],
+) =>
+  entries.reduce<T | undefined>((latest, entry) => {
+    if (!latest) {
+      return entry;
+    }
+
+    const dateSort = entry.endDate.localeCompare(latest.endDate);
+
+    if (dateSort > 0) {
+      return entry;
+    }
+
+    if (dateSort === 0 && entry.id.localeCompare(latest.id) > 0) {
+      return entry;
+    }
+
+    return latest;
+  }, undefined);
+
+export const getPublicTradingSystems = () =>
+  tradingSystems.filter(isPublicPublished);
+
+export const getPublicTradingProducts = () =>
+  tradingProductCatalog.filter(isPublicPublished);
+
+export const getTradingProductById = (id: string) =>
+  tradingProductCatalog.find((product) => product.id === id);
+
+export const getTradingProductBySlug = (slug: string) =>
+  tradingProductCatalog.find((product) => product.slug === slug);
+
+export const getPublicTradingProductBySlug = (slug: string) => {
+  const product = getTradingProductBySlug(slug);
+
+  return product && isPublicPublished(product) ? product : undefined;
+};
+
+export const getPublicPlatformDefinitions = () =>
+  platformDefinitions.filter(isPublicPublished);
+
+export const getPlatformDefinitionById = (id: string) =>
+  platformDefinitions.find((platform) => platform.id === id);
+
+export const getPlatformDefinitionBySlug = (slug: string) =>
+  platformDefinitions.find((platform) => platform.slug === slug);
+
+export const getProductsForPlatform = (platformId: string) =>
+  getPublicTradingProducts().filter((product) =>
+    product.supportedPlatformIds.some(
+      (supportedPlatformId) => supportedPlatformId === platformId,
+    ),
+  );
+
+export const getProductPlatformImplementation = ({
+  productId,
+  platformId,
+}: {
+  productId: string;
+  platformId: string;
+}) =>
+  productPlatformImplementations.find(
+    (implementation) =>
+      implementation.productId === productId &&
+      implementation.platformId === platformId,
+  );
+
+export const getPlatformImplementationsForProduct = (productId: string) =>
+  productPlatformImplementations.filter(
+    (implementation) => implementation.productId === productId,
+  );
+
+export const getPublicSignalModules = () =>
+  signalModules.filter(isPublicPublished);
+
+export const getSignalModuleById = (id: string) =>
+  signalModules.find((module) => module.id === id);
+
+export const getSignalModuleBySlug = (slug: string) =>
+  signalModules.find((module) => module.slug === slug);
+
+export const getSignalModulesForProduct = (productId: string) => {
+  const product = getTradingProductById(productId);
+
+  if (!product || !isPublicPublished(product)) {
+    return [];
+  }
+
+  return (product.signalModuleIds ?? [])
+    .map(getSignalModuleById)
+    .filter((module): module is NonNullable<typeof module> => Boolean(module))
+    .filter(isPublicPublished);
+};
+
+export const getPrimarySignalModules = () =>
+  getPublicSignalModules().filter((module) => module.role === "primary");
+
+export const getAuxiliarySignalModules = () =>
+  getPublicSignalModules().filter((module) => module.role === "auxiliary");
+
+export const getProductRelationshipsForProduct = (productId: string) =>
+  productRelationships.filter(
+    (relationship) =>
+      relationship.sourceProductId === productId ||
+      relationship.targetProductId === productId,
+  );
+
+const getImageAssetById = (assetId: string) => {
+  const asset = getAssetById(assetId);
+
+  return asset?.kind === "image" ? asset : undefined;
+};
+
+const productRouteById = {
+  "emerald-legacy-system": "/indicators",
+  "emerald-signal-scanner": "/signal-scanner",
+  "emerald-recovery-expert": "/recovery-expert",
+  "emerald-quant-system-product": "/systems/quant",
+} as const;
+
+const productCtaById = {
+  "emerald-legacy-system": "Explore Emerald Legacy System",
+  "emerald-signal-scanner": "Explore Signal Scanner",
+  "emerald-recovery-expert": "Explore Recovery Expert",
+  "emerald-quant-system-product": "Explore Quant System",
+} as const;
+
+const productCapabilityIntentsById = {
+  "emerald-legacy-system": [
+    "Unified signal framework",
+    "Main / FineScalp / Scalp / Range / Harmonizer / SAFE",
+    "Configurable signal analysis",
+  ],
+  "emerald-signal-scanner": [
+    "Configure signals",
+    "Select symbols",
+    "Scan and filter results",
+    "Open chart context",
+    "Alerts",
+  ],
+  "emerald-recovery-expert": [
+    "Trader initiates the first trade",
+    "Designed to manage subsequent recovery actions toward the configured recovery and profit objective",
+    "Semi-automated trade-management workflow",
+  ],
+  "emerald-quant-system-product": [
+    "Fully automated quantitative trading system",
+    "Private investor access model",
+    "Product-level availability across supported platforms",
+  ],
+} as const;
+
+const productAssetById = {
+  "emerald-legacy-system": "indicator-emerald-legacy-mt4-overview",
+  "emerald-signal-scanner": "scanner-emerald-mt4-results-dashboard",
+  "emerald-recovery-expert": "recovery-expert-architecture",
+} as const;
+
+const productAssetCaptionById = {
+  "emerald-legacy-system": "Emerald Legacy System - MT4 overview",
+  "emerald-signal-scanner": "Emerald Signal Scanner - results dashboard",
+  "emerald-recovery-expert":
+    "Recovery Expert conceptual architecture, not a trading interface or performance record",
+} as const;
+
+const productLayerLabels = {
+  "analysis-signal": "Analysis & Signal",
+  "monitoring-scanning": "Monitoring & Scanning",
+  "assisted-execution": "Assisted Execution",
+  "automated-execution": "Automated Execution",
+} as const;
+
+const productAccessModelLabels = {
+  "public-subscription": "Public Subscription",
+  "private-investor": "Private Investor",
+  internal: "Internal",
+  research: "Research",
+} as const;
+
+export const getSystemsCatalogPageContext = (): SystemsCatalogPageContext => {
+  const platforms = getPublicPlatformDefinitions();
+  const platformsById = new Map(
+    platforms.map((platform) => [platform.id, platform]),
+  );
+  const products = getPublicTradingProducts().map((product) => {
+    const assetId =
+      productAssetById[product.id as keyof typeof productAssetById];
+
+    return {
+      id: product.id,
+      name: product.name,
+      shortName: product.shortName,
+      description: product.description,
+      role: product.role,
+      layer: productLayerLabels[product.productLayer],
+      accessModel: productAccessModelLabels[product.accessModel],
+      platforms: product.supportedPlatformIds
+        .map((platformId) => platformsById.get(platformId))
+        .filter((platform): platform is NonNullable<typeof platform> =>
+          Boolean(platform),
+        ),
+      capabilityIntents:
+        productCapabilityIntentsById[
+          product.id as keyof typeof productCapabilityIntentsById
+        ] ?? [],
+      href:
+        productRouteById[product.id as keyof typeof productRouteById] ??
+        "/systems",
+      cta:
+        productCtaById[product.id as keyof typeof productCtaById] ??
+        "Explore Product",
+      asset: assetId ? getImageAssetById(assetId) : undefined,
+      assetCaption:
+        productAssetCaptionById[
+          product.id as keyof typeof productAssetCaptionById
+        ],
+      isTemporaryAsset: false,
+      evidenceNote:
+        product.id === "emerald-quant-system-product"
+          ? "Documented public Forward Performance is maintained separately in the Emerald Ledger for the current Metals / XAUUSD configuration."
+          : undefined,
+    };
+  });
+
+  return {
+    products,
+    platforms,
+    productImplementations: productPlatformImplementations,
+    layers: [
+      {
+        label: "Analysis & Signal",
+        productName: "Emerald Legacy System",
+        description:
+          "Unified signal analysis and configurable signal modules for chart-based decision context.",
+      },
+      {
+        label: "Monitoring & Scanning",
+        productName: "Emerald Signal Scanner",
+        description:
+          "Multi-symbol and multi-signal monitoring for selected instruments and signal modules.",
+      },
+      {
+        label: "Assisted Execution",
+        productName: "Emerald Recovery Expert",
+        description:
+          "Trader-first-entry management for subsequent recovery actions according to configured logic.",
+      },
+      {
+        label: "Automated Execution",
+        productName: "Emerald Quant System",
+        description:
+          "Private automated execution model kept separate from public subscription tools and Ledger ownership.",
+      },
+    ],
+    workflows: [
+      {
+        label: "Signal & Analysis",
+        productName: "Emerald Legacy System",
+        description:
+          "Use the unified multi-signal indicator framework for analysis and signal context.",
+      },
+      {
+        label: "Monitoring",
+        productName: "Emerald Signal Scanner",
+        description:
+          "Monitor selected symbols and signal modules from a central scanning workflow.",
+      },
+      {
+        label: "Manual-First Assisted Management",
+        productName: "Emerald Recovery Expert",
+        description:
+          "Initiate the first trade manually, then use assisted management for subsequent recovery actions.",
+      },
+      {
+        label: "Private Full Automation",
+        productName: "Emerald Quant System",
+        description:
+          "Evaluate private-investor automated system access separately from public subscriptions.",
+      },
+    ],
+  };
+};
+
+export const getIndicatorsPageContext = (): IndicatorsPageContext => {
+  const product = getPublicTradingProductBySlug("emerald-legacy-system");
+  const assets = {
+    settings: getImageAssetById("indicator-emerald-legacy-mt4-settings"),
+    overview: getImageAssetById("indicator-emerald-legacy-mt4-overview"),
+    mainSignal: getImageAssetById("signal-main-mt4-example"),
+    fineScalp: getImageAssetById("signal-finescalp-mt4-offline-example"),
+    scalp: getImageAssetById("signal-scalp-mt4-example"),
+    range: getImageAssetById("signal-range-mt4-example"),
+    harmonizer: getImageAssetById("signal-harmonizer-mt4-example"),
+    harmonizerSafe: getImageAssetById("signal-harmonizer-safe-mt4-example"),
+  };
+  const modules = product ? getSignalModulesForProduct(product.id) : [];
+  const productPlatformIds = new Set(product?.supportedPlatformIds ?? []);
+  const productRelationshipRecords = product
+    ? getProductRelationshipsForProduct(product.id)
+    : [];
+  const relatedProductIds = new Set(product?.relatedProductIds ?? []);
+
+  for (const relationship of productRelationshipRecords) {
+    if (relationship.sourceProductId !== product?.id) {
+      relatedProductIds.add(relationship.sourceProductId);
+    }
+
+    if (relationship.targetProductId !== product?.id) {
+      relatedProductIds.add(relationship.targetProductId);
+    }
+  }
+
+  return {
+    product,
+    heroAsset:
+      assets.overview ?? getImageAssetById("indicator-emerald-signal-mt4-01"),
+    assets,
+    primarySignalModules: modules.filter((module) => module.role === "primary"),
+    auxiliarySignalModules: modules.filter(
+      (module) => module.role === "auxiliary",
+    ),
+    platforms: getPublicPlatformDefinitions().filter((platform) =>
+      productPlatformIds.has(platform.id),
+    ),
+    relatedProducts: [...relatedProductIds]
+      .map(getTradingProductById)
+      .filter(
+        (
+          relatedProduct,
+        ): relatedProduct is NonNullable<typeof relatedProduct> =>
+          Boolean(relatedProduct),
+      )
+      .filter(isPublicPublished),
+    relationships: productRelationshipRecords,
+  };
+};
+
+export const getSignalsPageContext = (): SignalsPageContext => {
+  const signalFramework = getPublicSignalProducts().find(
+    (signalProduct) => signalProduct.id === "emerald-directional-signal-stream",
+  );
+  const legacySystem = getPublicTradingProductBySlug("emerald-legacy-system");
+  const modules = signalFramework
+    ? (signalFramework.signalModuleIds ?? [])
+        .map(getSignalModuleById)
+        .filter((module): module is NonNullable<typeof module> =>
+          Boolean(module),
+        )
+        .filter(isPublicPublished)
+    : getPublicSignalModules();
+  const relatedProductIds = new Set<string>([
+    ...(legacySystem?.relatedProductIds ?? []),
+    ...(signalFramework?.relatedIndicatorIds ?? []),
+    ...(signalFramework?.relatedSystemIds ?? []),
+  ]);
+
+  if (legacySystem) {
+    relatedProductIds.add(legacySystem.id);
+  }
+
+  return {
+    signalFramework,
+    legacySystem,
+    primarySignalModules: modules.filter((module) => module.role === "primary"),
+    auxiliarySignalModules: modules.filter(
+      (module) => module.role === "auxiliary",
+    ),
+    platforms: getPublicPlatformDefinitions(),
+    relatedProducts: [...relatedProductIds]
+      .map((id) =>
+        id === "emerald-quant-system"
+          ? getTradingProductById("emerald-quant-system-product")
+          : getTradingProductById(id),
+      )
+      .filter(
+        (
+          relatedProduct,
+        ): relatedProduct is NonNullable<typeof relatedProduct> =>
+          Boolean(relatedProduct),
+      )
+      .filter(isPublicPublished),
+    assets: {
+      main: getImageAssetById("signal-main-mt4-example"),
+      fineScalp: getImageAssetById("signal-finescalp-mt4-offline-example"),
+      scalp: getImageAssetById("signal-scalp-mt4-example"),
+      range: getImageAssetById("signal-range-mt4-example"),
+      harmonizer: getImageAssetById("signal-harmonizer-mt4-example"),
+      harmonizerSafe: getImageAssetById("signal-harmonizer-safe-mt4-example"),
+    },
+  };
+};
+
+export const getSignalScannerPageContext = (): SignalScannerPageContext => {
+  const product = getPublicTradingProductBySlug("emerald-signal-scanner");
+  const legacySystem = getPublicTradingProductBySlug("emerald-legacy-system");
+  const productPlatformIds = new Set(product?.supportedPlatformIds ?? []);
+  const productRelationshipRecords = product
+    ? getProductRelationshipsForProduct(product.id)
+    : [];
+  const relatedProductIds = new Set<string>([
+    ...(product?.relatedProductIds ?? []),
+  ]);
+
+  for (const relationship of productRelationshipRecords) {
+    if (relationship.sourceProductId !== product?.id) {
+      relatedProductIds.add(relationship.sourceProductId);
+    }
+
+    if (relationship.targetProductId !== product?.id) {
+      relatedProductIds.add(relationship.targetProductId);
+    }
+  }
+
+  return {
+    product,
+    legacySystem,
+    platforms: getPublicPlatformDefinitions().filter((platform) =>
+      productPlatformIds.has(platform.id),
+    ),
+    signalModules: product ? getSignalModulesForProduct(product.id) : [],
+    relatedProducts: [...relatedProductIds]
+      .map(getTradingProductById)
+      .filter(
+        (
+          relatedProduct,
+        ): relatedProduct is NonNullable<typeof relatedProduct> =>
+          Boolean(relatedProduct),
+      )
+      .filter(isPublicPublished),
+    assets: {
+      configuration: getImageAssetById("scanner-emerald-mt4-configuration"),
+      selection: getImageAssetById(
+        "scanner-emerald-mt4-symbol-signal-selection",
+      ),
+      dashboard: getImageAssetById("scanner-emerald-mt4-results-dashboard"),
+      chartContextAlert: getImageAssetById(
+        "scanner-emerald-mt4-chart-context-alert",
+      ),
+    },
+  };
+};
+
+export const getRecoveryExpertPageContext = (): RecoveryExpertPageContext => {
+  const product = getPublicTradingProductBySlug("emerald-recovery-expert");
+  const productPlatformIds = new Set(product?.supportedPlatformIds ?? []);
+  const productRelationshipRecords = product
+    ? getProductRelationshipsForProduct(product.id)
+    : [];
+  const relatedProductIds = new Set<string>([
+    ...(product?.relatedProductIds ?? []),
+    "emerald-signal-scanner",
+    "emerald-quant-system-product",
+  ]);
+
+  for (const relationship of productRelationshipRecords) {
+    if (relationship.sourceProductId !== product?.id) {
+      relatedProductIds.add(relationship.sourceProductId);
+    }
+
+    if (relationship.targetProductId !== product?.id) {
+      relatedProductIds.add(relationship.targetProductId);
+    }
+  }
+
+  return {
+    product,
+    platforms: getPublicPlatformDefinitions().filter((platform) =>
+      productPlatformIds.has(platform.id),
+    ),
+    relatedProducts: [...relatedProductIds]
+      .map(getTradingProductById)
+      .filter(
+        (
+          relatedProduct,
+        ): relatedProduct is NonNullable<typeof relatedProduct> =>
+          Boolean(relatedProduct),
+      )
+      .filter(isPublicPublished),
+    architectureAsset: getImageAssetById("recovery-expert-architecture"),
+  };
+};
+
+export const getPublicSystemFamilies = () =>
+  systemFamilies.filter(isPublicPublished);
+
+export const getSystemFamilyById = (id: string) =>
+  systemFamilies.find((family) => family.id === id);
+
+export const getPrimaryPublicSystemFamily = () =>
+  getPublicSystemFamilies().find(
+    (family) => family.id === "emerald-quant-system-family",
+  );
+
+export const getPublicConfigurationsForFamily = (familyId: string) =>
+  getPublicTradingSystems().filter((system) => system.familyId === familyId);
+
+const getListedPublicConfigurationsForFamily = (familyId: string) => {
+  const family = getSystemFamilyById(familyId);
+
+  if (!family || !isPublicPublished(family)) {
+    return [];
+  }
+
+  const publicConfigurationsById = new Map(
+    getPublicConfigurationsForFamily(familyId).map((system) => [
+      system.id,
+      system,
+    ]),
+  );
+
+  return family.configurationIds
+    .map((id) => publicConfigurationsById.get(id))
+    .filter((system): system is NonNullable<typeof system> => Boolean(system));
+};
+
+export const getDefaultPublicConfigurationForFamily = (familyId: string) =>
+  getListedPublicConfigurationsForFamily(familyId).find(
+    (system) =>
+      system.id === defaultSystemsPageConfigurationId &&
+      system.familyId === familyId,
+  );
+
+export const getSystemsPageSelectedConfiguration = ({
+  familyId,
+  requestedConfigurationId,
+}: {
+  familyId: string;
+  requestedConfigurationId?: string;
+}) => {
+  const publicConfigurations = getListedPublicConfigurationsForFamily(familyId);
+  const requestedConfiguration = requestedConfigurationId
+    ? publicConfigurations.find(
+        (system) => system.id === requestedConfigurationId,
+      )
+    : undefined;
+
+  return (
+    requestedConfiguration ?? getDefaultPublicConfigurationForFamily(familyId)
+  );
+};
+
+export const getSystemsPageConfigurationOptions = ({
+  selectedConfigurationId,
+}: {
+  selectedConfigurationId?: string;
+} = {}): readonly SystemsPageConfigurationOption[] => {
+  const family = getPrimaryPublicSystemFamily();
+
+  if (!family) {
+    return [];
+  }
+
+  const publicConfigurations = getPublicConfigurationsForFamily(family.id);
+
+  return family.marketCategories.map((marketCategory) => {
+    const configuration = family.configurationIds
+      .map((id) => publicConfigurations.find((system) => system.id === id))
+      .find((system) => system?.marketCategories.includes(marketCategory));
+
+    return {
+      marketCategory,
+      label: marketCategoryLabels[marketCategory],
+      available: Boolean(configuration),
+      isSelected: configuration?.id === selectedConfigurationId,
+      configurationId: configuration?.id,
+      configurationName: configuration?.configurationName,
+      href:
+        configuration && configuration.id !== defaultSystemsPageConfigurationId
+          ? `/systems/quant?configuration=${encodeURIComponent(configuration.id)}`
+          : configuration
+            ? "/systems/quant"
+            : undefined,
+    };
+  });
+};
+
+export const getPublicLedgerEntriesForConfiguration = (
+  configurationId: string,
+) => {
+  const family = getPrimaryPublicSystemFamily();
+
+  if (!family) {
+    return [];
+  }
+
+  const configuration = getListedPublicConfigurationsForFamily(family.id).find(
+    (system) => system.id === configurationId,
+  );
+
+  if (!configuration) {
+    return [];
+  }
+
+  return (configuration.performanceRecordIds ?? [])
+    .map(getLedgerEntryById)
+    .filter((entry): entry is NonNullable<typeof entry> => Boolean(entry))
+    .filter(isPublicForwardPerformance);
+};
+
+export const getDefaultPublicLedgerConfiguration = () => {
+  const family = getPrimaryPublicSystemFamily();
+
+  return family ? getDefaultPublicConfigurationForFamily(family.id) : undefined;
+};
+
+export const getSelectedPublicLedgerConfiguration = ({
+  requestedConfigurationId,
+}: {
+  requestedConfigurationId?: string;
+} = {}) => {
+  const family = getPrimaryPublicSystemFamily();
+
+  return family
+    ? getSystemsPageSelectedConfiguration({
+        familyId: family.id,
+        requestedConfigurationId,
+      })
+    : undefined;
+};
+
+export const getLedgerConfigurationOptions = ({
+  selectedConfigurationId,
+}: {
+  selectedConfigurationId?: string;
+} = {}): readonly LedgerConfigurationOption[] => {
+  const family = getPrimaryPublicSystemFamily();
+
+  if (!family) {
+    return [];
+  }
+
+  const publicConfigurations = getListedPublicConfigurationsForFamily(
+    family.id,
+  );
+
+  return family.marketCategories.map((marketCategory) => {
+    const configuration = publicConfigurations.find((system) =>
+      system.marketCategories.includes(marketCategory),
+    );
+
+    return {
+      marketCategory,
+      label: marketCategoryLabels[marketCategory],
+      available: Boolean(configuration),
+      isSelected: configuration?.id === selectedConfigurationId,
+      configurationId: configuration?.id,
+      configurationName: configuration?.configurationName,
+      href:
+        configuration && configuration.id !== defaultSystemsPageConfigurationId
+          ? `/ledger?configuration=${encodeURIComponent(configuration.id)}`
+          : configuration
+            ? "/ledger"
+            : undefined,
+    };
+  });
+};
+
+export const getLatestPublicCumulativeLedgerRecordForConfiguration = (
+  configurationId: string,
+) =>
+  getLatestPublicCumulativeLedgerRecordFromRecords(
+    getPublicLedgerEntriesForConfiguration(configurationId),
+  );
+
+export const getPublicLedgerSummaryForConfiguration = (
+  configurationId: string,
+) =>
+  getLatestPublicPerformanceSummaryFromRecords(
+    getPublicLedgerEntriesForConfiguration(configurationId),
+  );
+
+export const getPublicLedgerChronologyForConfiguration = (
+  configurationId: string,
+) =>
+  getPublicLedgerChronologyEntriesFromRecords(
+    getPublicLedgerEntriesForConfiguration(configurationId),
+  );
+
+export const getPublicLedgerProgressionForConfiguration = (
+  configurationId: string,
+) =>
+  getCumulativePerformanceSeriesFromRecords(
+    getPublicLedgerEntriesForConfiguration(configurationId),
+  );
+
+export const getLedgerPageContext = ({
+  requestedConfigurationId,
+}: {
+  requestedConfigurationId?: string;
+} = {}): LedgerPageContext => {
+  const family = getPrimaryPublicSystemFamily();
+  const selectedConfiguration = getSelectedPublicLedgerConfiguration({
+    requestedConfigurationId,
+  });
+  const records = selectedConfiguration
+    ? getPublicLedgerEntriesForConfiguration(selectedConfiguration.id)
+    : [];
+  const chronology = selectedConfiguration
+    ? getPublicLedgerChronologyForConfiguration(selectedConfiguration.id)
+    : [];
+
+  return {
+    selectedConfiguration:
+      family && selectedConfiguration
+        ? {
+            familyId: family.id,
+            familyName: family.name,
+            configurationId: selectedConfiguration.id,
+            configurationName: selectedConfiguration.configurationName,
+            markets: selectedConfiguration.marketCategories.map(
+              (category) => marketCategoryLabels[category],
+            ),
+            instruments: selectedConfiguration.instruments ?? [],
+            platforms: selectedConfiguration.platforms,
+            lifecycleStatus:
+              lifecycleStatusLabels[selectedConfiguration.lifecycleStatus],
+            publicRecordCount: records.length,
+          }
+        : undefined,
+    configurationOptions: getLedgerConfigurationOptions({
+      selectedConfigurationId: selectedConfiguration?.id,
+    }),
+    overview: getLedgerPublicRecordOverviewFromRecords(records),
+    latestCumulative: selectedConfiguration
+      ? getLatestPublicCumulativeLedgerRecordForConfiguration(
+          selectedConfiguration.id,
+        )
+      : undefined,
+    summary: selectedConfiguration
+      ? getPublicLedgerSummaryForConfiguration(selectedConfiguration.id)
+      : undefined,
+    progression: selectedConfiguration
+      ? getPublicLedgerProgressionForConfiguration(selectedConfiguration.id)
+      : [],
+    chronology,
+    verification: getLedgerVerificationEvidenceRecords({
+      ledgerEntryIds: records.map((record) => record.id),
+      systemId: selectedConfiguration?.id,
+    }),
+    media: getLedgerMediaContextRecords({
+      chronologyEntries: chronology,
+      systemId: selectedConfiguration?.id,
+    }),
+  };
+};
+
+export const getHomepageFeaturedTradingSystem = () =>
+  getPublicTradingSystems().find(
+    (system) => system.id === "emerald-quant-system",
+  );
+
+export const getSystemsPagePrimarySystem = ():
+  SystemsPagePrimarySystem | undefined => {
+  const system = getPublicTradingSystems().find(
+    (candidate) => candidate.id === "emerald-quant-system",
+  );
+  const family = system ? getSystemFamilyById(system.familyId) : undefined;
+
+  if (!system || !family || !isPublicPublished(family)) {
+    return undefined;
+  }
+
+  const indicator = getPublicIndicatorsForSystem(system.id).find(
+    (candidate) => candidate.id === "emerald-signal-indicator",
+  );
+  const signal = getPublicSignalsForSystem(system.id).find(
+    (candidate) => candidate.id === "emerald-directional-signal-stream",
+  );
+
+  return {
+    id: system.id,
+    family: {
+      id: family.id,
+      name: family.name,
+      marketCoverage: family.marketCategories.map(
+        (category) => marketCategoryLabels[category],
+      ),
+    },
+    configurationKey: system.configurationKey,
+    configurationName: system.configurationName,
+    name: system.name,
+    shortName: system.shortName,
+    systemType: "Algorithmic Trading System",
+    status: lifecycleStatusLabels[system.lifecycleStatus],
+    platforms: system.platforms,
+    markets: system.marketCategories.map(
+      (category) => marketCategoryLabels[category],
+    ),
+    instruments: system.instruments ?? [],
+    capabilities: (system.capabilities ?? []).map(toSystemsPageCapability),
+    relatedIndicator: indicator
+      ? {
+          id: indicator.id,
+          name: indicator.name,
+          role: "Chart-based analytical and signal-generation input.",
+          href: "/indicators",
+        }
+      : undefined,
+    relatedSignal: signal
+      ? {
+          id: signal.id,
+          name: signal.name,
+          role: "Directional signal context for the system layer.",
+          href: "/signals",
+        }
+      : undefined,
+    publicRecordLabel: "Emerald Ledger",
+  };
+};
+
+export const getPublicIndicators = () => indicators.filter(isPublicPublished);
+
+export const getHomepageFeaturedIndicator = () =>
+  getPublicIndicators().find(
+    (indicator) => indicator.id === "emerald-signal-indicator",
+  );
+
+export const getPublicSignalProducts = () =>
+  signalProducts.filter(isPublicPublished);
+
+export const getHomepageFeaturedSignalProduct = () =>
+  getPublicSignalProducts().find(
+    (signalProduct) => signalProduct.id === "emerald-directional-signal-stream",
+  );
+
+export const getTradingSystemById = (id: string) =>
+  tradingSystems.find((system) => system.id === id);
+
+export const getIndicatorById = (id: string) =>
+  indicators.find((indicator) => indicator.id === id);
+
+export const getSignalProductById = (id: string) =>
+  signalProducts.find((signalProduct) => signalProduct.id === id);
+
+export const getTradingSystemBySlug = (slug: string) =>
+  tradingSystems.find((system) => system.slug === slug);
+
+export const getIndicatorBySlug = (slug: string) =>
+  indicators.find((indicator) => indicator.slug === slug);
+
+export const getSignalProductBySlug = (slug: string) =>
+  signalProducts.find((signalProduct) => signalProduct.slug === slug);
+
+export const getIndicatorsForSystem = (systemId: string) => {
+  const system = getTradingSystemById(systemId);
+
+  return (system?.relatedIndicatorIds ?? [])
+    .map(getIndicatorById)
+    .filter((indicator): indicator is NonNullable<typeof indicator> =>
+      Boolean(indicator),
+    );
+};
+
+export const getPublicIndicatorsForSystem = (systemId: string) =>
+  getIndicatorsForSystem(systemId).filter(isPublicPublished);
+
+export const getSignalsForSystem = (systemId: string) => {
+  const system = getTradingSystemById(systemId);
+
+  return (system?.relatedSignalIds ?? [])
+    .map(getSignalProductById)
+    .filter((signal): signal is NonNullable<typeof signal> => Boolean(signal));
+};
+
+export const getPublicSignalsForSystem = (systemId: string) =>
+  getSignalsForSystem(systemId).filter(isPublicPublished);
+
+export const getSystemsForIndicator = (indicatorId: string) => {
+  const indicator = getIndicatorById(indicatorId);
+
+  return (indicator?.relatedSystemIds ?? [])
+    .map(getTradingSystemById)
+    .filter((system): system is NonNullable<typeof system> => Boolean(system));
+};
+
+export const getPublicSystemsForIndicator = (indicatorId: string) =>
+  getSystemsForIndicator(indicatorId).filter(isPublicPublished);
+
+export const getSignalsForIndicator = (indicatorId: string) => {
+  const indicator = getIndicatorById(indicatorId);
+
+  return (indicator?.relatedSignalIds ?? [])
+    .map(getSignalProductById)
+    .filter((signal): signal is NonNullable<typeof signal> => Boolean(signal));
+};
+
+export const getPublicSignalsForIndicator = (indicatorId: string) =>
+  getSignalsForIndicator(indicatorId).filter(isPublicPublished);
+
+export const getSystemsForSignal = (signalId: string) => {
+  const signal = getSignalProductById(signalId);
+
+  return (signal?.relatedSystemIds ?? [])
+    .map(getTradingSystemById)
+    .filter((system): system is NonNullable<typeof system> => Boolean(system));
+};
+
+export const getPublicSystemsForSignal = (signalId: string) =>
+  getSystemsForSignal(signalId).filter(isPublicPublished);
+
+export const getIndicatorsForSignal = (signalId: string) => {
+  const signal = getSignalProductById(signalId);
+
+  return (signal?.relatedIndicatorIds ?? [])
+    .map(getIndicatorById)
+    .filter((indicator): indicator is NonNullable<typeof indicator> =>
+      Boolean(indicator),
+    );
+};
+
+export const getPublicIndicatorsForSignal = (signalId: string) =>
+  getIndicatorsForSignal(signalId).filter(isPublicPublished);
+
+export const getPerformanceRecordsForSystem = (systemId: string) => {
+  const system = getTradingSystemById(systemId);
+
+  return (system?.performanceRecordIds ?? [])
+    .map(getLedgerEntryById)
+    .filter((entry): entry is NonNullable<typeof entry> => Boolean(entry));
+};
+
+export const getPublicPerformanceRecordsForSystem = (systemId: string) =>
+  getPerformanceRecordsForSystem(systemId).filter(isPublicForwardPerformance);
+
+export const getSystemsPagePerformanceContext = (
+  systemId: string,
+): SystemsPagePerformanceContext | undefined => {
+  const system = getPublicTradingSystems().find(
+    (candidate) => candidate.id === systemId,
+  );
+  const family = system ? getSystemFamilyById(system.familyId) : undefined;
+
+  if (!system || !family || !isPublicPublished(family)) {
+    return undefined;
+  }
+
+  const publicRecords = getPublicPerformanceRecordsForSystem(system.id);
+  const latestCumulativeRecord = latestByEndDateThenId(
+    publicRecords.filter((entry) => entry.periodType === "cumulative"),
+  );
+  const metrics = latestCumulativeRecord
+    ? getEffectiveCumulativeMetrics(latestCumulativeRecord)
+    : undefined;
+
+  return {
+    systemId: system.id,
+    familyId: family.id,
+    familyName: family.name,
+    familyMarketCoverage: family.marketCategories.map(
+      (category) => marketCategoryLabels[category],
+    ),
+    configurationName: system.configurationName,
+    configurationMarkets: system.marketCategories.map(
+      (category) => marketCategoryLabels[category],
+    ),
+    configurationInstruments: system.instruments ?? [],
+    platforms: system.platforms,
+    lifecycleStatus: lifecycleStatusLabels[system.lifecycleStatus],
+    performanceClassification:
+      performanceClassificationLabels["forward-performance"],
+    latestCumulativeRecord:
+      latestCumulativeRecord && metrics
+        ? {
+            id: latestCumulativeRecord.id,
+            title: latestCumulativeRecord.title,
+            coverageLabel: formatPublicRecordCoverage(
+              latestCumulativeRecord.startDate,
+              latestCumulativeRecord.endDate,
+            ),
+            metrics: [
+              {
+                label: "Cumulative Net Profit",
+                value: metrics.netProfit,
+                kind: "currency",
+              },
+              {
+                label: "Cumulative Return",
+                value: metrics.returnPct,
+                kind: "percentage",
+              },
+              {
+                label: "Total Trades",
+                value: metrics.totalTrades,
+                kind: "count",
+              },
+              {
+                label: "Win Rate",
+                value: metrics.winRatePct,
+                kind: "percentage",
+              },
+              {
+                label: "Maximum Drawdown",
+                value: metrics.maxDrawdownPct,
+                kind: "percentage",
+              },
+            ],
+          }
+        : undefined,
+    publicRecordCount: publicRecords.length,
+  };
+};
+
+export const getFeaturedAssetForSystem = (systemId: string) => {
+  const system = getTradingSystemById(systemId);
+
+  return system?.featuredAssetId
+    ? getAssetById(system.featuredAssetId)
+    : undefined;
+};
+
+export const getFeaturedAssetForIndicator = (indicatorId: string) => {
+  const indicator = getIndicatorById(indicatorId);
+
+  return indicator?.featuredAssetId
+    ? getAssetById(indicator.featuredAssetId)
+    : undefined;
+};
+
+export const getFeaturedAssetForSignal = (signalId: string) => {
+  const signal = getSignalProductById(signalId);
+
+  return signal?.featuredAssetId
+    ? getAssetById(signal.featuredAssetId)
+    : undefined;
+};
