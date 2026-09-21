@@ -14,7 +14,7 @@ assert.equal(partnerPrograms.length, 5);
 assert.deepEqual(
   partnerPrograms.map(({ status }) => status),
   [
-    "Available to existing Emerald account holders",
+    "Registration and application available",
     "Available to existing Emerald account holders",
     "Available to eligible Emerald Mentors / Agents",
     "Available to eligible Emerald account holders",
@@ -40,6 +40,15 @@ assert.doesNotMatch(
   /PagePlaceholder|<form\b|<input\b|use server|use client|fetch\(|\/api\//i,
 );
 assert.match(page, /href=\{portalLoginUrl\}/);
+assert.match(page, /href=\{agentRegistrationUrl\}/);
+assert.match(page, /Register to apply/);
+assert.match(page, /verify your email and set up Google Authenticator MFA/);
+assert.match(page, /Admin review and explicit activation are required/);
+assert.match(page, /Super Agent is a separate Admin-approved promotion/);
+assert.match(
+  read("src/lib/portal.ts"),
+  /https:\/\/portal\.emeraldforexsystem\.com\/register\/agent/,
+);
 assert.match(page, /Sign in to apply/);
 assert.match(page, /Sign in to check eligibility/);
 assert.match(page, /Sign in to check invitations/);
