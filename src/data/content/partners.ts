@@ -1,6 +1,9 @@
+import type { PortalProgramIntent } from "@/lib/portal";
+
 export const partnerPrograms = [
   {
     id: "mentor-agent",
+    intent: "mentor-agent",
     title: "Mentor / Agent Program",
     status: "Registration and application available",
     audience: "For product-focused mentors and client-support practitioners.",
@@ -11,6 +14,7 @@ export const partnerPrograms = [
   },
   {
     id: "creator-partner",
+    intent: "creator",
     title: "Creator Partner Program",
     status: "Available to existing Emerald account holders",
     audience:
@@ -22,6 +26,7 @@ export const partnerPrograms = [
   },
   {
     id: "certified-mentor",
+    intent: "certified-mentor",
     title: "Certified Mentor Program",
     status: "Available to eligible Emerald Mentors / Agents",
     audience:
@@ -33,6 +38,7 @@ export const partnerPrograms = [
   },
   {
     id: "research-challenge",
+    intent: "trading-research",
     title: "Trading Research Challenge",
     status: "Available to eligible Emerald account holders",
     audience:
@@ -44,6 +50,7 @@ export const partnerPrograms = [
   },
   {
     id: "research-contributor",
+    intent: "research-contributor",
     title: "Research Contributor Program",
     status: "Invitation-based participation",
     audience:
@@ -53,4 +60,12 @@ export const partnerPrograms = [
     availability:
       "Existing account holders may sign in to check for a personal invitation. Signing in does not enroll you or guarantee selection. Assigned work and review feedback remain private; membership does not grant product access or promise compensation.",
   },
-] as const;
+] as const satisfies readonly {
+  id: string;
+  intent: PortalProgramIntent;
+  title: string;
+  status: string;
+  audience: string;
+  responsibility: string;
+  availability: string;
+}[];

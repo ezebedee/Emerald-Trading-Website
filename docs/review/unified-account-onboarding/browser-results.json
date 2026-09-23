@@ -1,0 +1,193 @@
+{
+  "boundary": "Local public production build only. All portal requests fulfilled by a test stub; no portal auth, cookies or providers tested.",
+  "viewports": [
+    {
+      "viewport": {
+        "width": 1440,
+        "height": 1000
+      },
+      "checks": [
+        "mentor-agent",
+        "creator-partner",
+        "certified-mentor",
+        "research-challenge",
+        "research-contributor",
+        "Agent primary CTA",
+        "Agent existing-account CTA",
+        "/ header Sign In",
+        "/ footer Client Portal",
+        "/ footer Partner Portal",
+        "/partners header Sign In",
+        "/partners footer Client Portal",
+        "/partners footer Partner Portal",
+        "public research discovery navigation"
+      ],
+      "intercepted": [
+        "https://portal.emeraldforexsystem.com/login?intent=mentor-agent",
+        "https://portal.emeraldforexsystem.com/login?intent=creator",
+        "https://portal.emeraldforexsystem.com/login?intent=certified-mentor",
+        "https://portal.emeraldforexsystem.com/login?intent=trading-research",
+        "https://portal.emeraldforexsystem.com/login?intent=research-contributor",
+        "https://portal.emeraldforexsystem.com/login?intent=mentor-agent",
+        "https://portal.emeraldforexsystem.com/login?intent=mentor-agent",
+        "https://portal.emeraldforexsystem.com/login",
+        "https://portal.emeraldforexsystem.com/login",
+        "https://portal.emeraldforexsystem.com/login",
+        "https://portal.emeraldforexsystem.com/login",
+        "https://portal.emeraldforexsystem.com/login",
+        "https://portal.emeraldforexsystem.com/login"
+      ],
+      "errors": [],
+      "horizontalOverflow": false
+    },
+    {
+      "viewport": {
+        "width": 375,
+        "height": 812
+      },
+      "checks": [
+        "mentor-agent",
+        "creator-partner",
+        "certified-mentor",
+        "research-challenge",
+        "research-contributor",
+        "Agent primary CTA",
+        "Agent existing-account CTA",
+        "/ header Sign In",
+        "/ footer Client Portal",
+        "/ footer Partner Portal",
+        "/partners header Sign In",
+        "/partners footer Client Portal",
+        "/partners footer Partner Portal",
+        "public research discovery navigation"
+      ],
+      "intercepted": [
+        "https://portal.emeraldforexsystem.com/login?intent=mentor-agent",
+        "https://portal.emeraldforexsystem.com/login?intent=creator",
+        "https://portal.emeraldforexsystem.com/login?intent=certified-mentor",
+        "https://portal.emeraldforexsystem.com/login?intent=trading-research",
+        "https://portal.emeraldforexsystem.com/login?intent=research-contributor",
+        "https://portal.emeraldforexsystem.com/login?intent=mentor-agent",
+        "https://portal.emeraldforexsystem.com/login?intent=mentor-agent",
+        "https://portal.emeraldforexsystem.com/login",
+        "https://portal.emeraldforexsystem.com/login",
+        "https://portal.emeraldforexsystem.com/login",
+        "https://portal.emeraldforexsystem.com/login",
+        "https://portal.emeraldforexsystem.com/login",
+        "https://portal.emeraldforexsystem.com/login"
+      ],
+      "errors": [],
+      "horizontalOverflow": false
+    }
+  ],
+  "publicRoutes": [
+    {
+      "path": "/partners",
+      "status": 200
+    },
+    {
+      "path": "/",
+      "status": 200
+    },
+    {
+      "path": "/ledger",
+      "status": 200
+    },
+    {
+      "path": "/systems",
+      "status": 200
+    },
+    {
+      "path": "/systems/quant",
+      "status": 200
+    },
+    {
+      "path": "/indicators",
+      "status": 200
+    },
+    {
+      "path": "/signals",
+      "status": 200
+    },
+    {
+      "path": "/signal-scanner",
+      "status": 200
+    },
+    {
+      "path": "/recovery-expert",
+      "status": 200
+    },
+    {
+      "path": "/platforms",
+      "status": 200
+    },
+    {
+      "path": "/platforms/mt4",
+      "status": 200
+    },
+    {
+      "path": "/platforms/mt5",
+      "status": 200
+    },
+    {
+      "path": "/platforms/tradingview",
+      "status": 200
+    },
+    {
+      "path": "/platforms/ninjatrader",
+      "status": 200
+    },
+    {
+      "path": "/performance",
+      "status": 200
+    },
+    {
+      "path": "/performance/compare",
+      "status": 200
+    },
+    {
+      "path": "/performance/live-vs-backtest",
+      "status": 200
+    },
+    {
+      "path": "/technology",
+      "status": 200
+    },
+    {
+      "path": "/research",
+      "status": 200
+    },
+    {
+      "path": "/verification",
+      "status": 200
+    },
+    {
+      "path": "/videos",
+      "status": 200
+    },
+    {
+      "path": "/private-access",
+      "status": 200
+    },
+    {
+      "path": "/professional",
+      "status": 200
+    },
+    {
+      "path": "/about",
+      "status": 200
+    },
+    {
+      "path": "/privacy",
+      "status": 200
+    },
+    {
+      "path": "/terms",
+      "status": 200
+    },
+    {
+      "path": "/risk-disclosure",
+      "status": 200
+    }
+  ]
+}

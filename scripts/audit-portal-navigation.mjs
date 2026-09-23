@@ -3,12 +3,51 @@ import { readFileSync, readdirSync } from "node:fs";
 import path from "node:path";
 import { fileURLToPath } from "node:url";
 import {
+  portalLoginUrl,
+  portalProgramIntents,
+  portalProgramLoginUrl,
+} from "../src/lib/portal.ts";
+import {
   navigationLinks,
   isActiveRoute,
 } from "../src/components/layout/navigation.ts";
 
 const root = path.resolve(path.dirname(fileURLToPath(import.meta.url)), "..");
 const read = (file) => readFileSync(path.join(root, file), "utf8");
+assert.deepEqual(portalProgramIntents, [
+  "mentor-agent",
+  "creator",
+  "certified-mentor",
+  "research-contributor",
+  "trading-research",
+]);
+for (const intent of portalProgramIntents) {
+  const url = new URL(portalProgramLoginUrl(intent));
+  assert.equal(url.origin + url.pathname, portalLoginUrl);
+  assert.deepEqual([...url.searchParams], [["intent", intent]]);
+  assert.equal(url.hash, "");
+}
+for (const invalid of [
+  undefined,
+  null,
+  "",
+  "admin",
+  "creator-partner",
+  "research-challenge",
+  "https://example.invalid",
+  "//example.invalid",
+  "/admin",
+  "creator&returnTo=https://example.invalid",
+  "CREATOR",
+  " creator",
+  "%63reator",
+  "__proto__",
+  "constructor",
+  {},
+  [],
+]) {
+  assert.equal(portalProgramLoginUrl(invalid), portalLoginUrl);
+}
 assert.deepEqual(navigationLinks, [
   { href: "/", label: "Home" },
   { href: "/ledger", label: "Emerald Ledger" },
@@ -63,6 +102,11 @@ const files = readdirSync(path.join(root, "src"), { recursive: true }).filter(
 );
 for (const file of files) {
   const source = read(`src/${file}`);
+  assert.doesNotMatch(
+    source,
+    /agentRegistrationUrl|\/register\/agent|[?&](?:returnTo|returnUrl|callbackUrl|redirect|next)=/i,
+    `${file}: only canonical entry and identifiers, no raw return URLs`,
+  );
   assert.doesNotMatch(
     source,
     /https?:\/\/[^\s"'<>]*(?:hostingersite\.com|hstgr\.cloud|api\.emeraldforexsystem\.com)/,

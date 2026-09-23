@@ -1,6 +1,7 @@
 import assert from "node:assert/strict";
 import { readFileSync } from "node:fs";
 import { partnerPrograms } from "../src/data/content/partners.ts";
+import { portalProgramLoginUrl } from "../src/lib/portal.ts";
 import { publicRouteRegistry } from "../src/lib/seo/routes.ts";
 
 const read = (file) =>
@@ -40,18 +41,40 @@ assert.doesNotMatch(
   /PagePlaceholder|<form\b|<input\b|use server|use client|fetch\(|\/api\//i,
 );
 assert.match(page, /href=\{portalLoginUrl\}/);
-assert.match(page, /href=\{agentRegistrationUrl\}/);
-assert.match(page, /Register to apply/);
-assert.match(page, /verify your email and set up Google Authenticator MFA/);
+assert.match(page, /href=\{portalProgramLoginUrl\("mentor-agent"\)\}/);
+assert.match(page, /href=\{portalProgramLoginUrl\(program.intent\)\}/);
+assert.match(page, /Continue to Agent application/);
+assert.match(page, /verify your email and set up mandatory authenticator MFA/);
 assert.match(page, /Admin review and explicit activation are required/);
 assert.match(page, /Super Agent is a separate Admin-approved promotion/);
-assert.match(
-  read("src/lib/portal.ts"),
-  /https:\/\/portal\.emeraldforexsystem\.com\/register\/agent/,
+assert.deepEqual(
+  partnerPrograms.map(({ id, intent }) => [id, intent]),
+  [
+    ["mentor-agent", "mentor-agent"],
+    ["creator-partner", "creator"],
+    ["certified-mentor", "certified-mentor"],
+    ["research-challenge", "trading-research"],
+    ["research-contributor", "research-contributor"],
+  ],
 );
-assert.match(page, /Sign in to apply/);
-assert.match(page, /Sign in to check eligibility/);
-assert.match(page, /Sign in to check invitations/);
+for (const program of partnerPrograms) {
+  assert.equal(
+    portalProgramLoginUrl(program.intent),
+    `https://portal.emeraldforexsystem.com/login?intent=${program.intent}`,
+  );
+}
+assert.match(page, /Continue to application/);
+assert.match(page, /Check eligibility/);
+assert.match(page, /Check invitations/);
+assert.match(
+  page,
+  /Account membership is a prerequisite, not program acceptance/,
+);
+assert.match(
+  page,
+  /creating an account does not purchase a product, grant a license/,
+);
+assert.match(page, /competitions, payments and rankings remain deferred/);
 assert.match(content, /Signing in does not enroll you or guarantee selection/);
 assert.match(
   content,
@@ -86,5 +109,5 @@ for (const file of [
   assert.match(read(file), /href="\/partners"/);
 }
 console.log(
-  "Partner Hub audit passed: statuses, route/SEO, discovery, portal distinction and no application workflow. Human claim review remains required.",
+  "Partner Hub audit passed: five program intents, statuses, route/SEO, discovery, membership boundaries and no public application workflow. Human claim review remains required.",
 );
