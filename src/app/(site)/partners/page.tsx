@@ -9,7 +9,7 @@ import { Badge } from "@/components/ui/badge";
 import { LinkButton } from "@/components/ui/button";
 import { TextLink } from "@/components/ui/text-link";
 import { partnerPrograms } from "@/data/content/partners";
-import { agentRegistrationUrl, portalLoginUrl } from "@/lib/portal";
+import { portalLoginUrl, portalProgramLoginUrl } from "@/lib/portal";
 import {
   createPageMetadata,
   createRouteWebPageJsonLd,
@@ -68,10 +68,11 @@ export default function PartnersPage() {
         </EngineeringSection>
         <EngineeringSection title="Apply to become an Emerald Agent">
           <p className="text-muted-foreground max-w-3xl leading-relaxed">
-            Register to apply, verify your email and set up Google Authenticator
-            MFA in the Portal. Admin review and explicit activation are required
-            before Agent access is granted. Existing account holders sign in
-            with their current account instead of creating another identity.
+            Sign in or create an account to apply, verify your email and set up
+            mandatory authenticator MFA in the Portal. Admin review and explicit
+            activation are required before Agent access is granted. Existing
+            account holders sign in with their current account instead of
+            creating another identity.
           </p>
           <p className="text-muted-foreground max-w-3xl leading-relaxed">
             Registration does not grant licenses or promise income. Super Agent
@@ -79,12 +80,14 @@ export default function PartnersPage() {
           </p>
           <div className="flex flex-wrap items-center gap-x-8 gap-y-4">
             <LinkButton
-              href={agentRegistrationUrl}
+              href={portalProgramLoginUrl("mentor-agent")}
               trailingIcon={<ArrowRight aria-hidden="true" />}
             >
-              Register to apply
+              Continue to Agent application
             </LinkButton>
-            <TextLink href={portalLoginUrl}>Sign in</TextLink>
+            <TextLink href={portalProgramLoginUrl("mentor-agent")}>
+              Sign in
+            </TextLink>
           </div>
         </EngineeringSection>
         <EngineeringSection title="Available now: existing partner access">
@@ -112,6 +115,14 @@ export default function PartnersPage() {
             is separate from Agent applications, certification and research
             participation.
           </p>
+          <p className="text-muted-foreground max-w-3xl leading-relaxed">
+            Sign in with your existing account or create an Emerald account in
+            the Portal. New users can choose Client registration or Apply as an
+            Agent. Account membership is a prerequisite, not program acceptance:
+            creating an account does not purchase a product, grant a license or
+            grant Agent authority. Each program retains its eligibility,
+            approval, invitation, deadline and availability requirements.
+          </p>
           <div className="grid gap-5 md:grid-cols-2">
             {partnerPrograms.map((program) => (
               <article
@@ -130,24 +141,18 @@ export default function PartnersPage() {
                 <p className="text-muted-foreground mt-5 border-t border-[var(--border)] pt-4 text-sm leading-relaxed">
                   {program.availability}
                 </p>
-                {program.id === "mentor-agent" ||
-                program.id === "creator-partner" ||
-                program.id === "certified-mentor" ||
-                program.id === "research-challenge" ||
-                program.id === "research-contributor" ? (
-                  <LinkButton
-                    href={portalLoginUrl}
-                    trailingIcon={<ArrowRight aria-hidden="true" />}
-                  >
-                    {program.id === "research-contributor"
-                      ? "Sign in to check invitations"
-                      : program.id === "certified-mentor"
-                        ? "Sign in to check eligibility"
-                        : program.id === "research-challenge"
-                          ? "Sign in to participate"
-                          : "Sign in to apply"}
-                  </LinkButton>
-                ) : null}
+                <LinkButton
+                  href={portalProgramLoginUrl(program.intent)}
+                  trailingIcon={<ArrowRight aria-hidden="true" />}
+                >
+                  {program.id === "research-contributor"
+                    ? "Check invitations"
+                    : program.id === "certified-mentor"
+                      ? "Check eligibility"
+                      : program.id === "research-challenge"
+                        ? "Explore participation"
+                        : "Continue to application"}
+                </LinkButton>
               </article>
             ))}
           </div>
@@ -176,14 +181,14 @@ export default function PartnersPage() {
         <EngineeringSection title="Public discovery, authenticated participation">
           <p className="text-muted-foreground max-w-3xl leading-relaxed">
             The Partner Hub explains pathways and expectations publicly. The
-            Emerald Portal handles identity and authorization, and will handle
-            program applications as each program becomes available. There are no
-            public application or submission forms in this Hub.
+            Emerald Portal handles identity, authorization and available program
+            applications. There are no public application or submission forms in
+            this Hub.
           </p>
           <p className="text-muted-foreground max-w-3xl leading-relaxed">
-            Explore Emerald&apos;s research approach now. Future challenges and
-            contributor work will require their own published rules and
-            authenticated workflows.
+            Explore Emerald&apos;s research approach now. Verified trading
+            competitions, payments and rankings remain deferred. Following a
+            program link does not submit an application or enroll you.
           </p>
           <div className="flex flex-wrap gap-x-8 gap-y-4">
             <TextLink href="/research">Explore Emerald research</TextLink>

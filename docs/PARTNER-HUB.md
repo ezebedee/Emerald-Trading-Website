@@ -5,8 +5,15 @@ Task 6.26 adds substantive, indexable `/partners` with existing page metadata an
 ## Availability
 
 - Existing approved Agent and Super Agent operational access is available through current authorization. Signing in does not enroll a visitor.
-- Mentor / Agent public program: In development; public applications are not open through the Hub.
-- Creator Partner, Certified Mentor, Trading Research Challenge and Research Contributor: Coming later. No application, certification, submission, scoring or reward workflow is offered here.
+- Mentor / Agent: account entry and reviewed application through the Portal; approval and operational activation remain separate.
+- Creator Partner: authenticated application, with separate approval and activation.
+- Certified Mentor: qualifying active Mentor / Agent status is required.
+- Trading Research Challenge: eligible account holders, published availability and deadlines; private research submissions are not verified trading competitions or rankings.
+- Research Contributor: personal invitation required; account creation alone does not grant selection.
+
+These five programs are the complete current public inventory. Membership is a
+prerequisite, not acceptance or purchased product access. The public Hub has no
+application, enrollment or submission forms.
 
 ## Discovery
 
@@ -16,7 +23,13 @@ The footer has Partner Hub (`/partners`) separately from Partner Portal (`https:
 
 Public website: discovery, program explanations, expectations, public research/community context and portal entry links.
 
-Portal: identity and authorization; future enrollment/state, applications/submissions, operational workflows and scoring/reward logic belong to Tasks 6.27-6.33. No new authentication role or public role-specific destination is introduced. The portal's companion change documents this boundary without adding a duplicate informational screen.
+Portal: identity, account creation, email verification, mandatory MFA,
+authorization, program eligibility and available application/status workflows.
+All public participation CTAs use the canonical `/login` with an allowlisted
+`intent`; see [Portal Navigation](PORTAL-NAVIGATION.md) for the exact contract.
+Existing accounts are reused, with no public role selection for sign-in. New
+account choices are Client or Apply as an Agent, neither granting Agent authority.
+Verified trading competitions, payments and rankings remain deferred.
 
 No compensation rates, recruitment earnings, guaranteed outcomes or currently available certification are advertised. Public copy does not expose attribution, mentor-code or commission-engine internals. No commission is paid merely for recruiting another Agent. Existing account relationships do not grant unrestricted sales authority.
 
